@@ -6,4 +6,4 @@ Release_TS
 Debug_TS
 *.plg
 .libs
-php-cgi
+php
