@@ -53,7 +53,7 @@ fi
 # libtoolize 1.4.3 or newer
 # Prefer glibtoolize over libtoolize for Mac OS X compatibility
 libtoolize=`./build/shtool path glibtoolize libtoolize 2> /dev/null`
-lt_pversion=`$libtoolize --version 2>/dev/null|sed -e 's/^[^0-9]*//'`
+lt_pversion=`$libtoolize --version 2>/dev/null|head -1|sed -e 's/^[^0-9]*//'`
 if test "$lt_pversion" = ""; then
 echo "buildconf: libtool not found."
 echo "           You need libtool version 1.4.3 or newer installed"
