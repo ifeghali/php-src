@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.76 2003/01/18 20:27:04 iliaa Exp $ */
+/* $Id: php_apache.c,v 1.77 2003/01/21 14:56:36 iliaa Exp $ */
 
 #include "php_apache_http.h"
 
@@ -66,10 +66,10 @@ function_entry apache_functions[] = {
 
 
 PHP_INI_BEGIN()
-	STD_PHP_INI_ENTRY("xbithack",			"0",				PHP_INI_ALL,		OnUpdateInt,		xbithack, php_apache_info_struct, php_apache_info)
-	STD_PHP_INI_ENTRY("engine",				"1",				PHP_INI_ALL,		OnUpdateInt,		engine, php_apache_info_struct, php_apache_info)
-	STD_PHP_INI_ENTRY("last_modified",		"0",				PHP_INI_ALL,		OnUpdateInt,		last_modified, php_apache_info_struct, php_apache_info)
-	STD_PHP_INI_ENTRY("child_terminate",	"0",				PHP_INI_ALL,		OnUpdateInt,		terminate_child, php_apache_info_struct, php_apache_info)
+	STD_PHP_INI_ENTRY("xbithack",			"0",				PHP_INI_ALL,		OnUpdateLong,		xbithack, php_apache_info_struct, php_apache_info)
+	STD_PHP_INI_ENTRY("engine",				"1",				PHP_INI_ALL,		OnUpdateLong,		engine, php_apache_info_struct, php_apache_info)
+	STD_PHP_INI_ENTRY("last_modified",		"0",				PHP_INI_ALL,		OnUpdateLong,		last_modified, php_apache_info_struct, php_apache_info)
+	STD_PHP_INI_ENTRY("child_terminate",	"0",				PHP_INI_ALL,		OnUpdateLong,		terminate_child, php_apache_info_struct, php_apache_info)
 PHP_INI_END()
 
 

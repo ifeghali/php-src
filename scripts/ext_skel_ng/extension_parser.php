@@ -247,7 +247,7 @@
 				switch($attr["type"]) {
 				case "int":
 				case "long":
-					$ini["onupdate"] = "OnUpdateInt";
+					$ini["onupdate"] = "OnUpdateLong";
 					break;
 				case "float":
 				case "double":
@@ -283,7 +283,7 @@
 			$fp = fopen("$docdir/reference.xml", "w");
 			fputs($fp,
 "<?xml version='1.0' encoding='iso-8859-1'?>
-<!-- \$Revision: 1.5 $ -->
+<!-- \$Revision: 1.6 $ -->
  <reference id='ref.{$this->name}'>
   <title>{$this->summary}</title>
   <titleabbrev>{$this->name}</titleabbrev>
