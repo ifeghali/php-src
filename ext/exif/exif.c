@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.158 2003/09/22 23:27:51 iliaa Exp $ */
+/* $Id: exif.c,v 1.159 2003/12/10 21:23:33 iliaa Exp $ */
 
 /*  ToDos
  *
@@ -111,7 +111,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.158 2003/09/22 23:27:51 iliaa Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.159 2003/12/10 21:23:33 iliaa Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -1628,7 +1628,7 @@ static void exif_iif_add_value(image_info_type *image_info, int section_index, c
 			} else {
 				info_value = &info_data->value;
 			}
-			for (idex=0,vptr=value; idex<length; idex++,vptr=(char *) vptr + php_tiff_bytes_per_format[format]) {
+			for (idex=0,vptr=value; idex<(size_t)length; idex++,vptr=(char *) vptr + php_tiff_bytes_per_format[format]) {
 				if (length>1) {
 					info_value = &info_data->value.list[idex];
 				}
