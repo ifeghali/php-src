@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.142 2003/04/02 22:07:22 rasmus Exp $ */
+/* $Id: exif.c,v 1.143 2003/04/03 22:45:25 rasmus Exp $ */
 
 /*  ToDos
  *
@@ -95,7 +95,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.142 2003/04/02 22:07:22 rasmus Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.143 2003/04/03 22:45:25 rasmus Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -1528,6 +1528,10 @@ static void exif_iif_add_value(image_info_type *image_info, int section_index, c
 	image_info_value *info_value;
 	image_info_data  *info_data;
 	image_info_data  *list;
+
+	if (length >= LONG_MAX) {
+		return;
+	}
 
 	list = erealloc(image_info->info_list[section_index].list, (image_info->info_list[section_index].count+1)*sizeof(image_info_data));
 	image_info->info_list[section_index].list = list;
