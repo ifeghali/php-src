@@ -24,7 +24,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.33 2000/06/19 04:33:40 andi Exp $ */
+/* $Id: php_imap.c,v 1.34 2000/06/19 21:35:01 sas Exp $ */
 
 #define IMAP41
 
@@ -3218,7 +3218,7 @@ int _php_imap_mail(char *to, char *subject, char *message, char *headers, char *
    Send an email message */
 PHP_FUNCTION(imap_mail)
 {
-	zval *argv[6];
+	zval *argv[7];
 	char *to=NULL, *message=NULL, *headers=NULL, *subject=NULL, *cc=NULL, *bcc=NULL, *rpath=NULL;
 	int argc;
 	
