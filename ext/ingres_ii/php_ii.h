@@ -19,15 +19,15 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: php_ii.h,v 1.11 2003/06/10 20:03:30 imajes Exp $ */
+/* $Id: php_ii.h,v 1.12 2004/01/08 17:32:14 sniper Exp $ */
 
 #ifndef PHP_II_H
 #define PHP_II_H
 
 #if HAVE_II
 
-extern zend_module_entry ingres_ii_module_entry;
-#define phpext_ingres_ii_ptr &ingres_ii_module_entry
+extern zend_module_entry ingres_module_entry;
+#define phpext_ingres_ptr &ingres_module_entry
 
 #ifdef PHP_WIN32
 #define PHP_II_API __declspec(dllexport)
@@ -85,7 +85,7 @@ ZEND_END_MODULE_GLOBALS(ii)
 
 #else
 
-#define phpext_ii_ptr NULL
+#define phpext_ingres_ptr NULL
 
 #endif
 
