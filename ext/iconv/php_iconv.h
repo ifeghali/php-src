@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Revision: 1.19 $ */
+/* $Revision: 1.20 $ */
 
 #ifndef PHP_ICONV_H
 #define PHP_ICONV_H
@@ -57,6 +57,7 @@ PHP_FUNCTION(iconv_strpos);
 PHP_FUNCTION(iconv_strrpos);
 PHP_FUNCTION(iconv_mime_encode);
 PHP_FUNCTION(iconv_mime_decode);
+PHP_FUNCTION(iconv_mime_decode_headers);
 
 ZEND_BEGIN_MODULE_GLOBALS(iconv)
 	char *input_encoding;
