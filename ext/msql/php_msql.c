@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
  
-/* $Id: php_msql.c,v 1.38 2001/07/31 05:43:58 zeev Exp $ */
+/* $Id: php_msql.c,v 1.39 2001/08/06 03:50:47 sas Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -982,9 +982,7 @@ PHP_FUNCTION(msql_fetch_object)
 {
 	php_msql_fetch_hash(INTERNAL_FUNCTION_PARAM_PASSTHRU, 0);
 	if (return_value->type==IS_ARRAY) {
-		return_value->type=IS_OBJECT;
-		return_value->value.obj.properties = return_value->value.ht;
-		return_value->value.obj.ce = &zend_standard_class_def;
+		object_and_properties_init(return_value, &zend_standard_class_def, return_value->value.ht);
 	}
 }
 /* }}} */
