@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.111 2002/01/12 05:39:07 vlad Exp $ */
+/* $Id: php_imap.c,v 1.112 2002/02/28 08:26:16 sebastian Exp $ */
 
 #define IMAP41
 
@@ -410,15 +410,10 @@ PHP_MINIT_FUNCTION(imap)
 #ifndef PHP_WIN32
 	mail_link(&unixdriver);		/* link in the unix driver */
 	mail_link(&mhdriver);		/* link in the mh driver */
-    /* mail_link(&mxdriver); */	/* According to c-client docs (internal.txt) this shouldn't be used. */
+	/* mail_link(&mxdriver); */	/* According to c-client docs (internal.txt) this shouldn't be used. */
 	mail_link(&mmdfdriver);		/* link in the mmdf driver */
 	mail_link(&newsdriver);		/* link in the news driver */
 	mail_link(&philedriver);	/* link in the phile driver */
-	auth_link(&auth_log);		/* link in the log authenticator */
-	auth_link(&auth_md5);       /* link in the cram-md5 authenticator */ 
-#ifdef  HAVE_IMAP_SSL
-	ssl_onceonlyinit ();
-#endif
 #endif
 	mail_link(&imapdriver);		/* link in the imap driver */
 	mail_link(&nntpdriver);		/* link in the nntp driver */
@@ -427,6 +422,14 @@ PHP_MINIT_FUNCTION(imap)
 	mail_link(&tenexdriver);	/* link in the tenex driver */
 	mail_link(&mtxdriver);		/* link in the mtx driver */
 	mail_link(&dummydriver);	/* link in the dummy driver */
+
+#ifndef PHP_WIN32
+	auth_link(&auth_log);		/* link in the log authenticator */
+	auth_link(&auth_md5);       /* link in the cram-md5 authenticator */ 
+#ifdef  HAVE_IMAP_SSL
+	ssl_onceonlyinit ();
+#endif
+#endif
 
 	/* lets allow NIL */
 	REGISTER_LONG_CONSTANT("NIL", NIL, CONST_PERSISTENT | CONST_CS);
