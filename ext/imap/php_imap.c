@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.84 2001/06/05 13:12:01 rasmus Exp $ */
+/* $Id: php_imap.c,v 1.85 2001/06/06 13:05:45 rasmus Exp $ */
 
 #define IMAP41
 
@@ -337,7 +337,7 @@ PHP_RSHUTDOWN_FUNCTION(imap)
 }
 
 
-inline int add_next_index_object(zval *arg, zval *tmp)
+static inline int add_next_index_object(zval *arg, zval *tmp)
 {
 	HashTable *symtable;
 	
