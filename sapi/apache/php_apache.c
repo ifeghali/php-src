@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.18 2000/07/29 14:46:08 zeev Exp $ */
+/* $Id: php_apache.c,v 1.19 2000/08/28 09:01:54 rasmus Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
@@ -179,11 +179,13 @@ PHP_MINFO_FUNCTION(apache)
 
 	serv = ((request_rec *) SG(server_context))->server;
 
+	php_info_print_table_start();
+
 #ifdef PHP_WIN32
-	PUTS("Apache for Windows 95/NT<br>");
+	php_info_print_table_row(1, "Apache for Windows 95/NT");
+	php_info_print_table_end();
 	php_info_print_table_start();
 #else
-	php_info_print_table_start();
 	php_info_print_table_row(2, "APACHE_INCLUDE", PHP_APACHE_INCLUDE);
 	php_info_print_table_row(2, "APACHE_TARGET", PHP_APACHE_TARGET);
 #endif
