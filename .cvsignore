@@ -1,4 +1,5 @@
 Makefile
+acconfig.h
 aclocal.m4
 build-defs.h
 buildmk.stamp
