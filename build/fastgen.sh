@@ -55,5 +55,7 @@ builddir     = $top_builddir/$dir
 VPATH        = $top_srcdir/$dir
 EOF
 )| cat - $top_srcdir/$makefile.in > $makefile
+  
+  test -z "$dir" || touch $dir/.deps
 
 done
