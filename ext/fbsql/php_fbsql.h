@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: php_fbsql.h,v 1.3 2001/04/17 17:39:43 fmk Exp $ */
+/* $Id: php_fbsql.h,v 1.4 2001/04/25 18:00:55 fmk Exp $ */
 
 #define HAVE_FBSQL 1
 
@@ -48,6 +48,7 @@ PHP_FUNCTION(fbsql_create_db);
 PHP_FUNCTION(fbsql_drop_db);
 PHP_FUNCTION(fbsql_start_db);
 PHP_FUNCTION(fbsql_stop_db);
+PHP_FUNCTION(fbsql_db_status);
 PHP_FUNCTION(fbsql_query);
 PHP_FUNCTION(fbsql_db_query);
 PHP_FUNCTION(fbsql_list_dbs);
