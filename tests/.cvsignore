@@ -1,4 +1,2 @@
-*.exp
-*.out
+*.log
 phpt.*
-dirname.php

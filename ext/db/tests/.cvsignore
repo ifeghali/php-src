@@ -1,5 +1,3 @@
-*.exp
-*.out
-*.php
+*.log
 phpt.*
-test.dbm*
+test.dbm
