@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: cdatasection.c,v 1.6 2004/01/08 08:15:16 andi Exp $ */
+/* $Id: cdatasection.c,v 1.7 2004/01/22 21:16:05 rrichards Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -36,12 +36,12 @@
 */
 
 zend_function_entry php_dom_cdatasection_class_functions[] = {
-	PHP_FALIAS("domcdatasection", dom_cdatasection_cdatasection, NULL)
+	PHP_ME(domcdatasection, __construct, NULL, ZEND_ACC_PUBLIC)
 	{NULL, NULL, NULL}
 };
 
-/* {{{ proto domnode dom_cdatasection_cdatasection(string value); */
-PHP_FUNCTION(dom_cdatasection_cdatasection)
+/* {{{ proto void DomCDataSection::__construct(string value); */
+PHP_METHOD(domcdatasection, __construct)
 {
 
 	zval *id;
@@ -68,6 +68,6 @@ PHP_FUNCTION(dom_cdatasection_cdatasection)
 		php_libxml_increment_node_ptr((php_libxml_node_object *)intern, nodep, (void *)intern TSRMLS_CC);
 	}
 }
-/* }}} end dom_cdatasection_cdatasection */
+/* }}} end DomCDataSection::__construct */
 
 #endif
