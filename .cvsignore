@@ -3,6 +3,7 @@ Makefile.fragments
 Makefile
 acconfig.h
 aclocal.m4
+autom4te.cache
 bsd_converted
 buildmk.stamp
 buildconf.stamp
