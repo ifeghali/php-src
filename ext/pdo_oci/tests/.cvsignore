@@ -1,0 +1,5 @@
+*.diff
+*.log
+*.exp
+*.out
+*.php
