@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.72 2000/04/13 12:24:28 martin Exp $
+dnl $Id: acinclude.m4,v 1.73 2000/05/01 02:41:32 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -9,8 +9,9 @@ dnl PHP_LIBGCC_LIBPATH(gcc)
 dnl Stores the location of libgcc in libgcc_libpath
 dnl
 AC_DEFUN(PHP_LIBGCC_LIBPATH,[
-  ac_data="`$1 -v 2>&1|grep specs|sed 's/Reading specs from //'`"
-  libgcc_libpath="`dirname $ac_data`"
+  changequote({,})
+  libgcc_libpath="`$1 --print-libgcc-file-name|sed 's%[^/][^/]*$%%'`"
+  changequote([,])
 ])
 
 AC_DEFUN(PHP_ARG_ANALYZE,[
