@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: mbstring.h,v 1.9 2001/12/16 22:58:24 hirokawa Exp $ */
+/* $Id: mbstring.h,v 1.10 2001/12/23 15:32:08 hirokawa Exp $ */
 
 /*
  * PHP4 Multibyte String module "mbstring" (currently only for Japanese)
@@ -124,7 +124,7 @@ struct mb_overload_def {
 	int type;
 	char *orig_func;
 	char *ovld_func;
-	zend_function *orig;
+	char *save_func;
 };
 
 #ifdef ZTS
