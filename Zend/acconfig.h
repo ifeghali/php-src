@@ -17,15 +17,11 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: acconfig.h,v 1.35 2004/09/22 12:45:28 hyanantha Exp $ */
+/* $Id: acconfig.h,v 1.36 2004/10/08 07:43:41 hyanantha Exp $ */
 
 #define ZEND_API
 #define ZEND_DLEXPORT
 #define ZEND_DLIMPORT
-
-#ifndef NETWARE
-@TOP@
-#endif
 
 #undef uint
 #undef ulong
@@ -33,9 +29,6 @@
 /* Define if you want to enable memory limit support */
 #define MEMORY_LIMIT 0
 
-#ifndef NETWARE
-@BOTTOM@
-#endif
 
 #ifndef ZEND_ACCONFIG_H_NO_C_PROTOS
 
