@@ -16,15 +16,15 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id$ */
+/* $Id: php_ii.h,v 1.1 2000/07/17 21:29:29 henot Exp $ */
 
 #ifndef PHP_II_H
 #define PHP_II_H
 
 #if HAVE_II
 
-extern zend_module_entry ii_module_entry;
-#define phpext_ii_ptr &ii_module_entry
+extern zend_module_entry ingres_ii_module_entry;
+#define phpext_ingres_ii_ptr &ingres_ii_module_entry
 
 #ifdef PHP_WIN32
 #define PHP_II_API __declspec(dllexport)
