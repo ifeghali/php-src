@@ -5,3 +5,4 @@ phpt.*
 *.out
 *.php
 *.db
+*.tmp
