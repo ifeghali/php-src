@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.274 2004/11/03 13:04:10 jorton Exp $
+dnl $Id: acinclude.m4,v 1.275 2004/11/03 14:07:09 jorton Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -278,9 +278,6 @@ AC_DEFUN([PHP_SHLIB_SUFFIX_NAME],[
   case $host_alias in
   *hpux*[)]
 	SHLIB_SUFFIX_NAME=sl
-	;;
-  *darwin*[)]
-	SHLIB_SUFFIX_NAME=dylib
 	;;
   esac
 ])
