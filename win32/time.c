@@ -11,7 +11,7 @@
  *
  *****************************************************************************/
 
-/* $Id: time.c,v 1.6 2002/06/23 23:22:33 edink Exp $ */
+/* $Id: time.c,v 1.7 2003/11/29 22:48:42 wez Exp $ */
 
  /**
   *
@@ -22,9 +22,14 @@
 
 /* Include stuff ************************************************************ */
 
+/* this allows the use of the WaitableTimer functions.
+ * For win98 and later */
+#define _WIN32_WINNT 0x400
+
 #include "time.h"
 #include "unistd.h"
 #include "signal.h"
+#include <windows.h>
 #include <winbase.h>
 #include <mmsystem.h>
 #include <errno.h>
@@ -131,7 +136,7 @@ void usleep(unsigned int useconds)
 	HANDLE timer;
 	LARGE_INTEGER due;
 
-	due.QuadPart = -useconds * 1000;
+	due.QuadPart = -1000 * useconds;
 	timer = CreateWaitableTimer(NULL, TRUE, NULL);
 
 	SetWaitableTimer(timer, &due, 0, NULL, NULL, 0);
