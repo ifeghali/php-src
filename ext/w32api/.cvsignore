@@ -1,0 +1,17 @@
+.deps
+Makefile
+*.lo
+*.la
+.libs
+libs.mk
+*.plg
+*.opt
+*.ncb
+*.dsw
+Release
+Release_inline
+Debug
+Release_TS
+Release_TSDbg
+Release_TS_inline
+Debug_TS
