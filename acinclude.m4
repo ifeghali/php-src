@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.105 2000/09/21 23:18:25 sas Exp $
+dnl $Id: acinclude.m4,v 1.106 2000/09/26 11:19:38 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -59,7 +59,7 @@ main() {
 	dir = opendir("/");
 	if (!dir) 
 		exit(1);
-	if (readdir_r(dir, &entry, &pentry) == 0)
+	if (readdir_r(dir, (struct dirent *) entry, &pentry) == 0)
 		exit(0);
 	exit(1);
 }
