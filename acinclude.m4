@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.129 2001/05/20 21:29:55 sas Exp $
+dnl $Id: acinclude.m4,v 1.130 2001/05/20 21:50:54 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -347,7 +347,7 @@ main() {
   
   s = gmtime_r(&old, &t);
   p = asctime_r(&t, buf, 26);
-  if (p == buf && s == t) return (0);
+  if (p == buf && s == &t) return (0);
   return (1);
 }
   ],[
