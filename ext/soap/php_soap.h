@@ -17,7 +17,7 @@
   |          Dmitry Stogov <dmitry@zend.com>                             |
   +----------------------------------------------------------------------+
 */
-/* $Id: php_soap.h,v 1.28 2004/02/10 13:41:21 dmitry Exp $ */
+/* $Id: php_soap.h,v 1.29 2004/02/11 13:53:48 dmitry Exp $ */
 
 #ifndef PHP_SOAP_H
 #define PHP_SOAP_H
@@ -142,7 +142,6 @@ ZEND_BEGIN_MODULE_GLOBALS(soap)
 	HashTable  defEncNs;     /* mapping of default namespaces to prefixes */
 	HashTable  defEnc;
 	HashTable  defEncIndex;
-	HashTable *sdls;
 	HashTable *overrides;
 	int        cur_uniq_ns;
 	int        soap_version;
