@@ -5,3 +5,7 @@ aclocal.m4
 stamp-h.in
 tsrm_config.h.in
 configure
+config.log
+stamp-h
+config.status
+tsrm_config.h
