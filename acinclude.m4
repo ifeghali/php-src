@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.32 1999/09/27 13:15:20 ssb Exp $
+dnl $Id: acinclude.m4,v 1.33 1999/09/29 15:17:00 ssb Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -51,7 +51,7 @@ dnl builds RPATH from PHP_RPATHS
 dnl
 AC_DEFUN(AC_BUILD_RPATH,[
   if test "$enable_rpath" = "yes" && test -n "$PHP_RPATHS"; then
-    if test -n "$AXPS"; then
+    if test -n "$APXS"; then
       for i in $PHP_RPATHS; do
         RPATHS="$RPATHS ${apxs_runpath_switch}$i'"
       done
