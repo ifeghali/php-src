@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: dba_cdb.c,v 1.14 2002/09/19 04:18:20 sas Exp $ */
+/* $Id: dba_cdb.c,v 1.15 2002/11/03 15:09:49 helly Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -95,7 +95,13 @@ DBA_FETCH_FUNC(cdb)
 	unsigned int len;
 	char *new_entry = NULL;
 	
+//	cdb_findstart(&cdb->c);
 	if (cdb_find(&cdb->c, key, keylen) == 1) {
+		while(skip--) {
+			if (cdb_findnext(&cdb->c, key, keylen) != 1) {
+				return NULL;
+			}
+		}
 		len = cdb_datalen(&cdb->c);
 		new_entry = emalloc(len+1);
 		
