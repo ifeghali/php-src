@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
  
-/* $Id: php_msql.c,v 1.4 1999/09/24 14:09:35 zeev Exp $ */
+/* $Id: php_msql.c,v 1.5 1999/10/12 14:53:05 thies Exp $ */
 
 #include "php.h"
 #if COMPILE_DL
@@ -24,7 +24,7 @@
 #include "functions/dl.h"
 #endif
 #include "php_msql.h"
-#include "ext/standard/php3_standard.h"
+#include "ext/standard/php_standard.h"
 #include "php_globals.h"
 
 #if HAVE_MSQL
