@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.144 2003/04/08 00:18:57 iliaa Exp $ */
+/* $Id: exif.c,v 1.145 2003/04/16 06:10:41 helly Exp $ */
 
 /*  ToDos
  *
@@ -99,7 +99,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.144 2003/04/08 00:18:57 iliaa Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.145 2003/04/16 06:10:41 helly Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -3687,7 +3687,7 @@ static int exif_read_file(image_info_type *ImageInfo, char *FileName, int read_t
 		return FALSE;
 	}
 
-	ImageInfo->FileName = php_basename(FileName, strlen(FileName), NULL, 0);
+	php_basename(FileName, strlen(FileName), NULL, 0, &(ImageInfo->FileName), NULL);
 	ImageInfo->read_thumbnail = read_thumbnail;
 	ImageInfo->read_all = read_all;
 	ImageInfo->Thumbnail.filetype = IMAGE_FILETYPE_UNKNOWN;
