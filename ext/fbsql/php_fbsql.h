@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: php_fbsql.h,v 1.26 2003/07/03 16:48:18 fmk Exp $ */
+/* $Id: php_fbsql.h,v 1.27 2004/01/08 17:32:05 sniper Exp $ */
 
 #define HAVE_FBSQL 1
 
@@ -97,6 +97,7 @@ PHP_FUNCTION(fbsql_database_password);
 PHP_FUNCTION(fbsql_username);
 PHP_FUNCTION(fbsql_password);
 PHP_FUNCTION(fbsql_warnings);
+PHP_FUNCTION(fbsql_set_password);
 
 PHP_FUNCTION(fbsql_get_autostart_info);
 /* PHP_FUNCTION(fbsql_set_autostart_info); */
