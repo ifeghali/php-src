@@ -44,7 +44,7 @@ fi
 for makefile in $@; do
   echo "creating $makefile"
 # portable dirname
-  dir=`echo $makefile|sed 's%[^/][^/]*$%%'`
+  dir=`echo $makefile|sed 's%/*[^/][^/]*$%%'`
   test -d "$dir/" || $mkdir_p "$dir/"
 
   (cat <<EOF
