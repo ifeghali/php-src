@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: interbase.rc,v 1.1 2003/09/07 19:59:55 abies Exp $ */
+/* $Id: interbase.rc,v 1.2 2003/09/07 20:35:09 abies Exp $ */
 
 #ifdef APSTUDIO_INVOKED
 #error This file cannot be opened from the Visual Studio IDE
@@ -37,6 +37,7 @@
 #endif
 
 #define VERSION_INFO_ONLY
+#define PHP_H
 #include "interbase.c"
 
 #ifndef _MAC
