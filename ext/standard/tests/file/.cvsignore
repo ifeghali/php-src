@@ -1,3 +1,5 @@
+test.file
+test.link
 phpt.*
 *.diff
 *.log
