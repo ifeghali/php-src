@@ -70,12 +70,12 @@ fi
 lt_version=`echo $lt_pversion|sed -e 's/\([a-z]*\)$/.\1/'`
 IFS=.; set $lt_version; IFS=' '
 
-if test "$1" -gt "1" || test "$2" -gt "3" || (test "$2" = "3" && (test "$3" = "c" || test "$3" -ge "3"))
+if test "$1" -gt "1" || test "$2" -ge "4";
 then
 echo "buildconf: libtool version $lt_pversion (ok)"
 else
 echo "buildconf: libtool version $lt_pversion found."
-echo "           You need libtool version 1.3.3 or newer installed"
+echo "           You need libtool version 1.4 or newer installed"
 echo "           to build PHP from CVS."
 exit 1
 fi
