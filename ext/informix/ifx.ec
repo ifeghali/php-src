@@ -20,7 +20,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: ifx.ec,v 1.74 2003/01/24 19:15:53 iliaa Exp $ */
+/* $Id: ifx.ec,v 1.75 2003/01/25 00:25:31 iliaa Exp $ */
 
 /* -------------------------------------------------------------------
  * if you want a function reference : "grep '^\*\*' ifx.ec" will give
@@ -447,16 +447,6 @@ EXEC SQL END DECLARE SECTION;
 
 		if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "|sss", &host, &host_len, &user, &user_len, &passwd, &passwd_len) == FAILURE) {
 			return;
-		}
-
-		if (!host) {
-			host = "";
-		}
-		if (!user) {
-			user = "";
-		}
-		if (!passwd) {
-			passwd = "";
 		}
 
 		hashed_details_length = sizeof("ifx___") - 1 + host_len + user_len + passwd_len;
