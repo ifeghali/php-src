@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.123 2002/11/27 02:42:41 helly Exp $ */
+/* $Id: exif.c,v 1.124 2002/12/10 00:10:27 iliaa Exp $ */
 
 /*  ToDos
  *
@@ -89,7 +89,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.123 2002/11/27 02:42:41 helly Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.124 2002/12/10 00:10:27 iliaa Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -1129,10 +1129,14 @@ static double exif_convert_any_format(void *value, int format, int motorola_inte
 
 		/* Not sure if this is correct (never seen float used in Exif format) */
 		case TAG_FMT_SINGLE:
+#ifdef EXIF_DEBUG
 			php_error_docref( NULL TSRMLS_CC, E_NOTICE, "Found value of type single");
+#endif
 			return (double)*(float *)value;
 		case TAG_FMT_DOUBLE:
+#ifdef EXIF_DEBUG
 			php_error_docref( NULL TSRMLS_CC, E_NOTICE, "Found value of type double");
+#endif
 			return *(double *)value;
 	}
 	return 0;
@@ -1174,10 +1178,14 @@ static size_t exif_convert_any_to_int(void *value, int format, int motorola_inte
 
 		/* Not sure if this is correct (never seen float used in Exif format) */
 		case TAG_FMT_SINGLE:
+#ifdef EXIF_DEBUG
 			php_error_docref( NULL TSRMLS_CC, E_NOTICE, "Found value of type single");
+#endif
 			return (size_t)*(float *)value;
 		case TAG_FMT_DOUBLE:
+#ifdef EXIF_DEBUG
 			php_error_docref( NULL TSRMLS_CC, E_NOTICE, "Found value of type double");
+#endif
 			return (size_t)*(double *)value;
 	}
 	return 0;
@@ -1647,11 +1655,15 @@ static void exif_iif_add_value(image_info_type *image_info, int section_index, c
 						break;
 
 					case TAG_FMT_SINGLE:
+#ifdef EXIF_DEBUG
 						php_error_docref( NULL TSRMLS_CC, E_WARNING, "Found value of type single");
+#endif
 						info_value->f = *(float *)value;
 
 					case TAG_FMT_DOUBLE:
+#ifdef EXIF_DEBUG
 						php_error_docref( NULL TSRMLS_CC, E_WARNING, "Found value of type double");
+#endif
 						info_value->d = *(double *)value;
 						break;
 				}
