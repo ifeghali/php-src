@@ -1,5 +1,5 @@
 dnl
-dnl $Id: Zend.m4,v 1.29 2001/12/11 09:17:38 sebastian Exp $
+dnl $Id: Zend.m4,v 1.30 2002/04/22 11:06:22 sebastian Exp $
 dnl
 dnl This file contains Zend specific autoconf functions.
 dnl
@@ -141,7 +141,7 @@ AC_ARG_ENABLE(memory-limit,
   ZEND_MEMORY_LIMIT=no
 ])
 
-AC_MSG_CHECKING(whether to enable experimental ZTS)
+AC_MSG_CHECKING(whether to enable thread-safety)
 AC_MSG_RESULT($ZEND_EXPERIMENTAL_ZTS)
 
 AC_MSG_CHECKING(whether to enable inline optimization for GCC)
