@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.54 1999/12/30 02:58:26 sas Exp $
+dnl $Id: acinclude.m4,v 1.55 1999/12/30 14:48:26 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -117,8 +117,8 @@ socklen_t x;
 ],[
   ac_cv_socklen_t=no
 ]))
-if test "$ac_cv_socklen_t" = "no"; then
-  AC_DEFINE(socklen_t, unsigned int)
+if test "$ac_cv_socklen_t" = "yes"; then
+  AC_DEFINE(HAVE_SOCKLEN_T, 1, [Whether you have socklen_t])
 fi
 ])
 
