@@ -16,3 +16,6 @@ install-sh
 ltconfig
 missing
 mkinstalldirs
+*.lo
+*.la
+.libs
