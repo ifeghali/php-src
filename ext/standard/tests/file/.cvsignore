@@ -1,7 +1,6 @@
-test.file
-test.link
 phpt.*
 *.diff
 *.log
 *.exp
 *.out
+*.php

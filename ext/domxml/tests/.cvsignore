@@ -3,3 +3,4 @@ phpt.*
 *.log
 *.exp
 *.out
+*.php
