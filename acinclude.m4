@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.241 2003/05/06 19:38:48 sterling Exp $
+dnl $Id: acinclude.m4,v 1.242 2003/05/07 19:13:54 moriyoshi Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1257,7 +1257,7 @@ AC_DEFUN([PHP_SELECT_SAPI],[
 
 dnl deprecated
 AC_DEFUN([PHP_EXTENSION],[
-  sources=`awk -f $abs_srcdir/scan_makefile_in.awk < []PHP_EXT_SRCDIR($1)[]/Makefile.in`
+  sources=`$AWK -f $abs_srcdir/scan_makefile_in.awk < []PHP_EXT_SRCDIR($1)[]/Makefile.in`
 
   PHP_NEW_EXTENSION($1, $sources, $2, $3)
 
