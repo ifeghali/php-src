@@ -31,3 +31,4 @@ test.php3
 *.la
 .libs
 libs
+modules
