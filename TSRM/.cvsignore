@@ -19,3 +19,5 @@ mkinstalldirs
 *.lo
 *.la
 .libs
+libtool
+config.cache
