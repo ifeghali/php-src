@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: php_hyperwave.h,v 1.8 2000/07/03 00:41:14 sas Exp $ */
+/* $Id: php_hyperwave.h,v 1.9 2000/07/24 01:39:47 david Exp $ */
 
 #ifndef PHP_HYPERWAVE_H
 #define PHP_HYPERWAVE_H
@@ -115,6 +115,10 @@ PHP_FUNCTION(hw_getobjectbyquery);
 PHP_FUNCTION(hw_getobjectbyqueryobj);
 PHP_FUNCTION(hw_getobjectbyquerycoll);
 PHP_FUNCTION(hw_getobjectbyquerycollobj);
+PHP_FUNCTION(hw_getobjectbyftquery);
+PHP_FUNCTION(hw_getobjectbyftqueryobj);
+PHP_FUNCTION(hw_getobjectbyftquerycoll);
+PHP_FUNCTION(hw_getobjectbyftquerycollobj);
 PHP_FUNCTION(hw_getchilddoccoll);
 PHP_FUNCTION(hw_getchilddoccollobj);
 PHP_FUNCTION(hw_getanchors);
