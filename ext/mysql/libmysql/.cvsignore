@@ -8,4 +8,6 @@ config.cache
 config.log
 config.status
 configure
+configure.scan
+libmysql.la
 stamp-h
