@@ -68,6 +68,10 @@ After that you can configure a directory in the Administration server and assign
 the style "x-httpd-php". All files in it will get executed as PHP. This is nice to
 hide PHP usage by renaming files to .html
 
+Note: The stacksize that PHP uses depends on the configuration of the webserver. If you get
+crashes with very large PHP scripts, it is recommended to raise it with the Admin Server
+(in the section "MAGNUS EDITOR").
+
 
 Authentication configuration
 ----------------------------
@@ -147,4 +151,4 @@ for the correct DLL name. The DLL with the biggest filesize is the right one.
 But be warned: SUPPORT FOR nsapi_virtual() IS EXPERIMENTAL !!!
 
 
-$Id: nsapi-readme.txt,v 1.10 2003/08/04 12:46:03 thetaphi Exp $
+$Id: nsapi-readme.txt,v 1.11 2003/10/17 21:58:26 thetaphi Exp $
