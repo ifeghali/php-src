@@ -10,6 +10,7 @@ zend_language_parser.h
 zend_language_scanner.c
 zend_language_scanner_cc.cc
 .deps
+ylwrap
 zend_config.h
 zend_config.h.in
 stamp-h
