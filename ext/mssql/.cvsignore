@@ -1,0 +1,11 @@
+.deps
+Makefile.in
+Makefile
+*.lo
+*.la
+.libs
+*.plg
+MSSQL_65_Release
+MSSQL_65_Release
+MSSQL_70_Debug
+MSSQL_70_Debug
