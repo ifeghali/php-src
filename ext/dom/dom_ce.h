@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: dom_ce.h,v 1.3 2003/07/24 13:18:40 rrichards Exp $ */
+/* $Id: dom_ce.h,v 1.4 2003/10/20 15:50:34 rrichards Exp $ */
 #ifndef DOM_CE_H
 #define DOM_CE_H
 
@@ -29,7 +29,6 @@ zend_class_entry *dom_domimplementationsource_class_entry;
 zend_class_entry *dom_domimplementation_class_entry;
 zend_class_entry *dom_documentfragment_class_entry;
 zend_class_entry *dom_document_class_entry;
-zend_class_entry *dom_node_class_entry;
 zend_class_entry *dom_nodelist_class_entry;
 zend_class_entry *dom_namednodemap_class_entry;
 zend_class_entry *dom_characterdata_class_entry;
