@@ -19,7 +19,7 @@
 // |                                                                      |
 // +----------------------------------------------------------------------+
 //
-// $Id: pear.in,v 1.52 2002/05/26 12:51:10 ssb Exp $
+// $Id: pear.in,v 1.53 2002/05/26 17:37:51 cox Exp $
 
 /**
  * @nodep Gtk
@@ -140,7 +140,7 @@ if ($fetype == 'Gtk') {
     $cmd = PEAR_Command::factory($command, $config);
     PEAR::popErrorHandling();
     if (PEAR::isError($cmd)) {
-        usage(null, @$options[1][0]);
+        usage(null, @$options[1][1]);
     }
 
     $short_args = $long_args = null;
