@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.94 2002/06/22 23:43:16 helly Exp $ */
+/* $Id: exif.c,v 1.95 2002/06/23 00:43:11 helly Exp $ */
 
 /*  ToDos
  *
@@ -107,7 +107,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.94 2002/06/22 23:43:16 helly Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.95 2002/06/23 00:43:11 helly Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -206,6 +206,7 @@ PHP_MINIT_FUNCTION(exif)
 	REGISTER_LONG_CONSTANT("IMAGETYPE_JPX",     IMAGE_FILETYPE_JPX,     CONST_CS | CONST_PERSISTENT);
 	REGISTER_LONG_CONSTANT("IMAGETYPE_JB2",     IMAGE_FILETYPE_JB2,     CONST_CS | CONST_PERSISTENT);
 	REGISTER_LONG_CONSTANT("IMAGETYPE_SWC",     IMAGE_FILETYPE_SWC,     CONST_CS | CONST_PERSISTENT);
+	REGISTER_LONG_CONSTANT("IMAGETYPE_IFF",     IMAGE_FILETYPE_IFF,     CONST_CS | CONST_PERSISTENT);
 	return SUCCESS;
 }
 /* }}} */
