@@ -792,15 +792,22 @@ function ADD_EXTENSION_DEP(extname, dependson, optional)
 {
 	var EXT = extname.toUpperCase();
 	var DEP = dependson.toUpperCase();
+	var dep_present = false;
+	var dep_shared = false;
 
+	try {
+		dep_present = eval("PHP_" + DEP);
+		dep_shared = eval("PHP_" + DEP + "_SHARED");
+	} catch (e) {
+		dep_present = "no";
+		dep_shared = false;
+	}
+	
 	if (optional) {
-		var dep_present = eval("PHP_" + DEP);
-
 		if (dep_present == "no")
 			return;
 	}
 
-	var dep_shared = eval("PHP_" + DEP + "_SHARED");
 	var ext_shared = eval("PHP_" + EXT + "_SHARED");
 
 	if (dep_shared) {
