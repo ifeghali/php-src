@@ -20,7 +20,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: ifx.ec,v 1.51 2001/01/04 11:15:35 jah Exp $ */
+/* $Id: ifx.ec,v 1.52 2001/02/26 06:06:58 andi Exp $ */
 
 /* -------------------------------------------------------------------
  * if you want a function reference : "grep '^\*\*' ifx.ec" will give
@@ -472,17 +472,18 @@ PHP_MINFO_FUNCTION(ifx)
         maxl[15]=0;
     }
    
+    php_info_print_table_start();
+    php_info_print_table_header(2, "Informix support", "enabled");
+    sprintf(buf, "%ld", IFXG(num_persistent));
+    php_info_print_table_row(2, "Persistent links", buf);
+    sprintf(buf, "%ld", IFXG(num_links)); 
+    php_info_print_table_row(2, "Total links", buf);
+    sprintf(buf, "%02.2f", (double)(IFX_VERSION/100.0)); 
+    php_info_print_table_row(2, "ESQL/C Version", buf);
+    php_info_print_table_end();
+
     DISPLAY_INI_ENTRIES();
    
-    php_printf("<table border=\"5\" width=\"600\">\n");
-    php_info_print_table_header(2, "Key", "Value");
-    sprintf(buf, "%ld", IFXG(num_persistent));
-    php_info_print_table_row(2, "Persistent links : ", buf);
-    sprintf(buf, "%ld", IFXG(num_links)); 
-    php_info_print_table_row(2, "Total links : ", buf);
-    sprintf(buf, "%02.2f", (double)(IFX_VERSION/100.0)); 
-    php_info_print_table_row(2, "ESQL/C Version: ", buf);
-    php_printf("</table>\n");
 }
 
 static void php3_ifx_set_default_link(int id) 
