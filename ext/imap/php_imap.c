@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.180 2004/01/08 08:15:48 andi Exp $ */
+/* $Id: php_imap.c,v 1.181 2004/01/14 08:50:02 andi Exp $ */
 
 #define IMAP41
 
@@ -3607,8 +3607,12 @@ PHP_FUNCTION(imap_mime_header_decode)
 					add_property_string(myobject, "charset", charset, 1);
 					add_property_string(myobject, "text", decode, 1);
 					zend_hash_next_index_insert(Z_ARRVAL_P(return_value), (void *)&myobject, sizeof(zval *), NULL);
-					fs_give((void**)&decode);
-						
+
+					/* only free decode if it was allocated by rfc822_qprint or rfc822_base64 */
+					if (decode != text) {
+						fs_give((void**)&decode);
+					}
+
 					offset = end_token+2;
 					for (i = 0; (string[offset + i] == ' ') || (string[offset + i] == 0x0a) || (string[offset + i] == 0x0d); i++);
 					if ((string[offset + i] == '=') && (string[offset + i + 1] == '?') && (offset + i < end)) {
