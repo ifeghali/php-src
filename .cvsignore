@@ -1,6 +1,7 @@
 Makefile
 acconfig.h
 aclocal.m4
+bsd_converted
 build-defs.h
 buildmk.stamp
 buildconf.stamp
