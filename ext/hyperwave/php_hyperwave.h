@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: php_hyperwave.h,v 1.11 2000/11/09 13:36:53 steinm Exp $ */
+/* $Id: php_hyperwave.h,v 1.12 2000/12/04 16:34:05 steinm Exp $ */
 
 #ifndef PHP_HYPERWAVE_H
 #define PHP_HYPERWAVE_H
@@ -47,7 +47,6 @@ typedef struct {
 	long num_links,num_persistent;
 	long max_links,max_persistent;
 	long allow_persistent;
-	int le_socketp, le_psocketp, le_document;
 } zend_hw_globals;
 
 #ifdef ZTS
