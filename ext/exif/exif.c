@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.140 2003/01/18 19:06:29 helly Exp $ */
+/* $Id: exif.c,v 1.141 2003/04/01 18:50:31 rasmus Exp $ */
 
 /*  ToDos
  *
@@ -95,7 +95,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.140 2003/01/18 19:06:29 helly Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.141 2003/04/01 18:50:31 rasmus Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -3943,13 +3943,10 @@ PHP_FUNCTION(exif_thumbnail)
 		if (!ImageInfo.Thumbnail.width || !ImageInfo.Thumbnail.height) {
 			exif_scan_thumbnail(&ImageInfo TSRMLS_CC);
 		}
-		zval_dtor(*p_width);
-		zval_dtor(*p_height);
 		ZVAL_LONG(*p_width,  ImageInfo.Thumbnail.width);
 		ZVAL_LONG(*p_height, ImageInfo.Thumbnail.height);
 	}
 	if (arg_c >= 4)	{
-		zval_dtor(*p_imagetype);
 		ZVAL_LONG(*p_imagetype, ImageInfo.Thumbnail.filetype);
 	}
 
