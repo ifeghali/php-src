@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.210 2002/10/02 12:52:53 helly Exp $
+dnl $Id: acinclude.m4,v 1.211 2002/10/15 19:37:16 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1807,7 +1807,7 @@ $debug ||
   done
   rm -rf "$tmp"
 ])
-if test -z "$SED"; then
+if test -z "$ac_cv_path_sed"; then
   AC_MSG_ERROR([Could not find working sed on this system. Please install GNU sed.])
 else
   SED=$ac_cv_path_sed
