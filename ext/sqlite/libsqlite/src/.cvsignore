@@ -2,3 +2,10 @@
 sqlite.h
 config.h
 parse.out
+Debug_TS
+Release_TS
+Release_TS_inline
+libsqlite.dsw
+libsqlite.ncb
+libsqlite.opt
+libsqlite.plg
