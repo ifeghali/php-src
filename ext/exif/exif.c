@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.57 2002/03/08 20:56:44 helly Exp $ */
+/* $Id: exif.c,v 1.58 2002/03/12 06:14:30 helly Exp $ */
 
 /*	ToDos
  *
@@ -99,7 +99,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.3 $Id: $"
+#define EXIF_VERSION "1.3 $Id: exif.c,v 1.58 2002/03/12 06:14:30 helly Exp $"
 
 PHP_MINFO_FUNCTION(exif);
 
@@ -3047,8 +3047,10 @@ PHP_FUNCTION(exif_read_data)
 		}
 	}
 
-	if ( read_thumbnail && ImageInfo.Thumbnail.size) {
-		exif_iif_add_tag( &ImageInfo, SECTION_THUMBNAIL, "THUMBNAIL", TAG_NONE, TAG_FMT_UNDEFINED, ImageInfo.Thumbnail.size, ImageInfo.Thumbnail.data);
+	if ( ImageInfo.Thumbnail.size) {
+		if ( read_thumbnail) {
+			exif_iif_add_tag( &ImageInfo, SECTION_THUMBNAIL, "THUMBNAIL", TAG_NONE, TAG_FMT_UNDEFINED, ImageInfo.Thumbnail.size, ImageInfo.Thumbnail.data);
+		}
 		if ( !ImageInfo.Thumbnail.width || !ImageInfo.Thumbnail.height) {
 			exif_scan_thumbnail( &ImageInfo);
 		}
