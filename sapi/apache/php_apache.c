@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.35 2001/07/28 11:36:30 zeev Exp $ */
+/* $Id: php_apache.c,v 1.37 2001/07/28 12:05:15 zeev Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
@@ -123,7 +123,7 @@ zend_module_entry apache_module_entry = {
    Get and set Apache request notes */
 PHP_FUNCTION(apache_child_terminate)
 {
-#ifndef MULTITREAD
+#ifndef MULTITHREAD
 	if (AP(terminate_child)) {
 		ap_child_terminate( ((request_rec *)SG(server_context)) );
 	} else { /* tell them to get lost! */
