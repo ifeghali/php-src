@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.66 2002/03/17 12:16:29 helly Exp $ */
+/* $Id: exif.c,v 1.67 2002/03/17 22:50:54 wez Exp $ */
 
 /*	ToDos
  *
@@ -113,7 +113,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.3 $Id: exif.c,v 1.66 2002/03/17 12:16:29 helly Exp $"
+#define EXIF_VERSION "1.3 $Id: exif.c,v 1.67 2002/03/17 22:50:54 wez Exp $"
 
 PHP_MINFO_FUNCTION(exif);
 
@@ -2974,24 +2974,30 @@ int exif_read_file(image_info_type *ImageInfo, char *FileName, int read_thumbnai
 	ImageInfo->read_all = read_all;
 	ImageInfo->Thumbnail.filetype = IMAGE_FILETYPE_UNKNOWN;
 
-	/* Store file date/time. */
-	if (VCWD_STAT(FileName, &st) >= 0) {
-		ImageInfo->FileDateTime = st.st_mtime;
-		ImageInfo->FileSize = st.st_size;
-	} else {
-		ImageInfo->FileDateTime = 0;
-		#ifdef HAVE_PHP_STREAM
-		if ( !php_stream_is(ImageInfo->infile, PHP_STREAM_IS_STDIO)) {
-			mem_stream = php_memory_stream_create();
-/*			mem_stream = php_stream_fopen_tmpfile(); files my be big */
-			ImageInfo->FileSize = php_stream_copy_to_stream(ImageInfo->infile, mem_stream, PHP_STREAM_COPY_ALL);
-			auto_fclose(ImageInfo->infile);
-			ImageInfo->infile = mem_stream;
+	#ifdef HAVE_PHP_STREAM
+	if ( php_stream_is(ImageInfo->infile, PHP_STREAM_IS_STDIO)) {
+	#endif
+		if (VCWD_STAT(FileName, &st) >= 0) {
+			/* Store file date/time. */
+			ImageInfo->FileDateTime = st.st_mtime;
+			ImageInfo->FileSize = st.st_size;
 		}
-		#else
-		ImageInfo->FileSize = 0;
-		#endif
+	#ifdef HAVE_PHP_STREAM
+	} else {
+/*
+		mem_stream = php_stream_temp_create(TEMP_STREAM_DEFAULT,20000000);
+		ImageInfo->FileSize = php_stream_copy_to_stream(ImageInfo->infile, mem_stream, PHP_STREAM_COPY_ALL);
+		auto_fclose(ImageInfo->infile);
+*/
+		php_stream_make_seekable( ImageInfo->infile, &mem_stream);
+		if ( !ImageInfo->FileSize) {
+			php_stream_seek(mem_stream,0,SEEK_END);
+			ImageInfo->FileSize = php_stream_tell(mem_stream);
+			php_stream_seek(mem_stream,0,SEEK_SET);
+		}
+		ImageInfo->infile = mem_stream;
 	}
+	#endif
 
 	/* Scan the JPEG headers. */
 	ret = exif_scan_FILE_header(ImageInfo);
