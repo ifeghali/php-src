@@ -6,6 +6,6 @@ Makefile
 .libs
 *.plg
 MSSQL_65_Release
-MSSQL_65_Release
-MSSQL_70_Debug
+MSSQL_70_Release
+MSSQL_65_Debug
 MSSQL_70_Debug
