@@ -22,7 +22,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.1 2000/04/01 16:49:39 zeev Exp $ */
+/* $Id: php_imap.c,v 1.2 2000/04/02 21:27:32 zeev Exp $ */
 
 #define IMAP41
 
@@ -3183,7 +3183,7 @@ PHP_FUNCTION(imap_mail)
 	int argc;
 	
 	argc = ARG_COUNT(ht);
-	if (argc < 3 || argc > 7 || zend_get_parametersArray(ht, argc, argv) == FAILURE) {
+	if (argc < 3 || argc > 7 || zend_get_parameters_array(ht, argc, argv) == FAILURE) {
 		WRONG_PARAM_COUNT;
 	}
 	/* To: */
