@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.160 2003/12/17 09:07:11 helly Exp $ */
+/* $Id: exif.c,v 1.161 2004/01/08 08:15:20 andi Exp $ */
 
 /*  ToDos
  *
@@ -111,7 +111,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.160 2003/12/17 09:07:11 helly Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.161 2004/01/08 08:15:20 andi Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -2862,7 +2862,7 @@ static int exif_process_IFD_TAG(image_info_type *ImageInfo, char *dir_entry, cha
 
 			case TAG_FNUMBER:
 				/* Simplest way of expressing aperture, so I trust it the most.
-				   (overwrite previously computd value if there is one) */
+				   (overwrite previously computed value if there is one) */
 				ImageInfo->ApertureFNumber = (float)exif_convert_any_format(value_ptr, format, ImageInfo->motorola_intel TSRMLS_CC);
 				break;
 
