@@ -34,5 +34,3 @@ modules
 php-*.tar.gz
 want_dependencies
 .deps
-Zend
-TSRM
