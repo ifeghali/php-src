@@ -1,5 +1,5 @@
 dnl
-dnl $Id: config.m4,v 1.5 2002/10/12 02:50:16 sniper Exp $
+dnl $Id: config.m4,v 1.6 2002/10/14 09:05:28 edink Exp $
 dnl
 
 AC_MSG_CHECKING(for embedded SAPI library support)
@@ -11,11 +11,11 @@ AC_ARG_ENABLE(embed,
   case $enableval in
     yes|shared)
       PHP_EMBED_TYPE=shared
-      INSTALL_IT="\$(mkinstalldirs) \$(prefix)/lib; \$(INSTALL) -m 0755 $SAPI_SHARED \$(prefix)/lib"
+      INSTALL_IT="\$(mkinstalldirs) \$(INSTALL_ROOT)\$(prefix)/lib; \$(INSTALL) -m 0755 $SAPI_SHARED \$(INSTALL_ROOT)\$(prefix)/lib"
       ;;
     static)
       PHP_EMBED_TYPE=static
-      INSTALL_IT="\$(mkinstalldirs) \$(prefix)/lib; \$(INSTALL) -m 0644 $SAPI_STATIC \$(prefix)/lib"
+      INSTALL_IT="\$(mkinstalldirs) \$(INSTALL_ROOT)\$(prefix)/lib; \$(INSTALL) -m 0644 $SAPI_STATIC \$(INSTALL_ROOT)\$(prefix)/lib"
       ;;
     *)
       PHP_EMBED_TYPE=no
