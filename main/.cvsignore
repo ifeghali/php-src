@@ -5,6 +5,7 @@ configuration-parser.h
 configuration-parser.output
 configuration-scanner.c
 internal_functions.c
+internal_functions_cli.c
 php_config.h
 php_config.h.in
 *.lo
