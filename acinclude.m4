@@ -1,9 +1,16 @@
-dnl $Id: acinclude.m4,v 1.151 2002/01/21 16:39:17 hholzgra Exp $
+dnl $Id: acinclude.m4,v 1.152 2002/01/21 16:49:31 hholzgra Exp $
 dnl
 dnl This file contains local autoconf functions.
 
 sinclude(dynlib.m4)
 
+dnl
+dnl Disable building CLI
+dnl
+AC_DEFUN(PHP_DISABLE_CLI,[
+  disable_cli=1
+])
+	
 dnl
 dnl Separator into the configure --help display.
 dnl 
