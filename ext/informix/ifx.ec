@@ -20,7 +20,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: ifx.ec,v 1.64 2002/03/22 12:13:58 derick Exp $ */
+/* $Id: ifx.ec,v 1.65 2002/03/22 12:15:39 derick Exp $ */
 
 /* -------------------------------------------------------------------
  * if you want a function reference : "grep '^\*\*' ifx.ec" will give
@@ -41,6 +41,7 @@
 #include "ext/standard/php_standard.h"
 #include "php_open_temporary_file.h"
 #include "php_informix.h"
+#include "php_informix_includes.h"
 #include "php_globals.h"
 #include "php_ini.h"
 
