@@ -90,6 +90,8 @@ C.Write(file_get_contents("win32/build/confutils.js"));
 
 // Pull in code from sapi and extensions
 modules = file_get_contents("win32/build/config.w32");
+// Pick up confs from TSRM and Zend if present
+find_config_w32(".");
 find_config_w32("sapi");
 find_config_w32("ext");
 find_config_w32("pecl");
