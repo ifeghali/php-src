@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.8 1999/04/25 16:50:39 sas Exp $
+dnl $Id: acinclude.m4,v 1.9 1999/04/26 18:06:04 andrey Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -71,8 +71,13 @@ AC_DEFUN(PHP_EXTENSION,[
   _extlib="libphpext_$1.a"
   EXT_LIBS="$EXT_LIBS $1/$_extlib"
   EXTINFO_DEPS="$EXTINFO_DEPS ../ext/$1/extinfo.c.stub"
+dnl   EXT_INCLUDE_CODE="\#include \"ext/$1/php3_$1.h\"\\n$EXT_INCLUDE_CODE"
+dnl   EXT_MODULE_PTRS="phpext_$1_ptr, $EXT_MODULE_PTRS"
+dnl "
 ])
 
 AC_SUBST(EXT_SUBDIRS)
 AC_SUBST(EXT_LIBS)
 AC_SUBST(EXTINFO_DEPS)
+dnl AC_SUBST(EXT_INCLUDE_CODE)
+dnl AC_SUBST(EXT_MODULES_PTRS)
