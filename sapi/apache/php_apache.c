@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.43 2001/08/05 15:55:43 sas Exp $ */
+/* $Id: php_apache.c,v 1.44 2001/08/05 16:43:57 sas Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
@@ -142,7 +142,6 @@ PHP_FUNCTION(apache_note)
 	pval **arg_name, **arg_val;
 	char *note_val;
 	int arg_count = ARG_COUNT(ht);
-	TSRMLS_FETCH();
 
 	if (arg_count<1 || arg_count>2 ||
 		zend_get_parameters_ex(arg_count, &arg_name, &arg_val) ==FAILURE ) {
@@ -339,7 +338,6 @@ PHP_FUNCTION(getallheaders)
     array_header *env_arr;
     table_entry *tenv;
     int i;
-    TSRMLS_FETCH();
 	
     if (array_init(return_value) == FAILURE) {
 		RETURN_FALSE;
@@ -365,7 +363,6 @@ PHP_FUNCTION(apache_lookup_uri)
 {
 	pval **filename;
 	request_rec *rr=NULL;
-	TSRMLS_FETCH();
 
 	if (ARG_COUNT(ht) != 1 || zend_get_parameters_ex(1, &filename) == FAILURE) {
 		WRONG_PARAM_COUNT;
