@@ -7,13 +7,15 @@ infile="$1"
 shift
 srcdir="$1"
 shift
+extra_module_ptrs="$1"
+shift
 
 if test "$infile" = "" -o "$srcdir" = ""; then
 	echo "please supply infile and srcdir"
 	exit 1
 fi
 
-module_ptrs=""
+module_ptrs="$extra_module_ptrs"
 includes=""
 
 olddir=`pwd`
