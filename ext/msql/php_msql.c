@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
  
-/* $Id: php_msql.c,v 1.43 2001/09/25 21:58:04 jeroen Exp $ */
+/* $Id: php_msql.c,v 1.44 2001/09/25 22:48:39 jeroen Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -103,8 +103,9 @@ function_entry msql_functions[] = {
 /* }}} */
 
 zend_module_entry msql_module_entry = {
+	STANDARD_MODULE_HEADER,
 	"msql", msql_functions, PHP_MINIT(msql), NULL, PHP_RINIT(msql), NULL,
-			PHP_MINFO(msql), STANDARD_MODULE_PROPERTIES
+			PHP_MINFO(msql), NO_VERSION_YET, STANDARD_MODULE_PROPERTIES
 };
 
 
