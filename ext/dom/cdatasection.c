@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: cdatasection.c,v 1.5 2003/05/25 01:37:37 rob Exp $ */
+/* $Id: cdatasection.c,v 1.1 2003/06/05 17:06:52 rrichards Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -67,7 +67,7 @@ PHP_FUNCTION(dom_cdatasection_cdatasection)
 		if (oldnode != NULL) {
 			node_free_resource(oldnode  TSRMLS_CC);
 		}
-		php_dom_set_object(id, nodep TSRMLS_CC);
+		php_dom_set_object(intern, nodep TSRMLS_CC);
 	}
 }
 /* }}} end dom_cdatasection_cdatasection */
