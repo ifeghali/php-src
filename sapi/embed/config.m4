@@ -1,5 +1,5 @@
 dnl
-dnl $Id$
+dnl $Id: config.m4,v 1.2 2002/10/11 23:28:01 sniper Exp $
 dnl
 
 AC_MSG_CHECKING(for embedded SAPI library support)
@@ -9,11 +9,11 @@ AC_ARG_ENABLE(embed,
                           TYPE is either 'shared' or 'static'. Defaults to 'static' library.],
 [ 
   case $enableval in
-    yes|static)
-      PHP_EMBED_TYPE=static
-      ;;
-    shared)
+    yes|shared)
       PHP_EMBED_TYPE=shared
+      ;;
+    static)
+      PHP_EMBED_TYPE=static
       ;;
     *)
       PHP_EMBED_TYPE=no
