@@ -43,6 +43,9 @@ static const char rcsid[] = "#(@) $Id$";
  *   9/1999 - 10/2000
  * HISTORY
  *   $Log$
+ *   Revision 1.7  2005/03/26 03:13:58  sniper
+ *   - Made it possible to build ext/xmlrpc with libxml2
+ *
  *   Revision 1.6  2004/04/27 17:33:59  iliaa
  *   Removed C++ style comments.
  *
@@ -132,7 +135,7 @@ static const char rcsid[] = "#(@) $Id$";
 
 #include "queue.h"
 #include "xmlrpc.h"
-#include "expat.h"
+#include "ext/xml/expat_compat.h"
 #include "base64.h"
 
 #include "xml_to_xmlrpc.h"
