@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.267 2003/12/12 05:19:30 sniper Exp $
+dnl $Id: acinclude.m4,v 1.268 2004/01/09 23:37:29 wez Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1652,7 +1652,6 @@ AC_DEFUN([PHP_SETUP_OPENSSL],[
     CPPFLAGS=$old_CPPFLAGS
 
     PHP_ADD_INCLUDE($OPENSSL_INCDIR)
-    PHP_ADD_LIBPATH($OPENSSL_LIBDIR, $1)
   
     PHP_CHECK_LIBRARY(crypto, CRYPTO_free, [
       PHP_ADD_LIBRARY(crypto,,$1)
@@ -1673,6 +1672,8 @@ AC_DEFUN([PHP_SETUP_OPENSSL],[
     ])
     LIBS=$old_LIBS
     PHP_ADD_LIBRARY(ssl,,$1)
+
+    PHP_ADD_LIBPATH($OPENSSL_LIBDIR, $1)
   fi
 
   dnl For apache 1.3.x static build
