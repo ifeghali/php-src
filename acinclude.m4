@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.51 1999/12/06 15:31:59 sas Exp $
+dnl $Id: acinclude.m4,v 1.52 1999/12/21 00:15:51 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -46,7 +46,7 @@ dnl
 dnl execute code, if variable is not set in namespace
 dnl
 AC_DEFUN(AC_PHP_ONCE,[
-  unique=`echo $ac_n "$2$ac_c" | tr -c -d a-zA-Z0-9`
+  unique=`echo $ac_n "$2$ac_c" | tr -cd a-zA-Z0-9`
   cmd="echo $ac_n \"\$$1$unique$ac_c\""
   if test -n "$unique" && test "`eval $cmd`" = "" ; then
     eval "$1$unique=set"
