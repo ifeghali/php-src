@@ -44,6 +44,11 @@ static const char rcsid[] = "#(@) $Id$";
  *   06/2000
  * HISTORY
  *   $Log$
+ *   Revision 1.6  2004/06/01 20:16:06  iliaa
+ *   Fixed bug #28597 (xmlrpc_encode_request() incorrectly encodes chars in
+ *   200-210 range).
+ *   Patch by: fernando dot nemec at folha dot com dot br
+ *
  *   Revision 1.5  2003/12/16 21:00:21  sniper
  *   Fix some compile warnings (patch by Joe Orton)
  *
@@ -268,10 +273,9 @@ static int create_xml_escape(char *pString, unsigned char c)
     pString[counter++] = c / 100 + '0';
     c = c % 100;
   }
-  if(c >= 10) {
-    pString[counter++] = c / 10 + '0';
-    c = c % 10;
-  }
+  pString[counter++] = c / 10 + '0';
+  c = c % 10;
+
   pString[counter++] = c + '0';
   pString[counter++] = ';';
   return counter; 
