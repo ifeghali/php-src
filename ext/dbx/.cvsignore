@@ -1,0 +1,9 @@
+Makefile
+*.lo
+*.la
+.libs
+.deps
+libs.mk
+dbx.plg
+Debug_TS
+Release_TS
