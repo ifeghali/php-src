@@ -4,3 +4,4 @@ phpt.*
 *.exp
 *.out
 *.php
+tmp
