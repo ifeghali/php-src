@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.125 2002/12/10 14:35:13 helly Exp $ */
+/* $Id: exif.c,v 1.126 2002/12/10 18:00:47 iliaa Exp $ */
 
 /*  ToDos
  *
@@ -89,7 +89,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.125 2002/12/10 14:35:13 helly Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.126 2002/12/10 18:00:47 iliaa Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -2574,9 +2574,9 @@ static int exif_process_string(char **result, char *value, size_t byte_count TSR
 static int exif_process_user_comment(image_info_type *ImageInfo, char **pszInfoPtr, char **pszEncoding, char *szValuePtr, int ByteCount TSRMLS_DC)
 {
 	int   a;
-	char  *decode;
 
 #ifdef HAVE_MBSTRING
+	char  *decode;
 	size_t len;;
 #endif
 
