@@ -1,5 +1,5 @@
 dnl
-dnl $Id: config.m4,v 1.4 2003/03/29 04:52:46 sterling Exp $
+dnl $Id: config.m4,v 1.5 2003/04/28 19:43:09 sas Exp $
 dnl
 
 AC_MSG_CHECKING(for Apache 2.0 handler-module support via DSO through APXS)
@@ -27,7 +27,7 @@ AC_ARG_WITH(apxs2,
     AC_MSG_RESULT([3. Apache was not built using --enable-so (the apxs usage page is displayed)])
     AC_MSG_RESULT()
     AC_MSG_RESULT([The output of $APXS follows:])
-    $APXS
+    $APXS -q CFLAGS
     AC_MSG_ERROR([Aborting])
   fi 
 
