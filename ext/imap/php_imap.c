@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.70 2001/05/02 22:57:01 andi Exp $ */
+/* $Id: php_imap.c,v 1.71 2001/05/03 19:18:48 chagenbu Exp $ */
 
 #define IMAP41
 
@@ -175,12 +175,6 @@ static int le_imap;
 /* AJS: persistent connection type, chain pointer type */
 static int le_pimap;
 static int le_pimapchain;
-#endif
-
-#if HAVE_IMSP
-/* This makes IMSP non thread safe */
-extern char imsp_user[80];
-extern char imsp_password[80];
 #endif
 
 
@@ -4292,25 +4286,12 @@ void mm_login(NETMBX *mb, char *user, char *pwd, long trial)
 {
 	IMAPLS_FETCH();
 
-#if HAVE_IMSP
-	if (*mb->service && strcmp(mb->service, "imsp") == 0) {
-		if (*mb->user) {
-			strlcpy(user, mb->user, MAILTMPLEN);
-		} else {
-			strlcpy(user, imsp_user, MAILTMPLEN);
-		}
-		strlcpy (pwd, imsp_password, MAILTMPLEN);
+	if (*mb->user) {
+		strlcpy (user,mb->user, MAILTMPLEN);
 	} else {
-#endif
-		if (*mb->user) {
-			strlcpy (user,mb->user, MAILTMPLEN);
-		} else {
-			strlcpy (user, IMAPG(imap_user), MAILTMPLEN);
-		}
-		strlcpy (pwd, IMAPG(imap_password), MAILTMPLEN);
-#if HAVE_IMSP
+		strlcpy (user, IMAPG(imap_user), MAILTMPLEN);
 	}
-#endif
+	strlcpy (pwd, IMAPG(imap_password), MAILTMPLEN);
 }
 
 void mm_critical(MAILSTREAM *stream)
