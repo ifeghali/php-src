@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.148 2003/05/30 18:59:49 helly Exp $ */
+/* $Id: exif.c,v 1.149 2003/06/10 20:03:28 imajes Exp $ */
 
 /*  ToDos
  *
@@ -99,7 +99,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.148 2003/05/30 18:59:49 helly Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.149 2003/06/10 20:03:28 imajes Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -2218,7 +2218,7 @@ static char * exif_get_markername(int marker)
 #endif
 /* }}} */
 
-/* {{{ proto string|false exif_tagname(index)
+/* {{{ proto string exif_tagname(index)
 	Get headername for index or false if not defined */
 PHP_FUNCTION(exif_tagname)
 {
@@ -3722,7 +3722,7 @@ static int exif_read_file(image_info_type *ImageInfo, char *FileName, int read_t
 }
 /* }}} */
 
-/* {{{ proto array|false exif_read_data(string filename [, sections_needed [, sub_arrays[, read_thumbnail]]])
+/* {{{ proto array exif_read_data(string filename [, sections_needed [, sub_arrays[, read_thumbnail]]])
    Reads header data from the JPEG/TIFF image filename and optionally reads the internal thumbnails */
 PHP_FUNCTION(exif_read_data)
 {
@@ -3913,7 +3913,7 @@ PHP_FUNCTION(exif_read_data)
 }
 /* }}} */
 
-/* {{{ proto string|false exif_thumbnail(string filename [, &width, &height [, &imagetype]])
+/* {{{ proto string exif_thumbnail(string filename [, &width, &height [, &imagetype]])
    Reads the embedded thumbnail */
 PHP_FUNCTION(exif_thumbnail)
 {
