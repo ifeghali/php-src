@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: mbstring.h,v 1.22 2002/07/03 13:36:19 hirokawa Exp $ */
+/* $Id: mbstring.h,v 1.23 2002/07/03 18:23:55 fmk Exp $ */
 
 /*
  * PHP4 Multibyte String module "mbstring" (currently only for Japanese)
@@ -125,6 +125,7 @@ int php_mbregex_name2mbctype(const char *pname);
 #endif
 
 char *mbstr_strrchr(const char *s, char c TSRMLS_DC);
+int mbstr_is_mb_leadbyte(const char *s TSRMLS_DC);
 
 ZEND_BEGIN_MODULE_GLOBALS(mbstring)
 	int language;
