@@ -26,7 +26,7 @@
    | Authors: Uwe Steinmann                                               |
    +----------------------------------------------------------------------+
  */
-/* $Id: php3_pdf.h,v 1.4 1999/08/05 16:25:10 steinm Exp $ */
+/* $Id: php3_pdf.h,v 1.5 1999/08/06 10:41:59 steinm Exp $ */
 
 #ifndef _PHP3_PDF_H
 #define _PHP3_PDF_H
@@ -55,6 +55,9 @@ PHP_FUNCTION(pdf_end_page);
 PHP_FUNCTION(pdf_show);
 PHP_FUNCTION(pdf_show_xy);
 PHP_FUNCTION(pdf_set_font);
+PHP_FUNCTION(pdf_get_font);
+PHP_FUNCTION(pdf_get_fontname);
+PHP_FUNCTION(pdf_get_fontsize);
 PHP_FUNCTION(pdf_set_leading);
 PHP_FUNCTION(pdf_set_text_rendering);
 PHP_FUNCTION(pdf_set_horiz_scaling);
