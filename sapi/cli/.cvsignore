@@ -9,3 +9,5 @@ Debug_TS
 php
 php.cli
 php.1
+*.gcda
+*.gcno

@@ -4,4 +4,5 @@ phpt.*
 *.exp
 *.out
 *.php
-test.txt
+test.txt*.gcda
+*.gcno

@@ -3,3 +3,5 @@ phpt.*
 *.log
 *.exp
 *.out
+*.gcda
+*.gcno

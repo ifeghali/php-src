@@ -47,3 +47,5 @@ missing
 mkinstalldirs
 modules
 scan_makefile_in.awk
+*.gcda
+*.gcno

@@ -34,3 +34,5 @@ missing
 *~
 *.suo
 *.ncb
+*.gcda
+*.gcno

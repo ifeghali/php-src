@@ -2,3 +2,5 @@ Makefile
 *.lo
 *.la
 .deps
+*.gcda
+*.gcno

@@ -7,3 +7,5 @@ phpt.*
 ibase_test.tmp
 blob.*
 CREATED*
+*.gcda
+*.gcno

@@ -1,2 +1,4 @@
 phpize
 php-config
+*.gcda
+*.gcno

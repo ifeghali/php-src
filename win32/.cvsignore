@@ -14,3 +14,5 @@ Release_TS_inline
 Debug_TS
 phpts.def
 wsyslog.h
+*.gcda
+*.gcno

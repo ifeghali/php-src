@@ -48,3 +48,5 @@ modules
 scan_makefile_in.awk
 simplexml.la
 simplexml.lo
+*.gcda
+*.gcno

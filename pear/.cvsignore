@@ -4,3 +4,5 @@ phpize
 run-tests
 php-config
 test.php
+*.gcda
+*.gcno

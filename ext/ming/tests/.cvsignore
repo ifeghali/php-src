@@ -5,3 +5,5 @@ phpt.*
 *.out
 *.php
 test.swf
+*.gcda
+*.gcno

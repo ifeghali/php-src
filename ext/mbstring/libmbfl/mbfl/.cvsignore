@@ -7,3 +7,5 @@ EastAsianWidth.txt
 *.a
 *.o
 *.lo
+*.gcda
+*.gcno

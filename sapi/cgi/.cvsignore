@@ -7,3 +7,5 @@ Debug_TS
 *.plg
 .libs
 php
+*.gcda
+*.gcno

@@ -1,1 +1,3 @@
 security.new.xml
+*.gcda
+*.gcno

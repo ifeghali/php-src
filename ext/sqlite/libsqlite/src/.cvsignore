@@ -9,3 +9,5 @@ libsqlite.dsw
 libsqlite.ncb
 libsqlite.opt
 libsqlite.plg
+*.gcda
+*.gcno

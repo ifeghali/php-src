@@ -5,3 +5,5 @@ php-config
 phpize
 phptar
 run-tests
+*.gcda
+*.gcno

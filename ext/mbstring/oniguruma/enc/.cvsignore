@@ -12,3 +12,5 @@ Release_TSDbg
 Release_TS_inline
 Debug_TS
 config.h
+*.gcda
+*.gcno

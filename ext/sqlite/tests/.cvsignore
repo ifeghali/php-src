@@ -6,3 +6,5 @@ phpt.*
 *.php
 *.db
 *.tmp
+*.gcda
+*.gcno

@@ -1,2 +1,4 @@
 .htaccess
 *.phps
+*.gcda
+*.gcno
