@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.53 2001/12/04 22:14:28 hholzgra Exp $ */
+/* $Id: php_apache.c,v 1.54 2001/12/11 15:31:55 sebastian Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
@@ -130,7 +130,7 @@ zend_module_entry apache_module_entry = {
 };
 
 /* {{{ proto string apache_child_terminate()
-   Get and set Apache request notes */
+   Terminate apache process after this request */
 PHP_FUNCTION(apache_child_terminate)
 {
 #ifndef MULTITHREAD
