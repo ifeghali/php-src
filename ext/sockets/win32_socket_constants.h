@@ -1,3 +1,5 @@
+/* $Id: snmp.c,v 1.84 2003/07/16 09:28:47 sniper Exp $ */
+
 /* This file is to be included by sockets.c */
 
 REGISTER_LONG_CONSTANT("SOCKET_EINTR", WSAEINTR, CONST_CS | CONST_PERSISTENT);
