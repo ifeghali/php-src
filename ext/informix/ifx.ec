@@ -16,11 +16,12 @@
    |                                               PHP4 port              |
    |          Christian Cartus <chc@idgruppe.de> : blobs, and IUS 9       |
    |          Jouni Ahto <jouni.ahto@exdec.fi>   : configuration stuff    |
+   |          Corne' Cornelius <cornec@reach.co.za> : input descriptors   |
    | Based on the MySQL code by:  Zeev Suraski <zeev@php.net>             |
    +----------------------------------------------------------------------+
 */
 
-/* $Id: ifx.ec,v 1.82 2003/02/24 06:34:36 nobbie Exp $ */
+/* $Id: ifx.ec,v 1.83 2003/02/24 08:27:23 sniper Exp $ */
 
 /* -------------------------------------------------------------------
  * if you want a function reference : "grep '^\*\*' ifx.ec" will give
