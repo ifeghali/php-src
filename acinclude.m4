@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.163 2002/03/13 16:59:49 sas Exp $
+dnl $Id: acinclude.m4,v 1.166 2002/03/20 02:07:10 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1382,10 +1382,15 @@ AC_DEFUN(PHP_SETUP_ICONV, [
       PHP_CHECK_LIBRARY($iconv_lib_name, libiconv, [
         found_iconv=yes
         PHP_ADD_LIBRARY_WITH_PATH($iconv_lib_name, $ICONV_DIR/lib, $1)
-        AC_DEFINE(HAVE_ICONV, 1, [ ])
         AC_DEFINE(HAVE_LIBICONV, 1, [ ])
       ], [
-        found_iconv=no
+        PHP_CHECK_LIBRARY($iconv_lib_name, iconv, [
+          found_iconv=yes
+          PHP_ADD_LIBRARY_WITH_PATH($iconv_lib_name, $ICONV_DIR/lib, $1)
+          AC_DEFINE(HAVE_ICONV, 1, [ ])
+        ], [
+          found_iconv=no
+        ])
       ], [
         -L$ICONV_DIR/lib
       ])
