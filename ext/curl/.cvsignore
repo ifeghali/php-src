@@ -4,6 +4,7 @@
 *.plg
 *.opt
 *.ncb
+*.dsw
 Release
 Release_inline
 Debug
@@ -11,3 +12,5 @@ Release_TS
 Release_TSDbg
 Release_TS_inline
 Debug_TS
+Release_TS_SSL
+Debug_TS_SSL
