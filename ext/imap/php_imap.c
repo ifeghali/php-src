@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.37 2000/07/29 18:45:06 sniper Exp $ */
+/* $Id: php_imap.c,v 1.38 2000/08/01 09:11:46 sniper Exp $ */
 
 #define IMAP41
 
@@ -3055,6 +3055,10 @@ PHP_FUNCTION(imap_mail_compose)
 	if (zend_hash_find(Z_ARRVAL_PP(envelope), "reply_to", sizeof("reply_to"), (void **) &pvalue)== SUCCESS) {
 		convert_to_string_ex(pvalue);
 		rfc822_parse_adrlist (&env->reply_to, Z_STRVAL_PP(pvalue), "NO HOST");
+	}
+	if (zend_hash_find(Z_ARRVAL_PP(envelope), "subject", sizeof("subject"), (void **) &pvalue)== SUCCESS) {
+		convert_to_string_ex(pvalue);
+		env->subject=cpystr(Z_STRVAL_PP(pvalue));
 	}
 	if (zend_hash_find(Z_ARRVAL_PP(envelope), "to", sizeof("to"), (void **) &pvalue)== SUCCESS) {
 		convert_to_string_ex(pvalue);
