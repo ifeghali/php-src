@@ -1,6 +1,7 @@
 Makefile
 *.jar
 *.lo
+*.slo
 *.la
 *.plg
 .libs
