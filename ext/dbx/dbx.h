@@ -20,7 +20,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: dbx.h,v 1.9 2001/12/11 15:29:05 sebastian Exp $ */
+/* $Id: dbx.h,v 1.10 2002/10/28 09:41:15 mboeren Exp $ */
 
 #ifndef ZEND_DBX_H
 #define ZEND_DBX_H
@@ -30,6 +30,7 @@
 #endif
 
 #include "php.h"
+#include "ext/standard/php_string.h"
 
 #define DBX_PERSISTENT         (1<<0)
 
