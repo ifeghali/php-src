@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: pwd.c,v 1.9 2004/01/08 08:18:21 andi Exp $ */
+/* $Id: pwd.c,v 1.9.2.2 2004/09/27 22:21:52 edink Exp $ */
 
 #include "php.h"				/*php specific */
 #include <lmaccess.h>
@@ -48,7 +48,7 @@ getlogin()
 	STR_FREE(PW32G(login_name));	
 	GetUserName(name, &max_len);
 	name[max_len] = '\0';
-	PW32G(login_name) = strdup(name);
+	PW32G(login_name) = estrdup(name);
 	return PW32G(login_name);
 }
 
