@@ -36,6 +36,10 @@ function file_get_contents(filename)
 
 function find_config_w32(dirname)
 {
+	if (!FSO.FolderExists(dirname)) {
+		return;
+	}
+
 	var f = FSO.GetFolder(dirname);
 	var	fc = new Enumerator(f.SubFolders);
 	var c;
