@@ -1,3 +1,4 @@
 *.lo
 sqlite.h
 config.h
+parse.out
