@@ -13,11 +13,11 @@
    | license@php.net so we can mail you a copy immediately.               |
    +----------------------------------------------------------------------+
    | Authors: Rasmus Lerdorf <rasmus@lerdorf.on.ca>                       |
-   |          Stig Sæther Bakken <ssb@fast.no>                            |
+   |          Stig Sæther Bakken <ssb@php.net>                            |
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.77 2003/01/21 14:56:36 iliaa Exp $ */
+/* $Id: php_apache.c,v 1.78 2003/03/07 05:15:27 sniper Exp $ */
 
 #include "php_apache_http.h"
 

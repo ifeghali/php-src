@@ -38,12 +38,12 @@ exec $PHP -C -q $INC -d output_buffering=1 $0 $@
 // | obtain it through the world-wide-web, please send a note to          |
 // | license@php.net so we can mail you a copy immediately.               |
 // +----------------------------------------------------------------------+
-// | Authors: Stig Bakken <ssb@fast.no>                                   |
+// | Authors: Stig Bakken <ssb@php.net>                                   |
 // |          Tomas V.V.Cox <cox@idecnet.com>                             |
 // |                                                                      |
 // +----------------------------------------------------------------------+
 //
-// $Id: pear.in,v 1.65 2002/12/13 02:10:23 ssb Exp $
+// $Id: pear.in,v 1.66 2003/01/10 01:16:23 ssb Exp $
 
 ob_end_clean();
 /**
