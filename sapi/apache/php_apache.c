@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.74 2003/01/03 21:30:49 derick Exp $ */
+/* $Id: php_apache.c,v 1.75 2003/01/03 21:33:31 derick Exp $ */
 
 #include "php_apache_http.h"
 
@@ -345,9 +345,7 @@ PHP_FUNCTION(apache_request_headers)
     table_entry *tenv;
     int i;
 	
-    if (array_init(return_value) == FAILURE) {
-		RETURN_FALSE;
-    }
+    array_init(return_value);
     env_arr = table_elts(((request_rec *) SG(server_context))->headers_in);
     tenv = (table_entry *)env_arr->elts;
     for (i = 0; i < env_arr->nelts; ++i) {
@@ -371,9 +369,7 @@ PHP_FUNCTION(apache_response_headers)
     table_entry *tenv;
     int i;
 
-    if (array_init(return_value) == FAILURE) {
-		RETURN_FALSE;
-    }
+    array_init(return_value);
     env_arr = table_elts(((request_rec *) SG(server_context))->headers_out);
     tenv = (table_entry *)env_arr->elts;
     for (i = 0; i < env_arr->nelts; ++i) {
