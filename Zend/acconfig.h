@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id$ */
+/* $Id: acconfig.h,v 1.29 2003/02/01 01:49:14 sniper Exp $ */
 
 #define ZEND_API
 #define ZEND_DLEXPORT
@@ -63,6 +63,7 @@ int zend_sprintf(char *buffer, const char *format, ...);
 
 #include <math.h>
 
+#ifndef zend_isnan
 #ifdef HAVE_ISNAN
 #define zend_isnan(a) isnan(a)
 #elif defined(NAN)
@@ -71,6 +72,7 @@ int zend_sprintf(char *buffer, const char *format, ...);
 #define zend_isnan(a) ((fpclass(a) == FP_SNAN) || (fpclass(a) == FP_QNAN))
 #else
 #define zend_isnan(a) 0
+#endif
 #endif
 
 #ifdef HAVE_ISINF
