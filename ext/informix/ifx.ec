@@ -20,7 +20,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: ifx.ec,v 1.69 2002/10/24 13:14:37 sas Exp $ */
+/* $Id: ifx.ec,v 1.70 2003/01/15 03:01:17 iliaa Exp $ */
 
 /* -------------------------------------------------------------------
  * if you want a function reference : "grep '^\*\*' ifx.ec" will give
@@ -3971,7 +3971,7 @@ PHP_FUNCTION(ifxus_open_slob)
 	if((mode&32) !=0)   
 		create_mode|=LO_NOBUFFER;
 
-	RETURN_LONG(php_intifxus_open_slob(Z_LVAL_P(pbid),create_mode,&EG(regular_list) TSRMLS_CC));
+	RETURN_LONG(php_intifxus_open_slob(Z_LVAL_PP(pbid),create_mode,&EG(regular_list) TSRMLS_CC));
 }
 /* }}} */
 
