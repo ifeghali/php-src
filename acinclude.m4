@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.232 2003/03/17 13:40:42 wez Exp $
+dnl $Id: acinclude.m4,v 1.233 2003/03/25 13:43:13 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -781,7 +781,7 @@ dnl PHP_BUILD_SHARED
 dnl
 AC_DEFUN([PHP_BUILD_SHARED],[
   PHP_BUILD_PROGRAM
-  OVERALL_TARGET=libphp4.la
+  OVERALL_TARGET=libphp5.la
   php_build_target=shared
   
   php_c_pre=$shared_c_pre
@@ -798,7 +798,7 @@ dnl PHP_BUILD_STATIC
 dnl
 AC_DEFUN([PHP_BUILD_STATIC],[
   PHP_BUILD_PROGRAM
-  OVERALL_TARGET=libphp4.la
+  OVERALL_TARGET=libphp5.la
   php_build_target=static
 ])
 
@@ -807,7 +807,7 @@ dnl PHP_BUILD_BUNDLE
 dnl
 AC_DEFUN([PHP_BUILD_BUNDLE],[
   PHP_BUILD_PROGRAM
-  OVERALL_TARGET=libs/libphp4.bundle
+  OVERALL_TARGET=libs/libphp5.bundle
   php_build_target=static
 ])
 

@@ -1,5 +1,5 @@
 dnl
-dnl $Id: config.m4,v 1.2 2003/02/23 07:32:03 sniper Exp $
+dnl $Id: config.m4,v 1.3 2003/03/10 03:14:37 sniper Exp $
 dnl
 
 AC_MSG_CHECKING(for Apache 2.0 handler-module support via DSO through APXS)
@@ -54,14 +54,14 @@ AC_ARG_WITH(apxs2,
   if test -z `$APXS -q SYSCONFDIR`; then
     INSTALL_IT="\$(mkinstalldirs) '$APXS_LIBEXECDIR' && \
                  $APXS -S LIBEXECDIR='$APXS_LIBEXECDIR' \
-                       -i -n php4"
+                       -i -n php5"
   else
     APXS_SYSCONFDIR='$(INSTALL_ROOT)'`$APXS -q SYSCONFDIR`
     INSTALL_IT="\$(mkinstalldirs) '$APXS_LIBEXECDIR' && \
                 \$(mkinstalldirs) '$APXS_SYSCONFDIR' && \
                  $APXS -S LIBEXECDIR='$APXS_LIBEXECDIR' \
                        -S SYSCONFDIR='$APXS_SYSCONFDIR' \
-                       -i -a -n php4"
+                       -i -a -n php5"
   fi
 
   case $host_alias in
@@ -85,7 +85,7 @@ AC_ARG_WITH(apxs2,
     MH_BUNDLE_FLAGS="-bundle -bundle_loader $APXS_HTTPD $MH_BUNDLE_FLAGS"
     PHP_SUBST(MH_BUNDLE_FLAGS)
     PHP_SELECT_SAPI(apache2handler, bundle, sapi_apache2.c apache_config.c php_functions.c)
-    SAPI_SHARED=libs/libphp4.so
+    SAPI_SHARED=libs/libphp5.so
     INSTALL_IT="$INSTALL_IT $SAPI_SHARED"
     ;;
   *beos*)
