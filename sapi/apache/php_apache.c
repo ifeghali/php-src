@@ -17,8 +17,10 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
+/* $Id: php_apache.c,v 1.3 2000/02/10 20:24:28 zeev Exp $ */
 
-/* $Id: php_apache.c,v 1.2 2000/02/10 19:41:20 zeev Exp $ */
+#define _PHP_REGEX_H 1
+
 #include "php.h"
 #include "ext/standard/head.h"
 #include "php_globals.h"
