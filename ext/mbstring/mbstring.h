@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: mbstring.h,v 1.10 2001/12/23 15:32:08 hirokawa Exp $ */
+/* $Id: mbstring.h,v 1.11 2001/12/26 15:21:13 hirokawa Exp $ */
 
 /*
  * PHP4 Multibyte String module "mbstring" (currently only for Japanese)
@@ -90,6 +90,7 @@ PHP_FUNCTION(mb_convert_variables);
 PHP_FUNCTION(mb_encode_numericentity);
 PHP_FUNCTION(mb_decode_numericentity);
 PHP_FUNCTION(mb_send_mail);
+PHP_FUNCTION(mb_get_info);
 
 ZEND_BEGIN_MODULE_GLOBALS(mbstring)
 	int language;
