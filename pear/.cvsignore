@@ -1,3 +1,8 @@
 Makefile
 Makefile.am
 .deps
+phpize
+run-tests
+php-config
+pear
+PEAR.php
