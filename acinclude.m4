@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.102 2000/07/26 14:53:54 sas Exp $
+dnl $Id: acinclude.m4,v 1.103 2000/09/11 15:25:06 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -535,7 +535,9 @@ AC_DEFUN(AC_ADD_INCLUDE,[
 ])
 
 AC_DEFUN(PHP_X_ADD_LIBRARY,[
-  ifelse($2,,$3="-l$1 [$]$3", $3="[$]$3 -l$1")
+  if test -n "$1"; then 
+    ifelse($2,,$3="-l$1 [$]$3", $3="[$]$3 -l$1")
+  fi
 ])
 
 dnl
