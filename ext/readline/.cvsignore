@@ -1,4 +1,5 @@
 Makefile
+*.slo
 *.lo
 *.la
 .libs
