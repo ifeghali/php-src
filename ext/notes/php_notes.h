@@ -17,16 +17,16 @@
 */
 
 
-/* $Id: php_notes.h,v 1.1 2001/02/16 21:36:29 zeev Exp $ */
+/* $Id: php_notes.h,v 1.2 2001/02/26 06:07:08 andi Exp $ */
 
 extern zend_module_entry notes_module_entry;
 
 #define notes_module_ptr &notes_module_entry
 
-extern PHP_MINIT_FUNCTION(notes);
-extern PHP_MSHUTDOWN_FUNCTION(notes);
-extern PHP_RINIT_FUNCTION(notes);
-extern PHP_RSHUTDOWN_FUNCTION(notes);
+PHP_MINIT_FUNCTION(notes);
+PHP_MSHUTDOWN_FUNCTION(notes);
+PHP_RINIT_FUNCTION(notes);
+PHP_RSHUTDOWN_FUNCTION(notes);
 PHP_MINFO_FUNCTION(notes);
 
 PHP_FUNCTION(notes_create_db);
