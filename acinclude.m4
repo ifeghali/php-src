@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.122 2001/03/27 20:34:20 sniper Exp $
+dnl $Id: acinclude.m4,v 1.123 2001/05/09 13:57:56 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -263,7 +263,8 @@ AC_MSG_RESULT($ext_output)
 dnl
 dnl PHP_ARG_WITH(arg-name, check message, help text[, default-val])
 dnl Sets PHP_ARG_NAME either to the user value or to the default value.
-dnl default-val defaults to no. 
+dnl default-val defaults to no.  This will also set the variable ext_shared,
+dnl and will overwrite any previous variable of that name.
 dnl
 AC_DEFUN(PHP_ARG_WITH,[
 PHP_REAL_ARG_WITH([$1],[$2],[$3],[$4],PHP_[]translit($1,a-z0-9-,A-Z0-9_))
@@ -278,7 +279,8 @@ PHP_ARG_ANALYZE($5)
 dnl
 dnl PHP_ARG_ENABLE(arg-name, check message, help text[, default-val])
 dnl Sets PHP_ARG_NAME either to the user value or to the default value.
-dnl default-val defaults to no. 
+dnl default-val defaults to no.  This will also set the variable ext_shared,
+dnl and will overwrite any previous variable of that name.
 dnl
 AC_DEFUN(PHP_ARG_ENABLE,[
 PHP_REAL_ARG_ENABLE([$1],[$2],[$3],[$4],PHP_[]translit($1,a-z-,A-Z_))
