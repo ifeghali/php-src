@@ -1130,7 +1130,7 @@ function ADD_SOURCES(dir, file_list, target, obj_dir)
 			}
 		} else {
 			MFO.WriteLine(sub_build + obj + ": " + dir + "\\" + src);
-			MFO.WriteLine("\t$(CC) $(" + flags + ") $(CFLAGS) $(" + bd_flags_name + ") /c " + dir + "\\" + src + " /Fo" + sub_build + obj);
+			MFO.WriteLine("\t@$(CC) $(" + flags + ") $(CFLAGS) $(" + bd_flags_name + ") /c " + dir + "\\" + src + " /Fo" + sub_build + obj);
 		}
 	}
 
