@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.17 2000/06/15 23:45:04 andi Exp $ */
+/* $Id: php_apache.c,v 1.18 2000/07/29 14:46:08 zeev Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
@@ -52,7 +52,7 @@
 #include "build-defs.h"
 #endif
 
-#define SECTION(name)  PUTS("<H2>" name "</H2>\n")
+#define SECTION(name)  PUTS("<H2 align=\"center\">" name "</H2>\n")
 
 extern module *top_module;
 
