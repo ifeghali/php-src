@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.23 1999/08/03 20:56:13 gerdts Exp $
+dnl $Id: acinclude.m4,v 1.24 1999/08/22 18:47:27 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -141,6 +141,7 @@ dnl XXX have to change the hardcoding of ".a" when we want to be able
 dnl to make dynamic libraries as well.
 dnl
 AC_DEFUN(PHP_EXTENSION,[
+  if test -d "$cwd/$srcdir/ext/$1" ; then
   EXT_SUBDIRS="$EXT_SUBDIRS $1"
   if test "$2" != "shared" -a "$2" != "yes"; then
     _extlib="libphpext_$1.a"
@@ -153,6 +154,7 @@ AC_DEFUN(PHP_EXTENSION,[
 dnl   EXT_INCLUDE_CODE="\#include \"ext/$1/php3_$1.h\"\\n$EXT_INCLUDE_CODE"
 dnl   EXT_MODULE_PTRS="phpext_$1_ptr, $EXT_MODULE_PTRS"
 dnl "
+  fi
 ])
 
 AC_SUBST(EXT_SUBDIRS)

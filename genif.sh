@@ -16,15 +16,19 @@ fi
 module_ptrs=""
 includes=""
 
+olddir=`pwd`
+cd $srcdir
+
 for ext in ${1+"$@"} ; do
 	module_ptrs="	phpext_${ext}_ptr,\\\n$module_ptrs"
-	for pre in php3_ php_ php4_ zend_ "" ; do
-		hdrfile="ext/$ext/${pre}${ext}.h"
-		if test -f "$srcdir/$hdrfile" ; then
-			includes="#include \"$hdrfile\"\\\n$includes"
+	for header in ext/$ext/*.h ; do
+		if grep phpext_ $header >/dev/null 2>&1 ; then
+			includes="#include \"$header\"\\\n$includes"
 		fi
 	done
 done
+
+cd $olddir
 
 cat $infile | \
 	sed \
