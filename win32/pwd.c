@@ -16,11 +16,9 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: pwd.c,v 1.5 2002/04/04 20:22:03 sterling Exp $ */
+/* $Id: pwd.c,v 1.6 2002/12/31 15:59:14 sebastian Exp $ */
 
 #include "php.h"				/*php specific */
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
 #include <lmaccess.h>
 #include <stdio.h>
 #include <stdlib.h>
