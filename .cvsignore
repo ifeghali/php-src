@@ -19,3 +19,4 @@ aclocal.m4
 configure.in
 acconfig.h
 internal_functions.c
+libtool
