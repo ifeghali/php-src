@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
  
-/* $Id: php_msql.c,v 1.34 2001/07/11 09:39:07 zeev Exp $ */
+/* $Id: php_msql.c,v 1.35 2001/07/11 11:39:08 zeev Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -849,7 +849,7 @@ PHP_FUNCTION(msql_result)
 			return_value->value.str.val = (char *) safe_estrndup(sql_row[field_offset],return_value->value.str.len);
 		}
 	} else {
-		ZVAL_BOOL(return_value, 0);
+		ZVAL_FALSE(return_value);
 	}
 	
 	return_value->type = IS_STRING;
@@ -1211,7 +1211,7 @@ static void php_msql_field_info(INTERNAL_FUNCTION_PARAMETERS, int entry_type)
 				return_value->value.str.len = 11;
 				return_value->type = IS_STRING;
 			} else {
-				ZVAL_BOOL(return_value, 0);
+				ZVAL_FALSE(return_value);
 			}
 #else
 			if ((msql_field->flags&NOT_NULL_FLAG) && (msql_field->flags&UNIQUE_FLAG)) {
@@ -1227,7 +1227,7 @@ static void php_msql_field_info(INTERNAL_FUNCTION_PARAMETERS, int entry_type)
 				return_value->value.str.len = 6;
 				return_value->type = IS_STRING;
 			} else {
-				ZVAL_BOOL(return_value, 0);
+				ZVAL_FALSE(return_value);
 			}
 #endif
 			break;
