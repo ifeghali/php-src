@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.146 2002/01/04 12:26:27 hholzgra Exp $
+dnl $Id: acinclude.m4,v 1.147 2002/01/09 03:40:51 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -930,7 +930,7 @@ dnl ---------------------------------------------- External Module
   if test "$2" != "shared" && test "$2" != "yes"; then
 dnl ---------------------------------------------- Static module
     LIB_BUILD($ext_builddir)
-    EXT_LTLIBS="$EXT_LTLIBS $ext_builddir/lib$1.la"
+    EXT_LTLIBS="$EXT_LTLIBS $abs_srcdir/$ext_builddir/lib$1.la"
     EXT_STATIC="$EXT_STATIC $1"
   else 
 dnl ---------------------------------------------- Shared module

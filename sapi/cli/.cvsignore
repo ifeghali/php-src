@@ -8,3 +8,5 @@ Release_TS_inline
 Release_TS
 Debug_TS
 *.plg
+php
+php.cli
