@@ -23,7 +23,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.16 2000/04/20 17:48:22 zeev Exp $ */
+/* $Id: php_imap.c,v 1.17 2000/04/20 23:35:28 zeev Exp $ */
 
 #define IMAP41
 
@@ -2134,19 +2134,19 @@ PHP_FUNCTION(imap_rfc822_write_address)
    Parses an address string */
 PHP_FUNCTION(imap_rfc822_parse_adrlist)
 {
-	zval **str, **defaulthost, *tovals;
+	zval *str, *defaulthost, *tovals;
 	ADDRESS *addresstmp;
 	ENVELOPE *env;
 	int argc;
-
+	
 	env=mail_newenvelope();
 	argc=ZEND_NUM_ARGS();
-	if (argc != 2 || zend_get_parameters_ex(argc, &str, &defaulthost) == FAILURE) {
+	if (argc != 2 || zend_get_parameters(ht, argc, &str, &defaulthost) == FAILURE) {
 		ZEND_WRONG_PARAM_COUNT();
 	}
-	convert_to_string_ex(str);
-	convert_to_string_ex(defaulthost);
-	rfc822_parse_adrlist(&env->to, Z_STRVAL_PP(str), Z_STRVAL_PP(defaulthost));
+	convert_to_string(str);
+	convert_to_string(defaulthost);
+	rfc822_parse_adrlist(&env->to, str->value.str.val, defaulthost->value.str.val);
 	if (array_init(return_value) == FAILURE) {
 		RETURN_FALSE;
 	}
