@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
  
-/* $Id: php_msql.c,v 1.20 2000/06/16 18:23:57 hholzgra Exp $ */
+/* $Id: php_msql.c,v 1.21 2000/07/22 17:47:29 sterling Exp $ */
 
 #include "php.h"
 #include "php_msql.h"
@@ -333,7 +333,7 @@ static void php_msql_do_connect(INTERNAL_FUNCTION_PARAMETERS,int persistent)
 		}
 
 		/* add it to the list */
-		ZEND_REGISTER_RESOURCE(return_value, (void *) msql, msql_globals.le_plink);
+		ZEND_REGISTER_RESOURCE(return_value, (void *) msql, msql_globals.le_link);
 		
 		/* add it to the hash */
 		new_index_ptr.ptr = (void *) return_value->value.lval;
