@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.34 1999/10/04 09:51:46 sas Exp $
+dnl $Id: acinclude.m4,v 1.35 1999/10/04 15:18:01 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -144,6 +144,22 @@ AC_DEFUN(AC_CHECK_CC_OPTION,[
   fi
 ])
 
+AC_DEFUN(PHP_HSREGEX,[
+AC_MSG_CHECKING(whether to use bundled regex library)
+AC_MSG_RESULT($HSREGEX)
+
+if test "$HSREGEX" = "yes"; then
+  REGEX_LIB=regex/libregex.la
+  AC_DEFINE(HSREGEX)
+  AC_DEFINE(REGEX,1)
+else
+  REGEX_LIB=
+  AC_DEFINE(REGEX,0)
+fi
+
+AC_SUBST(REGEX_LIB)
+AC_SUBST(HSREGEX)
+])
 
 dnl
 dnl See if we have broken header files like SunOS has.
