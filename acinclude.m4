@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.264 2003/10/03 04:29:13 sniper Exp $
+dnl $Id: acinclude.m4,v 1.265 2003/11/13 14:17:47 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1153,6 +1153,7 @@ dnl Basically sets up the link-stage for building module-name
 dnl from object_var in build-dir.
 dnl
 AC_DEFUN([PHP_SHARED_MODULE],[
+  install_modules="install-modules"
   PHP_MODULES="$PHP_MODULES \$(phplibdir)/$1.la"
   PHP_SUBST($2)
   cat >>Makefile.objects<<EOF
