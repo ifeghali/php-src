@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.59 2002/03/12 13:49:40 helly Exp $ */
+/* $Id: exif.c,v 1.60 2002/03/12 16:43:29 helly Exp $ */
 
 /*	ToDos
  *
@@ -99,7 +99,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.3 $Id: exif.c,v 1.59 2002/03/12 13:49:40 helly Exp $"
+#define EXIF_VERSION "1.3 $Id: exif.c,v 1.60 2002/03/12 16:43:29 helly Exp $"
 
 PHP_MINFO_FUNCTION(exif);
 
@@ -3114,10 +3114,10 @@ PHP_FUNCTION(exif_read_data)
 			/* try to evaluate if thumbnail data is present */
 			exif_scan_thumbnail( &ImageInfo);
 		}
-		if ( ImageInfo.Thumbnail.width && ImageInfo.Thumbnail.height) {
-			exif_iif_add_int( &ImageInfo, SECTION_COMPUTED, "Thumbnail.Height", ImageInfo.Thumbnail.height);
-			exif_iif_add_int( &ImageInfo, SECTION_COMPUTED, "Thumbnail.Width",  ImageInfo.Thumbnail.width);
-		}
+	}
+	if ( ImageInfo.Thumbnail.width && ImageInfo.Thumbnail.height) {
+		exif_iif_add_int( &ImageInfo, SECTION_COMPUTED, "Thumbnail.Height", ImageInfo.Thumbnail.height);
+		exif_iif_add_int( &ImageInfo, SECTION_COMPUTED, "Thumbnail.Width",  ImageInfo.Thumbnail.width);
 	}
    	if ( sections_str) efree(sections_str);
 
