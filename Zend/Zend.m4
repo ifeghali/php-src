@@ -1,5 +1,5 @@
 dnl
-dnl $Id: Zend.m4,v 1.41 2003/09/07 13:49:15 stas Exp $
+dnl $Id: Zend.m4,v 1.42 2003/10/03 05:24:18 sniper Exp $
 dnl
 dnl This file contains Zend specific autoconf functions.
 dnl
@@ -10,7 +10,7 @@ if test "$YACC" != "bison -y"; then
     AC_MSG_WARN(You will need bison if you want to regenerate the Zend parser.)
 else
     AC_MSG_CHECKING(bison version)
-    set `bison --version| grep 'GNU Bison' | cut -d ' ' -f 4 | sed -e 's/\./ /'`
+    set `bison --version| grep 'GNU Bison' | cut -d ' ' -f 4 | sed -e 's/\./ /' | tr -d 'a-z'`
     if test "${1}" = "1" -a "${2}" -lt "28"; then
         AC_MSG_WARN(You will need bison 1.28 if you want to regenerate the Zend parser (found ${1}.${2}).)
     fi
