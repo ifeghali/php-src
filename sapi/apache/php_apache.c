@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.78 2003/03/07 05:15:27 sniper Exp $ */
+/* $Id: php_apache.c,v 1.79 2003/03/18 12:06:08 ssb Exp $ */
 
 #include "php_apache_http.h"
 
@@ -321,7 +321,7 @@ PHP_FUNCTION(virtual)
 	}
 
 	php_end_ob_buffers(1 TSRMLS_CC);
-	php_header();
+	php_header(TSRMLS_C);
 
 	if (run_sub_req(rr)) {
 		php_error_docref(NULL TSRMLS_CC, E_WARNING, "Unable to include '%s' - request execution failed", (*filename)->value.str.val);
