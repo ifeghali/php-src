@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: php_fbsql.h,v 1.9 2001/07/30 01:56:24 zeev Exp $ */
+/* $Id: php_fbsql.h,v 1.10 2001/09/04 21:51:11 fmk Exp $ */
 
 #define HAVE_FBSQL 1
 
@@ -118,8 +118,6 @@ ZEND_END_MODULE_GLOBALS(fbsql)
 #else
 # define FB_SQL_G(v)	(fbsql_globals.v)
 #endif
-
-
 
 //#ifndef ZTS  // No need for external definitions
 //extern fbsql_module* phpfbModule;
