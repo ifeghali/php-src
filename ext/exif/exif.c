@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.152 2003/06/20 18:24:38 helly Exp $ */
+/* $Id: exif.c,v 1.153 2003/08/03 17:44:36 zeev Exp $ */
 
 /*  ToDos
  *
@@ -95,6 +95,7 @@ typedef unsigned char uchar;
 
 static
 ZEND_BEGIN_ARG_INFO(exif_thumbnail_force_ref, 1)
+	ZEND_ARG_PASS_INFO(0)
 ZEND_END_ARG_INFO();
 
 
@@ -110,7 +111,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.152 2003/06/20 18:24:38 helly Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.153 2003/08/03 17:44:36 zeev Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
