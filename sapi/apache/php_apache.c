@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.11 2000/04/07 17:02:01 cmv Exp $ */
+/* $Id: php_apache.c,v 1.12 2000/04/07 17:04:57 cmv Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
@@ -198,6 +198,7 @@ PHP_MINFO_FUNCTION(apache)
 #if !defined(WIN32) && !defined(WINNT)
 	php_info_print_table_row(2, "Server Root", server_root);
 
+	strcpy(modulenames, "");
 	for(modp = top_module; modp; modp = modp->next) {
 		strlcpy(name, modp->name, sizeof(name));
 		if ((p = strrchr(name, '.'))) {
