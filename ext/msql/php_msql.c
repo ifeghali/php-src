@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
  
-/* $Id: php_msql.c,v 1.10 2000/02/19 23:40:05 zeev Exp $ */
+/* $Id: php_msql.c,v 1.11 2000/02/26 03:20:52 zeev Exp $ */
 
 #include "php.h"
 #if COMPILE_DL
@@ -101,7 +101,7 @@ function_entry msql_functions[] = {
 
 
 zend_module_entry msql_module_entry = {
-	"mSQL", msql_functions, PHP_MINIT(msql), NULL, PHP_RINIT(msql), NULL,
+	"msql", msql_functions, PHP_MINIT(msql), NULL, PHP_RINIT(msql), NULL,
 			PHP_MINFO(msql), STANDARD_MODULE_PROPERTIES
 };
 
