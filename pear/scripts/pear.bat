@@ -3,7 +3,7 @@
 REM ----------------------------------------------------------------------
 REM PHP version 4.0                                                     
 REM ----------------------------------------------------------------------
-REM Copyright (c) 1997-2001 The PHP Group                               
+REM Copyright (c) 1997-2002 The PHP Group                               
 REM ----------------------------------------------------------------------
 REM  This source file is subject to version 2.02 of the PHP license,    
 REM  that is bundled with this package in the file LICENSE, and is      
@@ -16,7 +16,7 @@ REM ----------------------------------------------------------------------
 REM  Authors:     Alexander Merz (alexmerz@php.net)                         
 REM ----------------------------------------------------------------------
 REM
-REM  $Id: pear.bat,v 1.4 2001/10/13 06:22:09 mj Exp $
+REM  $Id: pear.bat,v 1.5 2001/12/11 15:31:48 sebastian Exp $
 
 REM change this four lines to match the paths of your system
 REM -------------------
