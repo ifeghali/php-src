@@ -1,0 +1,11 @@
+Makefile
+*.lo
+*.la
+.libs
+.deps
+libs.mk
+*.plg
+Debug
+Debug_TS
+Release
+Release_TS
