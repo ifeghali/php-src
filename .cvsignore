@@ -3,6 +3,7 @@ Makefile.in
 acconfig.h
 aclocal.m4
 build-defs.h
+buildmk.stamp
 buildconf.stamp
 config.cache
 config.log
