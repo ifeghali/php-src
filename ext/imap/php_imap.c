@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.77 2001/05/06 10:33:21 sas Exp $ */
+/* $Id: php_imap.c,v 1.78 2001/05/14 18:24:27 vlad Exp $ */
 
 #define IMAP41
 
@@ -3266,6 +3266,14 @@ PHP_FUNCTION(imap_mail_compose)
 			convert_to_long_ex(pvalue);
 			bod->encoding = (short) Z_LVAL_PP(pvalue);
 		}
+		if (zend_hash_find(Z_ARRVAL_PP(data), "charset", sizeof("charset"), (void **) &pvalue)== SUCCESS) {
+			convert_to_string_ex(pvalue);
+			tmp_param = mail_newbody_parameter();
+			tmp_param->value = cpystr(Z_STRVAL_PP(pvalue));
+			tmp_param->attribute = "CHARSET";
+			tmp_param->next = bod->parameter;
+			bod->parameter = tmp_param;
+		}
 		if (zend_hash_find(Z_ARRVAL_PP(data), "subtype", sizeof("subtype"), (void **) &pvalue)== SUCCESS) {
 			convert_to_string_ex(pvalue);
 			bod->subtype = cpystr(Z_STRVAL_PP(pvalue));
@@ -3343,6 +3351,14 @@ PHP_FUNCTION(imap_mail_compose)
 			if (zend_hash_find(Z_ARRVAL_PP(data), "encoding", sizeof("encoding"), (void **) &pvalue)== SUCCESS) {
 				convert_to_long_ex(pvalue);
 				bod->encoding = (short) Z_LVAL_PP(pvalue);
+			}
+			if (zend_hash_find(Z_ARRVAL_PP(data), "charset", sizeof("charset"), (void **) &pvalue)== SUCCESS) {
+				convert_to_string_ex(pvalue);
+				tmp_param = mail_newbody_parameter();
+				tmp_param->value = cpystr(Z_STRVAL_PP(pvalue));
+				tmp_param->attribute = "CHARSET";
+				tmp_param->next = bod->parameter;
+				bod->parameter = tmp_param;
 			}
 			if (zend_hash_find(Z_ARRVAL_PP(data), "subtype", sizeof("subtype"), (void **) &pvalue)== SUCCESS) {
 				convert_to_string_ex(pvalue);
