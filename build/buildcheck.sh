@@ -37,9 +37,6 @@ echo "           to build PHP from CVS."
 exit 1
 else
 echo "buildconf: autoconf version $ac_version (ok)"
-echo "**Note: Certain versions of autoconf may generate the warning:"
-echo "        'AC_PROG_CPP called before AC_PROG_CC'"
-echo "        This error message is expected and can usually be ignored."
 fi
 
 
