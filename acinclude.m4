@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.97 2000/06/17 10:53:08 sas Exp $
+dnl $Id: acinclude.m4,v 1.98 2000/06/17 16:13:11 andrei Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -417,6 +417,14 @@ AC_DEFUN(PHP_BUILD_THREAD_SAFE,[
   enable_experimental_zts=yes
   if test "$pthreads_working" != "yes"; then
     AC_MSG_ERROR(ZTS currently requires working POSIX threads. Your system does not support this.)
+  fi
+])
+
+AC_DEFUN(PHP_REQUIRE_CXX,[
+  if test -z "$php_cxx_done"; then
+    AC_PROG_CXX
+    AC_PROG_CXXCPP
+    php_cxx_done=yes
   fi
 ])
 
