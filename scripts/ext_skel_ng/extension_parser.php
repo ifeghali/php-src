@@ -90,9 +90,7 @@
 			switch($type) {
 			case "int":
 			case "integer":
-				if (!is_numeric($value))   $this->error("invalid value for integer constant: '$value'"); 
-				if ((int)$value != $value) $this->error("invalid value for integer constant: '$value'");
-				$this->constants[] = &new php_constant($name, (int)$value, "integer", trim($this->cdata)); 
+				$this->constants[] = &new php_constant($name, $value, "integer", trim($this->cdata)); 
 				break;
 				
 			case "float":
@@ -223,7 +221,7 @@
 			$fp = fopen("$docdir/reference.xml", "w");
 			fputs($fp,
 "<?xml version='1.0' encoding='iso-8859-1'?>
-<!-- \$Revision: 1.2 $ -->
+<!-- \$Revision: 1.3 $ -->
  <reference id='ref.{$this->name}'>
   <title>{$this->summary}</title>
   <titleabbrev>{$this->name}</titleabbrev>
@@ -501,6 +499,12 @@ PHP_MINIT_FUNCTION({$this->name})
 			$code .= "\tREGISTER_INI_ENTRIES();\n";
 		}
 
+		if(count($this->constants)) {
+			foreach($this->constants as $constant) {
+				$code .= $constant->c_code();
+			}
+		}
+		
 		if(isset($this->internal_functions['MINIT'])) {
       if(count($this->globals) || count($this->phpini)) $code .= "\n\t{\n";
 			$code .= $this->internal_functions['MINIT']->code;
@@ -634,8 +638,10 @@ $code .= "
 				foreach ($func->params as $key => $param) {
 					if (!empty($param['optional'])) $code.=" [";
 					if ($key) $code.=", ";
-					$code .= $param['type']." ";
-					$code .= isset($param['name']) ? $param['name'] : "par_$key"; 
+					$code .= $param['type'];
+					if($param['type'] != "void") {
+					  $code .= isset($param['name']) ? $param['name'] : "par_$key"; 
+					}
 				}
 			}
 			for ($n=$func->optional; $n>0; $n--) {
@@ -647,7 +653,6 @@ $code .= "
 
 			$code .= "PHP_FUNCTION({$func->name})\n";
 			$code .= "{\n";
-			$code .= "\tint argc = ZEND_NUM_ARGS();\n\n";
 			
 			if (isset($func->params)) {
 				$arg_string="";
@@ -715,11 +720,14 @@ $code .= "
 						break;
 					}
 				}
+      }
 
+      if(strlen($arg_string)) {
+			  $code .= "\tint argc = ZEND_NUM_ARGS();\n\n";
 				$code .= "\n\tif (zend_parse_parameters(argc TSRMLS_CC, \"$arg_string\", ".join(", ",$arg_pointers).") == FAILURE) return;\n";
 				if($res_fetch) $code.="\n$res_fetch\n";
 			} else {
-				$code .= "\tif(argc>0) { WRONG_PARAM_COUNT; }\n";
+				$code .= "\tif(ZEND_NUM_ARGS()>0) { WRONG_PARAM_COUNT; }\n";
 			}
 
       $code .= "\n";
