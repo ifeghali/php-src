@@ -19,7 +19,7 @@
 // |                                                                      |
 // +----------------------------------------------------------------------+
 //
-// $Id$
+// $Id: pear.in,v 1.49 2002/05/19 15:50:36 cox Exp $
 
 ini_set('allow_url_fopen', true);
 set_time_limit(0);
@@ -100,10 +100,10 @@ foreach ($opts as $opt) {
             $config->remove($param, 'user');
             break;
         case 'v':
-            $config->set('verbose', $verbose + 1);
+            $config->set('verbose', $config->get('verbose') + 1);
             break;
         case 'q':
-            $config->set('verbose', $verbose - 1);
+            $config->set('verbose', $config->get('verbose') - 1);
             break;
         default:
             // all non pear params goes to the command
