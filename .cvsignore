@@ -30,3 +30,4 @@ test.php3
 *.lo
 *.la
 .libs
+libs
