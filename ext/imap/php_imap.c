@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.87 2001/07/28 11:35:54 zeev Exp $ */
+/* $Id: php_imap.c,v 1.88 2001/07/30 06:17:53 zeev Exp $ */
 
 #define IMAP41
 
@@ -1883,7 +1883,6 @@ PHP_FUNCTION(imap_lsub_full)
 	pils *imap_le_struct;
 	FOBJECTLIST *cur=NIL;
 	char *delim=NIL;
-	TSRMLS_FETCH();
 	
 	delim = emalloc(2 * sizeof(char));
 	
