@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.16 2000/06/05 21:19:21 rasmus Exp $ */
+/* $Id: php_apache.c,v 1.17 2000/06/15 23:45:04 andi Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
@@ -320,7 +320,7 @@ PHP_FUNCTION(virtual)
 		RETURN_FALSE;
 	}
 	
-	php_end_ob_buffering(1);
+	php_end_ob_buffers(1);
 	php_header();
 
 	if (run_sub_req(rr)) {
