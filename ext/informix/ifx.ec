@@ -20,7 +20,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: ifx.ec,v 1.73 2003/01/18 19:41:56 iliaa Exp $ */
+/* $Id: ifx.ec,v 1.74 2003/01/24 19:15:53 iliaa Exp $ */
 
 /* -------------------------------------------------------------------
  * if you want a function reference : "grep '^\*\*' ifx.ec" will give
@@ -445,7 +445,7 @@ EXEC SQL END DECLARE SECTION;
 			passwd_len = strlen(IFXG(default_password));
 		}
 
-		if (zend_parse_parameters(ZEND_NUM_ARGS(), "|sss", &host, &host_len, &user, &user_len, &passwd, &passwd_len) == FAILURE) {
+		if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "|sss", &host, &host_len, &user, &user_len, &passwd, &passwd_len) == FAILURE) {
 			return;
 		}
 
