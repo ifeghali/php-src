@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.143 2002/11/25 12:30:23 hholzgra Exp $ */
+/* $Id: php_imap.c,v 1.144 2002/11/26 07:04:31 fmk Exp $ */
 
 #define IMAP41
 
@@ -3162,7 +3162,9 @@ int _php_imap_mail(char *to, char *subject, char *message, char *headers, char *
 			addr = addr->next;
 		}
 		efree(tempMailTo);
-		if (offset>0) bufferTo[offset-1] = 0;
+		if (offset>0) {
+			bufferTo[offset-1] = 0;
+		}
 	}
 
 	if (cc && *cc) {
@@ -3180,7 +3182,9 @@ int _php_imap_mail(char *to, char *subject, char *message, char *headers, char *
 			addr = addr->next;
 		}
 		efree(tempMailTo);
-		if (offset>0) bufferCc[offset-1] = 0;
+		if (offset>0) {
+			bufferCc[offset-1] = 0;
+		}
 	}
 
 	if (bcc && *bcc) {
@@ -3198,7 +3202,9 @@ int _php_imap_mail(char *to, char *subject, char *message, char *headers, char *
 			addr = addr->next;
 		}
 		efree(tempMailTo);
-		if (offset>0) bufferBcc[offset-1] = 0;
+		if (offset>0) {
+			bufferBcc[offset-1] = 0;
+		}
 	}
 
 
@@ -3211,8 +3217,15 @@ int _php_imap_mail(char *to, char *subject, char *message, char *headers, char *
 		}
 		return 0;
 	}
-	if (bufferCc) efree(bufferCc);
-	if (bufferBcc) efree(bufferBcc);
+	if (bufferTo) {
+		efree(bufferTo);
+	}
+	if (bufferCc) {
+		efree(bufferCc);
+	}
+	if (bufferBcc) {
+		efree(bufferBcc);
+	}
 #else
 	if (!INI_STR("sendmail_path")) {
 		return 0;
