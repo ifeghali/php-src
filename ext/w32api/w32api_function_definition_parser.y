@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: w32api_function_definition_parser.y,v 1.1 2002/11/12 14:31:33 jmoore Exp $ */
+/* $Id: w32api_function_definition_parser.y,v 1.2 2002/11/20 18:39:38 fmk Exp $ */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -59,7 +59,7 @@ funcdef:			tIDENTIFIER tIDENTIFIER tALIAS tIDENTIFIER'(' argument_list ')' tFROM
 
 argument_list:		argument ',' argument_list { $$ = w32api_parser_join_arguments($1, $3);}
 					| argument {$$ = $1;}
-					| {$$ = NULL}
+					| {$$ = NULL;}
 ;
 
 argument:			tIDENTIFIER tIDENTIFIER { $$ = w32api_parser_make_argument_byval($1, $2); }
