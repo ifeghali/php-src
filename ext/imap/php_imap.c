@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.191 2004/12/29 21:25:00 iliaa Exp $ */
+/* $Id: php_imap.c,v 1.192 2004/12/29 21:33:03 iliaa Exp $ */
 
 #define IMAP41
 
@@ -3192,7 +3192,7 @@ PHP_FUNCTION(imap_mail_compose)
 		goto done;
 	}
 
-	RETVAL_STRINGL(tempstring, 0);
+	RETVAL_STRING(tempstring, 0);
 done:
 	mail_free_body(&topbod);
 	mail_free_envelope(&env);
