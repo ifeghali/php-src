@@ -2,7 +2,7 @@
    +----------------------------------------------------------------------+
    | PHP Version 4                                                        |
    +----------------------------------------------------------------------+
-   | Copyright (c) 1997-2002 The PHP Group                                |
+   | Copyright (c) 1997-2003 The PHP Group                                |
    +----------------------------------------------------------------------+
    | This source file is subject to version 2.02 of the PHP license,      |
    | that is bundled with this package in the file LICENSE, and is        |
@@ -15,7 +15,7 @@
    | Authors: Wez Furlong <wez@thebrainroom.com>                          |
    +----------------------------------------------------------------------+
  */
-/* $Id: php4activescript.h,v 1.1 2002/05/20 01:35:29 wez Exp $ */
+/* $Id: php4activescript.h,v 1.2 2002/05/20 22:22:56 wez Exp $ */
 
 extern zend_module_entry php_activescript_module;
 extern sapi_module_struct activescript_sapi_module;
