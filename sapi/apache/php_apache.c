@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.29 2001/05/07 11:07:22 zeev Exp $ */
+/* $Id: php_apache.c,v 1.30 2001/05/13 09:03:46 zeev Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
@@ -99,7 +99,7 @@ static void php_apache_globals_ctor(php_apache_info_struct *apache_globals)
 static PHP_MINIT_FUNCTION(apache)
 {
 #ifdef ZTS
-	php_apache_info_id = ts_allocate_id(sizeof(php_apache_info_struct), ts_allocate_ctor, NULL);
+	php_apache_info_id = ts_allocate_id(sizeof(php_apache_info_struct), php_apache_globals_ctor, NULL);
 #else
 	php_apache_globals_ctor(&php_apache_info);
 #endif
