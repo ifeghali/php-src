@@ -1,5 +1,5 @@
 dnl
-dnl $Id: config.m4,v 1.8 2003/07/16 05:46:36 sniper Exp $
+dnl $Id: config.m4,v 1.9 2003/10/21 11:48:31 sniper Exp $
 dnl
 
 AC_MSG_CHECKING(for Apache 2.0 handler-module support via DSO through APXS)
@@ -39,8 +39,14 @@ AC_ARG_WITH(apxs2,
   APU_BINDIR=`$APXS -q APU_BINDIR`
   APR_BINDIR=`$APXS -q APR_BINDIR`
 
-  APU_INCLUDEDIR="`$APU_BINDIR/apu-config --includes`"
-  APR_INCLUDEDIR="`$APR_BINDIR/apr-config --includes`"
+  # Pick up ap[ru]-N-config if using httpd >=2.1
+  APR_CONFIG=`$APXS -q APR_CONFIG 2>/dev/null ||
+    echo $APR_BINDIR/apr-config`
+  APU_CONFIG=`$APXS -q APU_CONFIG 2>/dev/null ||
+    echo $APU_BINDIR/apu-config`
+
+  APR_CFLAGS="`$APR_CONFIG --cppflags --includes`"
+  APU_CFLAGS="`$APU_CONFIG --includes`"
 
   for flag in $APXS_CFLAGS; do
     case $flag in
@@ -48,7 +54,7 @@ AC_ARG_WITH(apxs2,
     esac
   done
 
-  APACHE_CFLAGS="$APACHE_CPPFLAGS -I$APXS_INCLUDEDIR $APU_INCLUDEDIR $APR_INCLUDEDIR"
+  APACHE_CFLAGS="$APACHE_CPPFLAGS -I$APXS_INCLUDEDIR $APR_CFLAGS $APU_CFLAGS"
 
   # Test that we're trying to configure with apache 2.x
   PHP_AP_EXTRACT_VERSION($APXS_HTTPD)
