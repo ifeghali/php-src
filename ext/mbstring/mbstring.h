@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: mbstring.h,v 1.18 2002/04/12 16:17:16 helly Exp $ */
+/* $Id: mbstring.h,v 1.19 2002/04/15 23:03:48 fmk Exp $ */
 
 /*
  * PHP4 Multibyte String module "mbstring" (currently only for Japanese)
@@ -158,7 +158,7 @@ ZEND_BEGIN_MODULE_GLOBALS(mbstring)
 	mb_regex_t *search_re;
 	struct mbre_registers *search_regs;
 #endif
-ZEND_END_MODULE_GLOBALS(mbstring);
+ZEND_END_MODULE_GLOBALS(mbstring)
 
 #define MB_OVERLOAD_MAIL 1
 #define MB_OVERLOAD_STRING 2
