@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.120 2002/11/22 21:51:38 iliaa Exp $ */
+/* $Id: exif.c,v 1.121 2002/11/27 01:46:36 helly Exp $ */
 
 /*  ToDos
  *
@@ -109,7 +109,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.120 2002/11/22 21:51:38 iliaa Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.121 2002/11/27 01:46:36 helly Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -1806,6 +1806,7 @@ static void exif_iif_add_buffer(image_info_type *image_info, int section_index, 
 			exif_error_docref(NULL TSRMLS_CC, image_info, E_NOTICE, "Adding %s as buffer%s", name, exif_char_dump(value, length, 0));
 #endif
 			info_data->value.s = php_addslashes(value, length, &length, 0 TSRMLS_CC);
+			info_data->length = length;
 		} else {
 			info_data->value.s = emalloc(length+1);
 			if (!info_data->value.s) {
