@@ -16,8 +16,7 @@ fi
 cmd1='echo $data | grep @EXT_INCLUDE_CODE@ > /dev/null 2>&1'
 cmd2='echo $data | grep @EXT_MODULE_PTRS@ > /dev/null 2>&1'
 
-while read ; do
-	data="$REPLY"
+while read data; do
 	if eval $cmd1 ; then
 		for ext in $* ; do
 			for pre in php3 php php4 zend; do
