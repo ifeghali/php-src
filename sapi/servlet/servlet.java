@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: servlet.java,v 1.15 2001/02/26 06:07:37 andi Exp $ */
+/* $Id: servlet.java,v 1.16 2001/10/28 23:49:02 sebastian Exp $ */
 
 package net.php;
 
@@ -108,7 +108,7 @@ public class servlet extends HttpServlet {
         if (colon > 0) {
           try {
             addHeader.invoke(response, new Object[]
-              { data.substring(0,colon), data.substring(colon + 2) } );
+              { data.substring(0, colon), data.substring(colon + 2) } );
           }
 
           catch (Exception e) {
