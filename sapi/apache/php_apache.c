@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.81 2003/06/10 20:03:44 imajes Exp $ */
+/* $Id: php_apache.c,v 1.82 2003/08/28 17:48:58 iliaa Exp $ */
 
 #include "php_apache_http.h"
 
@@ -163,6 +163,7 @@ PHP_FUNCTION(apache_note)
  */
 PHP_MINFO_FUNCTION(apache)
 {
+	char *apv = php_apache_get_version();
 	module *modp = NULL;
 	char output_buf[128];
 #if !defined(WIN32) && !defined(WINNT)
@@ -195,7 +196,9 @@ PHP_MINFO_FUNCTION(apache)
 	php_info_print_table_row(2, "APACHE_TARGET", PHP_APACHE_TARGET);
 #endif
 
-	php_info_print_table_row(2, "Apache Version", SERVER_VERSION);
+	if (apv && *apv) {
+		php_info_print_table_row(2, "Apache Version", apv);
+	} 
 
 #ifdef APACHE_RELEASE
 	sprintf(output_buf, "%d", APACHE_RELEASE);
