@@ -23,7 +23,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.19 2000/04/24 22:21:34 askalski Exp $ */
+/* $Id: php_imap.c,v 1.20 2000/04/28 14:24:38 tedp Exp $ */
 
 #define IMAP41
 
@@ -158,7 +158,7 @@ zend_module_entry imap_module_entry = {
 
 
 #ifdef COMPILE_DL_IMAP
-ZEND_DLEXPORT zend_module_entry *get_module(void) { return &imap_module_entry; }
+ZEND_GET_MODULE(imap)
 #endif
 
 

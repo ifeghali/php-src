@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
  
-/* $Id: php_msql.c,v 1.12 2000/03/06 18:41:12 ssb Exp $ */
+/* $Id: php_msql.c,v 1.13 2000/04/06 21:07:39 cmv Exp $ */
 
 #include "php.h"
 #if COMPILE_DL
@@ -108,7 +108,7 @@ zend_module_entry msql_module_entry = {
 
 
 #if COMPILE_DL
-DLEXPORT zend_module_entry *get_module(void) { return &msql_module_entry; }
+ZEND_GET_MODULE(msql)
 #endif
 
 typedef struct {
