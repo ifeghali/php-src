@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.136 2002/08/16 16:56:55 kalowsky Exp $ */
+/* $Id: php_imap.c,v 1.137 2002/08/16 23:25:53 sniper Exp $ */
 
 #define IMAP41
 
@@ -2264,7 +2264,8 @@ PHP_FUNCTION(imap_utf7_encode)
 		} else if (inp == endp || !SPECIAL(*inp)) {
 			/* flush overflow and terminate region */
 			if (state != ST_ENCODE0) {
-				*outp++ = B64(*outp);
+				c = B64(*outp);
+				*outp++ = c;
 			}
 			*outp++ = '-';
 			state = ST_NORMAL;
