@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: php_fbsql.h,v 1.24 2003/06/10 20:03:28 imajes Exp $ */
+/* $Id: php_fbsql.h,v 1.25 2003/06/14 03:33:56 fmk Exp $ */
 
 #define HAVE_FBSQL 1
 
@@ -101,7 +101,7 @@ PHP_FUNCTION(fbsql_warnings);
 PHP_FUNCTION(fbsql_get_autostart_info);
 /* PHP_FUNCTION(fbsql_set_autostart_info); */
 
-static void php_fbsql_fetch_hash(INTERNAL_FUNCTION_PARAMETERS, int result_type);
+static void php_fbsql_fetch_hash(INTERNAL_FUNCTION_PARAMETERS, int result_type, int expected_args);
 static void php_fbsql_do_connect(INTERNAL_FUNCTION_PARAMETERS, int persistent);
 
 ZEND_BEGIN_MODULE_GLOBALS(fbsql)
