@@ -15,7 +15,7 @@
    | Authors: Wez Furlong <wez@thebrainroom.com>                          |
    +----------------------------------------------------------------------+
  */
-/* $Id:$ */
+/* $Id: php4activescript.h,v 1.1 2002/05/20 01:35:29 wez Exp $ */
 
 extern zend_module_entry php_activescript_module;
 extern sapi_module_struct activescript_sapi_module;
@@ -23,4 +23,3 @@ extern HINSTANCE module_handle;
 extern void activescript_error_func(int type, const char *error_msg, ...);
 extern void activescript_error_handler(int type, const char *error_filename,
 		const uint error_lineno, const char *format, va_list args);
-
