@@ -9,3 +9,4 @@ config.log
 stamp-h
 config.status
 tsrm_config.h
+ltmain.sh
