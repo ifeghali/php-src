@@ -22,7 +22,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.5 2000/04/04 00:51:38 chagenbu Exp $ */
+/* $Id: php_imap.c,v 1.6 2000/04/04 18:10:24 chagenbu Exp $ */
 
 #define IMAP41
 
@@ -34,6 +34,7 @@
 #include "php_ini.h"
 #include "php_imap.h"
 #include "ext/standard/php_string.h"
+#include "ext/standard/info.h"
 
 ZEND_DECLARE_MODULE_GLOBALS(imap)
 
@@ -345,15 +346,14 @@ void mail_free_messagelist(MESSAGELIST **msglist)
 
 PHP_MINFO_FUNCTION(imap)
 {
-	php_printf("Imap Support enabled<br>");
-	php_printf("<table>");
-	php_printf("<tr><td>Imap c-client Version:</td>");
+	php_info_print_table_start();
+	php_info_print_table_row(2, "IMAP Support", "enabled");    
 #ifdef IMAP41
-	php_printf("<td>Imap 4.1</td>");
+	php_info_print_table_row(2, "IMAP c-Client Version", "4.1");               
 #else
-	php_printf("<td>Imap 4.0</td>");
+	php_info_print_table_row(2, "IMAP c-Client Version", "4.0"); 
 #endif
-	php_printf("</tr></table>");
+	php_info_print_table_end();
 }
 
 
