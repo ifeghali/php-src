@@ -27,6 +27,8 @@
   <notes>
    To compile and run this module, you will need to have the main PDO module and Firebird's
    or InterBase's client library installed on your system.
+
+   Hope it works!
   </notes>
 
   <filelist>
