@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.125 2002/07/02 23:45:32 fmk Exp $ */
+/* $Id: php_imap.c,v 1.127 2002/07/26 16:26:01 kalowsky Exp $ */
 
 #define IMAP41
 
@@ -1131,12 +1131,8 @@ PHP_FUNCTION(imap_get_quotaroot)
 		RETURN_FALSE;
 	}
 
-	if (array_init(return_value) == FAILURE) {
-		php_error(E_WARNING, "%s(): Unable to allocate array memory", get_active_function_name(TSRMLS_C));
-		RETURN_FALSE;
-	}
-
-	add_next_index_zval(return_value, IMAPG(quotaroot_return));
+	*return_value = *IMAPG(quotaroot_return);
+	FREE_ZVAL(IMAPG(quotaroot_return));
 }
 /* }}} */
 
