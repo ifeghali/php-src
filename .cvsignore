@@ -37,3 +37,4 @@ php-*.tar.gz
 want_dependencies
 .deps
 config.nice
+php_version.h
