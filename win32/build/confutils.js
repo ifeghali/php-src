@@ -376,7 +376,7 @@ function CHECK_LIB(libname, target, path_to_check)
 
 //	AC_DEFINE("HAVE_" + header_name.toUpperCase().replace(new RegExp("/\\\\-\.", "g"), "_"), have);
 
-	return p;
+	return have;
 
 }
 
