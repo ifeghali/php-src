@@ -48,3 +48,6 @@ modules
 scan_makefile_in.awk
 *.gcda
 *.gcno
+xml
+html
+spl.chm
