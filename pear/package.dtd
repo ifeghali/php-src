@@ -20,8 +20,6 @@
          Stig S. Bakken <ssb@fast.no>
 
   -->
-<!ENTITY nbsp "test">
-
 <!--============== attributes present in all elements ======================-->
 <!ENTITY % global.atts "id		ID	#IMPLIED">
 <!--============== attributes common to several elements ===================-->
