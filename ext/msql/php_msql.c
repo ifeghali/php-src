@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
  
-/* $Id: php_msql.c,v 1.37 2001/07/28 11:35:59 zeev Exp $ */
+/* $Id: php_msql.c,v 1.38 2001/07/31 05:43:58 zeev Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -844,7 +844,7 @@ PHP_FUNCTION(msql_result)
 	
 	if (sql_row[field_offset]) {
 		if (PG(magic_quotes_runtime)) {
-			return_value->value.str.val = php_addslashes(sql_row[field_offset],0,&return_value->value.str.len,0);
+			return_value->value.str.val = php_addslashes(sql_row[field_offset],0,&return_value->value.str.len,0 TSRMLS_CC);
 		} else {	
 			return_value->value.str.len = (sql_row[field_offset]?strlen(sql_row[field_offset]):0);
 			return_value->value.str.val = (char *) safe_estrndup(sql_row[field_offset],return_value->value.str.len);
@@ -943,7 +943,7 @@ static void php_msql_fetch_hash(INTERNAL_FUNCTION_PARAMETERS, int result_type)
 			int should_copy;
 
 			if (PG(magic_quotes_runtime)) {
-				data = php_addslashes(msql_row[i], 0, &data_len, 0);
+				data = php_addslashes(msql_row[i], 0, &data_len, 0 TSRMLS_CC);
 				should_copy = 0;
 			} else {
 				data = msql_row[i];
