@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.40 2002/03/01 04:01:25 helly Exp $ */
+/* $Id: exif.c,v 1.43 2002/03/04 06:21:58 helly Exp $ */
 
 /* Some parts of the code in this module was borrowed from the public domain
  * jhead.c package with the author's consent.
@@ -77,22 +77,6 @@ typedef unsigned char uchar;
 
 /* EXIF standard defines Copyright as "<Photographer> [ '\0' <Editor> ] ['\0']" */
 #define EXIF_MAX_COPYRIGHT 2
-
-/* {{{ enum image_filetype
-   This enum is used to have ext/standard/image.c and ext/exif/exif.c use
-   the same constants for file types.
-*/
-typedef enum
-{ IMAGE_FILETYPE_UNKNOWN=0,
-  IMAGE_FILETYPE_GIF=1,
-  IMAGE_FILETYPE_JPEG,
-  IMAGE_FILETYPE_PNG,
-  IMAGE_FILETYPE_SWF,
-  IMAGE_FILETYPE_PSD,
-  IMAGE_FILETYPE_BMP,
-  IMAGE_FILETYPE_TIFF
-} image_filetype;
-/* }}} */
 
 /* {{{ structs
    This structure stores Exif header image elements in a simple manner
@@ -219,7 +203,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.1a $Revision: 1.40 $"
+#define EXIF_VERSION "1.1a $Revision: 1.43 $"
 
 PHP_MINFO_FUNCTION(exif);
 
