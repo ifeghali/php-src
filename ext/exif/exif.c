@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.149 2003/06/10 20:03:28 imajes Exp $ */
+/* $Id: exif.c,v 1.150 2003/06/15 15:28:50 andrey Exp $ */
 
 /*  ToDos
  *
@@ -99,7 +99,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.149 2003/06/10 20:03:28 imajes Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.150 2003/06/15 15:28:50 andrey Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -134,7 +134,7 @@ ZEND_DECLARE_MODULE_GLOBALS(exif)
 /* {{{ PHP_INI
  */
 
-ZEND_API ZEND_INI_MH(OnUpdateEncode)
+ZEND_INI_MH(OnUpdateEncode)
 {
 #if EXIF_USE_MBSTRING
 	if (new_value && strlen(new_value) && !php_mb_check_encoding_list(new_value TSRMLS_CC)) {
@@ -145,7 +145,7 @@ ZEND_API ZEND_INI_MH(OnUpdateEncode)
 	return OnUpdateString(entry, new_value, new_value_length, mh_arg1, mh_arg2, mh_arg3, stage TSRMLS_CC);
 }
 
-ZEND_API ZEND_INI_MH(OnUpdateDecode)
+ZEND_INI_MH(OnUpdateDecode)
 {
 #if EXIF_USE_MBSTRING
 	if (!php_mb_check_encoding_list(new_value TSRMLS_CC)) {
