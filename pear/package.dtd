@@ -90,7 +90,8 @@
 <!ELEMENT provides (#PCDATA)>
 <!ATTLIST provides
 	type    (ext|prog|class|function|feature|api)  #REQUIRED
-        name    CDATA                                  #REQUIRED>
+	name    CDATA                                  #REQUIRED
+	extends CDATA                                  #IMPLIED>
 
 <!ELEMENT script (#PCDATA)>
 <!ATTLIST script
