@@ -2,6 +2,7 @@
 *.opt
 *.ncb
 *.suo
+*.aps
 ext
 Release
 Release_inline
