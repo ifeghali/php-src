@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.63 2002/06/01 09:54:28 rasmus Exp $ */
+/* $Id: php_apache.c,v 1.64 2002/06/01 10:27:51 andi Exp $ */
 
 #include "php_apache_http.h"
 
@@ -183,7 +183,7 @@ PHP_MINFO_FUNCTION(apache)
 	php_info_print_table_row(1, "Apache for Windows 95/NT");
 	php_info_print_table_end();
 	php_info_print_table_start();
-#elif
+#elif defined(NETWARE)
 	php_info_print_table_row(1, "Apache for NetWare");
 	php_info_print_table_end();
 	php_info_print_table_start();
