@@ -17,13 +17,14 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: cdatasection.c,v 1.2 2003/06/09 20:20:55 rrichards Exp $ */
+/* $Id: cdatasection.c,v 1.3 2003/06/10 20:03:27 imajes Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
 #endif
 
 #include "php.h"
+#if HAVE_LIBXML && HAVE_DOM
 #include "php_dom.h"
 
 
@@ -71,3 +72,5 @@ PHP_FUNCTION(dom_cdatasection_cdatasection)
 	}
 }
 /* }}} end dom_cdatasection_cdatasection */
+
+#endif
