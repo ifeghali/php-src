@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id$ */
+/* $Id: servlet.java,v 1.13 2000/07/24 05:41:01 david Exp $ */
 
 package net.php;
 
@@ -102,7 +102,7 @@ public class servlet extends HttpServlet {
               e.printStackTrace(System.err);
             }
           } else {
-            response.getWriter().println(data);
+            write(data);
           }
         }
       } catch (IOException e) {
@@ -152,14 +152,12 @@ public class servlet extends HttpServlet {
     }
 
     public void service(HttpServletRequest request,
-                        HttpServletResponse response) 
+                        HttpServletResponse response,
+                        String contextPath) 
        throws ServletException
     {
        this.request=request;
        this.response=response;
-
-       String servletPath=request.getServletPath();
-       String contextPath=getServletContext().getRealPath(servletPath);
 
        send(request.getMethod(), request.getQueryString(),
             request.getRequestURI(), contextPath,
@@ -171,6 +169,15 @@ public class servlet extends HttpServlet {
        } catch (IOException e) {
          throw new ServletException(e.toString());
        }
+    }
+
+    public void service(HttpServletRequest request,
+                        HttpServletResponse response) 
+       throws ServletException
+    {
+       String servletPath=request.getServletPath();
+       String contextPath=getServletContext().getRealPath(servletPath);
+       service(request, response, contextPath);
     }
 
     public void destroy() {
