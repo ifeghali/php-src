@@ -17,7 +17,7 @@
   |          Dmitry Stogov <dmitry@zend.com>                             |
   +----------------------------------------------------------------------+
 */
-/* $Id: php_soap.h,v 1.30 2004/02/13 11:03:58 dmitry Exp $ */
+/* $Id: php_soap.h,v 1.31 2004/02/25 14:04:41 dmitry Exp $ */
 
 #ifndef PHP_SOAP_H
 #define PHP_SOAP_H
@@ -46,6 +46,8 @@
 # define FALSE 0
 # define stricmp strcasecmp
 #endif
+
+extern int le_url;
 
 typedef struct _encodeType encodeType, *encodeTypePtr;
 typedef struct _encode encode, *encodePtr;
