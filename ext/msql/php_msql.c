@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
  
-/* $Id: php_msql.c,v 1.7 2000/01/01 01:31:42 sas Exp $ */
+/* $Id: php_msql.c,v 1.8 2000/02/05 15:16:10 zeev Exp $ */
 
 #include "php.h"
 #if COMPILE_DL
@@ -217,7 +217,6 @@ static void php_msql_do_connect(INTERNAL_FUNCTION_PARAMETERS,int persistent)
 	char *hashed_details;
 	int hashed_details_length;
 	int msql;
-	ELS_FETCH();
 	
 	switch(ARG_COUNT(ht)) {
 		case 0: /* defaults */
