@@ -44,6 +44,9 @@ static const char rcsid[] = "#(@) $Id$";
  *   06/2000
  * HISTORY
  *   $Log$
+ *   Revision 1.8  2005/03/28 00:07:24  edink
+ *   Reshufle includes to make it compile on windows
+ *
  *   Revision 1.7  2005/03/26 03:13:58  sniper
  *   - Made it possible to build ext/xmlrpc with libxml2
  *
@@ -104,6 +107,7 @@ static const char rcsid[] = "#(@) $Id$";
  *   there must be some.
  ******/
  
+#include "ext/xml/expat_compat.h"
 #ifdef _WIN32
 #include "xmlrpc_win32.h"
 #endif
@@ -113,7 +117,6 @@ static const char rcsid[] = "#(@) $Id$";
 
 #include "xml_element.h"
 #include "queue.h"
-#include "ext/xml/expat_compat.h"
 #include "encodings.h"
 
 #define my_free(thing)  if(thing) {free(thing); thing = 0;}
