@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.179 2002/04/04 10:03:29 sas Exp $
+dnl $Id: acinclude.m4,v 1.180 2002/04/06 13:42:40 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1025,17 +1025,9 @@ AC_DEFUN(PHP_CHECK_CC_OPTION,[
 ])
 
 AC_DEFUN(PHP_REGEX,[
-
-if test "$REGEX_TYPE" = "php"; then
   AC_DEFINE(HSREGEX,1,[ ])
   AC_DEFINE(REGEX,1,[ ])
   PHP_ADD_SOURCES(regex, regcomp.c regexec.c regerror.c regfree.c)
-elif test "$REGEX_TYPE" = "system"; then
-  AC_DEFINE(REGEX,0,[ ])
-fi
-
-AC_MSG_CHECKING([which regex library to use])
-AC_MSG_RESULT([$REGEX_TYPE])
 ])
 
 dnl
