@@ -139,7 +139,7 @@ function ConfigureArg(type, optname, helptext, defval)
 {
 	var opptype = type == "enable" ? "disable" : "without";
 
-	if (defval == "yes") {
+	if (defval == "yes" || defval == "yes,shared") {
 		this.arg = "--" + opptype + "-" + optname;
 		this.imparg = "--" + type + "-" + optname;
 	} else {
