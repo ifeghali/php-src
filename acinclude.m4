@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.214 2002/10/21 03:31:52 sniper Exp $
+dnl $Id: acinclude.m4,v 1.215 2002/10/24 10:41:36 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1679,6 +1679,13 @@ AC_DEFUN([PHP_CHECK_FUNC_LIB],[
   AC_CHECK_LIB($2, $1, [found=yes], [
     AC_CHECK_LIB($2, __$1, [found=yes], [found=no])
   ])
+
+  if test "$found" = "yes"; then
+    ac_libs=$LIBS
+    LIBS="$LIBS -l$2"
+    AC_TRY_RUN([main() { return (0); }],[found=yes],[found=no],[found=no])
+    LIBS=$ac_libs
+  fi
 
   if test "$found" = "yes"; then
     PHP_ADD_LIBRARY($2)
