@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: dba_cdb.c,v 1.15 2002/11/03 15:09:49 helly Exp $ */
+/* $Id: dba_cdb.c,v 1.16 2002/11/03 16:43:06 helly Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -95,7 +95,7 @@ DBA_FETCH_FUNC(cdb)
 	unsigned int len;
 	char *new_entry = NULL;
 	
-//	cdb_findstart(&cdb->c);
+/*	cdb_findstart(&cdb->c); */
 	if (cdb_find(&cdb->c, key, keylen) == 1) {
 		while(skip--) {
 			if (cdb_findnext(&cdb->c, key, keylen) != 1) {
