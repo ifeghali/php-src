@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.75 2002/03/25 01:08:39 hholzgra Exp $ */
+/* $Id: exif.c,v 1.76 2002/03/29 01:32:26 helly Exp $ */
 
 /*	ToDos
  *
@@ -70,6 +70,8 @@
  */
 #undef EXIF_DEBUG
 
+#undef EXIF_JPEG2000
+
 #include "php_exif.h"
 #include <math.h>
 #include "php_ini.h"
@@ -100,7 +102,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.3 $Id: exif.c,v 1.75 2002/03/25 01:08:39 hholzgra Exp $"
+#define EXIF_VERSION "1.3 $Id: exif.c,v 1.76 2002/03/29 01:32:26 helly Exp $"
 
 PHP_MINFO_FUNCTION(exif);
 
@@ -1576,6 +1578,7 @@ static void exif_process_COM (image_info_type *image_info, uchar *value, int len
    We want to print out the marker contents as legible text;
    we must guard against random junk and varying newline representations.
 */
+#ifdef EXIF_JPEG2000
 static void exif_process_CME (image_info_type *image_info, uchar *value, int length)
 {
 	if (length>3) {
@@ -1595,6 +1598,7 @@ static void exif_process_CME (image_info_type *image_info, uchar *value, int len
 		php_error(E_NOTICE,"JPEG2000 comment section to small");
 	}
 }
+#endif
 /* }}} */
 
 /* {{{ exif_process_SOFn
@@ -3060,7 +3064,7 @@ PHP_FUNCTION(exif_read_data)
 
 	ImageInfo.sections_found |= FOUND_COMPUTED;/* do not inform about in debug*/
 
-	if (ret==FALSE || (sections_needed && !(sections_needed&ImageInfo.sections_found) || array_init(return_value) == FAILURE)) {
+	if (ret==FALSE || (sections_needed && !(sections_needed&ImageInfo.sections_found)) || array_init(return_value) == FAILURE) {
 		/* array_init must be checked at last! otherwise the array must be freed if a later test fails. */
 		exif_discard_imageinfo(&ImageInfo);
 	   	if ( sections_str) efree(sections_str);
