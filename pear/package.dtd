@@ -43,7 +43,7 @@
 
 <!ELEMENT changelog (release)+>
 
-<!ELEMENT release (version|license|state|date|notes|filelist|deps|provides)+>
+<!ELEMENT release (version|license|state|date|notes|filelist|deps|provides|script)+>
 
 <!ELEMENT version (#PCDATA)>
 
