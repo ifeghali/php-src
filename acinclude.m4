@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.155 2002/01/27 03:37:02 markonen Exp $
+dnl $Id: acinclude.m4,v 1.156 2002/01/30 23:46:44 edink Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -517,7 +517,7 @@ AC_DEFUN(PHP_GEN_CONFIG_VARS,[
   echo creating config_vars.mk
   > config_vars.mk
   for i in $PHP_VAR_SUBST; do
-    eval echo "$i = \$$i" >> config_vars.mk
+    eval echo "$i = \$$i" | sed 's%#%\\#%g' >> config_vars.mk
   done
 ])
 
