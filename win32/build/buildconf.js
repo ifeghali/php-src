@@ -49,6 +49,13 @@ function find_config_w32(dirname)
 	}
 }
 
+if (FSO.FileExists("ZendEngine2\\OBJECTS2_HOWTO")) {
+	if (FSO.FolderExists("Zend")) {
+		FSO.MoveFolder("Zend", "ZendEngine1");
+	}
+	FSO.MoveFolder("ZendEngine2", "Zend");
+}
+
 // Write the head of the configure script
 C.WriteLine("/* This file automatically generated from win32/build/confutils.js */");
 C.Write(file_get_contents("win32/build/confutils.js"));
