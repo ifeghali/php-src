@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.235 2003/03/31 23:21:41 sniper Exp $
+dnl $Id: acinclude.m4,v 1.236 2003/04/01 08:05:01 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -583,7 +583,8 @@ AC_DEFUN([PHP_MODULE_PTR],[
 ])
  
 AC_DEFUN([PHP_CONFIG_NICE],[
-  rm -f $1
+  mv $1 $1.old
+  rm -f $1.old
   cat >$1<<EOF
 #! /bin/sh
 #
