@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: dba_cdb.c,v 1.27 2003/02/01 18:59:59 helly Exp $ */
+/* $Id: dba_cdb.c,v 1.28 2003/04/14 21:50:48 helly Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -163,7 +163,7 @@ DBA_FETCH_FUNC(cdb)
 			}
 		}
 		len = cdb_datalen(&cdb->c);
-		new_entry = emalloc(len+1);
+		new_entry = safe_emalloc(len, 1, 1);
 		
 		if (php_cdb_read(&cdb->c, new_entry, len, cdb_datapos(&cdb->c)) == -1) {
 			efree(new_entry);
@@ -268,7 +268,7 @@ DBA_FIRSTKEY_FUNC(cdb)
 	uint32_unpack(buf, &klen);
 	uint32_unpack(buf + 4, &dlen);
 
-	key = emalloc(klen + 1);
+	key = safe_emalloc(klen, 1, 1);
 	if (cdb_file_read(cdb->file, key, klen) < klen) {
 		efree(key);
 		key = NULL;
@@ -300,7 +300,7 @@ DBA_NEXTKEY_FUNC(cdb)
 	uint32_unpack(buf, &klen);
 	uint32_unpack(buf + 4, &dlen);
 	
-	key = emalloc(klen + 1);
+	key = safe_emalloc(klen, 1, 1);
 	if (cdb_file_read(cdb->file, key, klen) < klen) {
 		efree(key);
 		key = NULL;
