@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.173 2003/06/17 14:13:17 iliaa Exp $ */
+/* $Id: php_imap.c,v 1.174 2003/08/12 00:55:57 iliaa Exp $ */
 
 #define IMAP41
 
@@ -646,7 +646,7 @@ PHP_RSHUTDOWN_FUNCTION(imap)
 		if (EG(error_reporting) & E_NOTICE) {
 			ecur = IMAPG(imap_errorstack);
 			while (ecur != NIL) {
-				php_error_docref(NULL TSRMLS_CC, E_NOTICE, "%s (errflg=%d)", ecur->LTEXT, ecur->errflg);
+				php_error_docref(NULL TSRMLS_CC, E_NOTICE, "%s (errflg=%ld)", ecur->LTEXT, ecur->errflg);
 				ecur = ecur->next;
 			}
 		}
