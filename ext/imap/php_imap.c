@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.134 2002/08/05 21:53:09 kalowsky Exp $ */
+/* $Id: php_imap.c,v 1.135 2002/08/14 20:55:11 kalowsky Exp $ */
 
 #define IMAP41
 
@@ -584,6 +584,7 @@ PHP_MINIT_FUNCTION(imap)
 
     le_imap = zend_register_list_destructors_ex(mail_close_it, NULL, "imap", module_number);
 
+	return SUCCESS;
 }
 /* }}} */
 
