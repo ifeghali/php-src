@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: mbstring.h,v 1.45 2002/11/23 20:14:33 moriyoshi Exp $ */
+/* $Id: mbstring.h,v 1.46 2002/12/02 18:19:17 fmk Exp $ */
 
 /*
  * PHP4 Multibyte String module "mbstring" (currently only for Japanese)
@@ -51,7 +51,7 @@
 #define HAVE_MBSTRING 1
 #ifdef PHP_WIN32
 # undef HAVE_MBREGEX
-# define HAVE_MBREGEX 0
+# define HAVE_MBREGEX 1
 # undef HAVE_MBSTR_CN
 # define HAVE_MBSTR_CN 1
 # undef HAVE_MBSTR_JA
