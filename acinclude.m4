@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.190 2002/06/29 01:41:03 imajes Exp $
+dnl $Id: acinclude.m4,v 1.191 2002/06/29 01:58:07 imajes Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1183,7 +1183,7 @@ dnl ---------------------------------------------- Static module
 dnl ---------------------------------------------- Shared module
       PHP_ADD_SOURCES_X(PHP_EXT_DIR($1),$2,$ac_extra,shared_objects_$1,yes)
       PHP_SHARED_MODULE($1,shared_objects_$1, $ext_builddir)
-      AC_DEFINE_UNQUOTED([COMPILE_DL_]translit($1,a-z_-,A-Z__), 1, Whether to build $1 as dynamic module)
+      AC_DEFINE_UNQUOTED([COMPILE_DL_]translit($1,a-z_-,A-Z_-), 1, Whether to build $1 as dynamic module)
     fi
   fi
 
