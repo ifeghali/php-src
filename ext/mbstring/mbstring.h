@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: mbstring.h,v 1.14 2002/02/28 08:26:21 sebastian Exp $ */
+/* $Id: mbstring.h,v 1.15 2002/04/05 01:23:22 helly Exp $ */
 
 /*
  * PHP4 Multibyte String module "mbstring" (currently only for Japanese)
@@ -55,7 +55,9 @@
 
 #include "mbfilter.h"
 
-char * php_mb_convert_encoding(char *input, size_t length, char *_to_encoding, char *_from_encodings, size_t *output_len TSRMLS_DC);
+#define PHP_MBSTRING_API 20020405
+
+PHPAPI char * php_mb_convert_encoding(char *input, size_t length, char *_to_encoding, char *_from_encodings, size_t *output_len TSRMLS_DC);
 
 #if HAVE_MBREGEX
 #include "mbregex.h"
