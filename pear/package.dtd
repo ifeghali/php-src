@@ -44,13 +44,13 @@
 	%global.atts; 
 >
 <!--=============== ELEMENT: maintainer ====================================-->
-<!ELEMENT maintainer (initials, name, email)>
+<!ELEMENT maintainer (user, name, email)>
 <!ATTLIST maintainer
 	%global.atts; 
 >
-<!--=============== ELEMENT: initials ======================================-->
-<!ELEMENT initials (#PCDATA)>
-<!ATTLIST initials
+<!--=============== ELEMENT: user ==========================================-->
+<!ELEMENT user (#PCDATA)>
+<!ATTLIST user
 	%global.atts; 
 >
 <!--=============== ELEMENT: email =========================================-->
