@@ -157,12 +157,12 @@ function analyze_arg(argval)
 		argval = "yes";
 	} else if (argval == null) {
 		/* nothing */
-	} else if (args = argval.match(new RegExp("^shared,(.*)"))) {
+	} else if (arg_match = argval.match(new RegExp("^shared,(.*)"))) {
 		shared = true;
-		argval = args[1];
-	} else if (args = argval.match(new RegExp("(.*),shared$"))) {
+		argval = arg_match[1];
+	} else if (arg_match = argval.match(new RegExp("^(.*),shared$"))) {
 		shared = true;
-		argval = args[1];
+		argval = arg_match[1];
 	}
 
 	ret[0] = shared;
