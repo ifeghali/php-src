@@ -340,7 +340,10 @@ can be built that way. \
 	}
 
 	var snapshot_build_exclusions = new Array(
-		'debug', 'crt-debug', 'lzf-better-compression', 'php-build', 'snapshot-template'
+		'debug', 'crt-debug', 'lzf-better-compression',
+		 'php-build', 'snapshot-template',
+		 'pcre-regex', 'fastcgi', 'force-cgi-redirect',
+		 'path-info-check', 'zts', 'ipv6'
 		);
 
 	// Now set any defaults we might have missed out earlier
@@ -351,6 +354,37 @@ can be built that way. \
 		analyzed = analyze_arg(arg.defval);
 		shared = analyzed[0];
 		argval = analyzed[1];
+		
+		// Don't trust a default "yes" answer for a non-core module
+		// in a snapshot build
+		if (PHP_SNAPSHOT_BUILD != "no" && argval == "yes" && !shared) {
+			var force;
+
+			force = true;
+			for (j = 0; j < snapshot_build_exclusions.length; j++) {
+				if (snapshot_build_exclusions[j] == arg.optname) {
+					force = false;
+					break;
+				}
+			}
+
+			if (force) {
+				/* now check if it is a core module */
+				force = false;
+				for (j = 0; j < core_module_list.length; j++) {
+					if (core_module_list[j] == arg.optname) {
+						force = true;
+						break;
+					}
+				}
+
+				if (!force) {
+					STDOUT.WriteLine("snapshot: forcing " + arg.arg + " shared");
+					shared = true;
+				}
+			}
+		}
+		
 		if (PHP_SNAPSHOT_BUILD != "no" && argval == "no") {
 			var force;
 
@@ -362,7 +396,7 @@ can be built that way. \
 				}
 			}
 			if (force) {
-				STDOUT.WriteLine("snapshot: forcing " + arg.arg + " on");
+				STDOUT.WriteLine("snapshot: forcing " + arg.optname + " on");
 				argval = "yes";
 				shared = true;
 			}
