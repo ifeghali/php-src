@@ -2,6 +2,7 @@
 .deps
 .libs
 CVS_LOGIN_LINE
+Makefile
 Makefile.in
 aclocal.m4
 config.cache
@@ -10,4 +11,5 @@ config.status
 configure
 configure.scan
 libmysql.la
+my_config.h
 stamp-h
