@@ -23,7 +23,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.26 2000/05/18 15:34:26 zeev Exp $ */
+/* $Id: php_imap.c,v 1.27 2000/05/23 09:33:38 sas Exp $ */
 
 #define IMAP41
 
@@ -1809,7 +1809,7 @@ PHP_FUNCTION(imap_lsub_full)
 	}
 	mail_free_foblist (&IMAPG(imap_sfolder_objects));
 	efree(delim);
-	IMAPG(folderlist_style) = FLIST_ARRAY; // reset to default
+	IMAPG(folderlist_style) = FLIST_ARRAY; /* reset to default */
 }
 /* }}} */
 
