@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.113 2002/08/13 04:11:51 rasmus Exp $ */
+/* $Id: exif.c,v 1.114 2002/08/13 09:41:30 helly Exp $ */
 
 /*  ToDos
  *
@@ -109,7 +109,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.113 2002/08/13 04:11:51 rasmus Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.114 2002/08/13 09:41:30 helly Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -118,7 +118,7 @@ PHP_MINFO_FUNCTION(exif)
 	php_info_print_table_start();
 	php_info_print_table_row(2, "EXIF Support", "enabled");
 	php_info_print_table_row(2, "EXIF Version", EXIF_VERSION);
-	php_info_print_table_row(2, "Supported EXIF Version", "02200");
+	php_info_print_table_row(2, "Supported EXIF Version", "0220");
 	php_info_print_table_row(2, "Supported filetypes", "JPEG,TIFF");
 	php_info_print_table_end();
 }
