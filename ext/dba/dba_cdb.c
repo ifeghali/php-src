@@ -23,11 +23,11 @@
    | If you did not, or have any questions about PHP licensing, please    |
    | contact core@php.net.                                                |
    +----------------------------------------------------------------------+
-   | Authors: Sascha Schumann <sas@schell.de>                             |
+   | Authors: Sascha Schumann <sascha@schumann.cx>                        |
    +----------------------------------------------------------------------+
  */
 
-/* $Id: dba_cdb.c,v 1.3 2000/04/30 19:01:16 andi Exp $ */
+/* $Id: dba_cdb.c,v 1.4 2000/05/21 23:15:09 sterling Exp $ */
 
 #include "php.h"
 
