@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: servlet.java,v 1.18 2001/12/11 15:32:09 sebastian Exp $ */
+/* $Id: servlet.java,v 1.19 2002/02/27 07:29:18 sebastian Exp $ */
 
 package net.php;
 
@@ -107,6 +107,8 @@ public class servlet extends HttpServlet {
 
       else if (data.startsWith("Location: ")) {
         response.sendRedirect(data.substring(data.indexOf(" ") + 1));
+      } else if (data.startsWith("HTTP/1")) {
+      	return; // this one is added from servlet container (Tomcat 4.1), we have to check for others
       }
 
       else {
