@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.195 2002/07/05 06:42:31 sas Exp $
+dnl $Id: acinclude.m4,v 1.196 2002/07/05 19:06:53 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -255,7 +255,7 @@ AC_DEFUN(PHP_EVAL_LIBLINE,[
     case $ac_i in
     -l*)
       ac_ii=`echo $ac_i|cut -c 3-`
-      PHP_ADD_LIBRARY($ac_ii,,$2)
+      PHP_ADD_LIBRARY($ac_ii,1,$2)
     ;;
     -L*)
       ac_ii=`echo $ac_i|cut -c 3-`
