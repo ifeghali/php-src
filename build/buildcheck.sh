@@ -60,8 +60,9 @@ echo "buildconf: automake version $am_version (ok)"
 fi
 
 # libtool 1.4 or newer
-libtool=`which libtool`
-if test ! -f "$libtool"; then libtool=`which glibtool`; fi
+# Prefer glibtool over libtool for Mac OS X compatibility
+libtool=`which glibtool`
+if test ! -f "$libtool"; then libtool=`which libtool`; fi
 lt_pversion=`$libtool --version 2>/dev/null|sed -n -e 's/^[^0-9]*//' -e 1's/[- ].*//p'`
 if test "$lt_pversion" = ""; then
 echo "buildconf: libtool not found."
