@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: php_hyperwave.h,v 1.9 2000/07/24 01:39:47 david Exp $ */
+/* $Id: php_hyperwave.h,v 1.10 2000/10/27 09:29:39 steinm Exp $ */
 
 #ifndef PHP_HYPERWAVE_H
 #define PHP_HYPERWAVE_H
@@ -142,6 +142,7 @@ PHP_FUNCTION(hw_objrec2array);
 PHP_FUNCTION(hw_array2objrec);
 PHP_FUNCTION(hw_connection_info);
 PHP_FUNCTION(hw_getsrcbydestobj);
+PHP_FUNCTION(hw_insertanchors);
 PHP_FUNCTION(hw_getrellink);
 PHP_FUNCTION(hw_dummy);
 PHP_FUNCTION(hw_who);
