@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.230 2003/03/10 14:32:47 sniper Exp $
+dnl $Id: acinclude.m4,v 1.231 2003/03/12 02:26:46 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1439,6 +1439,20 @@ int main(void) {
   if test "$ac_cv_ebcdic" = "yes"; then
     AC_DEFINE(CHARSET_EBCDIC,1, [Define if system uses EBCDIC])
   fi
+])
+
+dnl Some systems, notably Solaris, cause getcwd() or realpath to fail if a
+dnl component of the path has execute but not read permissions
+AC_DEFUN([PHP_BROKEN_GETCWD],[
+  AC_MSG_CHECKING([for broken getcwd])
+  os=`uname -sr 2>/dev/null`
+  case $os in
+    SunOS*)
+	  AC_DEFINE(HAVE_BROKEN_GETCWD,1, [Define if system has broken getcwd])
+	  AC_MSG_RESULT([yes]);;
+	*)
+	  AC_MSG_RESULT([no]);;
+  esac
 ])
 
 AC_DEFUN([PHP_BROKEN_GLIBC_FOPEN_APPEND],[
