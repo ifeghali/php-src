@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.72 2002/12/27 23:05:13 iliaa Exp $ */
+/* $Id: php_apache.c,v 1.73 2002/12/31 15:59:02 sebastian Exp $ */
 
 #include "php_apache_http.h"
 
@@ -120,7 +120,7 @@ PHP_FUNCTION(apache_child_terminate)
 		ap_child_terminate( ((request_rec *)SG(server_context)) );
 		RETURN_TRUE;
 	} else { /* tell them to get lost! */
-		php_error_docref(NULL TSRMLS_CC, E_WARNING, "apache.child_terminate is disabled");
+		php_error_docref(NULL TSRMLS_CC, E_WARNING, "apache_child_terminate is disabled");
 		RETURN_FALSE;
 	}
 #else
