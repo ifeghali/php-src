@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: dba_cdb.c,v 1.21 2002/11/06 17:59:03 sas Exp $ */
+/* $Id: dba_cdb.c,v 1.22 2002/11/10 17:58:46 helly Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -29,7 +29,9 @@
 #include "php_cdb.h"
 
 #include <sys/types.h>
+#ifdef HAVE_UNISTD_H
 #include <unistd.h>
+#endif
 #include <fcntl.h>
 
 #if DBA_CDB_BUILTIN
