@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.277 2004/12/06 20:39:20 derick Exp $
+dnl $Id: acinclude.m4,v 1.278 2004/12/08 12:50:00 jorton Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1698,6 +1698,7 @@ AC_DEFUN([PHP_SETUP_ICONV], [
 
   echo > ext/iconv/php_have_libiconv.h
   echo > ext/iconv/php_have_iconv.h
+  echo > ext/iconv/php_php_iconv_impl.h
 
   dnl
   dnl Check libc first if no path is provided in --with-iconv
