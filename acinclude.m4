@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.106 2000/09/26 11:19:38 sas Exp $
+dnl $Id: acinclude.m4,v 1.107 2000/10/11 14:35:45 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -476,7 +476,7 @@ AC_DEFUN(AC_EXPAND_PATH,[
     $2="$1"
   else
     changequote({,})
-    ep_dir="`echo $1|sed 's%/*[^/][^/]*$%%'`"
+    ep_dir="`echo $1|sed 's%/*[^/][^/]*/*$%%'`"
     changequote([,])
     ep_realdir="`(cd \"$ep_dir\" && pwd)`"
     $2="$ep_realdir/`basename \"$1\"`"
