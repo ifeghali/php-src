@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
  
-/* $Id: php_msql.c,v 1.23 2000/10/20 18:25:05 andrei Exp $ */
+/* $Id: php_msql.c,v 1.24 2000/10/25 17:43:57 andrei Exp $ */
 
 #include "php.h"
 #include "php_msql.h"
@@ -404,6 +404,11 @@ DLEXPORT PHP_FUNCTION(msql_close)
 	
 	ZEND_FETCH_RESOURCE2(msql, int, &msql_link, id, "mSQL-Link", msql_globals.le_link, msql_globals.le_plink);
 	
+	zend_list_delete(Z_RESVAL_P(msql_link));
+	if (Z_RESVAL_P(mysql_link)==msql_globals.default_link) {
+		zend_list_delete(msql_globals.default_link);
+	}
+
 	zend_list_delete(id);
 	RETURN_TRUE;
 }
