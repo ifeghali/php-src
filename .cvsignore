@@ -15,3 +15,4 @@ php
 test.php3
 aclocal.m4
 configure.in
+acconfig.h
