@@ -5,7 +5,12 @@ Makefile
 .deps
 libs.mk
 *.plg
-Debug
-Debug_TS
+*.opt
+*.ncb
 Release
+Release_inline
+Debug
 Release_TS
+Release_TSDbg
+Release_TS_inline
+Debug_TS

@@ -1,6 +1,8 @@
 *.plg
 *.opt
 *.ncb
+*.suo
+ext
 Release
 Release_inline
 Debug

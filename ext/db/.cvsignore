@@ -4,3 +4,13 @@ Makefile
 .libs
 .deps
 libs.mk
+*.plg
+*.opt
+*.ncb
+Release
+Release_inline
+Debug
+Release_TS
+Release_TSDbg
+Release_TS_inline
+Debug_TS

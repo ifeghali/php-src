@@ -1,4 +1,8 @@
 Makefile
+Makefile.am
+.libs
+*.la
+*.lo
 .deps
 *.plg
 *.opt
