@@ -1,3 +1,5 @@
+*.lo
+*.la
 .deps
 *.plg
 *.opt
