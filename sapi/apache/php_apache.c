@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.9 2000/04/07 16:41:19 cmv Exp $ */
+/* $Id: php_apache.c,v 1.10 2000/04/07 16:46:59 cmv Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
@@ -41,7 +41,7 @@
 #include "http_request.h"
 #include "build-defs.h"
 
-#define SECTION(name)  PUTS("<hr><h2>" name "</h2>\n")
+#define SECTION(name)  PUTS("<H2>" name "</H2>\n")
 
 extern module *top_module;
 
@@ -204,7 +204,6 @@ PHP_MINFO_FUNCTION(apache)
 			*p='\0'; /* Cut off ugly .c extensions on module names */
 		}
 		strcpy(modulenames, name);
-		PUTS(name);
 		if (modp->next) {
 			strcpy(modulenames, ", ");
 		}
