@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
  
-/* $Id: php_msql.c,v 1.42 2001/09/09 13:28:57 derick Exp $ */
+/* $Id: php_msql.c,v 1.43 2001/09/25 21:58:04 jeroen Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -916,7 +916,7 @@ static void php_msql_fetch_hash(INTERNAL_FUNCTION_PARAMETERS, int result_type)
 				RETURN_FALSE;
 			}
 			convert_to_long(arg2);
-			result_type = arg2->value.lval;
+			result_type = Z_LVAL_P(arg2);
 			break;
 		default:
 			WRONG_PARAM_COUNT;
