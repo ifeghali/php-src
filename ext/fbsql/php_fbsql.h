@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: php_fbsql.h,v 1.1 2001/03/13 20:58:47 fmk Exp $ */
+/* $Id: php_fbsql.h,v 1.2 2001/04/04 20:10:14 fmk Exp $ */
 
 #define HAVE_FBSQL 1
 
@@ -67,6 +67,7 @@ PHP_FUNCTION(fbsql_num_rows);
 PHP_FUNCTION(fbsql_num_fields);
 PHP_FUNCTION(fbsql_fetch_row);
 PHP_FUNCTION(fbsql_fetch_array);
+PHP_FUNCTION(fbsql_fetch_assoc);
 PHP_FUNCTION(fbsql_fetch_object);
 PHP_FUNCTION(fbsql_data_seek);
 PHP_FUNCTION(fbsql_fetch_lengths);
@@ -87,6 +88,8 @@ PHP_FUNCTION(fbsql_database_password);
 PHP_FUNCTION(fbsql_username);
 PHP_FUNCTION(fbsql_password);
 PHP_FUNCTION(fbsql_warnings);
+
+static void php_fbsql_fetch_hash(INTERNAL_FUNCTION_PARAMETERS, int result_type);
 
 ZEND_BEGIN_MODULE_GLOBALS(fbsql)
    long allowPersistent;
