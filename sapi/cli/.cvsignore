@@ -2,6 +2,7 @@ Makefile
 *.la
 *.lo
 .deps
+.libs
 Release_TS_inline
 Release_TS
 Debug_TS
