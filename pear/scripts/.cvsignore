@@ -1,5 +1,7 @@
 .deps
-run-tests
 pear
 pearize
+php-config
+phpize
 phptar
+run-tests
