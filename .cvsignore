@@ -33,3 +33,4 @@ test.php3
 libs
 modules
 php-*.tar.gz
+want_dependencies
