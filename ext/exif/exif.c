@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.129 2002/12/14 19:53:20 helly Exp $ */
+/* $Id: exif.c,v 1.130 2002/12/15 18:49:07 helly Exp $ */
 
 /*  ToDos
  *
@@ -58,8 +58,10 @@
 #include "ext/standard/php_image.h"
 #include "ext/standard/info.h" 
 
-#if defined(HAVE_MBSTRING) && !defined(COMPILE_DL_MBSTRING)
+#if HAVE_MBSTRING
+#if !defined(COMPILE_DL_MBSTRING) 
 #define EXIF_USE_MBSTRING 1
+#endif
 #endif
 
 #ifdef EXIF_USE_MBSTRING
@@ -93,7 +95,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.129 2002/12/14 19:53:20 helly Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.130 2002/12/15 18:49:07 helly Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
