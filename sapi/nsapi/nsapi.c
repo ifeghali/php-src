@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: nsapi.c,v 1.61 2004/06/22 15:37:40 thetaphi Exp $ */
+/* $Id: nsapi.c,v 1.62 2004/06/23 13:02:01 thetaphi Exp $ */
 
 /*
  * PHP includes
@@ -310,7 +310,7 @@ PHP_MSHUTDOWN_FUNCTION(nsapi)
 PHP_MINFO_FUNCTION(nsapi)
 {
 	php_info_print_table_start();
-	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.61 $");
+	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.62 $");
 	php_info_print_table_row(2, "Server Software", system_version());
 	php_info_print_table_row(2, "Sub-requests with nsapi_virtual()",
 	 (nsapi_servact_service)?((zend_ini_long("zlib.output_compression", sizeof("zlib.output_compression"), 0))?"not supported with zlib.output_compression":"enabled"):"not supported on this platform" );
@@ -604,7 +604,7 @@ static void sapi_nsapi_register_server_variables(zval *track_vars_array TSRMLS_D
 		while (entry) {
 			if (!PG(safe_mode) || strncasecmp(entry->param->name, "authorization", 13)) {
 				if (strcasecmp(entry->param->name, "content-length")==0 || strcasecmp(entry->param->name, "content-type")==0) {
-					strncpy(buf, entry->param->name, NS_BUF_SIZE);
+					strlcpy(buf, entry->param->name, NS_BUF_SIZE);
 					pos = 0;
 				} else {
 					snprintf(buf, NS_BUF_SIZE, "HTTP_%s", entry->param->name);
@@ -672,8 +672,7 @@ static void sapi_nsapi_register_server_variables(zval *track_vars_array TSRMLS_D
 
 	/* Create full Request-URI & Script-Name */
 	if (SG(request_info).request_uri) {
-		strncpy(buf, SG(request_info).request_uri, NS_BUF_SIZE);
-		buf[NS_BUF_SIZE]='\0';
+		strlcpy(buf, SG(request_info).request_uri, NS_BUF_SIZE);
 		if (SG(request_info).query_string) {
 		  	p = strchr(buf, 0);
 			snprintf(p, NS_BUF_SIZE-(p-buf), "?%s", SG(request_info).query_string);
@@ -681,8 +680,7 @@ static void sapi_nsapi_register_server_variables(zval *track_vars_array TSRMLS_D
 		}
 		php_register_variable("REQUEST_URI", buf, track_vars_array TSRMLS_CC);
 
-		strncpy(buf, SG(request_info).request_uri, NS_BUF_SIZE);
-		buf[NS_BUF_SIZE]='\0';
+		strlcpy(buf, SG(request_info).request_uri, NS_BUF_SIZE);
 		if (rc->path_info) {
 			pos = strlen(SG(request_info).request_uri) - strlen(rc->path_info);
 			if (pos>=0 && pos<=NS_BUF_SIZE && rc->path_info) {
