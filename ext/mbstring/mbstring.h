@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: mbstring.h,v 1.56 2003/07/03 15:30:14 moriyoshi Exp $ */
+/* $Id: mbstring.h,v 1.57 2003/08/23 06:18:34 hirokawa Exp $ */
 
 /*
  * PHP4 Multibyte String module "mbstring" (currently only for Japanese)
@@ -66,7 +66,7 @@
 
 #if HAVE_MBSTRING
 
-#include "ext/mbstring/libmbfl/mbfl/mbfilter.h"
+#include "mbfilter.h"
 #include "SAPI.h"
 
 #define PHP_MBSTRING_API 20021024
