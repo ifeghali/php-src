@@ -34,7 +34,7 @@ top_builddir=`pwd`
 if test "$mkdir_p" = "yes"; then
   mkdir_p="mkdir -p"
 else
-  mkdir_p="$top_srcdir/helpers/mkdir.sh"
+  mkdir_p="$top_srcdir/build/shtool mkdir -p"
 fi
 
 if test "$bsd_makefile" = "yes"; then
