@@ -2,6 +2,5 @@ Makefile
 .libs
 *.lo
 *.la
-Makefile.am
 .deps
 libs.mk

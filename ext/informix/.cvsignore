@@ -3,6 +3,5 @@ ifx.c
 *.lo
 *.la
 .libs
-Makefile.am
 .deps
 libs.mk

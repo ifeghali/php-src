@@ -5,6 +5,5 @@ Makefile
 *.plg
 .libs
 net
-Makefile.am
 .deps
 libs.mk

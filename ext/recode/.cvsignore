@@ -1,5 +1,4 @@
 Makefile
-Makefile.am
 .deps
 libs.mk
 *.lo

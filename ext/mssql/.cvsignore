@@ -11,6 +11,5 @@ MSSQL_65_Debug
 MSSQL_65_Debug_TS
 MSSQL_70_Debug
 MSSQL_70_Debug_TS
-Makefile.am
 .deps
 libs.mk
