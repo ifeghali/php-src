@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.146 2002/11/30 21:49:20 fmk Exp $ */
+/* $Id: php_imap.c,v 1.147 2002/12/06 22:52:31 fmk Exp $ */
 
 #define IMAP41
 
@@ -3147,12 +3147,15 @@ int _php_imap_mail(char *to, char *subject, char *message, char *headers, char *
 	char *bufferTo = NULL, *bufferCc = NULL, *bufferBcc = NULL, *bufferHeader = NULL;
 	int offset, bufferLen = 0;;
 
-	if (headers)
+	if (headers) {
 		bufferLen += strlen(headers);
-	if (to)
+	}
+	if (to) {
 		bufferLen += strlen(to) + 6;
-	if (cc)
+	}
+	if (cc) {
 		bufferLen += strlen(cc) + 6;
+	}
 
 	bufferHeader = (char *)emalloc(bufferLen);
 	memset(bufferHeader, 0, bufferLen);
@@ -3222,8 +3225,9 @@ int _php_imap_mail(char *to, char *subject, char *message, char *headers, char *
 		}
 	}
 
-	if (headers && *headers)
+	if (headers && *headers) {
 		strcat(bufferHeader, headers);
+	}
 
 	if (TSendMail(INI_STR("SMTP"), &tsm_err, &tsm_errmsg, bufferHeader, subject, bufferTo, message, bufferCc, bufferBcc, rpath) != SUCCESS) {
 		if (tsm_errmsg) {
