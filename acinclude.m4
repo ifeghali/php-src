@@ -1,6 +1,35 @@
-dnl $Id: acinclude.m4,v 1.62 2000/02/12 15:13:44 sas Exp $
+dnl $Id: acinclude.m4,v 1.63 2000/02/29 13:02:29 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
+
+AC_DEFUN(PHP_TIME_R_TYPE,[
+AC_CACHE_CHECK(for time_r type, ac_cv_time_r_type,[
+AC_TRY_RUN([
+#include <time.h>
+
+main() {
+char buf[27];
+struct tm t;
+time_t old = 0;
+int r;
+
+gmtime_r(&old, &t);
+r = (int) asctime_r(&t, buf, 26);
+if (r == -1 || (r > 0 && r <= 26)) exit(0);
+exit(1);
+}
+],[
+  ac_cv_time_r_type=hpux
+],[
+  ac_cv_time_r_type=normal
+],[
+  ac_cv_time_r_type=normal
+])
+])
+if test "$ac_cv_time_r_type" = "hpux"; then
+  AC_DEFINE(PHP_HPUX_TIME_R,1,[Whether you have HP-SUX 10.x])
+fi
+])
 
 AC_DEFUN(PHP_SUBST,[
   PHP_VAR_SUBST="$PHP_VAR_SUBST $1"
