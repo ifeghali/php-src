@@ -27,3 +27,5 @@ libtool
 *.lo
 *.la
 .libs
+zend_config.h.in
+zend-scanner-cc.cc
