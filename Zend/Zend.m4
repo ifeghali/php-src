@@ -1,5 +1,5 @@
 dnl
-dnl $Id: Zend.m4,v 1.43 2003/10/07 22:39:54 rasmus Exp $
+dnl $Id: Zend.m4,v 1.44 2004/10/04 19:54:34 andi Exp $
 dnl
 dnl This file contains Zend specific autoconf functions.
 dnl
@@ -211,6 +211,13 @@ AC_C_INLINE
 
 AC_SUBST(INLINE_CFLAGS)
 
+AC_MSG_CHECKING(target system is Darwin)
+if echo "$target" | grep "darwin"; then
+  AC_DEFINE([DARWIN], 1, [Define if the target system is darwin])
+  AC_MSG_RESULT(yes)
+else
+  AC_MSG_RESULT(no)
+fi
 
 dnl test and set the alignment define for ZEND_MM
 dnl this also does the logarithmic test for ZEND_MM.
