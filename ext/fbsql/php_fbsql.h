@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: php_fbsql.h,v 1.16 2001/10/29 21:27:31 fmk Exp $ */
+/* $Id: php_fbsql.h,v 1.17 2001/12/11 15:29:13 sebastian Exp $ */
 
 #define HAVE_FBSQL 1
 
@@ -86,6 +86,8 @@ PHP_FUNCTION(fbsql_create_clob);
 PHP_FUNCTION(fbsql_set_lob_mode);
 PHP_FUNCTION(fbsql_read_blob);
 PHP_FUNCTION(fbsql_read_clob);
+PHP_FUNCTION(fbsql_blob_size);
+PHP_FUNCTION(fbsql_clob_size);
 
 PHP_FUNCTION(fbsql_hostname);
 PHP_FUNCTION(fbsql_database);
