@@ -5,6 +5,11 @@
 *.opt
 *.ncb
 *.dsw
+*.output
+*parser.c
+*parser.h
+*scanner.c
+*scanner.h
 Release
 Release_inline
 Debug
