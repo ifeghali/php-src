@@ -21,7 +21,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: ifx.ec,v 1.106 2004/06/01 00:44:19 abies Exp $ */
+/* $Id: ifx.ec,v 1.107 2004/06/01 00:49:59 abies Exp $ */
 
 /* -------------------------------------------------------------------
  * if you want a function reference : "grep '^\*\*' ifx.ec" will give
@@ -497,7 +497,7 @@ EXEC SQL END DECLARE SECTION;
 		int host_len = 0, user_len = 0, passwd_len = 0;
 		host = user = passwd = NULL;
 
-		/* set default values if any are avaliable */
+		/* set default values if any are available */
 		if (IFXG(default_host)) {
 			host = IFXG(default_host);
 			host_len = strlen(host);
