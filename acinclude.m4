@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.79 2000/05/04 16:08:10 sas Exp $
+dnl $Id: acinclude.m4,v 1.80 2000/05/07 05:32:54 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -426,8 +426,10 @@ dnl shared-libadd will be assigned the library information
 dnl
 AC_DEFUN(AC_ADD_LIBRARY_WITH_PATH,[
 ifelse($3,,[
-  AC_ADD_LIBPATH($2)
-  AC_ADD_LIBRARY($1)
+  if test -n "$2"; then
+    AC_ADD_LIBPATH($2)
+  fi
+  AC_ADD_LIBRARY($1,1)
 ],[
   if test "$ext_shared" = "yes"; then
     if test -n "$2"; then
@@ -435,8 +437,10 @@ ifelse($3,,[
     fi
     $3="[$]$3 -l$1"
   else
-   AC_ADD_LIBPATH($2)
-   AC_ADD_LIBRARY($1)
+    if test -n "$2"; then
+      AC_ADD_LIBPATH($2)
+	fi
+    AC_ADD_LIBRARY($1,1)
  fi
 ])
 ])
