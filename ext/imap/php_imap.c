@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.62 2001/03/01 07:06:54 chagenbu Exp $ */
+/* $Id: php_imap.c,v 1.63 2001/03/16 13:17:54 sniper Exp $ */
 
 #define IMAP41
 
@@ -428,29 +428,29 @@ PHP_MINIT_FUNCTION(imap)
 
 #if 1
 #ifndef PHP_WIN32
-	mail_link(&unixdriver);   /* link in the unix driver */
+	mail_link(&unixdriver);		/* link in the unix driver */
 #endif
-	mail_link(&imapdriver);      /* link in the imap driver */
-	mail_link(&nntpdriver);      /* link in the nntp driver */
-	mail_link(&pop3driver);      /* link in the pop3 driver */
+	mail_link(&imapdriver);		/* link in the imap driver */
+	mail_link(&nntpdriver);		/* link in the nntp driver */
+	mail_link(&pop3driver);		/* link in the pop3 driver */
 #ifndef PHP_WIN32
-	mail_link(&mhdriver);        /* link in the mh driver */
-	mail_link(&mxdriver);        /* link in the mx driver */
+	mail_link(&mhdriver);		/* link in the mh driver */
+	mail_link(&mxdriver);		/* link in the mx driver */
 #endif
-	mail_link(&mbxdriver);       /* link in the mbx driver */
-	mail_link(&tenexdriver);     /* link in the tenex driver */
-	mail_link(&mtxdriver);       /* link in the mtx driver */
+	mail_link(&mbxdriver);		/* link in the mbx driver */
+	mail_link(&tenexdriver);	/* link in the tenex driver */
+	mail_link(&mtxdriver);		/* link in the mtx driver */
 #ifndef PHP_WIN32
-	mail_link(&mmdfdriver);      /* link in the mmdf driver */
-	mail_link(&newsdriver);      /* link in the news driver */
-	mail_link(&philedriver);     /* link in the phile driver */
-	auth_link(&auth_log);        /* link in the log authenticator */
+	mail_link(&mmdfdriver);		/* link in the mmdf driver */
+	mail_link(&newsdriver);		/* link in the news driver */
+	mail_link(&philedriver);	/* link in the phile driver */
+	auth_link(&auth_log);		/* link in the log authenticator */
 #ifdef  HAVE_IMAP_SSL
 	ssl_onceonlyinit ();
-	auth_link (&auth_ssl);       /* link in the ssl authenticator */
+	auth_link (&auth_ssl);		/* link in the ssl authenticator */
 #endif
 #endif
-	mail_link(&dummydriver);     /* link in the dummy driver */
+	mail_link(&dummydriver);	/* link in the dummy driver */
 #else
 	/* link in the c-client mail and auth drivers */
 #include "linkage.c"
