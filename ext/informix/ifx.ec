@@ -21,7 +21,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: ifx.ec,v 1.88 2003/03/05 13:16:59 nobbie Exp $ */
+/* $Id: ifx.ec,v 1.89 2003/03/07 05:15:10 sniper Exp $ */
 
 /* -------------------------------------------------------------------
  * if you want a function reference : "grep '^\*\*' ifx.ec" will give
@@ -3242,7 +3242,7 @@ static long php_intifx_copy_blob(long bid, HashTable *list TSRMLS_DC)
 	if (Ifx_blob->BLOB.mode == BLMODE_INMEM) {
 		char *content;
 		if (locator_orig->loc_bufsize >= 0 && locator_orig->loc_buffer != NULL) {
-			if ((content = emalloc(locator_orig->loc_size)) == NULL) {
+			if ((content = emalloc(locator_orig->loc_bufsize)) == NULL) {
 				php_error_docref(NULL TSRMLS_CC, E_WARNING, "Can't create blob-resource");
 				return -1;
 			}
