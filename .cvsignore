@@ -54,3 +54,5 @@ results.txt
 _libs
 include
 autom4te.cache
+.FBCIndex
+.FBCLockFolder
