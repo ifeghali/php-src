@@ -12,35 +12,31 @@
    | obtain it through the world-wide-web, please send a note to          |
    | license@php.net so we can mail you a copy immediately.               |
    +----------------------------------------------------------------------+
-   | Authors: Andi Gutmans <andi@zend.com>                                |
-   |          Zeev Suraski <zeev@zend.com>                                |
+   | Authors: Jaakko Hyvätti <jaakko.hyvatti@iki.fi>                      |
    +----------------------------------------------------------------------+
  */
 
-
 /* $Id$ */
 
-#ifndef _INTERNAL_FUNCTIONS_REGISTRY_H
-#define _INTERNAL_FUNCTIONS_REGISTRY_H
+#include "php_config.h"
+#include <stdio.h>
+#include <stdarg.h>
 
-extern int php_init_mime(INIT_FUNC_ARGS);
+#if BROKEN_SPRINTF
 
-#if APACHE
-extern zend_module_entry apache_module_entry;
-#define phpext_apache_ptr &apache_module_entry
-extern void php_virtual(INTERNAL_FUNCTION_PARAMETERS);
-#else
-#define phpext_apache_ptr NULL
-#endif
+int
+php_sprintf (char*s, const char* format, ...)
+{
+  va_list args;
+  char *ret;
 
-/* environment functions */
-extern int php_init_environment(void);
+  va_start (args, format);
+  s[0] = '\0';
+  ret = vsprintf (s, format, args);
+  va_end (args);
+  if (!ret)
+    return -1;
+  return strlen (s);
+}
 
-#endif
-
-/*
- * Local variables:
- * tab-width: 4
- * c-basic-offset: 4
- * End:
- */
+#endif /* BROKEN_SPRINTF */
