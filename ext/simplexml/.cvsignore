@@ -1,0 +1,14 @@
+Makefile.global
+acinclude.m4
+aclocal.m4
+build
+config.guess
+config.h.in
+config.sub
+configure
+configure.in
+install-sh
+ltmain.sh
+missing
+mkinstalldirs
+scan_makefile_in.awk
