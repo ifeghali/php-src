@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.60 2002/03/12 16:43:29 helly Exp $ */
+/* $Id: exif.c,v 1.61 2002/03/13 00:21:51 helly Exp $ */
 
 /*	ToDos
  *
@@ -99,7 +99,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.3 $Id: exif.c,v 1.60 2002/03/12 16:43:29 helly Exp $"
+#define EXIF_VERSION "1.3 $Id: exif.c,v 1.61 2002/03/13 00:21:51 helly Exp $"
 
 PHP_MINFO_FUNCTION(exif);
 
@@ -3220,8 +3220,8 @@ PHP_FUNCTION(exif_thumbnail)
 PHP_FUNCTION(exif_imagetype)
 {
 	zval **arg1;
-	FILE *fp;
-	int issock=0, socketd=0, rsrc_id;
+	php_stream * stream;
+	int rsrc_id;
  	int itype = 0;
 
 	if (ZEND_NUM_ARGS() != 1)
@@ -3230,27 +3230,15 @@ PHP_FUNCTION(exif_imagetype)
 	if (zend_get_parameters_ex(1, &arg1) == FAILURE)
 		WRONG_PARAM_COUNT;
 
-	fp = php_fopen_wrapper(Z_STRVAL_PP(arg1), "rb", IGNORE_PATH|ENFORCE_SAFE_MODE, &issock, &socketd, NULL TSRMLS_CC);
+	stream = php_stream_open_wrapper(Z_STRVAL_PP(arg1), "rb", IGNORE_PATH|ENFORCE_SAFE_MODE|REPORT_ERRORS, NULL TSRMLS_CC);
 
-	if (!fp && !socketd) {
-		if (issock != BAD_URL) {
-			char *tmp = estrndup(Z_STRVAL_PP(arg1), Z_STRLEN_PP(arg1));
-			php_strip_url_passwd(tmp);
-			php_error(E_WARNING, "getimagetype: Unable to open '%s' for reading.", tmp);
-			efree(tmp);
-		}
+	if (stream == NULL)	{
 		RETURN_FALSE;
 	}
 
-	if (issock) {
-		int *sock=emalloc(sizeof(int));
-		*sock = socketd;
-		rsrc_id = ZEND_REGISTER_RESOURCE(NULL, sock, php_file_le_socket());
-	} else {
-		rsrc_id = ZEND_REGISTER_RESOURCE(NULL, fp, php_file_le_fopen());
-	}
+	rsrc_id = ZEND_REGISTER_RESOURCE(NULL, stream, php_file_le_stream());
 
-	itype = itype = php_getimagetype(socketd, fp, issock, NULL);
+	itype = itype = php_getimagetype(stream, NULL);
 
 	zend_list_delete(rsrc_id);
 
