@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.142 2001/09/06 20:55:22 sniper Exp $
+dnl $Id: acinclude.m4,v 1.143 2001/12/01 00:59:43 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -245,6 +245,8 @@ AC_DEFUN(PHP_MISSING_PREAD_DECL,[
       ],[
         ac_cv_pread=no
       ])
+    ],[
+      ac_cv_pread=no
     ])
   ])
   ])
@@ -279,6 +281,8 @@ AC_DEFUN(PHP_MISSING_PWRITE_DECL,[
       ],[
         ac_cv_pwrite=no
       ])
+    ],[
+      ac_cv_pwrite=no
     ])
   ])
   ])
