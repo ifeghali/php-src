@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.109 2000/10/14 22:13:18 sniper Exp $
+dnl $Id: acinclude.m4,v 1.110 2000/10/15 00:58:29 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -208,7 +208,7 @@ dnl Sets PHP_ARG_NAME either to the user value or to the default value.
 dnl default-val defaults to no. 
 dnl
 AC_DEFUN(PHP_ARG_WITH,[
-PHP_REAL_ARG_WITH([$1],[$2],[$3],[$4],PHP_[]translit($1,a-z-,A-Z_))
+PHP_REAL_ARG_WITH([$1],[$2],[$3],[$4],PHP_[]translit($1,a-z0-9-,A-Z0-9_))
 ])
 
 AC_DEFUN(PHP_REAL_ARG_WITH,[
