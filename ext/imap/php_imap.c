@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.156 2003/01/24 10:12:55 sniper Exp $ */
+/* $Id: php_imap.c,v 1.157 2003/01/30 02:33:14 iliaa Exp $ */
 
 #define IMAP41
 
@@ -2807,7 +2807,10 @@ PHP_FUNCTION(imap_mail_compose)
 	}
 
 	zend_hash_internal_pointer_reset(Z_ARRVAL_PP(body));
-	zend_hash_get_current_data(Z_ARRVAL_PP(body), (void **) &data);
+	if (zend_hash_get_current_data(Z_ARRVAL_PP(body), (void **) &data) != SUCCESS) {
+		php_error_docref(NULL TSRMLS_CC, E_WARNING, "body parameter cannot be empty");
+		RETURN_FALSE;
+	}
 	zend_hash_get_current_key(Z_ARRVAL_PP(body), &key, &ind, 0); /* FIXME: is this necessary?  we're not using key/ind */
 
 	if (Z_TYPE_PP(data) == IS_ARRAY) {
