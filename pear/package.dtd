@@ -68,7 +68,6 @@
                platform       CDATA              #IMPLIED
                md5sum         CDATA              #IMPLIED
                name           CDATA              #REQUIRED
-               replace        (yes|no)           'no'
                install-as     CDATA              #IMPLIED>
 
 <!ELEMENT replace EMPTY>
