@@ -32,3 +32,4 @@ test.php3
 .libs
 libs
 modules
+php-*.tar.gz
