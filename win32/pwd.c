@@ -15,7 +15,7 @@
    along with this program; if not, write to the Free Software
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
-   $Header: /repository/php4/win32/pwd.c,v 1.1.1.1 1999/04/07 21:05:12 zeev Exp $
+   $Header: /repository/php4/win32/pwd.c,v 1.2 1999/04/23 20:06:01 zeev Exp $
  */
 
 /* This 'implementation' is conjectured from the use of this functions in
@@ -57,14 +57,12 @@ char *getlogin()
 struct passwd *
  getpwuid(int uid)
 {
-	TLS_VARS;
+	pw.pw_name = getlogin();
+	pw.pw_dir = home_dir;
+	pw.pw_shell = login_shell;
+	pw.pw_uid = 0;
 
-	GLOBAL(pw).pw_name = getlogin();
-	GLOBAL(pw).pw_dir = home_dir;
-	GLOBAL(pw).pw_shell = login_shell;
-	GLOBAL(pw).pw_uid = 0;
-
-	return &GLOBAL(pw);
+	return &pw;
 }
 
 /*
