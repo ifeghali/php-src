@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.139 2001/08/21 11:02:42 sas Exp $
+dnl $Id: acinclude.m4,v 1.140 2001/08/21 11:03:45 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1122,3 +1122,22 @@ AC_DEFUN(PHP_FOPENCOOKIE,[
 
   	fi
 ])
+
+
+dnl
+dnl PHP_CHECK_LIBRARY(library, function [, action-found [, action-not-found [, extra-libs]]])
+dnl
+dnl Wrapper for AC_CHECK_LIB
+dnl
+AC_DEFUN(PHP_CHECK_LIBRARY, [
+  save_old_LDFLAGS=$LDFLAGS
+  LDFLAGS="$5 $LDFLAGS"
+  AC_CHECK_LIB([$1],[$2],[
+    LDFLAGS=$save_old_LDFLAGS
+    $3
+  ],[
+    LDFLAGS=$save_old_LDFLAGS
+    $4
+  ])dnl
+])
+
