@@ -5,10 +5,8 @@ aclocal.m4
 build-defs.h
 buildconf.stamp
 config.cache
-config.guess
 config.log
 config.status
-config.sub
 configuration-parser.c
 configuration-parser.h
 configuration-parser.output
@@ -17,8 +15,6 @@ configure
 install-sh
 internal_functions.c
 libtool
-ltconfig
-ltmain.sh
 missing
 mkinstalldirs
 php
