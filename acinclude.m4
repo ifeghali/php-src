@@ -1,11 +1,12 @@
-dnl $Id: acinclude.m4,v 1.88 2000/05/23 23:13:13 sas Exp $
+dnl $Id: acinclude.m4,v 1.89 2000/05/24 11:06:57 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
 sinclude(dynlib.m4)
 
 AC_DEFUN(PHP_READDIR_R_TYPE,[
-  AC_CHECK_FUNCS(readdir_r)
+  dnl HAVE_READDIR_R is also defined by libmysql
+  AC_CHECK_FUNC(readdir_r,ac_cv_func_readdir_r=yes,ac_cv_func_readdir=no)
   if test "$ac_cv_func_readdir_r" = "yes"; then
   AC_CACHE_CHECK(for type of readdir_r, ac_cv_what_readdir_r,[
     AC_TRY_RUN([
