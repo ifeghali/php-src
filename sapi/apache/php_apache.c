@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.42 2001/08/05 15:29:41 sas Exp $ */
+/* $Id: php_apache.c,v 1.43 2001/08/05 15:55:43 sas Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
@@ -182,7 +182,6 @@ PHP_MINFO_FUNCTION(apache)
 	extern char *user_name;
 	extern gid_t group_id;
 	extern int max_requests_per_child;
-	TSRMLS_FETCH();
 
 	serv = ((request_rec *) SG(server_context))->server;
 
