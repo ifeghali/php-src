@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.160 2003/02/16 03:48:44 wez Exp $ */
+/* $Id: php_imap.c,v 1.161 2003/03/31 20:36:46 moriyoshi Exp $ */
 
 #define IMAP41
 
@@ -3625,6 +3625,8 @@ static void _php_imap_parse_address (ADDRESS *addresslist, char **fulladdress, z
 		tmpstr[0] = '\0';
 		rfc822_write_address(tmpstr, addresstmp);
 		*fulladdress = tmpstr;
+	} else {
+		*fulladdress = NULL;
 	}
 	
 	addresstmp = addresslist;
