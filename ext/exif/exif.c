@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.52 2002/03/06 20:52:17 helly Exp $ */
+/* $Id: exif.c,v 1.55 2002/03/08 01:09:54 helly Exp $ */
 
 /*	ToDos
  *
@@ -2373,7 +2373,7 @@ PHP_FUNCTION(exif_read_data)
 		exif_iif_add_int( &ImageInfo, SECTION_COMPUTED, "Height", ImageInfo.Height);
 		exif_iif_add_int( &ImageInfo, SECTION_COMPUTED, "Width",  ImageInfo.Width);
 	}
-	exif_iif_add_tag( &ImageInfo, SECTION_COMPUTED, "IsColor", TAG_NONE, TAG_FMT_SLONG, 1, &ImageInfo.IsColor);
+	exif_iif_add_int( &ImageInfo, SECTION_COMPUTED, "IsColor", ImageInfo.IsColor);
 	if (ImageInfo.FocalLength) {
 		sprintf(tmp, "%4.1fmm", ImageInfo.FocalLength);
 		exif_iif_add_tag( &ImageInfo, SECTION_COMPUTED, "FocalLength", TAG_NONE, TAG_FMT_STRING, strlen(tmp), tmp);
