@@ -18,6 +18,9 @@
 * -----------------
 *
 * $Log$
+* Revision 1.2  1999/08/23 19:43:01  sas
+* malloc.h is deprecated, use stdlib.h instead
+*
 * Revision 1.1  1999/07/19 18:58:44  andrey
 * Moving dlist stuff into core.
 *
@@ -64,7 +67,7 @@
 #endif
 
 #include <stdio.h>
-#include <malloc.h>
+#include <stdlib.h>
 #include <signal.h>
 #include "dlist.h"
 
