@@ -13,7 +13,7 @@
    | license@php.net so we can mail you a copy immediately.               |
    +----------------------------------------------------------------------+
    | Authors: Danny Heijl  <Danny.Heijl@cevi.be> : initial cut (ODS 7.2x) |
-   |                                               PHP4 port              |
+   |                                               PHP 4 port             |
    |          Christian Cartus <chc@idgruppe.de> : blobs, and IUS 9       |
    |          Jouni Ahto <jouni.ahto@exdec.fi>   : configuration stuff    |
    |          Corne' Cornelius <cornec@reach.co.za> : input descriptors   |
@@ -21,7 +21,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: ifx.ec,v 1.99 2004/01/08 17:32:12 sniper Exp $ */
+/* $Id: ifx.ec,v 1.100 2004/01/09 14:13:45 edink Exp $ */
 
 /* -------------------------------------------------------------------
  * if you want a function reference : "grep '^\*\*' ifx.ec" will give

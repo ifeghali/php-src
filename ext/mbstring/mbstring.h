@@ -16,10 +16,10 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: mbstring.h,v 1.62 2003/12/02 08:54:39 wez Exp $ */
+/* $Id: mbstring.h,v 1.63 2004/01/08 17:32:21 sniper Exp $ */
 
 /*
- * PHP4 Multibyte String module "mbstring" (currently only for Japanese)
+ * PHP 4 Multibyte String module "mbstring" (currently only for Japanese)
  *
  * History:
  *   2000.5.19  Release php-4.0RC2_jstring-1.0
