@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.158 2003/02/03 21:24:32 iliaa Exp $ */
+/* $Id: php_imap.c,v 1.159 2003/02/11 22:57:22 iliaa Exp $ */
 
 #define IMAP41
 
@@ -50,7 +50,7 @@
 #include <signal.h>
 
 #ifdef PHP_WIN32
-#include <winsock.h>
+#include <winsock2.h>
 #include <stdlib.h>
 #include "win32/sendmail.h"
 MAILSTREAM DEFAULTPROTO;
