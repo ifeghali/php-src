@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.115 2002/05/13 00:29:22 jon Exp $ */
+/* $Id: php_imap.c,v 1.116 2002/05/29 08:40:43 derick Exp $ */
 
 #define IMAP41
 
@@ -2862,6 +2862,9 @@ PHP_FUNCTION(imap_fetch_overview)
 				}
 				if (env->references) {
 					add_property_string(myoverview, "references", env->references, 1);
+				}
+				if (env->in_reply_to) {
+					add_property_string(myoverview, "in_reply_to", env->in_reply_to, 1);
 				}
 				add_property_long(myoverview, "size", elt->rfc822_size);
 				add_property_long(myoverview, "uid", mail_uid(imap_le_struct->imap_stream, i));
