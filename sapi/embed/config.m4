@@ -1,11 +1,11 @@
 dnl
-dnl $Id: config.m4,v 1.6 2002/10/14 09:05:28 edink Exp $
+dnl $Id: config.m4,v 1.7 2002/10/14 22:18:35 edink Exp $
 dnl
 
 AC_MSG_CHECKING(for embedded SAPI library support)
 
 AC_ARG_ENABLE(embed,
-[  --enable-embed[=TYPE]   Enable building of embedded SAPI library
+[  --enable-embed[=TYPE]   EXPERIMENTAL: Enable building of embedded SAPI library
                           TYPE is either 'shared' or 'static'. [TYPE=shared]],
 [ 
   case $enableval in
