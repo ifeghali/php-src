@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.161 2003/03/31 20:36:46 moriyoshi Exp $ */
+/* $Id: php_imap.c,v 1.162 2003/04/16 00:58:30 iliaa Exp $ */
 
 #define IMAP41
 
@@ -386,7 +386,7 @@ static void php_imap_init_globals(zend_imap_globals *imap_globals)
 
 	imap_globals->folderlist_style = FLIST_ARRAY;
 #if defined(HAVE_IMAP2000) || defined(HAVE_IMAP2001)
-	imap_globals->quota_return = NULL;
+	imap_globals->quota_return = NIL;
 #endif
 }
 /* }}} */
