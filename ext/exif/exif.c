@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.118 2002/11/08 01:08:01 iliaa Exp $ */
+/* $Id: exif.c,v 1.119 2002/11/14 21:43:00 helly Exp $ */
 
 /*  ToDos
  *
@@ -109,7 +109,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.118 2002/11/08 01:08:01 iliaa Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.119 2002/11/14 21:43:00 helly Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -3971,7 +3971,7 @@ PHP_FUNCTION(exif_read_data)
 	add_assoc_image_info(return_value, sub_arrays, &ImageInfo, SECTION_ANY_TAG    TSRMLS_CC);
 	add_assoc_image_info(return_value, sub_arrays, &ImageInfo, SECTION_IFD0       TSRMLS_CC);
 	add_assoc_image_info(return_value, 1,          &ImageInfo, SECTION_THUMBNAIL  TSRMLS_CC);
-	add_assoc_image_info(return_value, sub_arrays, &ImageInfo, SECTION_COMMENT    TSRMLS_CC);
+	add_assoc_image_info(return_value, 1,          &ImageInfo, SECTION_COMMENT    TSRMLS_CC);
 	add_assoc_image_info(return_value, sub_arrays, &ImageInfo, SECTION_EXIF       TSRMLS_CC);
 	add_assoc_image_info(return_value, sub_arrays, &ImageInfo, SECTION_GPS        TSRMLS_CC);
 	add_assoc_image_info(return_value, sub_arrays, &ImageInfo, SECTION_INTEROP    TSRMLS_CC);
