@@ -5,3 +5,4 @@ ifx.c
 .libs
 Makefile.am
 .deps
+libs.mk

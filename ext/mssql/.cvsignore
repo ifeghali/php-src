@@ -13,3 +13,4 @@ MSSQL_70_Debug
 MSSQL_70_Debug_TS
 Makefile.am
 .deps
+libs.mk

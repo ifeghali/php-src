@@ -7,3 +7,4 @@ parsedate.output
 .libs
 Makefile.am
 .deps
+libs.mk

@@ -6,3 +6,4 @@ number.c
 .libs
 Makefile.am
 .deps
+libs.mk

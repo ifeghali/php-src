@@ -4,3 +4,4 @@ Makefile
 .libs
 Makefile.am
 .deps
+libs.mk
