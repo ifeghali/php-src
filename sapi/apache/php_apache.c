@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.45 2001/08/14 17:05:53 dbeu Exp $ */
+/* $Id: php_apache.c,v 1.46 2001/09/09 13:29:29 derick Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
@@ -68,6 +68,7 @@ PHP_FUNCTION(apachelog);
 PHP_FUNCTION(apache_note);
 PHP_FUNCTION(apache_lookup_uri);
 PHP_FUNCTION(apache_child_terminate);
+PHP_FUNCTION(apache_setenv);
 
 PHP_MINFO_FUNCTION(apache);
 
@@ -77,6 +78,7 @@ function_entry apache_functions[] = {
 	PHP_FE(apache_note,								NULL)
 	PHP_FE(apache_lookup_uri,						NULL)
 	PHP_FE(apache_child_terminate,					NULL)
+	PHP_FE(apache_setenv,							NULL)
 	{NULL, NULL, NULL}
 };
 
@@ -354,6 +356,28 @@ PHP_FUNCTION(getallheaders)
 			RETURN_FALSE;
 		}
     }
+}
+/* }}} */
+
+/* {{{ proto int apache_setenv(string variable, string value [, boolean walk_to_top])
+   Set an Apache subprocess_env variable */
+PHP_FUNCTION(apache_setenv)
+{
+	int var_len, val_len, top=0;
+	char *var = NULL, *val = NULL;
+	request_rec *r = (request_rec *) SG(server_context);
+
+    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "ss|b", &var, &var_len, &val, &val_len, &top) == FAILURE) {
+        RETURN_FALSE;
+	}
+
+	while(top) {
+		if(r->prev) r = r->prev;
+		else break;
+	}
+
+	ap_table_setn(r->subprocess_env, ap_pstrndup(r->pool, var, var_len), ap_pstrndup(r->pool, val, val_len));
+	RETURN_TRUE;
 }
 /* }}} */
 
