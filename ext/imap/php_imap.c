@@ -22,7 +22,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.4 2000/04/03 19:00:34 zeev Exp $ */
+/* $Id: php_imap.c,v 1.5 2000/04/04 00:51:38 chagenbu Exp $ */
 
 #define IMAP41
 
@@ -1566,7 +1566,9 @@ PHP_FUNCTION(imap_headerinfo)
 	
 	if (!msgno->value.lval || msgno->value.lval < 1 || (unsigned) msgno->value.lval > imap_le_struct->imap_stream->nmsgs) {
 		php_error(E_WARNING, "Bad message number");
+		RETURN_FALSE;
 	}
+	
 	if (mail_fetchstructure(imap_le_struct->imap_stream, msgno->value.lval, NIL)) {
 		cache = mail_elt(imap_le_struct->imap_stream, msgno->value.lval);
 	} else {
