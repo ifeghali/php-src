@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.91 2000/05/31 20:30:16 sas Exp $
+dnl $Id: acinclude.m4,v 1.92 2000/05/31 20:44:04 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -151,7 +151,7 @@ no)
   ;;
 esac
 
-if test "$php_always_shared"; then
+if test "$php_always_shared" = "yes"; then
   ext_output="yes, shared"
   ext_shared=yes
   test "[$]$1" = "no" && $1=yes
