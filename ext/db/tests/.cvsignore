@@ -1,8 +1,0 @@
-phpt.*
-*.diff
-*.log
-*.exp
-*.out
-*.php
-test.dbm
-test.dbm.lck
