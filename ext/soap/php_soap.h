@@ -17,7 +17,7 @@
   |          Dmitry Stogov <dmitry@zend.com>                             |
   +----------------------------------------------------------------------+
 */
-/* $Id: php_soap.h,v 1.29 2004/02/11 13:53:48 dmitry Exp $ */
+/* $Id: php_soap.h,v 1.30 2004/02/13 11:03:58 dmitry Exp $ */
 
 #ifndef PHP_SOAP_H
 #define PHP_SOAP_H
@@ -137,6 +137,10 @@ struct _soapService {
 #define SOAP_1_2_ACTOR_NEXT             "http://www.w3.org/2003/05/soap-envelope/role/next"
 #define SOAP_1_2_ACTOR_NONE             "http://www.w3.org/2003/05/soap-envelope/role/none"
 #define SOAP_1_2_ACTOR_UNLIMATERECEIVER "http://www.w3.org/2003/05/soap-envelope/role/ultimateReceiver"
+
+#define SOAP_COMPRESSION_ACCEPT  0x20
+#define SOAP_COMPRESSION_GZIP    0x00
+#define SOAP_COMPRESSION_DEFLATE 0x10
 
 ZEND_BEGIN_MODULE_GLOBALS(soap)
 	HashTable  defEncNs;     /* mapping of default namespaces to prefixes */
