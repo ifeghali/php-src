@@ -1,5 +1,5 @@
 dnl
-dnl $Id: Zend.m4,v 1.30 2001/12/11 09:10:52 sniper Exp $
+dnl $Id: Zend.m4,v 1.29 2001/12/11 09:17:38 sebastian Exp $
 dnl
 dnl This file contains Zend specific autoconf functions.
 dnl
@@ -127,11 +127,11 @@ AC_ARG_ENABLE(experimental-zts,
 ])  
 
 AC_ARG_ENABLE(inline-optimization,
-[  --enable-inline-optimization   If you have much memory and are using
-                                 gcc, you might try this.],[
+[  --disable-inline-optimization If building zend_execute.lo fails, try
+                                this switch.],[
   ZEND_INLINE_OPTIMIZATION=$enableval
 ],[
-  ZEND_INLINE_OPTIMIZATION=no
+  ZEND_INLINE_OPTIMIZATION=yes
 ])
 
 AC_ARG_ENABLE(memory-limit,
