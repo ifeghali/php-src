@@ -25,3 +25,4 @@ Release_TS
 Release_TSDbg
 Release_TS_inline
 Debug_TS
+config.w32.h
