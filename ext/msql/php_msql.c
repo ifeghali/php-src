@@ -16,10 +16,10 @@
    +----------------------------------------------------------------------+
  */
  
-/* $Id: php_msql.c,v 1.13 2000/04/06 21:07:39 cmv Exp $ */
+/* $Id: php_msql.c,v 1.14 2000/05/02 00:30:27 sas Exp $ */
 
 #include "php.h"
-#if COMPILE_DL
+#if defined(COMPILE_DL) || defined(COMPILE_DL_MSQL)
 #include "dl/phpdl.h"
 #include "functions/dl.h"
 #endif
@@ -107,7 +107,7 @@ zend_module_entry msql_module_entry = {
 };
 
 
-#if COMPILE_DL
+#if defined(COMPILE_DL) || defined(COMPILE_DL_MSQL)
 ZEND_GET_MODULE(msql)
 #endif
 
