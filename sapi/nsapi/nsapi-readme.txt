@@ -37,7 +37,7 @@ The "shlib" will vary depending on your OS:
 	Windows: "c:/path/to/php5/php5nsapi.dll"
 
 
-In obj.conf (for virtual server classes [SunONE 6.0] in their vserver.obj.conf):
+In obj.conf (for virtual server classes [SunONE 6.0+] in their vserver.obj.conf):
 
     <Object name="default">
     .
@@ -133,7 +133,7 @@ is disabled.
 
 Under Windows limitations in the DLL handling need the use of a automatic
 detection of the most recent ns-httpdXX.dll file. This is tested for servers
-till version 6.0. If a newer version of the SunONE server is used, the detection
+till version 6.1. If a newer version of the SunONE server is used, the detection
 fails and nsapi_virtual() is disabled.
 
 If this is the case, try the following:
@@ -147,4 +147,4 @@ for the correct DLL name. The DLL with the biggest filesize is the right one.
 But be warned: SUPPORT FOR nsapi_virtual() IS EXPERIMENTAL !!!
 
 
-$Id: nsapi-readme.txt,v 1.9 2003/07/24 17:46:36 thetaphi Exp $
+$Id: nsapi-readme.txt,v 1.10 2003/08/04 12:46:03 thetaphi Exp $
