@@ -1,4 +1,3 @@
-Makefile
 .deps
 phpize
 run-tests

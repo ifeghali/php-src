@@ -1,4 +1,3 @@
-Makefile
 ifx.c
 *.lo
 *.la

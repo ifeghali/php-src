@@ -1,5 +1,4 @@
 .deps
-Makefile
 *.lo
 *.la
 *.plg

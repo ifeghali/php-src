@@ -1,7 +1,6 @@
 parsedate.c
 parsedate.h
 parsedate.output
-Makefile
 *.lo
 *.la
 .deps

@@ -1,7 +1,6 @@
 *.lo
 .deps
 CVS_LOGIN_LINE
-Makefile
 aclocal.m4
 config.cache
 config.log
