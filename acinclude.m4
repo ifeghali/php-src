@@ -1,6 +1,16 @@
-dnl $Id: acinclude.m4,v 1.38 1999/11/13 13:27:48 sas Exp $
+dnl $Id: acinclude.m4,v 1.39 1999/11/13 16:51:30 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
+
+dnl
+dnl PHP_SET_SYM_FILE(path)
+dnl
+dnl set the path of the file which contains the symbol export list
+dnl
+AC_DEFUN(PHP_SET_SYM_FILE,
+[
+  PHP_SYM_FILE="$1"
+])
 
 dnl
 dnl PHP_BUILD_SHARED
