@@ -4,3 +4,4 @@ phpize
 run-tests
 php-config
 pear
+pearize
