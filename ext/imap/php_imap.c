@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.100 2001/08/13 16:13:16 andi Exp $ */
+/* $Id: php_imap.c,v 1.101 2001/08/16 20:13:26 chagenbu Exp $ */
 
 #define IMAP41
 
@@ -4137,6 +4137,6 @@ void mm_fatal(char *str)
  * tab-width: 4
  * c-basic-offset: 4
  * End:
- * vim600: sw=4 ts=4 tw=78 fdm=marker
- * vim<600: sw=4 ts=4 tw=78
+ * vim600: sw=4 ts=4 fdm=marker
+ * vim<600: sw=4 ts=4
  */

@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.44 2001/08/05 16:43:57 sas Exp $ */
+/* $Id: php_apache.c,v 1.45 2001/08/14 17:05:53 dbeu Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
@@ -458,6 +458,6 @@ PHP_FUNCTION(apache_exec_uri)
  * tab-width: 4
  * c-basic-offset: 4
  * End:
- * vim600: sw=4 ts=4 tw=78 fdm=marker
- * vim<600: sw=4 ts=4 tw=78
+ * vim600: sw=4 ts=4 fdm=marker
+ * vim<600: sw=4 ts=4
  */
