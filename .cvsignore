@@ -1,0 +1,9 @@
+configure
+config.log
+config.h
+config.cache
+config.status
+Makefile
+build-defs.h
+stamp-h
+libphp3.module
