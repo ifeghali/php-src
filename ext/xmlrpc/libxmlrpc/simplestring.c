@@ -45,6 +45,9 @@ static const char rcsid[] = "#(@) $Id$";
  *   06/2000
  * HISTORY
  *   $Log$
+ *   Revision 1.4  2003/12/16 21:00:21  sniper
+ *   Fix some compile warnings (patch by Joe Orton)
+ *
  *   Revision 1.3  2002/08/22 01:25:50  sniper
  *   kill some compile warnings
  *
@@ -79,6 +82,7 @@ static const char rcsid[] = "#(@) $Id$";
  ******/
 
 #include <stdlib.h>
+#include <string.h>
 #include "simplestring.h"
 
 #define my_free(thing)  if(thing) {free(thing); thing = 0;}
