@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: php_ii.h,v 1.1 2000/07/17 21:29:29 henot Exp $ */
+/* $Id: php_ii.h,v 1.2 2000/07/17 23:21:41 henot Exp $ */
 
 #ifndef PHP_II_H
 #define PHP_II_H
@@ -55,6 +55,7 @@ PHP_FUNCTION(ii_fetch_row);
 PHP_FUNCTION(ii_fetch_object);
 PHP_FUNCTION(ii_rollback);
 PHP_FUNCTION(ii_commit);
+PHP_FUNCTION(ii_autocommit);
 
 ZEND_BEGIN_MODULE_GLOBALS(ii)
 	long allow_persistent;
