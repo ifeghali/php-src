@@ -3,5 +3,4 @@ Makefile
 phpize
 run-tests
 php-config
-pear
 test.php
