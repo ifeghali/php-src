@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.159 2003/02/11 22:57:22 iliaa Exp $ */
+/* $Id: php_imap.c,v 1.160 2003/02/16 03:48:44 wez Exp $ */
 
 #define IMAP41
 
@@ -1981,8 +1981,8 @@ PHP_FUNCTION(imap_rfc822_parse_adrlist)
 }
 /* }}} */
 
-/* {{{ proto string imap_utf8(string string)
-   Convert a string to UTF-8 */
+/* {{{ proto string imap_utf8(string mime_encoded_text)
+   Convert a mime-encoded text to UTF-8 */
 PHP_FUNCTION(imap_utf8)
 {
 	zval **str;
