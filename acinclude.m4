@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.108 2000/10/12 23:17:21 sas Exp $
+dnl $Id: acinclude.m4,v 1.109 2000/10/14 22:13:18 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -51,9 +51,13 @@ AC_DEFUN(PHP_READDIR_R_TYPE,[
 #include <sys/types.h>
 #include <dirent.h>
 
+#ifndef PATH_MAX
+#define PATH_MAX 1024
+#endif
+
 main() {
 	DIR *dir;
-	char entry[sizeof(struct dirent)+300];
+	char entry[sizeof(struct dirent)+PATH_MAX];
 	struct dirent *pentry = (struct dirent *) &entry;
 
 	dir = opendir("/");
