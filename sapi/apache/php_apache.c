@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.50 2001/10/09 09:41:10 derick Exp $ */
+/* $Id: php_apache.c,v 1.51 2001/10/12 07:50:52 thies Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
@@ -278,7 +278,7 @@ PHP_MINFO_FUNCTION(apache)
 		env_arr = table_elts(r->headers_in);
 		env = (table_entry *)env_arr->elts;
 		for (i = 0; i < env_arr->nelts; ++i) {
-			if (env[i].key) {
+			if (env[i].key && (!PG(safe_mode) || (PG(safe_mode) && strncasecmp(env[i].key, "authorization", 13)))) {
 				php_info_print_table_row(2, env[i].key, env[i].val);
 			}
 		}
