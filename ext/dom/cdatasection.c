@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: cdatasection.c,v 1.5 2003/10/26 15:57:01 rrichards Exp $ */
+/* $Id: cdatasection.c,v 1.6 2004/01/08 08:15:16 andi Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -40,7 +40,7 @@ zend_function_entry php_dom_cdatasection_class_functions[] = {
 	{NULL, NULL, NULL}
 };
 
-/* {{{ proto domnode dom_cdatasection_cdatasection([string value]); */
+/* {{{ proto domnode dom_cdatasection_cdatasection(string value); */
 PHP_FUNCTION(dom_cdatasection_cdatasection)
 {
 
@@ -50,12 +50,9 @@ PHP_FUNCTION(dom_cdatasection_cdatasection)
 	char *value = NULL;
 	int value_len;
 
-	id = getThis();
-	
-	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &value, &value_len) == FAILURE) {
+	if (zend_parse_method_parameters(ZEND_NUM_ARGS() TSRMLS_CC, getThis(), "Os", &id, dom_cdatasection_class_entry, &value, &value_len) == FAILURE) {
 		return;
 	}
-
 
 	nodep = xmlNewCDataBlock(NULL, (xmlChar *) value, value_len);
 
