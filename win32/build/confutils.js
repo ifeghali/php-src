@@ -917,6 +917,15 @@ function SAPI(sapiname, file_list, makefiletarget, cflags)
 	MFO.WriteBlankLines(1);
 }
 
+function ADD_DIST_FILE(filename)
+{
+	if (configure_module_dirname.match("pecl")) {
+		ADD_FLAG("PECL_EXTRA_DIST_FILES", filename);
+	} else {
+		ADD_FLAG("PHP_EXTRA_DIST_FILES", filename);
+	}
+}	
+
 function file_get_contents(filename)
 {
 	var f, c;
