@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.128 2001/05/20 21:07:23 sas Exp $
+dnl $Id: acinclude.m4,v 1.129 2001/05/20 21:29:55 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -363,7 +363,6 @@ main() {
   hpux) AC_DEFINE(PHP_HPUX_TIME_R,1,[Whether you have HP-UX 10.x]) ;;
   irix) AC_DEFINE(PHP_IRIX_TIME_R,1,[Whether you have IRIX-style functions]) ;;
   esac
-fi
 ])
 
 AC_DEFUN(PHP_SUBST,[
