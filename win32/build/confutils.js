@@ -541,7 +541,7 @@ function generate_version_info_resource(makefiletarget, creditspath)
 	var res_desc = "PHP " + makefiletarget;
 	var res_prod_name = res_desc;
 	var credits;
-	var thanks = null;
+	var thanks = "";
 	var logo = "";
 
 	if (FSO.FileExists(creditspath + '/CREDITS')) {
