@@ -54,12 +54,15 @@
 <!ELEMENT filelist (dir|file|libfile)*>
 
 <!ELEMENT dir (file|libfile)*>
+<!ATTLIST dir name           CDATA #REQUIRED
+              baseinstalldir CDATA #IMPLIED>
 
 <!ELEMENT file (#PCDATA)>
-<!ATTLIST file role     (php|ext|test|doc) 'php'
-               debug    (na|on|off)        'na'
-               threaded (na|on|off)        'na'
-               format   CDATA              #IMPLIED>
+<!ATTLIST file role           (php|ext|test|doc) 'php'
+               debug          (na|on|off)        'na'
+               threaded       (na|on|off)        'na'
+               format         CDATA              #IMPLIED
+               baseinstalldir CDATA              #IMPLIED>
 
 <!ELEMENT libfile (libname|sources|includes|libadd)*>
 
