@@ -1,14 +1,8 @@
-dnl ## $Id: config.m4,v 1.8 2000/04/15 17:41:02 sas Exp $ -*- sh -*-
-
-AC_ARG_WITH(aolserver-src,
-[  --with-aolserver-src=DIR         Specify path to the source distribution of 
-                                   AOLserver],[
-  PHP_AOLSERVER_SRC=$withval
-])
+dnl ## $Id: config.m4,v 1.9 2000/05/18 13:10:13 sas Exp $ -*- sh -*-
 
 AC_MSG_CHECKING(for AOLserver support)
 AC_ARG_WITH(aolserver,
-[  --with-aolserver=DIR             Specify path to the installed AOLserver],[
+[  --with-aolserver=DIR    Specify path to the installed AOLserver],[
   PHP_AOLSERVER=$withval
 ],[
   PHP_AOLSERVER=no
