@@ -13,3 +13,4 @@ php_config.h.in
 libs
 .deps
 config.nice
+stamp-h
