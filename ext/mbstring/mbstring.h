@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: mbstring.h,v 1.19 2002/04/15 23:03:48 fmk Exp $ */
+/* $Id: mbstring.h,v 1.20 2002/04/26 10:13:45 sas Exp $ */
 
 /*
  * PHP4 Multibyte String module "mbstring" (currently only for Japanese)
@@ -129,6 +129,10 @@ ZEND_BEGIN_MODULE_GLOBALS(mbstring)
 	int current_language;
 	int internal_encoding;
 	int current_internal_encoding;
+#ifdef ZEND_MULTIBYTE
+	int *script_encoding_list;
+	int script_encoding_list_size;
+#endif /* ZEND_MULTIBYTE */
 	int http_output_encoding;
 	int current_http_output_encoding;
 	int http_input_identify;
@@ -176,6 +180,16 @@ struct mb_overload_def {
 #else
 #define MBSTRG(v) (mbstring_globals.v)
 #endif
+
+#ifdef ZEND_MULTIBYTE
+PHPAPI int php_mbstring_set_zend_encoding(TSRMLS_D);
+char* php_mbstring_encoding_detector(char *string, int length, char *list
+		TSRMLS_DC);
+int php_mbstring_encoding_converter(char **to, int *to_length, char *from,
+		int from_length, const char *encoding_to, const char *encoding_from
+		TSRMLS_DC);
+int php_mbstring_oddlen(char *string, int length, const char *encoding TSRMLS_DC);
+#endif /* ZEND_MULTIBYTE */
 
 #else	/* HAVE_MBSTRING */
 
