@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: mbstring.h,v 1.53 2003/05/12 13:28:06 moriyoshi Exp $ */
+/* $Id: mbstring.h,v 1.54 2003/06/10 20:03:31 imajes Exp $ */
 
 /*
  * PHP4 Multibyte String module "mbstring" (currently only for Japanese)
@@ -136,6 +136,13 @@ MBSTRING_API int php_mb_check_encoding_list(const char *encoding_list TSRMLS_DC)
 MBSTRING_API size_t php_mb_mbchar_bytes_ex(const char *s, const mbfl_encoding *enc);
 MBSTRING_API size_t php_mb_mbchar_bytes(const char *s TSRMLS_DC);
 
+MBSTRING_API size_t php_mb_gpc_mbchar_bytes(const char *s TSRMLS_DC);
+
+MBSTRING_API int php_mb_encoding_detector_ex(const char *arg_string, int arg_length, 
+											 char *arg_list TSRMLS_DC);
+
+MBSTRING_API int php_mb_encoding_converter_ex(char **str, int *len, const char *encoding_to, 
+											  const char *encoding_from TSRMLS_DC);
 
 ZEND_BEGIN_MODULE_GLOBALS(mbstring)
 	enum mbfl_no_language language;
