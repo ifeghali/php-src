@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: nsapi.c,v 1.60 2004/05/03 12:23:25 thetaphi Exp $ */
+/* $Id: nsapi.c,v 1.61 2004/06/22 15:37:40 thetaphi Exp $ */
 
 /*
  * PHP includes
@@ -105,12 +105,6 @@ typedef struct nsapi_equiv {
 	const char *nsapi_eq;
 } nsapi_equiv;
 
-static nsapi_equiv nsapi_headers[] = {
-	{ "CONTENT_LENGTH",			"content-length" },
-	{ "CONTENT_TYPE",			"content-type" }
-};
-static size_t nsapi_headers_size = sizeof(nsapi_headers)/sizeof(nsapi_headers[0]);
-
 static nsapi_equiv nsapi_reqpb[] = {
 	{ "QUERY_STRING",		"query" },
 	{ "REQUEST_LINE",		"clf-request" },
@@ -136,7 +130,7 @@ static nsapi_equiv nsapi_client[] = {
 static size_t nsapi_client_size = sizeof(nsapi_client)/sizeof(nsapi_client[0]);
 
 /* this parameters to "Service"/"Error" are NSAPI ones which should not be php.ini keys and are excluded */
-static char *nsapi_exclude_from_ini_entries[] = { "fn", "type", "method", "directive", "code", "reason", "script", NULL };
+static char *nsapi_exclude_from_ini_entries[] = { "fn", "type", "method", "directive", "code", "reason", "script", "bucket", NULL };
 
 static char *nsapi_strdup(char *str)
 {
@@ -316,7 +310,7 @@ PHP_MSHUTDOWN_FUNCTION(nsapi)
 PHP_MINFO_FUNCTION(nsapi)
 {
 	php_info_print_table_start();
-	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.60 $");
+	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.61 $");
 	php_info_print_table_row(2, "Server Software", system_version());
 	php_info_print_table_row(2, "Sub-requests with nsapi_virtual()",
 	 (nsapi_servact_service)?((zend_ini_long("zlib.output_compression", sizeof("zlib.output_compression"), 0))?"not supported with zlib.output_compression":"enabled"):"not supported on this platform" );
@@ -605,20 +599,19 @@ static void sapi_nsapi_register_server_variables(zval *track_vars_array TSRMLS_D
 		}
 	}
 
-	for (i = 0; i < nsapi_headers_size; i++) {
-		value = pblock_findval(nsapi_headers[i].nsapi_eq, rc->rq->headers);
-		if (value) {
-			php_register_variable((char *)nsapi_headers[i].env_var, value, track_vars_array TSRMLS_CC);
-		}
-	}
-
 	for (i=0; i < rc->rq->headers->hsize; i++) {
 		entry=rc->rq->headers->ht[i];
 		while (entry) {
 			if (!PG(safe_mode) || strncasecmp(entry->param->name, "authorization", 13)) {
-				snprintf(buf, NS_BUF_SIZE, "HTTP_%s", entry->param->name);
+				if (strcasecmp(entry->param->name, "content-length")==0 || strcasecmp(entry->param->name, "content-type")==0) {
+					strncpy(buf, entry->param->name, NS_BUF_SIZE);
+					pos = 0;
+				} else {
+					snprintf(buf, NS_BUF_SIZE, "HTTP_%s", entry->param->name);
+					pos = 5;
+				}
 				buf[NS_BUF_SIZE]='\0';
-				for(p = buf + 5; *p; p++) {
+				for(p = buf + pos; *p; p++) {
 					*p = toupper(*p);
 					if (*p < 'A' || *p > 'Z') {
 						*p = '_';
@@ -777,7 +770,7 @@ static void nsapi_php_ini_entries(NSLS_D TSRMLS_DC)
 				/* change the ini entry */
 				if (zend_alter_ini_entry(entry->param->name, strlen(entry->param->name)+1,
 				 entry->param->value, strlen(entry->param->value),
-				 PHP_INI_USER, PHP_INI_STAGE_RUNTIME)==FAILURE) {
+				 PHP_INI_SYSTEM, PHP_INI_STAGE_RUNTIME)==FAILURE) {
 					log_error(LOG_WARN, pblock_findval("fn", NSG(pb)), NSG(sn), NSG(rq), "Cannot change php.ini key \"%s\" to \"%s\"", entry->param->name, entry->param->value);
 				}
 			}
