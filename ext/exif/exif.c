@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.132 2002/12/16 14:47:59 helly Exp $ */
+/* $Id: exif.c,v 1.133 2002/12/16 15:53:46 helly Exp $ */
 
 /*  ToDos
  *
@@ -95,7 +95,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.132 2002/12/16 14:47:59 helly Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.133 2002/12/16 15:53:46 helly Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -2536,7 +2536,7 @@ static int exif_process_undefined(char **result, char *value, size_t byte_count 
 
 /* {{{ exif_process_string_raw
  * Copy a string in Exif header to a character string returns length of allocated buffer if any. */
-#ifndef EXIF_USE_MBSTRING
+#if !EXIF_USE_MBSTRING
 static int exif_process_string_raw(char **result, char *value, size_t byte_count) {
 	/* we cannot use strlcpy - here the problem is that we have to copy NUL
 	 * chars up to byte_count, we also have to add a single NUL character to
