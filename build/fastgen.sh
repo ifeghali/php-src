@@ -45,7 +45,7 @@ if test "$bsd_makefile" = "yes"; then
   (cd $top_srcdir; ./build/bsd_makefile)
 
   for makefile in $@; do
-    echo "creating $makefile"
+    echo "fastgen.sh: creating $makefile"
     dir=`echo $makefile|sed 's%/*[^/][^/]*$%%'`
     $mkdir_p "$dir/"
 
@@ -62,7 +62,7 @@ EOF
   done
 else  
   for makefile in $@; do
-    echo "creating $makefile"
+    echo "fastgen.sh: creating $makefile"
     dir=`echo $makefile|sed 's%/*[^/][^/]*$%%'`
     $mkdir_p "$dir/"
 
