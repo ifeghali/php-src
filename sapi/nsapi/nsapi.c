@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: nsapi.c,v 1.44 2003/06/01 21:14:58 thetaphi Exp $ */
+/* $Id: nsapi.c,v 1.45 2003/06/10 20:03:45 imajes Exp $ */
 
 /*
  * PHP includes
@@ -172,11 +172,6 @@ ZEND_DECLARE_MODULE_GLOBALS(nsapi)
 
 #define NSAPI_G(v) TSRMG(nsapi_globals_id, zend_nsapi_globals *, v)
 
-/* compatibility with PHP4_3 */
-#if !defined(OnUpdateLong)
-#define OnUpdateLong OnUpdateInt
-#endif
-
 /* {{{ nsapi_functions[]
  *
  * Every user visible function must have an entry in nsapi_functions[].
@@ -203,7 +198,7 @@ zend_module_entry nsapi_module_entry = {
 	NULL,
 	NULL,
 	PHP_MINFO(nsapi),
-	"$Id: nsapi.c,v 1.44 2003/06/01 21:14:58 thetaphi Exp $",
+	"$Id: nsapi.c,v 1.45 2003/06/10 20:03:45 imajes Exp $",
 	STANDARD_MODULE_PROPERTIES
 };
 /* }}} */
