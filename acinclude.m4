@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.187 2002/05/28 16:30:16 andrei Exp $
+dnl $Id: acinclude.m4,v 1.188 2002/06/01 20:14:57 sr Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -985,14 +985,29 @@ ifelse($3,,[
 ])
 
 dnl
-dnl PHP_ADD_LIBRARY_DEFER_WITH_PATH(library, path)
+dnl PHP_ADD_LIBRARY_DEFER_WITH_PATH(library, path[, shared-libadd])
 dnl
 dnl add a library to the link line (deferred)
 dnl and path to linkpath/runpath (not deferred)
+dnl if shared-libadd is not empty and $ext_shared is yes,
+dnl shared-libadd will be assigned the library information
 dnl
 AC_DEFUN(PHP_ADD_LIBRARY_DEFER_WITH_PATH,[
-  PHP_ADD_LIBPATH($2)
+ifelse($3,,[
+  if test -n "$2"; then
+    PHP_ADD_LIBPATH($2)
+  fi
   PHP_ADD_LIBRARY_DEFER($1)
+],[
+  if test "$ext_shared" = "yes"; then
+    $3="-l$1 [$]$3"
+    if test -n "$2"; then
+      PHP_ADD_LIBPATH($2,$3)
+    fi
+  else
+    PHP_ADD_LIBRARY_DEFER_WITH_PATH($1,$2)
+  fi
+])
 ])
 
 dnl
