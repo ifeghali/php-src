@@ -83,9 +83,10 @@
 
 <!ELEMENT dep (#PCDATA)>
 <!ATTLIST dep
-	type    (pkg|ext|php|prog|ldlib|rtlib|os|websrv|sapi|zend) #REQUIRED
-	rel     (has|eq|lt|le|gt|ge) 'has'
-	version CDATA                #IMPLIED>
+	optional    (yes|no)    'no'
+	type        (pkg|ext|php|prog|ldlib|rtlib|os|websrv|sapi|zend) #REQUIRED
+	rel         (has|eq|lt|le|gt|ge) 'has'
+	version     CDATA                #IMPLIED>
 
 <!ELEMENT provides (#PCDATA)>
 <!ATTLIST provides
