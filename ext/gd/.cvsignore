@@ -11,3 +11,10 @@ Release_TS
 Release_TSDbg
 Release_TS_inline
 Debug_TS
+Release_bundled
+Release_inline_bundled
+Debug_bundled
+Release_TS_bundled
+Release_TSDbg_bundled
+Release_TS_inline_bundled
+Debug_TS_bundled
