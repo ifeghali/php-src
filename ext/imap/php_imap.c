@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.174 2003/08/12 00:55:57 iliaa Exp $ */
+/* $Id: php_imap.c,v 1.175 2003/08/28 19:17:33 iliaa Exp $ */
 
 #define IMAP41
 
@@ -592,6 +592,7 @@ PHP_MINIT_FUNCTION(imap)
 	REGISTER_LONG_CONSTANT("TYPEAUDIO", TYPEAUDIO , CONST_PERSISTENT | CONST_CS);
 	REGISTER_LONG_CONSTANT("TYPEIMAGE", TYPEIMAGE , CONST_PERSISTENT | CONST_CS);
 	REGISTER_LONG_CONSTANT("TYPEVIDEO", TYPEVIDEO , CONST_PERSISTENT | CONST_CS);
+	REGISTER_LONG_CONSTANT("TYPEMODEL", TYPEMODEL , CONST_PERSISTENT | CONST_CS);
 	REGISTER_LONG_CONSTANT("TYPEOTHER", TYPEOTHER , CONST_PERSISTENT | CONST_CS);
 	/*
 	TYPETEXT                unformatted text
@@ -601,6 +602,7 @@ PHP_MINIT_FUNCTION(imap)
 	TYPEAUDIO               audio
 	TYPEIMAGE               static image (GIF, JPEG, etc.)
 	TYPEVIDEO               video
+	TYPEMODEL               model
 	TYPEOTHER               unknown
 	*/
 
