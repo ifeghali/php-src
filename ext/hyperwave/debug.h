@@ -17,6 +17,15 @@
 * -----------------
 *
 * $Log$
+* Revision 1.2  2000/07/02 23:46:41  sas
+* Change header protection macros to conform to standard.
+*
+* Draft 3 of IEEE 1003.1 200x, "2.2 The Compilation Environment"
+*
+*   All identifiers that begin with an underscore and either an uppercase
+*   letter or another underscore are always reserved for any use by the
+*   implementation.
+*
 * Revision 1.1  1999/04/21 23:37:47  ssb
 * moved db
 *
@@ -52,8 +61,8 @@
 *
 ****************************************************************************/
 
-#ifndef  __DEBUG_H
-#define  __DEBUG_H
+#ifndef  DEBUG_H
+#define  DEBUG_H
 
 #ifdef  DEBUG
 #    define D(x) x
@@ -194,4 +203,4 @@ typedef  int        bool;
 #define  NO      0
 #define  YES      1
 
-#endif  __DEBUG_H
+#endif  /* DEBUG_H */
