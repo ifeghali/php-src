@@ -36,7 +36,7 @@ cat $infile | \
 	sed \
 	-e "s'@EXT_INCLUDE_CODE@'$includes'" \
 	-e "s'@EXT_MODULE_PTRS@'$module_ptrs'" \
-	-e 's/\\n/\
+	-e 's/[\]n/\
 /g'
 
 
