@@ -1,9 +1,12 @@
 Makefile
+build-defs.h
 configuration-parser.c
 configuration-parser.h
 configuration-parser.output
 configuration-scanner.c
 internal_functions.c
+php_config.h
+php_config.h.in
 *.lo
 *.la
 .libs

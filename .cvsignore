@@ -2,7 +2,6 @@ Makefile
 acconfig.h
 aclocal.m4
 bsd_converted
-build-defs.h
 buildmk.stamp
 buildconf.stamp
 config.cache
@@ -25,8 +24,6 @@ libtool
 shlibtool
 php
 php4.spec
-php_config.h
-php_config.h.in
 stamp-h
 test.php3
 *.lo
