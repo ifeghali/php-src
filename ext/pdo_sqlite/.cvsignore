@@ -26,3 +26,4 @@ ltmain.sh
 missing
 mkinstalldirs
 modules
+sqlite3.h
