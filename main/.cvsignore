@@ -1,0 +1,12 @@
+Makefile
+configuration-parser.c
+configuration-parser.h
+configuration-parser.output
+configuration-scanner.c
+internal_functions.c
+*.lo
+*.la
+.libs
+libs
+.deps
+config.nice
