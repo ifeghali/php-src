@@ -1,4 +1,4 @@
-dnl ## $Id: config.m4,v 1.2 1999/10/04 15:18:26 sas Exp $ -*- sh -*-
+dnl ## $Id: config.m4,v 1.3 1999/10/07 18:46:40 sas Exp $ -*- sh -*-
 
 RESULT=no
 AC_MSG_CHECKING(for AOLserver support)
@@ -15,7 +15,7 @@ AC_ARG_WITH(aolserver,
 	AC_DEFINE(HAVE_AOLSERVER)
 	PHP_SAPI=aolserver
 	PHP_BUILD_SHARED
-	INSTALL_IT="\$(SHELL) \$(srcdir)/install-sh -m 0755 libs/libphp4.so $NS_DIR/root/bin/libphp4.so"
+	INSTALL_IT="\$(SHELL) \$(srcdir)/install-sh -m 0755 $SAPI_SHARED $NS_DIR/root/bin/"
 	RESULT=yes
 ])
 AC_MSG_RESULT($RESULT)
