@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.162 2004/03/16 20:58:01 derick Exp $ */
+/* $Id: exif.c,v 1.163 2004/11/04 20:13:30 helly Exp $ */
 
 /*  ToDos
  *
@@ -111,7 +111,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.162 2004/03/16 20:58:01 derick Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.163 2004/11/04 20:13:30 helly Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -3776,7 +3776,7 @@ PHP_FUNCTION(exif_read_data)
 			}
 		}
 		for (i=0; i<SECTION_COUNT; i++) {
-			sprintf(tmp, ",%s,", exif_get_sectionname(i));
+			snprintf(tmp, sizeof(tmp), ",%s,", exif_get_sectionname(i));
 			if (strstr(sections_str, tmp)) {
 				sections_needed |= 1<<i;
 			}
