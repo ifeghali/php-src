@@ -4,8 +4,12 @@ Makefile
 .libs
 *.plg
 MSSQL_65_Release
+MSSQL_65_Release_TS
 MSSQL_70_Release
+MSSQL_70_Release_TS
 MSSQL_65_Debug
+MSSQL_65_Debug_TS
 MSSQL_70_Debug
+MSSQL_70_Debug_TS
 Makefile.am
 .deps
