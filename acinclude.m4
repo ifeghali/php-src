@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.78 2000/05/04 10:38:12 sas Exp $
+dnl $Id: acinclude.m4,v 1.79 2000/05/04 16:08:10 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -401,7 +401,9 @@ dnl add a library to the link line
 dnl
 AC_DEFUN(AC_ADD_LIBRARY,[
   AC_PHP_ONCE(LIBRARY, $1, [
-    ifelse($#, 1, LIBS="-l$1 $LIBS", LIBS="$LIBS -l$1")
+    if test "$1" != "c"; then
+      ifelse($#, 1, LIBS="-l$1 $LIBS", LIBS="$LIBS -l$1")
+    fi
   ])
 ])
 
