@@ -1,0 +1,11 @@
+configure
+config.log
+config.h
+config.cache
+config.status
+zend-parser.c
+Makefile
+zend-parser.output
+zend-parser.h
+.cvsignore
+zend-scanner.c
