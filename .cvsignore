@@ -13,6 +13,8 @@ configuration-parser.h
 configuration-parser.output
 configuration-scanner.c
 configure
+conftest
+conftest.c
 generated_lists
 meta_cc
 meta_ccld
