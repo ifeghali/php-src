@@ -17,7 +17,7 @@
   |          Dmitry Stogov <dmitry@zend.com>                             |
   +----------------------------------------------------------------------+
 */
-/* $Id: php_soap.h,v 1.34 2004/08/10 16:11:41 dmitry Exp $ */
+/* $Id: php_soap.h,v 1.35 2004/11/16 12:07:29 dmitry Exp $ */
 
 #ifndef PHP_SOAP_H
 #define PHP_SOAP_H
@@ -145,6 +145,9 @@ struct _soapService {
 #define SOAP_COMPRESSION_ACCEPT  0x20
 #define SOAP_COMPRESSION_GZIP    0x00
 #define SOAP_COMPRESSION_DEFLATE 0x10
+
+#define SOAP_AUTHENTICATION_BASIC   0
+#define SOAP_AUTHENTICATION_DIGEST  1
 
 ZEND_BEGIN_MODULE_GLOBALS(soap)
 	HashTable  defEncNs;     /* mapping of default namespaces to prefixes */
