@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.192 2004/12/29 21:33:03 iliaa Exp $ */
+/* $Id: php_imap.c,v 1.193 2004/12/29 21:56:42 iliaa Exp $ */
 
 #define IMAP41
 
@@ -3194,7 +3194,9 @@ PHP_FUNCTION(imap_mail_compose)
 
 	RETVAL_STRING(tempstring, 0);
 done:
+#if ilia_0 /* this should be done, otherwise we leak memory. Unfortunately this seems to cause a crash in some cases */
 	mail_free_body(&topbod);
+#endif
 	mail_free_envelope(&env);
 }
 /* }}} */
