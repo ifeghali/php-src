@@ -7,10 +7,11 @@ zend-parser.c
 Makefile
 zend-parser.output
 zend-parser.h
-.cvsignore
 zend-scanner.c
 .deps
 zend_config.h
 zend_config.h.in
 stamp-h
 stamp-h.in
+Makefile.in
+aclocal.m4
