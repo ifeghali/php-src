@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: dom_ce.h,v 1.2 2003/06/10 20:03:27 imajes Exp $ */
+/* $Id: dom_ce.h,v 1.3 2003/07/24 13:18:40 rrichards Exp $ */
 #ifndef DOM_CE_H
 #define DOM_CE_H
 
@@ -53,5 +53,6 @@ zend_class_entry *dom_string_extend_class_entry;
 #if defined(LIBXML_XPATH_ENABLED)
 zend_class_entry *dom_xpath_class_entry;
 #endif
+zend_class_entry *dom_namespace_node_class_entry;
 
 #endif /* DOM_CE_H */
