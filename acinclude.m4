@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.240 2003/05/02 03:14:00 sterling Exp $
+dnl $Id: acinclude.m4,v 1.241 2003/05/06 19:38:48 sterling Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -584,7 +584,7 @@ PHP_REAL_ARG_BUNDLE([$1],[$2],[$3],[$4],PHP_[]translit($1,a-z-,A-Z_),[ifelse($5,
 
 AC_DEFUN([PHP_REAL_ARG_BUNDLE],[
 ifelse([$2],,,[AC_MSG_CHECKING([$2])])
-AC_ARG_WITH($1,[$3],$5=[$]enableval,
+AC_ARG_WITH($1,[$3],$5=[$]withval,
 [
   $5=ifelse($4,,no,$4)
 
