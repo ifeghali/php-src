@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.109 2001/12/07 16:48:36 thies Exp $ */
+/* $Id: php_imap.c,v 1.110 2001/12/11 15:29:37 sebastian Exp $ */
 
 #define IMAP41
 
@@ -2689,6 +2689,11 @@ PHP_FUNCTION(imap_bodystruct)
  	
  	convert_to_long_ex(msg);
 	convert_to_string_ex(section);
+
+	if (!Z_LVAL_PP(msg) || Z_LVAL_PP(msg) < 1 || (unsigned) Z_LVAL_PP(msg) > imap_le_struct->imap_stream->nmsgs) {
+                php_error(E_WARNING, "Bad message number");
+                RETURN_FALSE;
+        }
 
 	if (object_init(return_value) == FAILURE) {
 		RETURN_FALSE;
