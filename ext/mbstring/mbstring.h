@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: mbstring.h,v 1.1 2001/05/01 01:48:50 hirokawa Exp $ */
+/* $Id: mbstring.h,v 1.2 2001/05/01 05:21:29 hirokawa Exp $ */
 
 /*
  * PHP4 Multibyte String module "mbstring" (currently only for Japanese)
@@ -74,13 +74,13 @@ PHP_FUNCTION(mbstr_substitute_character);
 PHP_FUNCTION(mbstr_preferred_mime_name);
 PHP_FUNCTION(mbstr_gpc_handler);
 PHP_FUNCTION(mbstr_output_handler);
-PHP_FUNCTION(mbstrlen);
-PHP_FUNCTION(mbstrpos);
-PHP_FUNCTION(mbstrrpos);
-PHP_FUNCTION(mbsubstr);
-PHP_FUNCTION(mbstrcut);
-PHP_FUNCTION(mbstrwidth);
-PHP_FUNCTION(mbstrimwidth);
+PHP_FUNCTION(mb_strlen);
+PHP_FUNCTION(mb_strpos);
+PHP_FUNCTION(mb_strrpos);
+PHP_FUNCTION(mb_substr);
+PHP_FUNCTION(mb_strcut);
+PHP_FUNCTION(mb_strwidth);
+PHP_FUNCTION(mb_strimwidth);
 PHP_FUNCTION(mbstr_convert_encoding);
 PHP_FUNCTION(mbstr_detect_encoding);
 PHP_FUNCTION(mbstr_convert_kana);
