@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.12 1999/06/20 18:52:38 sas Exp $
+dnl $Id: acinclude.m4,v 1.13 1999/06/20 18:54:08 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -22,10 +22,10 @@ dnl
 dnl expands path to an absolute path and assigns it to variable
 dnl
 AC_DEFUN(AC_EXPAND_PATH,[
-  if echo "$1" | grep -v '^/' >/dev/null ; then
-    $2="`pwd`/$1"
-  else
+  if test -z "$1" || echo "$1" | grep '^/' >/dev/null ; then
     $2="$1"
+  else
+    $2="`pwd`/$1"
   fi
 ])
 
