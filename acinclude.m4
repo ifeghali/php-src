@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.99 2000/07/09 20:39:18 sas Exp $
+dnl $Id: acinclude.m4,v 1.100 2000/07/10 10:26:13 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -306,6 +306,10 @@ AC_DEFUN(PHP_GEN_CONFIG_VARS,[
   for i in $PHP_VAR_SUBST; do
     eval echo "$i = \$$i" >> config_vars.mk
   done
+])
+
+AC_DEFUN(PHP_GEN_MAKEFILE,[
+  $SHELL $srcdir/build/fastgen.sh $srcdir $ac_cv_mkdir_p $1
 ])
 
 AC_DEFUN(PHP_GEN_MAKEFILES,[
