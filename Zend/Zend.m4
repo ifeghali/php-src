@@ -1,5 +1,5 @@
 dnl
-dnl $Id: Zend.m4,v 1.44 2004/10/04 19:54:34 andi Exp $
+dnl $Id: Zend.m4,v 1.45 2004/11/03 23:05:17 moriyoshi Exp $
 dnl
 dnl This file contains Zend specific autoconf functions.
 dnl
@@ -212,7 +212,7 @@ AC_C_INLINE
 AC_SUBST(INLINE_CFLAGS)
 
 AC_MSG_CHECKING(target system is Darwin)
-if echo "$target" | grep "darwin"; then
+if echo "$target" | grep "darwin" > /dev/null; then
   AC_DEFINE([DARWIN], 1, [Define if the target system is darwin])
   AC_MSG_RESULT(yes)
 else
