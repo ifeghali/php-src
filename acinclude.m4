@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.70 2000/03/30 15:00:30 sas Exp $
+dnl $Id: acinclude.m4,v 1.71 2000/04/01 16:00:34 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -604,3 +604,22 @@ AC_DEFUN(PHP_DECLARED_TIMEZONE,[
     AC_DEFINE(HAVE_DECLARED_TIMEZONE, 1, [Whether system headers declare timezone])
   fi
 ])
+
+AC_DEFUN(PHP_EBCDIC,[
+  AC_CACHE_CHECK([whether system uses EBCDIC],ac_cv_ebcdic,[
+  AC_TRY_RUN( [
+int main(void) { 
+  return (unsigned char)'A' != (unsigned char)0xC1; 
+} 
+],[
+  ac_cv_ebcdic="yes"
+],[
+  ac_cv_ebcdic="no"
+],[
+  ac_cv_ebcdic="no"
+])])
+  if test "$ac_cv_ebcdic" = "yes"; then
+    AC_DEFINE(CHARSET_EBCDIC,, [Define if system uses EBCDIC])
+  fi
+])
+
