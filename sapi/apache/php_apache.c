@@ -17,11 +17,11 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.58 2002/04/23 11:40:19 hholzgra Exp $ */
+/* $Id: php_apache.c,v 1.61 2002/05/31 23:49:49 rasmus Exp $ */
 
 #include "php_apache_http.h"
 
-#ifdef PHP_WIN32
+#if defined(PHP_WIN32) || defined(NETWARE)
 #include "zend.h"
 #include "ap_compat.h"
 #else
