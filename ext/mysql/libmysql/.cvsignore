@@ -1,0 +1,11 @@
+*.lo
+.deps
+.libs
+CVS_LOGIN_LINE
+Makefile.in
+aclocal.m4
+config.cache
+config.log
+config.status
+configure
+stamp-h
