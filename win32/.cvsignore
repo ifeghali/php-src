@@ -3,6 +3,7 @@
 *.ncb
 *.suo
 *.aps
+*.positions
 ext
 Release
 Release_inline
