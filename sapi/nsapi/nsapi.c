@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: nsapi.c,v 1.58 2003/12/12 16:21:28 thetaphi Exp $ */
+/* $Id: nsapi.c,v 1.59 2004/01/08 08:18:14 andi Exp $ */
 
 /*
  * PHP includes
@@ -316,7 +316,7 @@ PHP_MSHUTDOWN_FUNCTION(nsapi)
 PHP_MINFO_FUNCTION(nsapi)
 {
 	php_info_print_table_start();
-	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.58 $");
+	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.59 $");
 	php_info_print_table_row(2, "Server Software", system_version());
 	php_info_print_table_row(2, "Sub-requests with nsapi_virtual()",
 	 (nsapi_servact_service)?((zend_ini_long("zlib.output_compression", sizeof("zlib.output_compression"), 0))?"not supported with zlib.output_compression":"enabled"):"not supported on this platform" );
@@ -617,13 +617,13 @@ static void sapi_nsapi_register_server_variables(zval *track_vars_array TSRMLS_D
 		while (entry) {
 			if (!PG(safe_mode) || strncasecmp(entry->param->name, "authorization", 13)) {
 				snprintf(buf, NS_BUF_SIZE, "HTTP_%s", entry->param->name);
+				buf[NS_BUF_SIZE]='\0';
 				for(p = buf + 5; *p; p++) {
 					*p = toupper(*p);
 					if (*p < 'A' || *p > 'Z') {
 						*p = '_';
 					}
 				}
-				buf[NS_BUF_SIZE]='\0';
 				php_register_variable(buf, entry->param->value, track_vars_array TSRMLS_CC);
 			}
 			entry=entry->next;
