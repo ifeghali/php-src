@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.51 2001/10/12 07:50:52 thies Exp $ */
+/* $Id: php_apache.c,v 1.52 2001/10/21 00:03:55 rasmus Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
@@ -129,7 +129,7 @@ zend_module_entry apache_module_entry = {
 	STANDARD_MODULE_PROPERTIES
 };
 
-/* {{{ proto string child_terminate()
+/* {{{ proto string apache_child_terminate()
    Get and set Apache request notes */
 PHP_FUNCTION(apache_child_terminate)
 {
