@@ -20,7 +20,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: ifx.ec,v 1.69.2.7 2003/02/21 04:58:08 sniper Exp $ */
+/* $Id: ifx.ec,v 1.81 2003/02/21 06:50:24 sniper Exp $ */
 
 /* -------------------------------------------------------------------
  * if you want a function reference : "grep '^\*\*' ifx.ec" will give
@@ -1650,6 +1650,7 @@ PHP_FUNCTION(ifx_errormsg)
 	}
 
 	maxmsglen = 255;
+	msglen = maxmsglen;     // Some bug fix, rgetlmsg doesnt always set the value
 	ifx_errmsg = (char *)malloc(maxmsglen + 1);
 	if (ifx_errorcode != 0) {
 		rgetlmsg(ifx_errorcode, ifx_errmsg, maxmsglen, &msglen);
