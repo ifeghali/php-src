@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: nsapi.c,v 1.37 2003/05/20 11:19:01 thetaphi Exp $ */
+/* $Id: nsapi.c,v 1.28.2.9 2003/05/29 20:13:15 thetaphi Exp $ */
 
 /*
  * PHP includes
@@ -211,10 +211,10 @@ PHP_INI_END()
 /* newer servers hide this functions from the programmer so redefine the functions dynamically
    thanks to Chris Elving from Sun for the function declarations */
 
-int (NSAPI_PUBLIC *nsapi_servact_uri2path)(Session *, Request *) = NULL;
-int (NSAPI_PUBLIC *nsapi_servact_pathchecks)(Session *, Request *) = NULL;
-int (NSAPI_PUBLIC *nsapi_servact_fileinfo)(Session *, Request *) = NULL;
-int (NSAPI_PUBLIC *nsapi_servact_service)(Session *, Request *) = NULL;
+int (*nsapi_servact_uri2path)(Session *, Request *) = NULL;
+int (*nsapi_servact_pathchecks)(Session *, Request *) = NULL;
+int (*nsapi_servact_fileinfo)(Session *, Request *) = NULL;
+int (*nsapi_servact_service)(Session *, Request *) = NULL;
 
 /* {{{ php_nsapi_init_dynamic_symbols
  */
