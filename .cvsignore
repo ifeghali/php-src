@@ -60,3 +60,5 @@ autom4te.cache
 .FBCLockFolder
 debug.log
 confdefs.h
+configure.js
+config.nice.bat
