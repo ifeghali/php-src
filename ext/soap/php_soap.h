@@ -17,7 +17,7 @@
   |          Dmitry Stogov <dmitry@zend.com>                             |
   +----------------------------------------------------------------------+
 */
-/* $Id: php_soap.h,v 1.25 2004/02/03 16:44:56 dmitry Exp $ */
+/* $Id: php_soap.h,v 1.26 2004/02/05 09:28:09 dmitry Exp $ */
 
 #ifndef PHP_SOAP_H
 #define PHP_SOAP_H
@@ -139,10 +139,9 @@ struct _soapService {
 #define SOAP_1_2_ACTOR_UNLIMATERECEIVER "http://www.w3.org/2003/05/soap-envelope/role/ultimateReceiver"
 
 ZEND_BEGIN_MODULE_GLOBALS(soap)
-	HashTable *defEncNs;
-	HashTable *defEncPrefix;
-	HashTable *defEnc;
-	HashTable *defEncIndex;
+	HashTable  defEncNs;     /* mapping of default namespaces to prefixes */
+	HashTable  defEnc;
+	HashTable  defEncIndex;
 	HashTable *sdls;
 	HashTable *overrides;
 	int        cur_uniq_ns;
