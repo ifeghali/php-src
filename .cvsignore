@@ -38,3 +38,4 @@ want_dependencies
 .deps
 config.nice
 php_version.h
+libs.mk
