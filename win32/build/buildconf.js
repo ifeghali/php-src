@@ -64,6 +64,7 @@ C.Write(file_get_contents("win32/build/confutils.js"));
 modules = file_get_contents("win32/build/config.w32");
 find_config_w32("sapi");
 find_config_w32("ext");
+find_config_w32("pecl");
 
 // Look for ARG_ENABLE or ARG_WITH calls
 re = new RegExp("(ARG_(ENABLE|WITH)\([^;]+\);)", "gm");
