@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.132 2001/05/20 23:39:09 sas Exp $
+dnl $Id: acinclude.m4,v 1.133 2001/06/01 06:26:22 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1049,6 +1049,11 @@ int main(void) {
     AC_DEFINE(CHARSET_EBCDIC,1, [Define if system uses EBCDIC])
   fi
 ])
+
+AC_DEFUN(AC_ADD_LIBPATH, [indir([PHP_ADD_LIBPATH])])
+AC_DEFUN(AC_ADD_LIBRARY, [indir([PHP_ADD_LIBRARY])])
+AC_DEFUN(AC_ADD_LIBRARY_WITH_PATH, [indir([PHP_ADD_LIBRARY_WITH_PATH])])
+AC_DEFUN(AC_ADD_INCLUDE, [indir([PHP_ADD_INCLUDE])])
 
 AC_DEFUN(PHP_FOPENCOOKIE,[
 	AC_CHECK_FUNC(fopencookie, [ have_glibc_fopencookie=yes ])
