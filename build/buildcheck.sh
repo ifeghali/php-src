@@ -70,25 +70,6 @@ else
 echo "buildconf: automake version $am_version (ok)"
 fi
 
-# Bison <= 1.30 or >= 1.75 required (1.35, 1.50 have some bugs)
-bison_version=`bison --version| grep 'GNU Bison' | cut -d ' ' -f 4`
-bison_version_clean=`echo $bison_version|sed -e 's/-p[0-9]*$//'`
-if test "$bison_version" = ""; then
-echo "buildconf: bison not found."
-echo "           You need bison version <= 1.30 >= 1.75 installed"
-echo "           to build PHP from CVS."
-exit 1
-fi
-IFS=.; set $bison_version_clean; IFS=' '
-if test "$1" = "1" -a "$2" -le "30" || test "$1" = "1" -a "$2" -ge "75"; then
-echo "buildconf: bison version $bison_version (ok)"
-else
-echo "buildconf: bison version $bison_version found."
-echo "           You need bison version <= 1.30 >= 1.75 installed"
-echo "           to build PHP from CVS."
-exit 1
-fi
-
 # libtool 1.4 or newer
 # Prefer glibtool over libtool for Mac OS X compatibility
 libtool=`which glibtool 2> /dev/null`
