@@ -8,7 +8,6 @@ config.sub
 config.log
 config.guess
 config.status
-config.h
 libtool
 depcomp
 ltmain.sh
