@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.116 2002/10/03 10:44:13 helly Exp $ */
+/* $Id: exif.c,v 1.117 2002/10/19 09:52:00 helly Exp $ */
 
 /*  ToDos
  *
@@ -109,7 +109,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.116 2002/10/03 10:44:13 helly Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.117 2002/10/19 09:52:00 helly Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -4064,7 +4064,7 @@ PHP_FUNCTION(exif_imagetype)
 		RETURN_FALSE;
 	}
 
-	itype = itype = php_getimagetype(stream, NULL TSRMLS_CC);
+	itype = php_getimagetype(stream, NULL TSRMLS_CC);
 
 	php_stream_close(stream);
 
