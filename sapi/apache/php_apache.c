@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.30 2001/05/13 09:03:46 zeev Exp $ */
+/* $Id: php_apache.c,v 1.31 2001/05/14 10:30:30 dbeu Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
@@ -187,6 +187,7 @@ PHP_MINFO_FUNCTION(apache)
 
 	serv = ((request_rec *) SG(server_context))->server;
 
+
 	php_info_print_table_start();
 
 #ifdef PHP_WIN32
@@ -235,6 +236,7 @@ PHP_MINFO_FUNCTION(apache)
 
 	php_info_print_table_end();
 
+	DISPLAY_INI_ENTRIES();
 
 	{
 		register int i;
@@ -285,7 +287,6 @@ PHP_MINFO_FUNCTION(apache)
 		}
 		php_info_print_table_end();
 	}
-
 }
 
 /* This function is equivalent to <!--#include virtual...-->
