@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.271 2004/03/27 02:03:44 abies Exp $
+dnl $Id: acinclude.m4,v 1.272 2004/07/18 12:03:51 wez Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1931,3 +1931,18 @@ dnl See ADD_EXTENSION_DEP in win32 build
 AC_DEFUN(PHP_ADD_EXTENSION_DEP, [])
 
 
+dnl PHP_CHECK_64BIT([do if 32], [do if 64])
+dnl This macro is used to detect if we're at 64-bit platform or not.
+dnl It could be useful for those external libs, that have different precompiled 
+dnl versions in different directories.
+AC_DEFUN(PHP_CHECK_64BIT,[
+  AC_CHECK_SIZEOF(int)
+  AC_MSG_CHECKING([checking if we're at 64-bit platform])
+  if test "$ac_cv_sizeof_int" = "4" ; then
+    AC_MSG_RESULT([no])
+    $1
+  else
+    AC_MSG_RESULT([yes])
+    $2
+  fi
+])
