@@ -368,7 +368,7 @@ function CHECK_LIB(libname, target, path_to_check)
 		 * it here, no need to add another /libpath: for it as we
 		 * already have it covered, but we need to add the lib
 		 * to LIBS_XXX */
-		if (false != search_paths(header_name, PHP_EXTRA_LIBS, null)) {
+		if (false != search_paths(libname, PHP_EXTRA_LIBS, null)) {
 			ADD_FLAG("LIBS_" + target.toUpperCase(), libname);
 			have = 1;
 		}
