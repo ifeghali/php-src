@@ -19,7 +19,7 @@
 // |                                                                      |
 // +----------------------------------------------------------------------+
 //
-// $Id: pear.in,v 1.52 2002/05/26 12:51:10 ssb Exp $
+// $Id: pear.in,v 1.55 2002/05/26 19:42:13 cox Exp $
 
 /**
  * @nodep Gtk
@@ -29,6 +29,7 @@ set_time_limit(0);
 ob_implicit_flush(true);
 ini_set('track_errors', true);
 ini_set('html_errors', false);
+ini_set('magic_quotes_runtime', false);
 
 require_once 'PEAR.php';
 require_once 'PEAR/Config.php';
