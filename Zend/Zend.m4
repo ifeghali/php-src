@@ -1,5 +1,5 @@
 dnl
-dnl $Id: Zend.m4,v 1.39 2003/03/20 17:41:40 stas Exp $
+dnl $Id: Zend.m4,v 1.40 2003/08/11 05:24:41 fujimoto Exp $
 dnl
 dnl This file contains Zend specific autoconf functions.
 dnl
@@ -52,6 +52,7 @@ sys/time.h \
 signal.h \
 unix.h \
 stdlib.h \
+mach-o/dyld.h \
 dlfcn.h)
 
 AC_TYPE_SIZE_T
