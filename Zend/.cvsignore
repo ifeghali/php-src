@@ -29,3 +29,7 @@ libtool
 .libs
 zend_config.h.in
 zend_language_scanner-cc.cc
+zend_ini_parser.output
+zend_ini_parser.c
+zend_ini_parser.h
+zend_ini_scanner.c
