@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: php_fbsql.h,v 1.10 2001/09/04 21:51:11 fmk Exp $ */
+/* $Id: php_fbsql.h,v 1.11 2001/09/06 16:49:17 fmk Exp $ */
 
 #define HAVE_FBSQL 1
 
@@ -110,7 +110,6 @@ ZEND_BEGIN_MODULE_GLOBALS(fbsql)
    long persistantCount;
    long linkCount;
    long linkIndex;
-
 ZEND_END_MODULE_GLOBALS(fbsql)
 
 #ifdef ZTS
@@ -128,7 +127,5 @@ ZEND_END_MODULE_GLOBALS(fbsql)
 #define fbsql_module_ptr NULL
 #error not ok
 #endif //  HAVE_FBSQL
-
-#define phpext_fbsql_ptr fbsql_module_ptr
 
 #endif /* _PHP_FBSQL_H */
