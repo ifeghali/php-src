@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.193 2002/07/01 01:01:06 imajes Exp $
+dnl $Id: acinclude.m4,v 1.194 2002/07/04 21:07:08 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1167,7 +1167,7 @@ AC_DEFUN(PHP_NEW_EXTENSION,[
   ext_builddir=[]PHP_EXT_BUILDDIR($1)
   ext_srcdir=[]PHP_EXT_SRCDIR($1)
 
-  ifelse($5,,ac_extra=,[ac_extra=`echo $ac_n "$5$ac_c"|sed s#@ext_srcdir@#$ext_srcdir#g`])
+  ifelse($5,,ac_extra=,[ac_extra=`echo "$5"|sed s#@ext_srcdir@#$ext_srcdir#g`])
 
   if test "$3" != "shared" && test "$3" != "yes" && test "$4" != "cli"; then
 dnl ---------------------------------------------- Static module
