@@ -1,5 +1,5 @@
 dnl
-dnl $Id: Zend.m4,v 1.46 2004/11/03 23:25:33 moriyoshi Exp $
+dnl $Id: Zend.m4,v 1.47 2004/12/30 07:08:36 sniper Exp $
 dnl
 dnl This file contains Zend specific autoconf functions.
 dnl
@@ -42,6 +42,8 @@ if test "$ac_cv_prog_gcc" = "yes" -a "`uname -s`" = "Rhapsody"; then
 fi
 
 AC_CHECK_HEADERS(
+inttypes.h \
+stdint.h \
 limits.h \
 malloc.h \
 string.h \
@@ -81,6 +83,27 @@ _LT_AC_TRY_DLOPEN_SELF([
 dnl This is required for QNX and may be some BSD derived systems
 AC_CHECK_TYPE( uint, unsigned int )
 AC_CHECK_TYPE( ulong, unsigned long )
+
+dnl Check if uint32_t is defined
+AC_MSG_CHECKING(for uint32_t)
+AC_TRY_COMPILE([
+#if HAVE_SYS_TYPES_H
+#include <sys/types.h>
+#endif
+#if HAVE_INTTYPES_H
+#include <inttypes.h>
+#elif HAVE_STDINT_H
+#include <stdint.h>
+#endif],
+[if ((uint32_t *) 0)
+  return 0;
+if (sizeof (uint32_t))
+  return 0;
+],[
+  AC_DEFINE(HAVE_UINT32_T,1,[Define if uint32_t type is present. ])
+  AC_MSG_RESULT(yes)
+], AC_MSG_RESULT(no)
+)dnl
 
 dnl Checks for library functions.
 AC_FUNC_VPRINTF
