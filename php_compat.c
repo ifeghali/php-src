@@ -26,10 +26,11 @@
    | Authors: Sascha Schumann <sas@schell.de>                             |
    +----------------------------------------------------------------------+
 
-   $Id: php_compat.c,v 1.1 1999/02/28 23:10:56 zeev Exp $
+   $Id: php_compat.c,v 1.1 1999/04/21 17:11:00 sas Exp $
  */
 
 
+#include <php.h>
 #include <errno.h>
 #include "php_compat.h"
 
