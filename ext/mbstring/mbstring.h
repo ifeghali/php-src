@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: mbstring.h,v 1.7 2001/07/30 01:56:29 zeev Exp $ */
+/* $Id: mbstring.h,v 1.8 2001/12/11 15:29:50 sebastian Exp $ */
 
 /*
  * PHP4 Multibyte String module "mbstring" (currently only for Japanese)
@@ -54,6 +54,8 @@
 #if HAVE_MBSTRING
 
 #include "mbfilter.h"
+
+#define MB_OVERLOAD_MAIL 1
 
 extern zend_module_entry mbstring_module_entry;
 #define mbstring_module_ptr &mbstring_module_entry
@@ -113,6 +115,8 @@ ZEND_BEGIN_MODULE_GLOBALS(mbstring)
 	int filter_illegal_substchar;
 	int current_filter_illegal_mode;
 	int current_filter_illegal_substchar;
+	int func_overload;
+	zend_function *orig_mail;
 	mbfl_buffer_converter *outconv;
 ZEND_END_MODULE_GLOBALS(mbstring);
 
