@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.20 1999/07/21 21:56:24 ssb Exp $
+dnl $Id: acinclude.m4,v 1.21 1999/07/24 19:02:37 ssb Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -171,7 +171,7 @@ AC_DEFUN(PHP_SOLARIS_PIC_WEIRDNESS,[
   if test "$EXT_SHARED" != ""; then
     os=`uname -sr 2>/dev/null`
     case "$os" in
-        "SunOS 5"*)
+        "SunOS 5.6"|"SunOS 5.7")
           case "$CC" in
 	    gcc*|egcs*) CFLAGS="$CFLAGS -fPIC";;
 	    *) CFLAGS="$CFLAGS -fpic";;
