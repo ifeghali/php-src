@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.60 2001/02/26 15:17:12 kalowsky Exp $ */
+/* $Id: php_imap.c,v 1.61 2001/02/26 16:36:08 kalowsky Exp $ */
 
 #define IMAP41
 
@@ -443,6 +443,10 @@ PHP_MINIT_FUNCTION(imap)
 	mail_link(&newsdriver);      /* link in the news driver */
 	mail_link(&philedriver);     /* link in the phile driver */
 	auth_link(&auth_log);        /* link in the log authenticator */
+#ifdef  HAVE_IMAP_SSL
+	ssl_onceonlyinit ();
+	auth_link (&auth_ssl);       /* link in the ssl authenticator */
+#endif
 #endif
 	mail_link(&dummydriver);     /* link in the dummy driver */
 #else
