@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.45 1999/12/01 23:46:17 sas Exp $
+dnl $Id: acinclude.m4,v 1.46 1999/12/04 14:45:36 ssb Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -78,7 +78,7 @@ AC_DEFUN(AC_ADD_LIBPATH,[
   if test "$1" != "/usr/lib"; then
     AC_EXPAND_PATH($1, ai_p)
     AC_PHP_ONCE(LIBPATH, $ai_p, [
-      EXTRA_LIBS="$EXTRA_LIBS -L$ai_p"
+      LIBS="$LIBS -L$ai_p"
       PHP_RPATHS="$PHP_RPATHS $ai_p"
     ])
   fi
@@ -121,7 +121,7 @@ dnl add a library to the link line
 dnl
 AC_DEFUN(AC_ADD_LIBRARY,[
   AC_PHP_ONCE(LIBRARY, $1, [
-    EXTRA_LIBS="$EXTRA_LIBS -l$1"
+    LIBS="$LIBS -l$1"
   ])
 ])
 
