@@ -20,13 +20,13 @@
    |          Rasmus Lerdorf      <rasmus@php.net>                        |
    |          Chuck Hagenbuch     <chuck@horde.org>                       |
    |          Andrew Skalski      <askalski@chekinc.com>                  |
-   |          Hartmut Holzgraefe  <hartmut@six.de>                        |
+   |          Hartmut Holzgraefe  <hholzgra@php.net>                      |
    |          Jani Taskinen       <sniper@iki.fi>                         |
    |          Daniel R. Kalowsky  <kalowsky@php.net>                      |
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.141 2002/10/08 20:07:52 iliaa Exp $ */
+/* $Id: php_imap.c,v 1.142 2002/10/09 09:20:46 mfischer Exp $ */
 
 #define IMAP41
 
