@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: servlet.java,v 1.17 2001/10/28 23:49:58 sebastian Exp $ */
+/* $Id: servlet.java,v 1.18 2001/12/11 15:32:09 sebastian Exp $ */
 
 package net.php;
 
@@ -63,15 +63,22 @@ public class servlet extends HttpServlet {
     if (!request.getMethod().equals("POST")) {
       result = request.getQueryString();
     } else { 
-      Enumeration e = request.getParameterNames();
+      Enumeration enum = request.getParameterNames();
       String concat = "";
       result = "";
 
-      while (e.hasMoreElements()) {
-        String name  = (String)e.nextElement();
+      while (enum.hasMoreElements()) {
+        String name  = (String)enum.nextElement();
         String value = request.getParameter(name);
 
-        result += concat + name + "=" + URLEncoder.encode(value);
+        try {
+          result += concat + name + "=" + URLEncoder.encode(value, "UTF-8");
+        }
+
+        catch (Exception e) {
+          e.printStackTrace(System.err);
+        }
+
         concat = "&";
       }
     }
