@@ -256,7 +256,9 @@ function conf_process_args()
 	args = WScript.Arguments;
 	for (i = 0; i < args.length; i++) {
 		arg = args(i);
-		nice += ' "' + arg + '"';
+		if (nice.length + arg.length < 2045) {	// The max string length for CONFIGURE_COMMAND is 2048 in VC6
+			nice += ' "' + arg + '"';
+		}
 		if (arg == "--help") {
 			configure_help_mode = true;
 			break;
