@@ -1,0 +1,7 @@
+.deps
+Makefile.in
+Makefile
+aclocal.m4
+stamp-h.in
+tsrm_config.h.in
+configure
