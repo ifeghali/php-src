@@ -23,7 +23,7 @@
  */
 
 
-/* $Id: php3_hyperwave.h,v 1.3 1999/10/21 15:15:23 steinm Exp $ */
+/* $Id: php_hyperwave.h,v 1.1 1999/12/04 19:19:56 sas Exp $ */
 
 #ifndef _HW_H
 #define _HW_H
@@ -50,7 +50,7 @@
 
 #include "hg_comm.h"
 
-extern php3_module_entry hw_module_entry;
+extern zend_module_entry hw_module_entry;
 #define hw_module_ptr &hw_module_entry
 
 typedef struct {
