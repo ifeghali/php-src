@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.38 2000/08/01 09:11:46 sniper Exp $ */
+/* $Id: php_imap.c,v 1.39 2000/08/08 21:16:09 sniper Exp $ */
 
 #define IMAP41
 
@@ -137,7 +137,7 @@ function_entry imap_functions[] = {
 	PHP_FE(imap_errors,			NULL)
 	PHP_FE(imap_last_error,		NULL)
 #ifndef PHP_WIN32
-	PHP_FALIAS(pdf_open_memory_image, warn_not_available, NULL)
+	PHP_FALIAS(imap_mail, warn_not_available, NULL)
 #else
 	PHP_FE(imap_mail,           NULL)
 #endif
