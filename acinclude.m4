@@ -1,6 +1,18 @@
-dnl $Id: acinclude.m4,v 1.67 2000/03/11 22:05:40 kk Exp $
+dnl $Id: acinclude.m4,v 1.68 2000/03/26 02:46:59 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
+
+AC_DEFUN(PHP_ARG_WITH,[
+AC_MSG_CHECKING($2)
+AC_ARG_WITH($1,[$3],PHP_[]translit($1,a-z-,A-Z_)=[$]withval,PHP_[]translit($1,a-z-,A-Z_)=ifelse($4,,no,$4))
+AC_MSG_RESULT([$]PHP_[]translit($1,a-z-,A-Z_))
+])
+
+AC_DEFUN(PHP_ARG_ENABLE,[
+AC_MSG_CHECKING($2)
+AC_ARG_ENABLE($1,[$3],PHP_[]translit($1,a-z-,A-Z_)=[$]enableval,PHP_[]translit($1,a-z-,A-Z_)=ifelse($4,,no,$4))
+AC_MSG_RESULT([$]PHP_[]translit($1,a-z-,A-Z_))
+])
 
 AC_DEFUN(PHP_MODULE_PTR,[
   EXTRA_MODULE_PTRS="$EXTRA_MODULE_PTRS $1,"
