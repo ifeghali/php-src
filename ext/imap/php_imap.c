@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.175 2003/08/28 19:17:33 iliaa Exp $ */
+/* $Id: php_imap.c,v 1.176 2003/09/04 07:47:58 jon Exp $ */
 
 #define IMAP41
 
@@ -983,7 +983,7 @@ PHP_FUNCTION(imap_setacl)
 /* }}} */
 
 
-/* {{{ proto array imap_get_quota(int stream_id, string mailbox)
+/* {{{ proto array imap_getacl(int stream_id, string mailbox)
 	Gets the ACL for a given mailbox */
 PHP_FUNCTION(imap_getacl)
 {
