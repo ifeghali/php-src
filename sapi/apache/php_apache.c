@@ -17,9 +17,14 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.12 2000/04/07 17:04:57 cmv Exp $ */
+/* $Id: php_apache.c,v 1.13 2000/04/07 17:09:18 cmv Exp $ */
 
 #define NO_REGEX_EXTRA_H
+
+#ifdef WIN32
+#include <winsock2.h>
+#include <stddef.h>
+#endif
 
 #include "php.h"
 #include "ext/standard/head.h"
@@ -39,7 +44,13 @@
 
 #include "php_apache_http.h"
 #include "http_request.h"
+
+#ifdef PHP_WIN32
+#include "zend.h"
+#include "ap_compat.h"
+#else
 #include "build-defs.h"
+#endif
 
 #define SECTION(name)  PUTS("<H2>" name "</H2>\n")
 
