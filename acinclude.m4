@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.24 1999/08/22 18:47:27 sas Exp $
+dnl $Id: acinclude.m4,v 1.25 1999/09/03 17:46:39 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -186,5 +186,7 @@ AC_DEFUN(PHP_SOLARIS_PIC_WEIRDNESS,[
 	*)
 	  AC_MSG_RESULT(no);;
     esac
+  else
+    AC_MSG_RESULT(no)
   fi
 ])
