@@ -1,0 +1,7 @@
+Makefile
+libphp4.module
+.libs
+*.la
+*.lo
+Makefile.am
+.deps
