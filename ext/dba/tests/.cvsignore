@@ -4,5 +4,5 @@ phpt.*
 *.exp
 *.out
 *.php
-test.dbm
-test.dbm.lck
+*.dbm
+*.dbm.lck
