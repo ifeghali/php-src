@@ -1,5 +1,5 @@
 dnl
-dnl $Id: Zend.m4,v 1.48 2005/01/22 20:28:17 sniper Exp $
+dnl $Id: Zend.m4,v 1.49 2005/02/17 04:44:52 sniper Exp $
 dnl
 dnl This file contains Zend specific autoconf functions.
 dnl
@@ -288,7 +288,7 @@ int main()
   LIBZEND_MM_ALIGN_LOG2=`cat conftest.zend | cut -d ' ' -f 2`
   AC_DEFINE_UNQUOTED(ZEND_MM_ALIGNMENT, $LIBZEND_MM_ALIGN, [ ])
   AC_DEFINE_UNQUOTED(ZEND_MM_ALIGNMENT_LOG2, $LIBZEND_MM_ALIGN_LOG2, [ ]) 
-])
+], [], [])
 
 AC_MSG_RESULT(done)
 
