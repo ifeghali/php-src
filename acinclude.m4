@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.43 1999/11/24 09:49:30 thies Exp $
+dnl $Id: acinclude.m4,v 1.44 1999/11/27 11:33:13 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -231,9 +231,10 @@ AC_DEFUN(PHP_EXTENSION,[
     if test "$2" != "shared" -a "$2" != "yes"; then
       _extlib="libphpext_$1.a"
       EXT_LTLIBS="$EXT_LTLIBS ext/$1/libphpext_$1.la"
-	  EXT_LIBS="$EXT_LIBS $1/$_extlib"
+      EXT_LIBS="$EXT_LIBS $1/$_extlib"
       EXT_STATIC="$EXT_STATIC $1"
     else
+      AC_DEFINE_UNQUOTED("COMPILE_DL_`echo $1|tr a-z A-Z`", 1, Whether to build $1 as dynamic module)
       EXT_SHARED="$EXT_SHARED $1"
     fi
     PHP_OUTPUT(ext/$1/Makefile)
