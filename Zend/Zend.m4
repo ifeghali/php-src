@@ -1,5 +1,5 @@
 dnl
-dnl $Id: Zend.m4,v 1.33 2002/07/24 17:04:11 imajes Exp $
+dnl $Id: Zend.m4,v 1.34 2002/07/25 23:55:06 sniper Exp $
 dnl
 dnl This file contains Zend specific autoconf functions.
 dnl
@@ -209,7 +209,7 @@ int main()
   }
 
   fp = fopen("conftest.zend", "w");
-  fprintf(fp, "%d %d", ZEND_MM_ALIGNMENT, zeros);  
+  fprintf(fp, "%d %d\n", ZEND_MM_ALIGNMENT, zeros);  
   fclose(fp);
 
   exit(0);
