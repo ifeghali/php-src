@@ -27,3 +27,4 @@ ltmain.sh
 missing
 mkinstalldirs
 modules
+autom4te.cache
