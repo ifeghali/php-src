@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: dba_cdb.c,v 1.18 2002/11/04 17:53:04 helly Exp $ */
+/* $Id: dba_cdb.c,v 1.20 2002/11/05 14:46:35 helly Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -104,17 +104,8 @@ DBA_OPEN_FUNC(cdb)
 			return FAILURE;
 	}
 
-	cdb = ecalloc(sizeof(dba_cdb), 1);
-	if (!cdb) {
-	pinfo->dbf = cdb;
-#if DBA_CDB_BUILTIN
-		php_stream_close(file);
-#else
-		close(file);
-#endif
-		*error = "Out of memory";
-		return FAILURE;
-	}
+	cdb = emalloc(sizeof(dba_cdb));
+	memset(cdb, 0, sizeof(dba_cdb));
 
 #if DBA_CDB_BUILTIN
 	if (make) {
