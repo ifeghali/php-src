@@ -1,2 +1,4 @@
+*.diff
 *.log
-phpt.*
+*.exp
+*.out
