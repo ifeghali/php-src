@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: acconfig.h,v 1.33 2004/01/09 23:37:29 wez Exp $ */
+/* $Id: acconfig.h,v 1.34 2004/03/29 23:08:36 helly Exp $ */
 
 #define ZEND_API
 #define ZEND_DLEXPORT
@@ -64,6 +64,13 @@ int zend_sprintf(char *buffer, const char *format, ...);
 #endif
 
 #include <math.h>
+
+/* To enable the is_nan, is_infinite and is_finite PHP functions */
+#ifdef NETWARE
+	#define HAVE_ISNAN 1
+	#define HAVE_ISINF 1
+	#define HAVE_ISFINITE 1
+#endif
 
 #ifndef zend_isnan
 #ifdef HAVE_ISNAN
