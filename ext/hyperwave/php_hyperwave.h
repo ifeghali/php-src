@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: php_hyperwave.h,v 1.10 2000/10/27 09:29:39 steinm Exp $ */
+/* $Id: php_hyperwave.h,v 1.11 2000/11/09 13:36:53 steinm Exp $ */
 
 #ifndef PHP_HYPERWAVE_H
 #define PHP_HYPERWAVE_H
@@ -132,6 +132,7 @@ PHP_FUNCTION(hw_insdoc);
 PHP_FUNCTION(hw_identify);
 PHP_FUNCTION(hw_free_document);
 PHP_FUNCTION(hw_new_document);
+PHP_FUNCTION(hw_new_document_from_file);
 PHP_FUNCTION(hw_output_document);
 PHP_FUNCTION(hw_document_size);
 PHP_FUNCTION(hw_document_attributes);
