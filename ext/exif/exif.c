@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.106 2002/07/28 17:21:51 helly Exp $ */
+/* $Id: exif.c,v 1.107 2002/07/31 21:34:37 helly Exp $ */
 
 /*  ToDos
  *
@@ -109,7 +109,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.106 2002/07/28 17:21:51 helly Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.107 2002/07/31 21:34:37 helly Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -2997,7 +2997,7 @@ static int exif_process_IFD_TAG(image_info_type *ImageInfo, char *dir_entry, cha
 
 /* {{{ exif_process_IFD_in_JPEG
  * Process one of the nested IFDs directories. */
-static int exif_process_IFD_in_JPEG(image_info_type *ImageInfo, char *dir_start, char *offset_base, unsigned IFDlength, size_t displacement, int section_index TSRMLS_DC)
+static int exif_process_IFD_in_JPEG(image_info_type *ImageInfo, char *dir_start, char *offset_base, size_t IFDlength, size_t displacement, int section_index TSRMLS_DC)
 {
 	int de;
 	int NumDirEntries;
