@@ -1,4 +1,4 @@
-#!@prefix@/bin/php -Cqd include_path=@include_path@
+#!@prefix@/bin/php -Cq
 <?php // -*- PHP -*-
 //
 // +----------------------------------------------------------------------+
@@ -19,11 +19,12 @@
 // |                                                                      |
 // +----------------------------------------------------------------------+
 //
-// $Id: pear.in,v 1.59 2002/06/07 08:05:48 cox Exp $
+// $Id: pear.in,v 1.60 2002/06/16 05:43:48 ssb Exp $
 
 /**
  * @nodep Gtk
  */
+ini_set('include_path', '@include_path@');
 ini_set('allow_url_fopen', true);
 set_time_limit(0);
 ob_implicit_flush(true);
