@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: nsapi.c,v 1.52 2003/07/21 14:20:47 thetaphi Exp $ */
+/* $Id: nsapi.c,v 1.53 2003/07/24 17:40:40 thetaphi Exp $ */
 
 /*
  * PHP includes
@@ -203,7 +203,7 @@ zend_module_entry nsapi_module_entry = {
 	NULL,
 	NULL,
 	PHP_MINFO(nsapi),
-	"$Revision: 1.52 $",
+	"$Revision: 1.53 $",
 	STANDARD_MODULE_PROPERTIES
 };
 /* }}} */
@@ -399,9 +399,7 @@ PHP_FUNCTION(nsapi_request_headers)
 	struct pb_entry *entry;
 	nsapi_request_context *rc = (nsapi_request_context *)SG(server_context);
 
-	if (array_init(return_value) == FAILURE) {
-		RETURN_FALSE;
-	}
+	array_init(return_value);
 
 	for (i=0; i < rc->rq->headers->hsize; i++) {
 		entry=rc->rq->headers->ht[i];
@@ -423,9 +421,7 @@ PHP_FUNCTION(nsapi_response_headers)
 	struct pb_entry *entry;
 	nsapi_request_context *rc = (nsapi_request_context *)SG(server_context);
 
-	if (array_init(return_value) == FAILURE) {
-		RETURN_FALSE;
-	}
+	array_init(return_value);
 
 	php_header(TSRMLS_C);
 
