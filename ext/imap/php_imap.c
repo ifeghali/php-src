@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.61 2001/02/26 16:36:08 kalowsky Exp $ */
+/* $Id: php_imap.c,v 1.62 2001/03/01 07:06:54 chagenbu Exp $ */
 
 #define IMAP41
 
@@ -366,6 +366,8 @@ MESSAGELIST *mail_newmessagelist(void)
  */
 void mail_getquota(MAILSTREAM *stream, char *qroot,QUOTALIST *qlist)
 {
+	IMAPLS_FETCH();
+
 	/* this should only be run through once */
 	for (; qlist; qlist = qlist->next)
 	{
@@ -1018,9 +1020,9 @@ PHP_FUNCTION(imap_num_recent)
 PHP_FUNCTION(imap_get_quota)
 {
 	zval **streamind, **qroot;
-
 	int ind, ind_type;
 	pils *imap_le_struct;
+	IMAPLS_FETCH();
 
 	if (ZEND_NUM_ARGS() != 2 || zend_get_parameters_ex(2, &streamind, &qroot) == FAILURE) {
 		ZEND_WRONG_PARAM_COUNT();
