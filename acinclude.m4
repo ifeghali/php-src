@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.47 1999/12/04 18:03:00 sas Exp $
+dnl $Id: acinclude.m4,v 1.48 1999/12/05 16:24:20 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -78,6 +78,7 @@ AC_DEFUN(AC_ADD_LIBPATH,[
   if test "$1" != "/usr/lib"; then
     AC_EXPAND_PATH($1, ai_p)
     AC_PHP_ONCE(LIBPATH, $ai_p, [
+      test -n "$ld_runpath_switch" && LDFLAGS="$LDFLAGS $ld_runpath_switch$ai_p"
       LDFLAGS="$LDFLAGS -L$ai_p"
       PHP_RPATHS="$PHP_RPATHS $ai_p"
     ])
