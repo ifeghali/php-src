@@ -196,6 +196,7 @@
 				$this->private_functions[$attr['name']] = $function;
 				break;
 			case "public":
+				if(is_string($function->status)) $this->error($function->status." in prototype");
 				$this->functions[$attr['name']] = $function;
 				break;
 			default:
@@ -282,7 +283,7 @@
 			$fp = fopen("$docdir/reference.xml", "w");
 			fputs($fp,
 "<?xml version='1.0' encoding='iso-8859-1'?>
-<!-- \$Revision: 1.4 $ -->
+<!-- \$Revision: 1.5 $ -->
  <reference id='ref.{$this->name}'>
   <title>{$this->summary}</title>
   <titleabbrev>{$this->name}</titleabbrev>
