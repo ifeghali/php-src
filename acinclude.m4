@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.133 2001/06/01 06:26:22 sniper Exp $
+dnl $Id: acinclude.m4,v 1.134 2001/06/10 13:51:18 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -686,7 +686,7 @@ AC_DEFUN(PHP_BUILD_RPATH,[
 dnl
 dnl PHP_ADD_INCLUDE(path [,before])
 dnl
-dnl add a include path. 
+dnl add an include path. 
 dnl if before is 1, add in the beginning of INCLUDES.
 dnl
 AC_DEFUN(PHP_ADD_INCLUDE,[
