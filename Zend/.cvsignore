@@ -16,3 +16,10 @@ stamp-h
 stamp-h.in
 Makefile.in
 aclocal.m4
+install-sh
+ltconfig
+ltmain.sh
+missing
+mkinstalldirs
+config.guess
+config.sub
