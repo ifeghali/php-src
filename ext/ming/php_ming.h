@@ -1,8 +1,8 @@
 /*
   +----------------------------------------------------------------------+
-  | PHP Version 4                                                        |
+  | PHP Version 5                                                        |
   +----------------------------------------------------------------------+
-  | Copyright (c) 1997-2003 The PHP Group                                |
+  | Copyright (c) 1997-2004 The PHP Group                                |
   +----------------------------------------------------------------------+
   | This source file is subject to version 3.0 of the PHP license,       |
   | that is bundled with this package in the file LICENSE, and is        |
@@ -17,7 +17,7 @@
   +----------------------------------------------------------------------+
 */
 
-/* $Id: php_ming.h,v 1.13 2003/07/11 07:48:11 sniper Exp $ */
+/* $Id: php_ming.h,v 1.14 2003/11/06 07:29:37 fmk Exp $ */
 
 #ifndef _PHP_MING_H
 #define _PHP_MING_H

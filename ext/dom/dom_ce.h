@@ -1,8 +1,8 @@
 /*
    +----------------------------------------------------------------------+
-   | PHP Version 4                                                        |
+   | PHP Version 5                                                        |
    +----------------------------------------------------------------------+
-   | Copyright (c) 1997-2003 The PHP Group                                |
+   | Copyright (c) 1997-2004 The PHP Group                                |
    +----------------------------------------------------------------------+
    | This source file is subject to version 3.0 of the PHP license,       |
    | that is bundled with this package in the file LICENSE, and is        |
@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: dom_ce.h,v 1.4 2003/10/20 15:50:34 rrichards Exp $ */
+/* $Id: dom_ce.h,v 1.5 2003/11/29 13:00:54 chregu Exp $ */
 #ifndef DOM_CE_H
 #define DOM_CE_H
 
