@@ -43,7 +43,7 @@
 
 <!ELEMENT changelog (release)+>
 
-<!ELEMENT release (version|license|state|date|notes|filelist|deps|provides|script)+>
+<!ELEMENT release (version|license|state|date|notes|filelist|deps|provides|script|configureoptions)+>
 
 <!ELEMENT version (#PCDATA)>
 
@@ -60,9 +60,11 @@
               baseinstalldir CDATA #IMPLIED>
 
 <!ELEMENT file (replace*)>
-<!ATTLIST file role           (php|ext|test|doc|data|script) 'php'
+<!ATTLIST file role           (php|ext|src|test|doc|data|script) 'php'
                debug          (na|on|off)        'na'
-               threaded       (na|on|off)        'na'
+               zts            (na|on|off)        'na'
+               phpapi         NUMBER             #IMPLIED
+               zendapi        NUMBER             #IMPLIED
                format         CDATA              #IMPLIED
                baseinstalldir CDATA              #IMPLIED
                platform       CDATA              #IMPLIED
@@ -103,3 +105,11 @@
                  pre-build    |post-build    |
                  pre-configure|post-configure|
                  pre-setup    |post-setup    )         #REQUIRED>
+
+<!ELEMENT configureoptions (configureoption*)>
+
+<!ELEMENT configureoption EMPTY>
+<!ATTLIST configureoption
+        name     CDATA      #REQUIRED
+        default  CDATA      #IMPLIED
+        prompt   CDATA      #REQUIRED>
