@@ -17,7 +17,7 @@
   |          Dmitry Stogov <dmitry@zend.com>                             |
   +----------------------------------------------------------------------+
 */
-/* $Id: php_soap.h,v 1.31 2004/02/25 14:04:41 dmitry Exp $ */
+/* $Id: php_soap.h,v 1.32 2004/04/02 11:12:44 dmitry Exp $ */
 
 #ifndef PHP_SOAP_H
 #define PHP_SOAP_H
@@ -184,5 +184,17 @@ ZEND_EXTERN_MODULE_GLOBALS(soap)
 extern zend_class_entry* soap_var_class_entry;
 
 zval* add_soap_fault(zval *obj, char *fault_code, char *fault_string, char *fault_actor, zval *fault_detail TSRMLS_DC);
+
+#define soap_error0(severity, format) \
+	php_error(severity, "SOAP-ERROR: " format)
+
+#define soap_error1(severity, format, param1) \
+	php_error(severity, "SOAP-ERROR: " format, param1)
+
+#define soap_error2(severity, format, param1, param2) \
+	php_error(severity, "SOAP-ERROR: " format, param1, param2)
+
+#define soap_error3(severity, format, param1, param2, param3) \
+	php_error(severity, "SOAP-ERROR: " format, param1, param2, param3)
 
 #endif
