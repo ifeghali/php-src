@@ -1,5 +1,5 @@
 dnl
-dnl $Id: Zend.m4,v 1.42 2003/10/03 05:24:18 sniper Exp $
+dnl $Id: Zend.m4,v 1.43 2003/10/07 22:39:54 rasmus Exp $
 dnl
 dnl This file contains Zend specific autoconf functions.
 dnl
@@ -107,6 +107,22 @@ AC_ARG_ENABLE(debug,
 ])
 
 AC_DEFUN(LIBZEND_OTHER_CHECKS,[
+
+PHP_ARG_WITH(zend-vm,[virtual machine dispatch method],
+[  --with-zend-vm=TYPE     Sets virtual machine dispatch methos. Type is
+                          one of "CALL" (default), "SWITCH" or "GOTO"], CALL, no)
+
+case $PHP_ZEND_VM in
+  SWITCH)
+    AC_DEFINE(ZEND_VM_KIND,ZEND_VM_KIND_SWITCH,[virtual machine dispatch method])
+    ;;
+  GOTO)
+    AC_DEFINE(ZEND_VM_KIND,ZEND_VM_KIND_GOTO,[virtual machine dispatch method])
+    ;;
+  *)
+    AC_DEFINE(ZEND_VM_KIND,ZEND_VM_KIND_CALL,[virtual machine dispatch method])
+    ;;
+esac
 
 AC_ARG_ENABLE(maintainer-zts,
 [  --enable-maintainer-zts Enable thread safety - for code maintainers only],[
