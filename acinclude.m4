@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.184 2002/04/23 02:47:34 sniper Exp $
+dnl $Id: acinclude.m4,v 1.185 2002/04/23 05:06:51 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -240,8 +240,8 @@ AC_DEFUN(PHP_SETUP_OPENSSL,[
     -L$OPENSSL_LIBDIR
   ])
 
-  AC_SUBST(OPENSSL_INCDIR)
-
+  OPENSSL_INCDIR_OPT=-I$OPENSSL_INCDIR
+  AC_SUBST(OPENSSL_INCDIR_OPT)
 ])
 
 dnl PHP_EVAL_LIBLINE(LINE, SHARED-LIBADD)
