@@ -6,6 +6,7 @@ Makefile
 *.plg
 net
 .deps
+.libs
 *.plg
 *.opt
 *.ncb
