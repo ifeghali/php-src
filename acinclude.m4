@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.36 1999/11/12 20:56:29 sas Exp $
+dnl $Id: acinclude.m4,v 1.37 1999/11/13 12:38:23 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -147,6 +147,8 @@ AC_DEFUN(AC_CHECK_CC_OPTION,[
 ])
 
 AC_DEFUN(PHP_HSREGEX,[
+
+test -z "$HSREGEX" && HSREGEX="$WANT_HSREGEX"		
 AC_MSG_CHECKING(whether to use bundled regex library)
 AC_MSG_RESULT($HSREGEX)
 
