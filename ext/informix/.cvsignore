@@ -2,3 +2,6 @@
 Makefile.in
 Makefile
 ifx.c
+*.lo
+*.la
+.libs

@@ -3,3 +3,6 @@ Makefile.in
 Makefile
 number.h
 number.c
+*.lo
+*.la
+.libs

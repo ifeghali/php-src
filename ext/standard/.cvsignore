@@ -4,3 +4,6 @@ Makefile
 parsedate.c
 parsedate.h
 parsedate.output
+*.lo
+*.la
+.libs

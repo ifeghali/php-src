@@ -2,3 +2,6 @@
 Makefile
 Makefile.in
 libphp4.module
+.libs
+*.la
+*.lo
