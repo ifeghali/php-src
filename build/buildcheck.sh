@@ -24,7 +24,8 @@ echo "buildconf: checking installation..."
 stamp=$1
 
 # autoconf 2.13 or newer
-ac_version=`autoconf --version 2>/dev/null|head -n 1|sed -e 's/^[^0-9]*//' -e 's/[a-z]* *$//'`
+autoconf=`./build/shtool path autoconf-2.13 autoconf 2> /dev/null`
+ac_version=`$autoconf --version 2>/dev/null|head -n 1|sed -e 's/^[^0-9]*//' -e 's/[a-z]* *$//'`
 if test -z "$ac_version"; then
 echo "buildconf: autoconf not found."
 echo "           You need autoconf version 2.13 or newer installed"
