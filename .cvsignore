@@ -8,7 +8,6 @@ config.status
 Makefile
 build-defs.h
 stamp-h
-libphp4.module
 configuration-parser.output
 configuration-parser.c
 configuration-parser.h
@@ -16,7 +15,6 @@ configuration-scanner.c
 php
 test.php3
 aclocal.m4
-configure.in
 acconfig.h
 internal_functions.c
 libtool
