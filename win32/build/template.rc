@@ -1,11 +1,10 @@
 /* This is a template RC file.
- * $Id:$
+ * $Id: template.rc,v 1.1 2003/12/04 01:37:52 wez Exp $
  * Do not edit with MSVC */
 #ifdef APSTUDIO_INVOKED
 # error dont edit with MSVC
 #endif
 
-#include "resource.h"
 #include "winres.h"
 #include "main/php_version.h"
 
