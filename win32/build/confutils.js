@@ -201,6 +201,17 @@ function conf_process_args()
 	}
 
 	if (configure_help_mode) {
+		STDOUT.WriteLine(word_wrap_and_indent(0,
+"Options that enable extensions and SAPI will accept \
+'yes' or 'no' as a parameter.  They also accept 'shared' \
+as a synonym for 'yes' and request a shared build of that \
+module.  Not all modules can be built as shared modules; \
+configure will display [shared] after the module name if \
+can be built that way. \
+"
+			));
+		STDOUT.WriteBlankLines(1);
+
 		// Measure width to pretty-print the output
 		max_width = 0;
 		for (i = 0; i < configure_args.length; i++) {
