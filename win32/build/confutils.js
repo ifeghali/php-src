@@ -573,7 +573,7 @@ function EXTENSION(extname, file_list, shared, cflags)
 
 		/* find the header that declars the module pointer,
 		 * so we can include it in internal_functions.c */
-		var ext_dir = FSO.GetFolder("ext/" + extname);
+		var ext_dir = FSO.GetFolder(configure_module_dirname);
 		var fc = new Enumerator(ext_dir.Files);
 		var re = /\.h$/;
 		var s, c;
