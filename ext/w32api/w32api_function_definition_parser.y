@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id$ */
+/* $Id: w32api_function_definition_parser.y,v 1.1 2002/11/12 14:31:33 jmoore Exp $ */
 
 #include <stdio.h>
 #include <stdlib.h>
