@@ -26,7 +26,7 @@
    | Authors: Uwe Steinmann                                               |
    +----------------------------------------------------------------------+
  */
-/* $Id: php3_pdf.h,v 1.13 1999/07/05 20:16:33 steinm Exp $ */
+/* $Id: php3_pdf.h,v 1.4 1999/08/05 16:25:10 steinm Exp $ */
 
 #ifndef _PHP3_PDF_H
 #define _PHP3_PDF_H
@@ -42,7 +42,7 @@ extern php3_module_entry pdf_module_entry;
 
 extern PHP_MINFO_FUNCTION(pdf);
 extern PHP_MINIT_FUNCTION(pdf);
-extern int php3_mend_pdf(void);
+extern PHP_MSHUTDOWN_FUNCTION(pdf);
 PHP_FUNCTION(pdf_set_info_creator);
 PHP_FUNCTION(pdf_set_info_title);
 PHP_FUNCTION(pdf_set_info_subject);
