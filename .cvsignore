@@ -1,3 +1,4 @@
+buildconf.stamp
 configure
 config.log
 php_config.h
