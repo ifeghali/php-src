@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: php_fbsql.h,v 1.21 2002/09/04 04:03:20 kalowsky Exp $ */
+/* $Id: php_fbsql.h,v 1.22 2002/12/31 16:06:35 sebastian Exp $ */
 
 #define HAVE_FBSQL 1
 
@@ -105,9 +105,9 @@ static void php_fbsql_fetch_hash(INTERNAL_FUNCTION_PARAMETERS, int result_type);
 static void php_fbsql_do_connect(INTERNAL_FUNCTION_PARAMETERS, int persistent);
 
 ZEND_BEGIN_MODULE_GLOBALS(fbsql)
-   long allowPersistent;
-   long generateWarnings;
-   long autoCommit;
+   zend_bool allowPersistent;
+   zend_bool generateWarnings;
+   zend_bool autoCommit;
    long maxPersistent;
    long maxLinks;
    long maxConnections;
