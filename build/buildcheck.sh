@@ -73,7 +73,7 @@ fi
 # libtool 1.4.3 or newer
 # Prefer glibtool over libtool for Mac OS X compatibility
 libtool=`./build/shtool path glibtool 2> /dev/null`
-if test ! -f "$libtool"; then libtool=`./build/shtool path libtool`; fi
+if test ! -r "$libtool"; then libtool=`./build/shtool path libtool`; fi
 lt_pversion=`$libtool --version 2>/dev/null|sed -n -e 's/^[^0-9]*//' -e 1's/[- ].*//p'`
 if test "$lt_pversion" = ""; then
 echo "buildconf: libtool not found."
