@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.73 2001/05/03 19:44:42 chagenbu Exp $ */
+/* $Id: php_imap.c,v 1.74 2001/05/04 20:03:47 chagenbu Exp $ */
 
 #define IMAP41
 
@@ -2782,8 +2782,6 @@ PHP_FUNCTION(imap_fetchheader)
 	zval **streamind, **msgno, **flags;
 	int ind, ind_type, msgindex;
 	pils *imap_le_struct;
-	char *body, *header, *tempstring;
-	unsigned long blen, hlen;
 	int myargc = ZEND_NUM_ARGS();
 	
 	if (myargc < 2 || myargc > 3 || zend_get_parameters_ex(myargc, &streamind, &msgno, &flags) == FAILURE) {
