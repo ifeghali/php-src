@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.167 2005/02/15 21:56:17 iliaa Exp $ */
+/* $Id: exif.c,v 1.168 2005/02/16 09:53:26 edink Exp $ */
 
 /*  ToDos
  *
@@ -66,7 +66,7 @@
 #include "ext/standard/php_image.h"
 #include "ext/standard/info.h" 
 
-#if PHP_WIN32 ||(HAVE_MBSTRING && !defined(COMPILE_DL_MBSTRING))
+#if defined(PHP_WIN32) || (HAVE_MBSTRING && !defined(COMPILE_DL_MBSTRING))
 #define EXIF_USE_MBSTRING 1
 #else
 #define EXIF_USE_MBSTRING 0
@@ -112,7 +112,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.167 2005/02/15 21:56:17 iliaa Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.168 2005/02/16 09:53:26 edink Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
