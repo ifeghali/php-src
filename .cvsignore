@@ -20,3 +20,4 @@ configure.in
 acconfig.h
 internal_functions.c
 libtool
+php4.spec
