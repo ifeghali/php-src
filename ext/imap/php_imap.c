@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.184 2004/07/04 16:52:59 iliaa Exp $ */
+/* $Id: php_imap.c,v 1.185 2004/07/21 21:57:03 iliaa Exp $ */
 
 #define IMAP41
 
@@ -1816,8 +1816,12 @@ PHP_FUNCTION(imap_fetchbody)
 	if (myargc == 4) {
 		convert_to_long_ex(flags);
 	}
- 
- 	PHP_IMAP_CHECK_MSGNO(Z_LVAL_PP(msgno));
+
+    if (myargc < 4 || !Z_LVAL_PP(flags) & FT_UID) {
+        /* If we're fetching via UID, checking the range of msgno is
+           DUMB. */
+        PHP_IMAP_CHECK_MSGNO(Z_LVAL_PP(msgno));
+    }
  
 	body = mail_fetchbody_full(imap_le_struct->imap_stream, Z_LVAL_PP(msgno), Z_STRVAL_PP(sec), &len, myargc==4 ? Z_LVAL_PP(flags) : NIL);
 
