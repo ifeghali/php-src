@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.41 2000/08/17 16:01:14 chagenbu Exp $ */
+/* $Id: php_imap.c,v 1.42 2000/08/18 16:02:27 chagenbu Exp $ */
 
 #define IMAP41
 
@@ -2664,7 +2664,7 @@ PHP_FUNCTION(imap_fetchheader)
 		RETVAL_STRINGL(tempstring,(hlen+blen+1),1);
 		efree(tempstring);
 	} else {
-		RETVAL_STRING(mail_fetchheader_full(imap_le_struct->imap_stream, Z_LVAL_PP(msgno), NIL, NIL, NIL), 1);
+		RETVAL_STRING(mail_fetchheader_full(imap_le_struct->imap_stream, Z_LVAL_PP(msgno), NIL, NIL, (myargc == 3 ? Z_LVAL_PP(flags) : NIL)), 1);
 	}
 }
 /* }}} */
