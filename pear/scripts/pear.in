@@ -19,7 +19,7 @@
 // |                                                                      |
 // +----------------------------------------------------------------------+
 //
-// $Id: pear.in,v 1.61 2002/06/25 13:45:29 cox Exp $
+// $Id: pear.in,v 1.62 2002/07/07 21:01:10 ssb Exp $
 
 /**
  * @nodep Gtk
@@ -242,7 +242,7 @@ function cmdHelp($command)
         return $ret;
 
     } elseif ($command == "version") {
-        return "PEAR $GLOBALS[pear_package_version]";
+        return "PEAR Version: ".$GLOBALS[pear_package_version]."\nPHP Version: ".phpversion()."\nZend Engine Version: ".zend_version();
 
     } elseif ($help = PEAR_Command::getHelp($command)) {
         if (is_string($help)) {
