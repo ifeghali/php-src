@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
  
-/* $Id: php_msql.c,v 1.39 2001/08/06 03:50:47 sas Exp $ */
+/* $Id: php_msql.c,v 1.40 2001/08/13 16:13:17 andi Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -849,11 +849,10 @@ PHP_FUNCTION(msql_result)
 			return_value->value.str.len = (sql_row[field_offset]?strlen(sql_row[field_offset]):0);
 			return_value->value.str.val = (char *) safe_estrndup(sql_row[field_offset],return_value->value.str.len);
 		}
+		return_value->type = IS_STRING;
 	} else {
 		ZVAL_FALSE(return_value);
 	}
-	
-	return_value->type = IS_STRING;
 }
 /* }}} */
 
