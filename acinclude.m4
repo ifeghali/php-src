@@ -1,8 +1,18 @@
-dnl $Id: acinclude.m4,v 1.83 2000/05/16 23:24:39 sas Exp $
+dnl $Id: acinclude.m4,v 1.84 2000/05/17 19:08:44 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
 sinclude(dynlib.m4)
+
+AC_DEFUN(PHP_SHLIB_SUFFIX_NAME,[
+  PHP_SUBST(SHLIB_SUFFIX_NAME)
+  SHLIB_SUFFIX_NAME=so
+  case "$host_alias" in
+  *hpux*)
+	SHLIB_SUFFIX_NAME=sl
+	;;
+  esac
+])
 
 AC_DEFUN(PHP_DEBUG_MACRO,[
   DEBUG_LOG="$1"
