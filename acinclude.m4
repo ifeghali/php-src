@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.57 2000/01/01 02:22:00 sas Exp $
+dnl $Id: acinclude.m4,v 1.59 2000/02/02 15:33:14 andrei Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -352,6 +352,7 @@ dnl a dynamically loadable library.
 dnl
 AC_DEFUN(PHP_EXTENSION,[
   if test -d "$cwd/$srcdir/ext/$1" ; then
+    ext_base="ext/$1/"
     EXT_SUBDIRS="$EXT_SUBDIRS $1"
     if test "$2" != "shared" && test "$2" != "yes" && test -z "$php_always_shared"; then
       _extlib="lib$1.a"
