@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.98 2000/06/17 16:13:11 andrei Exp $
+dnl $Id: acinclude.m4,v 1.99 2000/07/09 20:39:18 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -547,9 +547,7 @@ AC_DEFUN(AC_ADD_LIBRARY,[
  c|c_r|pthread*) ;;
  *)
 ifelse($3,,[
-   AC_PHP_ONCE(LIBRARY, $1, [
-     PHP_X_ADD_LIBRARY($1,$2,LIBS)
-   ])
+   PHP_X_ADD_LIBRARY($1,$2,LIBS)
 ],[
    if test "$ext_shared" = "yes"; then
      PHP_X_ADD_LIBRARY($1,$2,$3)
@@ -566,9 +564,7 @@ dnl AC_ADD_LIBRARY_DEFER(library[, append])
 dnl
 dnl add a library to the link line (deferred)
 AC_DEFUN(AC_ADD_LIBRARY_DEFER,[
-  AC_PHP_ONCE(LIBRARY, $1, [
-    ifelse($#, 1, DLIBS="-l$1 $DLIBS", DLIBS="$DLIBS -l$1")
-  ])
+  ifelse($#, 1, DLIBS="-l$1 $DLIBS", DLIBS="$DLIBS -l$1")
 ])
 
 dnl
