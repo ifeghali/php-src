@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.42 1999/11/24 03:27:52 sas Exp $
+dnl $Id: acinclude.m4,v 1.43 1999/11/24 09:49:30 thies Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -16,8 +16,7 @@ dnl
 dnl PHP_BUILD_THREAD_SAFE
 dnl
 AC_DEFUN(PHP_BUILD_THREAD_SAFE,[
-  enable_thread_safety=yes
-  passthru="$passthru --enable-thread-safety"
+  PHP_THREAD_SAFETY=yes
 ])
 
 dnl
