@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.88 2002/04/10 01:18:52 helly Exp $ */
+/* $Id: exif.c,v 1.89 2002/04/12 16:35:56 helly Exp $ */
 
 /*  ToDos
  *
@@ -107,9 +107,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.3 $Id: exif.c,v 1.88 2002/04/10 01:18:52 helly Exp $"
-
-ZEND_DECLARE_MODULE_GLOBALS(exif)
+#define EXIF_VERSION "1.3 $Id: exif.c,v 1.89 2002/04/12 16:35:56 helly Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -132,6 +130,8 @@ ZEND_BEGIN_MODULE_GLOBALS(exif)
 	char * decode_jis_be;
 	char * decode_jis_le;
 ZEND_END_MODULE_GLOBALS(exif) 
+
+ZEND_DECLARE_MODULE_GLOBALS(exif)
 
 #ifdef ZTS
 #define EXIF_G(v) TSRMG(exif_globals_id, zend_exif_globals *, v)
