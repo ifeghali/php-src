@@ -19,6 +19,10 @@
 # $Id$ 
 #
 
+if test "$#" = "0"; then
+  echo "Usage: fastgen.sh <srcdir> <mkdir_p> <bsdmakefile_p> <file>"
+fi
+
 srcdir=$1
 shift
 
