@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.212 2002/10/16 16:21:13 sniper Exp $
+dnl $Id: acinclude.m4,v 1.213 2002/10/21 03:12:27 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1777,7 +1777,6 @@ $debug ||
 }
   _max=0
   _count=0
-  # along with /bin/sed that truncates output.
   for _sed in $_sed_list; do
     test ! -f ${_sed} && break
     cat /dev/null > "$tmp/sed.in"
