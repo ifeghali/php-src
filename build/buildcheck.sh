@@ -40,7 +40,7 @@ echo "buildconf: autoconf version $ac_version (ok)"
 fi
 
 # automake 1.4 or newer
-am_version=`automake --version 2>/dev/null|head -1|sed -e 's/^[^0-9]*//' -e 's/[a-z]* *$//'`
+am_version=`automake --version 2>/dev/null|head -1|sed -e 's/^[^0-9]*//' -e 's/[a-z]* *$//' -e 's/-p[0-9]*$//'`
 if test "$am_version" = ""; then
 echo "buildconf: automake not found."
 echo "           You need automake version 1.4 or newer installed"
