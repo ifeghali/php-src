@@ -17,7 +17,7 @@
   |          Dmitry Stogov <dmitry@zend.com>                             |
   +----------------------------------------------------------------------+
 */
-/* $Id: php_soap.h,v 1.24 2004/02/02 16:19:37 dmitry Exp $ */
+/* $Id: php_soap.h,v 1.25 2004/02/03 16:44:56 dmitry Exp $ */
 
 #ifndef PHP_SOAP_H
 #define PHP_SOAP_H
@@ -164,7 +164,7 @@ extern zend_module_entry soap_module_entry;
 #define soap_module_ptr &soap_module_entry
 #define phpext_soap_ptr soap_module_ptr
 
-ZEND_EXTERN_MODULE_GLOBALS(soap);
+ZEND_EXTERN_MODULE_GLOBALS(soap)
 
 #ifdef ZTS
 # define SOAP_GLOBAL(v) TSRMG(soap_globals_id, zend_soap_globals *, v)
