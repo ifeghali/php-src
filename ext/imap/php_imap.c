@@ -23,7 +23,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.21 2000/05/02 00:30:26 sas Exp $ */
+/* $Id: php_imap.c,v 1.22 2000/05/02 00:44:23 sas Exp $ */
 
 #define IMAP41
 
@@ -3461,7 +3461,7 @@ PHP_FUNCTION(imap_mime_header_decode)
 				}
 				if ((encoding_token=(long) php_memnstr(&string[charset_token+2], "?", 1, string+end))) {		/* Find token for encoding */
 					encoding_token -= (long) string;
-					if ((end_token=(long) php_memnstr(&string[encoding_token+1], "?=", 2, string+end))) {	/* Find token for end of encoded data */
+					if ((end_token=(long) php_memnstr(&string[encoding_token+3], "?=", 2, string+end))) {	/* Find token for end of encoded data */
 						end_token -= (long) string;
 						memcpy(charset, &string[charset_token+2], encoding_token-(charset_token+2));	/* Extract charset encoding */
 						charset[encoding_token-(charset_token+2)]=0x00;
