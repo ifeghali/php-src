@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.255 2003/07/03 22:54:57 sas Exp $
+dnl $Id: acinclude.m4,v 1.256 2003/08/13 23:45:42 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1744,7 +1744,7 @@ AC_DEFUN([PHP_SETUP_LIBXML], [
     set $libxml_full_version
     IFS=$ac_IFS
     LIBXML_VERSION=`expr [$]1 \* 1000000 + [$]2 \* 1000 + [$]3`
-    if test "$LIBXML_VERSION" -ge "2005001"; then
+    if test "$LIBXML_VERSION" -ge "2005010"; then
       LIBXML_LIBS=`$XML2_CONFIG --libs`
       LIBXML_INCS=`$XML2_CONFIG --cflags`
       PHP_EVAL_LIBLINE($LIBXML_LIBS, $1)
@@ -1752,7 +1752,7 @@ AC_DEFUN([PHP_SETUP_LIBXML], [
       AC_DEFINE(HAVE_LIBXML, 1, [ ])
       $2
     else
-      AC_MSG_ERROR([libxml2 version 2.5.1 or greater required.])
+      AC_MSG_ERROR([libxml2 version 2.5.10 or greater required.])
     fi
 ifelse([$3],[],,[else $3])
   fi
