@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.198 2002/07/20 01:28:56 sas Exp $
+dnl $Id: acinclude.m4,v 1.199 2002/07/21 14:42:01 markonen Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1538,4 +1538,20 @@ AC_DEFUN(PHP_CHECK_FUNC,[
     *) PHP_CHECK_FUNC_LIB($@) ;;
   ])
   esac
+])
+
+dnl
+dnl PHP_AP_EXTRACT_VERSION(/path/httpd)
+dnl This macro is used to get a comparable
+dnl version for apache1/2.
+dnl
+AC_DEFUN(PHP_AP_EXTRACT_VERSION,[
+  ac_output=`$1 -v 2>&1`
+  ac_IFS=$IFS
+IFS="- /.
+"
+  set $ac_output
+  IFS=$ac_IFS
+
+  APACHE_VERSION=`expr [$]4 \* 1000000 + [$]5 \* 1000 + [$]6`
 ])
