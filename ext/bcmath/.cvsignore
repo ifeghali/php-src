@@ -7,3 +7,4 @@ number.c
 Makefile.am
 .deps
 libs.mk
+COPYING
