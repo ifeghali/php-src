@@ -7,3 +7,9 @@ Makefile
 build-defs.h
 stamp-h
 libphp3.module
+configuration-parser.output
+configuration-parser.c
+configuration-parser.h
+configuration-scanner.c
+php
+test.php3
