@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.116 2002/05/29 08:40:43 derick Exp $ */
+/* $Id: php_imap.c,v 1.117 2002/06/13 06:32:14 derick Exp $ */
 
 #define IMAP41
 
@@ -661,7 +661,6 @@ PHP_RSHUTDOWN_FUNCTION(imap)
 PHP_MINFO_FUNCTION(imap)
 {
 	php_info_print_table_start();
-	php_info_print_table_header(2, "IMAP Support", "enabled" );
 #if HAVE_IMAP2001
 	php_info_print_table_row(2, "IMAP c-Client Version", "2001");               
 #elif HAVE_IMAP2000
