@@ -2,7 +2,7 @@
    +----------------------------------------------------------------------+
    | PHP version 4.0                                                      |
    +----------------------------------------------------------------------+
-   | Copyright (c) 1997, 1998, 1999, 2000 The PHP Group                   |
+   | Copyright (c) 1997-2001 The PHP Group                                |
    +----------------------------------------------------------------------+
    | This source file is subject to version 2.01 of the PHP license,      |
    | that is bundled with this package in the file LICENSE, and is        |
@@ -17,7 +17,7 @@
 */
 
 
-/* $Id: php_notes.h,v 1.7 2000/02/19 23:41:16 brad Exp $ */
+/* $Id: php_notes.h,v 1.1 2001/02/16 21:36:29 zeev Exp $ */
 
 extern zend_module_entry notes_module_entry;
 
