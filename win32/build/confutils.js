@@ -349,7 +349,7 @@ can be built that way. \
 		'debug', 'crt-debug', 'lzf-better-compression',
 		 'php-build', 'snapshot-template',
 		 'pcre-regex', 'fastcgi', 'force-cgi-redirect',
-		 'path-info-check', 'zts', 'ipv6'
+		 'path-info-check', 'zts', 'ipv6', 'memory-limit'
 		);
 	var force;
 
