@@ -1,5 +1,5 @@
+phpt.*
 *.diff
 *.log
 *.exp
 *.out
-test.dbm
