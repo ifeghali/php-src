@@ -20,7 +20,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: ifx.ec,v 1.48 2000/09/04 21:18:06 danny Exp $ */
+/* $Id: ifx.ec,v 1.49 2000/09/05 18:21:57 danny Exp $ */
 
 /* -------------------------------------------------------------------
  * if you want a function reference : "grep '^\*\*' ifx.ec" will give
@@ -3782,7 +3782,7 @@ static char* php3_intifx_create_tmpfile(long bid) {
  
  sprintf(filename,"blb%d",(int)bid);
  blobfile=tempnam(blobdir,filename);
- free(blobdir);
+ /* free(blobdir); */
  
  if (blobfile == NULL) 
    return NULL;
