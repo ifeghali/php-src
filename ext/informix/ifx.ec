@@ -20,7 +20,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: ifx.ec,v 1.55 2001/07/30 20:50:53 sniper Exp $ */
+/* $Id: ifx.ec,v 1.56 2001/08/07 18:36:54 sniper Exp $ */
 
 /* -------------------------------------------------------------------
  * if you want a function reference : "grep '^\*\*' ifx.ec" will give
@@ -1993,8 +1993,8 @@ EXEC SQL BEGIN DECLARE SECTION;
 	short fieldtype;      /* field type      */
 	int   fieldleng;      /* field length    */
 $ifdef HAVE_IFX_IUS;
-	ifx_int8_t  int8_var;
-	lvarchar*lvar_tmp;
+	ifx_int8_t int8_var;
+	lvarchar   *lvar_tmp;
 $endif;
 	short     indicator;
 	int       int_data;
