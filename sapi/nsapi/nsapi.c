@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: nsapi.c,v 1.65 2004/09/20 13:30:13 thetaphi Exp $ */
+/* $Id: nsapi.c,v 1.66 2004/12/20 19:33:39 rasmus Exp $ */
 
 /*
  * PHP includes
@@ -310,7 +310,7 @@ PHP_MSHUTDOWN_FUNCTION(nsapi)
 PHP_MINFO_FUNCTION(nsapi)
 {
 	php_info_print_table_start();
-	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.65 $");
+	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.66 $");
 	php_info_print_table_row(2, "Server Software", system_version());
 	php_info_print_table_row(2, "Sub-requests with nsapi_virtual()",
 	 (nsapi_servact_service)?((zend_ini_long("zlib.output_compression", sizeof("zlib.output_compression"), 0))?"not supported with zlib.output_compression":"enabled"):"not supported on this platform" );
@@ -708,6 +708,11 @@ static void nsapi_log_message(char *message)
 	log_error(LOG_INFORM, pblock_findval("fn", rc->pb), rc->sn, rc->rq, "%s", message);
 }
 
+static time_t sapi_nsapi_get_request_time(TSRMLS_D)
+{
+	return REQ_TIME( ((nsapi_request_context *)SG(server_context))->rq );
+}
+
 static int php_nsapi_startup(sapi_module_struct *sapi_module)
 {
 	if (php_module_startup(sapi_module, &nsapi_module_entry, 1)==FAILURE) {
@@ -743,7 +748,7 @@ static sapi_module_struct nsapi_sapi_module = {
 
 	sapi_nsapi_register_server_variables,   /* register server variables */
 	nsapi_log_message,                      /* Log message */
-	NULL,									/* Get request time */
+	sapi_nsapi_get_request_time,			/* Get request time */
 
 	NULL,                                   /* Block interruptions */
 	NULL,                                   /* Unblock interruptions */
