@@ -20,10 +20,11 @@
    |          Rasmus Lerdorf      <rasmus@lerdorf.on.ca>                  |
    |          Chuck Hagenbuch     <chuck@horde.org>                       |
    |          Andrew Skalski      <askalski@chekinc.com>                  |
+   |          Hartmut Holzgraefe  <hartmut@six.de>                        |
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.28 2000/06/14 12:28:20 thies Exp $ */
+/* $Id: php_imap.c,v 1.29 2000/06/15 03:02:36 chagenbu Exp $ */
 
 #define IMAP41
 
@@ -1026,6 +1027,8 @@ PHP_FUNCTION(imap_close)
 		}	
 		imap_le_struct->flags = flags;
 	}
+  mail_close_it(imap_le_struct);
+
 	zend_list_delete(ind);
 	RETURN_TRUE;
 }
