@@ -11,7 +11,7 @@
  *
  *****************************************************************************/
 
-/* $Id: time.c,v 1.7 2003/11/29 22:48:42 wez Exp $ */
+/* $Id: time.c,v 1.8 2003/11/29 22:59:33 wez Exp $ */
 
  /**
   *
@@ -136,9 +136,9 @@ void usleep(unsigned int useconds)
 	HANDLE timer;
 	LARGE_INTEGER due;
 
-	due.QuadPart = -1000 * useconds;
-	timer = CreateWaitableTimer(NULL, TRUE, NULL);
+	due.QuadPart = -(10 * (__int64)useconds);
 
+	timer = CreateWaitableTimer(NULL, TRUE, NULL);
 	SetWaitableTimer(timer, &due, 0, NULL, NULL, 0);
 	WaitForSingleObject(timer, INFINITE);
 	CloseHandle(timer);
