@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
  
-/* $Id: php_msql.c,v 1.35 2001/07/11 11:39:08 zeev Exp $ */
+/* $Id: php_msql.c,v 1.36 2001/07/11 12:42:21 thies Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -762,7 +762,6 @@ PHP_FUNCTION(msql_result)
 	m_query *msql_query;
 	m_row sql_row;
 	int field_offset=0;
-	PLS_FETCH();
 	
 	switch (ZEND_NUM_ARGS()) {
 		case 2:
@@ -901,7 +900,6 @@ static void php_msql_fetch_hash(INTERNAL_FUNCTION_PARAMETERS, int result_type)
 	m_query *msql_query;
 	int num_fields;
 	int i;
-	PLS_FETCH();
 	
 	switch (ZEND_NUM_ARGS()) {
 		case 1:
