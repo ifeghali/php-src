@@ -16,7 +16,7 @@
    |          Ben Mansell <ben@zeus.com> (Zeus Support)                   |
    +----------------------------------------------------------------------+
  */
-/* $Id$ */
+/* $Id: php5isapi.c,v 1.5 2004/12/18 03:14:39 sniper Exp $ */
 
 #include "php.h"
 #include <httpext.h>
@@ -669,7 +669,8 @@ static sapi_module_struct isapi_sapi_module = {
 	sapi_isapi_read_cookies,		/* read Cookies */
 
 	sapi_isapi_register_server_variables,	/* register server variables */
-	NULL,									/* Log message */
+	NULL,							/* Log message */
+	NULL,							/* Get request time */
 
 	STANDARD_SAPI_MODULE_PROPERTIES
 };
