@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.179 2004/01/08 01:01:39 sniper Exp $ */
+/* $Id: php_imap.c,v 1.180 2004/01/08 08:15:48 andi Exp $ */
 
 #define IMAP41
 
@@ -2131,7 +2131,9 @@ PHP_FUNCTION(imap_utf7_decode)
 		ZEND_WRONG_PARAM_COUNT();
 	}
 	
-	convert_to_writable_string_ex(arg);		/* Is this string really modified? */
+	convert_to_string_ex(arg);		/*	Is this string really modified?
+										If it is use and you don't want it to be seen outside of the function
+										then use zend_get_parameters() */
 
 	in = (const unsigned char *) Z_STRVAL_PP(arg);
 	inlen = Z_STRLEN_PP(arg);
