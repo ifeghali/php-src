@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.130 2002/07/30 23:16:11 kalowsky Exp $ */
+/* $Id: php_imap.c,v 1.131 2002/07/31 01:03:31 kalowsky Exp $ */
 
 #define IMAP41
 
@@ -389,6 +389,12 @@ void mail_getquota(MAILSTREAM *stream, char *qroot, QUOTALIST *qlist)
 			FREE_ZVAL(t_map);
 			FREE_ZVAL(IMAPG(quota_return));
 			return;
+		}
+		if (strncmp(qlist->name, "STORAGE", 7) == 0)
+		{
+			/* this is to add backwards compatibility */
+			add_assoc_long_ex(IMAPG(quota_return), "usage", sizeof("usage"), qlist->usage);
+			add_assoc_long_ex(IMAPG(quota_return), "limit", sizeof("limit"), qlist->limit);
 		}
 
 		add_assoc_long_ex(t_map, "usage", sizeof("usage"), qlist->usage);
