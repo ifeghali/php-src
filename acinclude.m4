@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.211 2002/10/15 19:37:16 sniper Exp $
+dnl $Id: acinclude.m4,v 1.212 2002/10/16 16:21:13 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1777,9 +1777,8 @@ $debug ||
 }
   _max=0
   _count=0
-  # Add /usr/xpg4/bin/sed as it is typically found on Solaris
   # along with /bin/sed that truncates output.
-  for _sed in $_sed_list /usr/xpg4/bin/sed; do
+  for _sed in $_sed_list; do
     test ! -f ${_sed} && break
     cat /dev/null > "$tmp/sed.in"
     _count=0
@@ -1811,6 +1810,7 @@ if test -z "$ac_cv_path_sed"; then
   AC_MSG_ERROR([Could not find working sed on this system. Please install GNU sed.])
 else
   SED=$ac_cv_path_sed
+  PHP_SUBST(SED)
   AC_MSG_RESULT([$SED])
 fi
 ])
