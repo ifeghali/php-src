@@ -283,7 +283,7 @@
 			$fp = fopen("$docdir/reference.xml", "w");
 			fputs($fp,
 "<?xml version='1.0' encoding='iso-8859-1'?>
-<!-- \$Revision: 1.6 $ -->
+<!-- \$Revision: 1.1 $ -->
  <reference id='ref.{$this->name}'>
   <title>{$this->summary}</title>
   <titleabbrev>{$this->name}</titleabbrev>
@@ -302,7 +302,9 @@
     </para>
    </section>
 
+<!-- TODO no configure option support yet
    &reference.{$this->name}.configure;
+-->
 
    <section id='{$this->name}.configuration'>
     &reftitle.runtime;
