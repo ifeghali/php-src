@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.41 2001/08/05 01:42:45 zeev Exp $ */
+/* $Id: php_apache.c,v 1.42 2001/08/05 15:29:41 sas Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
@@ -182,6 +182,7 @@ PHP_MINFO_FUNCTION(apache)
 	extern char *user_name;
 	extern gid_t group_id;
 	extern int max_requests_per_child;
+	TSRMLS_FETCH();
 
 	serv = ((request_rec *) SG(server_context))->server;
 
@@ -241,7 +242,6 @@ PHP_MINFO_FUNCTION(apache)
 		array_header *arr;
 		table_entry *elts;
 		request_rec *r;
-		TSRMLS_FETCH();
 
 		r = ((request_rec *) SG(server_context));
 		arr = table_elts(r->subprocess_env);
@@ -261,7 +261,6 @@ PHP_MINFO_FUNCTION(apache)
 		table_entry *env;
 		int i;
 		request_rec *r;
-		TSRMLS_FETCH();
 		
 		r = ((request_rec *) SG(server_context));
 		SECTION("HTTP Headers Information");
