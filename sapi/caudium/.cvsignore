@@ -3,7 +3,6 @@ libphp4.module
 .libs
 *.la
 *.lo
-Makefile.am
 .deps
 *.plg
 *.opt

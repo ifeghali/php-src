@@ -1,5 +1,4 @@
 Makefile
-Makefile.am
 .libs
 *.la
 *.lo

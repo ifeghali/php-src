@@ -6,7 +6,6 @@ java.*
 *.plg
 .libs
 net
-Makefile.am
 .deps
 Release_TS_inline
 Release_TS

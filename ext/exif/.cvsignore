@@ -4,7 +4,6 @@ Makefile
 *.lo
 *.la
 .libs
-libs.mk
 *.plg
 *.opt
 *.ncb

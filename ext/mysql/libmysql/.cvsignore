@@ -9,7 +9,6 @@ config.log
 config.status
 libmysql_client.la
 stamp-h
-libs.mk
 *.plg
 *.opt
 *.ncb

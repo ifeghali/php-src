@@ -1,3 +1,5 @@
+Makefile.objects
+Makefile.fragments
 Makefile
 acconfig.h
 aclocal.m4
@@ -38,7 +40,6 @@ want_dependencies
 .deps
 config.nice
 php_version.h
-libs.mk
 *.plg
 *.opt
 *.ncb

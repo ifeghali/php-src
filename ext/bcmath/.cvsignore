@@ -5,5 +5,4 @@ number.c
 *.la
 .libs
 .deps
-libs.mk
 COPYING

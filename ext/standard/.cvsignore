@@ -6,7 +6,6 @@ Makefile
 *.la
 .libs
 .deps
-libs.mk
 *.plg
 *.opt
 *.ncb

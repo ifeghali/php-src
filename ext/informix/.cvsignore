@@ -4,7 +4,6 @@ ifx.c
 *.la
 .libs
 .deps
-libs.mk
 *.plg
 *.opt
 *.ncb

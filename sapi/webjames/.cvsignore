@@ -2,7 +2,6 @@ Makefile
 .libs
 *.la
 *.lo
-Makefile.am
 .deps
 Release_TS_inline
 Release_TS

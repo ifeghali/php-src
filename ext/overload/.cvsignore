@@ -28,7 +28,6 @@ config.sub
 config.guess
 ltconfig
 ltmain.sh
-libs.mk
 *.slo
 *.lo
 *.la

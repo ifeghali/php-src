@@ -3,4 +3,3 @@ Makefile
 *.lo
 *.la
 .libs
-libs.mk

@@ -7,7 +7,6 @@ Makefile
 .libs
 net
 .deps
-libs.mk
 *.plg
 *.opt
 *.ncb
