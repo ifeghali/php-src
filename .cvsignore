@@ -29,7 +29,7 @@ internal_functions.c
 libtool
 shlibtool
 php
-php4.spec
+php5.spec
 stamp-h
 test.php3
 *.lo
