@@ -13,6 +13,7 @@ configuration-parser.h
 configuration-parser.output
 configuration-scanner.c
 configure
+generated_lists
 install-sh
 internal_functions.c
 libtool
