@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.69 2002/03/18 05:32:25 helly Exp $ */
+/* $Id: exif.c,v 1.70 2002/03/18 18:54:02 wez Exp $ */
 
 /*	ToDos
  *
@@ -100,7 +100,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.3 $Id: exif.c,v 1.69 2002/03/18 05:32:25 helly Exp $"
+#define EXIF_VERSION "1.3 $Id: exif.c,v 1.70 2002/03/18 18:54:02 wez Exp $"
 
 PHP_MINFO_FUNCTION(exif);
 
@@ -3254,7 +3254,6 @@ PHP_FUNCTION(exif_imagetype)
 {
 	zval **arg1;
 	php_stream * stream;
-	int rsrc_id;
  	int itype = 0;
 
 	if (ZEND_NUM_ARGS() != 1)
@@ -3269,11 +3268,9 @@ PHP_FUNCTION(exif_imagetype)
 		RETURN_FALSE;
 	}
 
-	rsrc_id = ZEND_REGISTER_RESOURCE(NULL, stream, php_file_le_stream());
-
 	itype = itype = php_getimagetype(stream, NULL TSRMLS_CC);
 
-	zend_list_delete(rsrc_id);
+	php_stream_close(stream);
 
 	if ( itype == IMAGE_FILETYPE_UNKNOWN) {
 		RETURN_FALSE;
