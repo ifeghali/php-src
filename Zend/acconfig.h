@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: acconfig.h,v 1.34 2004/03/29 23:08:36 helly Exp $ */
+/* $Id: acconfig.h,v 1.35 2004/09/22 12:45:28 hyanantha Exp $ */
 
 #define ZEND_API
 #define ZEND_DLEXPORT
@@ -45,6 +45,10 @@
 
 #ifdef HAVE_SYS_TYPES_H
 # include <sys/types.h>
+#endif
+
+#ifdef HAVE_SYS_SELECT_H
+#include <sys/select.h>
 #endif
 
 #ifdef HAVE_IEEEFP_H
