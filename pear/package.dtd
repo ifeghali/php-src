@@ -20,7 +20,7 @@
          Stig S. Bakken <ssb@php.net>
 
   -->
-
+<!ENTITY % NUMBER "CDATA">
 <!ELEMENT package (name|summary|description|license|maintainers|release|changelog)+>
 <!ATTLIST package type    (source|binary|empty) "empty"
                   version CDATA                 #REQUIRED>
@@ -65,8 +65,8 @@
 <!ATTLIST file role           (php|ext|src|test|doc|data|script) 'php'
                debug          (na|on|off)        'na'
                zts            (na|on|off)        'na'
-               phpapi         NUMBER             #IMPLIED
-               zendapi        NUMBER             #IMPLIED
+               phpapi         %NUMBER;           #IMPLIED
+               zendapi        %NUMBER;           #IMPLIED
                format         CDATA              #IMPLIED
                baseinstalldir CDATA              #IMPLIED
                platform       CDATA              #IMPLIED
