@@ -23,3 +23,7 @@ missing
 mkinstalldirs
 config.guess
 config.sub
+libtool
+*.lo
+*.la
+.libs
