@@ -88,6 +88,10 @@ function analyze_arg(argval)
 
 function word_wrap_and_indent(indent, text, line_suffix, indent_char)
 {
+	if (text == null) {
+		return "";
+	}
+	
 	var words = text.split(new RegExp("\\s+", "g"));
 	var i = 0;
 	var ret_text = "";
