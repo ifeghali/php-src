@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.59 2000/02/02 15:33:14 andrei Exp $
+dnl $Id: acinclude.m4,v 1.60 2000/02/10 18:07:30 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -295,8 +295,6 @@ if test "$REGEX_TYPE" = "php"; then
   PHP_FAST_OUTPUT(regex/Makefile)
 elif test "$REGEX_TYPE" = "system"; then
   AC_DEFINE(REGEX,0)
-elif test "$REGEX_TYPE" = "apache"; then
-  AC_DEFINE(REGEX,2)
 fi
 
 AC_MSG_CHECKING(which regex library to use)

@@ -18,7 +18,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: apache.c,v 1.27 2000/01/28 17:24:50 zeev Exp $ */
+/* $Id: php_apache.c,v 1.1 2000/02/02 14:29:27 andrei Exp $ */
 #include "php.h"
 #include "ext/standard/head.h"
 #include "php_globals.h"
@@ -35,7 +35,7 @@
 #include <errno.h>
 #include <ctype.h>
 
-#if APACHE
+#include "remains.h"
 #include "http_request.h"
 #include "build-defs.h"
 
@@ -438,8 +438,6 @@ PHP_FUNCTION(apache_exec_uri)
 	RETVAL_LONG(ap_run_sub_req(rr));
 	ap_destroy_sub_req(rr);
 }
-#endif
-
 #endif
 
 /*
