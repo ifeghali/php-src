@@ -668,11 +668,10 @@ function ADD_EXTENSION_DEP(extname, dependson)
 	}
 }
 
-function EXTENSION(extname, file_list, shared, cflags)
+function EXTENSION(extname, file_list, shared, cflags, dllname)
 {
 	var objs = null;
 	var EXT = extname.toUpperCase();
-	var dllname = false;
 
 	if (shared == null) {
 		eval("shared = PHP_" + EXT + "_SHARED;");
@@ -699,10 +698,13 @@ function EXTENSION(extname, file_list, shared, cflags)
 	MFO.WriteBlankLines(1);
 
 	if (shared) {
-		dllname = "php_" + extname + ".dll";
+		if (dllname == null) {
+			dllname = "php_" + extname + ".dll";
+		}
+		var libname = dllname.substring(0, dllname.length-4) + ".lib";
+
 		var resname = generate_version_info_resource(dllname, configure_module_dirname);
 		var ld = "$(LD)";
-		var libname = "php_" + extname + ".lib";
 
 		MFO.WriteLine("$(BUILD_DIR)\\" + dllname + " $(BUILD_DIR)\\" + libname + ": $(DEPS_" + EXT + ") $(" + EXT + "_GLOBAL_OBJS) $(BUILD_DIR)\\$(PHPLIB) $(BUILD_DIR)\\" + resname);
 		MFO.WriteLine("\t" + ld + " /out:$(BUILD_DIR)\\" + dllname + " $(DLL_LDFLAGS) $(LDFLAGS) $(LDFLAGS_" + EXT + ") $(" + EXT + "_GLOBAL_OBJS) $(BUILD_DIR)\\$(PHPLIB) $(LIBS_" + EXT + ") $(LIBS) $(BUILD_DIR)\\" + resname);
