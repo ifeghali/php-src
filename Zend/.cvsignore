@@ -8,6 +8,7 @@ Makefile
 zend-parser.output
 zend-parser.h
 zend-scanner.c
+zend-scanner.cc
 .deps
 zend_config.h
 zend_config.h.in
