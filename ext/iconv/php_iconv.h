@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Revision: 1.21 $ */
+/* $Revision: 1.22 $ */
 
 #ifndef PHP_ICONV_H
 #define PHP_ICONV_H
@@ -74,6 +74,22 @@ ZEND_END_MODULE_GLOBALS(iconv)
 #define ICONV_INPUT_ENCODING "ISO-8859-1" 
 #define ICONV_OUTPUT_ENCODING "ISO-8859-1"
 #define ICONV_INTERNAL_ENCODING "ISO-8859-1" 
+
+/* {{{ typedef enum php_iconv_err_t */
+typedef enum _php_iconv_err_t {
+	PHP_ICONV_ERR_SUCCESS           = SUCCESS,
+	PHP_ICONV_ERR_CONVERTER         = 1,
+	PHP_ICONV_ERR_WRONG_CHARSET     = 2,
+	PHP_ICONV_ERR_TOO_BIG           = 3,
+	PHP_ICONV_ERR_ILLEGAL_SEQ       = 4,
+	PHP_ICONV_ERR_ILLEGAL_CHAR      = 5,
+	PHP_ICONV_ERR_UNKNOWN           = 6,
+	PHP_ICONV_ERR_MALFORMED         = 7,
+	PHP_ICONV_ERR_ALLOC             = 8
+} php_iconv_err_t;
+/* }}} */
+
+PHP_ICONV_API php_iconv_err_t php_iconv_string(const char * in_p, size_t in_len, char **out, size_t *out_len, const char *in_charset, const char *out_charset);
 
 #else
 
