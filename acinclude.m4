@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.217 2002/10/28 23:42:47 sniper Exp $
+dnl $Id: acinclude.m4,v 1.218 2002/10/29 11:24:26 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -137,13 +137,6 @@ EOF
   done
 ])
 
-dnl
-dnl Disable building CLI
-dnl
-AC_DEFUN([PHP_DISABLE_CLI],[
-  disable_cli=1
-])
-	
 dnl
 dnl Separator into the configure --help display.
 dnl 
