@@ -27,7 +27,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: dba_cdb.c,v 1.5 2000/07/10 10:09:14 sas Exp $ */
+/* $Id: dba_cdb.c,v 1.6 2001/04/30 12:43:32 andi Exp $ */
 
 #include "php.h"
 
@@ -218,3 +218,11 @@ DBA_SYNC_FUNC(cdb)
 }
 
 #endif
+
+/*
+ * Local variables:
+ * tab-width: 4
+ * c-basic-offset: 4
+ * End:
+ * vim: sw=4 ts=4 tw=78 fdm=marker
+ */
