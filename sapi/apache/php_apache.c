@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.86 2004/01/08 08:18:03 andi Exp $ */
+/* $Id: php_apache.c,v 1.87 2004/12/04 07:16:44 rasmus Exp $ */
 
 #include "php_apache_http.h"
 
@@ -537,7 +537,7 @@ PHP_FUNCTION(apache_get_modules)
 }
 /* }}} */
 
-/* {{{ proto array apache_reset_timeout(void)
+/* {{{ proto bool apache_reset_timeout(void)
    Reset the Apache write timer */
 PHP_FUNCTION(apache_reset_timeout)
 {
