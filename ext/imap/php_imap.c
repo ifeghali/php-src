@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.200 2005/01/20 18:03:35 tony2001 Exp $ */
+/* $Id: php_imap.c,v 1.201 2005/01/20 18:08:08 tony2001 Exp $ */
 
 #define IMAP41
 
@@ -1027,6 +1027,7 @@ PHP_FUNCTION(imap_getacl)
 	mail_parameters(NIL, SET_ACL, (void *) mail_getacl);
 	if(!imap_getacl(imap_le_struct->imap_stream, Z_STRVAL_PP(mailbox))) {
 		php_error(E_WARNING, "c-client imap_getacl failed");
+		zval_dtor(return_value);
 		RETURN_FALSE;
 	}
 
