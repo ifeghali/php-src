@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.161 2004/01/08 08:15:20 andi Exp $ */
+/* $Id: exif.c,v 1.162 2004/03/16 20:58:01 derick Exp $ */
 
 /*  ToDos
  *
@@ -111,7 +111,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.161 2004/01/08 08:15:20 andi Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.162 2004/03/16 20:58:01 derick Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -2734,7 +2734,7 @@ static int exif_process_IFD_TAG(image_info_type *ImageInfo, char *dir_entry, cha
 			// JPEG does not use absolute pointers instead its pointers are relative to the start
 			// of the TIFF header in APP1 section.
 			*/
-			if (offset_val+byte_count>ImageInfo->FileSize || (ImageInfo->FileType!=IMAGE_FILETYPE_TIFF_II && ImageInfo->FileType!=IMAGE_FILETYPE_TIFF_MM)) {
+			if (offset_val+byte_count>ImageInfo->FileSize || (ImageInfo->FileType!=IMAGE_FILETYPE_TIFF_II && ImageInfo->FileType!=IMAGE_FILETYPE_TIFF_MM && ImageInfo->FileType!=IMAGE_FILETYPE_JPEG)) {
 				if (value_ptr < dir_entry) {
 					/* we can read this if offset_val > 0 */
 					/* some files have their values in other parts of the file */
