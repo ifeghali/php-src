@@ -7,7 +7,7 @@ config.status
 Makefile
 build-defs.h
 stamp-h
-libphp3.module
+libphp4.module
 configuration-parser.output
 configuration-parser.c
 configuration-parser.h
