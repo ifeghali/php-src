@@ -209,7 +209,11 @@ re = new RegExp("(ARG_(ENABLE|WITH)\([^;]+\);)", "gm");
 calls = modules.match(re);
 for (i = 0; i < calls.length; i++) {
 	item = calls[i];
+	C.WriteLine("try {");
 	C.WriteLine(item);
+	C.WriteLine("} catch (e) {");
+	C.WriteLine('\tSTDOUT.WriteLine("problem: " + e);');
+	C.WriteLine("}");
 }
 
 C.WriteBlankLines(1);
