@@ -21,7 +21,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: ifx.ec,v 1.94 2003/07/01 13:27:03 nobbie Exp $ */
+/* $Id: ifx.ec,v 1.95 2003/07/01 13:31:12 sniper Exp $ */
 
 /* -------------------------------------------------------------------
  * if you want a function reference : "grep '^\*\*' ifx.ec" will give
@@ -923,7 +923,7 @@ EXEC SQL END DECLARE SECTION;
 						}
 						len++;
 
-						EXEC SQL SET DESCRIPTOR :descrpid VALUE :i 
+						EXEC SQL SET DESCRIPTOR :i_descrpid VALUE :i 
 							DATA= :char_tmp, 
 							LENGTH= :len, 
 							INDICATOR= :indicator, 
