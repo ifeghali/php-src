@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.10 2000/04/07 16:46:59 cmv Exp $ */
+/* $Id: php_apache.c,v 1.11 2000/04/07 17:02:01 cmv Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
@@ -203,9 +203,9 @@ PHP_MINFO_FUNCTION(apache)
 		if ((p = strrchr(name, '.'))) {
 			*p='\0'; /* Cut off ugly .c extensions on module names */
 		}
-		strcpy(modulenames, name);
+		strcat(modulenames, name);
 		if (modp->next) {
-			strcpy(modulenames, ", ");
+			strcat(modulenames, ", ");
 		}
 	}
 	php_info_print_table_row(2, "Loaded Modules", modulenames);
