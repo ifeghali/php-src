@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: gd_ctx.c,v 1.19 2004/01/08 08:15:29 andi Exp $ */
+/* $Id: gd_ctx.c,v 1.20 2004/01/28 16:25:12 martin Exp $ */
 
 #include "php_gd.h"
 
@@ -82,7 +82,7 @@ static void _php_image_output_ctx(INTERNAL_FUNCTION_PARAMETERS, int image_type, 
 	}
 
 	if ((argc == 2) || (argc > 2 && Z_STRLEN_PP(file))) {
-		if (!fn || fn == empty_string || php_check_open_basedir(fn TSRMLS_CC)) {
+		if (!fn || php_check_open_basedir(fn TSRMLS_CC)) {
 			php_error_docref(NULL TSRMLS_CC, E_WARNING, "Invalid filename '%s'", fn);
 			RETURN_FALSE;
 		}
