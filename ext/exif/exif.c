@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.168 2005/02/16 09:53:26 edink Exp $ */
+/* $Id: exif.c,v 1.169 2005/02/16 23:47:38 sniper Exp $ */
 
 /*  ToDos
  *
@@ -112,7 +112,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.168 2005/02/16 09:53:26 edink Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.169 2005/02/16 23:47:38 sniper Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -2732,6 +2732,11 @@ static int exif_process_IFD_TAG(image_info_type *ImageInfo, char *dir_entry, cha
 	}
 
 	byte_count = components * php_tiff_bytes_per_format[format];
+
+	if ((ssize_t)byte_count < 0) {
+		exif_error_docref("exif_read_data#error_ifd" EXIFERR_CC, ImageInfo, E_WARNING, "Process tag(x%04X=%s): Illegal byte_count(%ld)", tag, exif_get_tagname(tag, tagname, -12, tag_table TSRMLS_CC), byte_count);
+		return FALSE;
+	}
 
 	if (byte_count > 4) {
 		offset_val = php_ifd_get32u(dir_entry+8, ImageInfo->motorola_intel);
