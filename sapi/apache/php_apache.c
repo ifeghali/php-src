@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.62 2002/05/31 23:52:07 rasmus Exp $ */
+/* $Id: php_apache.c,v 1.63 2002/06/01 09:54:28 rasmus Exp $ */
 
 #include "php_apache_http.h"
 
@@ -80,7 +80,7 @@ static void php_apache_globals_ctor(php_apache_info_struct *apache_globals TSRML
 static PHP_MINIT_FUNCTION(apache)
 {
 #ifdef ZTS
-	ts_allocate_id(&php_apache_info_id, sizeof(php_apache_info_struct), php_apache_globals_ctor, NULL);
+	ts_allocate_id(&php_apache_info_id, sizeof(php_apache_info_struct), (ts_allocate_ctor) php_apache_globals_ctor, NULL);
 #else
 	php_apache_globals_ctor(&php_apache_info TSRMLS_CC);
 #endif
