@@ -7,8 +7,5 @@ aclocal.m4
 config.cache
 config.log
 config.status
-configure
-configure.scan
-libmysql.la
-my_config.h
+libmysql_client.la
 stamp-h
