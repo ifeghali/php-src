@@ -4,6 +4,7 @@ Makefile
 Makefile.in
 autoscan.log
 configure
+config.h
 config.sub
 config.log
 config.guess
