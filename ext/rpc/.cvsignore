@@ -1,7 +1,9 @@
 .deps
 Makefile.in
 Makefile
+*.jar
 *.lo
 *.la
+*.plg
 .libs
 net
