@@ -1,5 +1,5 @@
 dnl
-dnl $Id: config.m4,v 1.3 2002/10/12 00:54:53 sniper Exp $
+dnl $Id: config.m4,v 1.4 2002/10/12 01:18:04 sniper Exp $
 dnl
 
 AC_MSG_CHECKING(for embedded SAPI library support)
@@ -22,7 +22,7 @@ AC_ARG_ENABLE(embed,
       ;;
   esac
 ],[
-  PHP_EMBED=no
+  PHP_EMBED_TYPE=no
 ])
 
 AC_MSG_RESULT($PHP_EMBED_TYPE)
