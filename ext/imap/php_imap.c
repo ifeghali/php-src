@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.79 2001/05/24 03:06:10 chagenbu Exp $ */
+/* $Id: php_imap.c,v 1.80 2001/05/24 10:07:08 ssb Exp $ */
 
 #define IMAP41
 
@@ -451,10 +451,9 @@ PHP_MINIT_FUNCTION(imap)
 	mail_link(&newsdriver);		/* link in the news driver */
 	mail_link(&philedriver);	/* link in the phile driver */
 	auth_link(&auth_log);		/* link in the log authenticator */
-	auth_link(&auth_md5);           /* link in the cram-md5 authenticator */ 
+	auth_link(&auth_md5);       /* link in the cram-md5 authenticator */ 
 #ifdef  HAVE_IMAP_SSL
 	ssl_onceonlyinit ();
-	auth_link (&auth_ssl);		/* link in the ssl authenticator */
 #endif
 #endif
 	mail_link(&dummydriver);	/* link in the dummy driver */
