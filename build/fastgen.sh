@@ -29,23 +29,31 @@
 srcdir=$1
 shift
 
-topsrcdir=`(cd $srcdir; pwd)`
-
 mkdir_p=$1
 shift
+
+top_srcdir=`(cd $srcdir; pwd)`
+top_builddir=`pwd`
 
 if test "$mkdir_p" = "yes"; then
   mkdir_p="mkdir -p"
 else
-  mkdir_p="$topsrcdir/build/shtool mkdir -f -p"
+  mkdir_p="$top_srcdir/helpers/mkdir.sh"
 fi
 
-for i in $@ ; do
-	echo "creating $i"
-	dir=`dirname $i`
-	$mkdir_p $dir
-	sed \
-		-e s#@topsrcdir@#$topsrcdir# \
-		-e s#@srcdir@#$topsrcdir/$dir# \
-	< $topsrcdir/$i.in > $i
+for makefile in $@; do
+  echo "creating $makefile"
+# portable dirname
+  dir=`echo $makefile|sed 's%[^/][^/]*$%%'`
+  test -d "$dir/" || $mkdir_p "$dir/"
+
+  (cat <<EOF
+top_srcdir   = $top_srcdir
+top_builddir = $top_builddir
+srcdir       = $top_srcdir/$dir
+builddir     = $top_builddir/$dir
+VPATH        = $top_srcdir/$dir
+EOF
+)| cat - $top_srcdir/$makefile.in > $makefile
+
 done
