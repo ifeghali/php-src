@@ -1115,7 +1115,7 @@ function ADD_SOURCES(dir, file_list, target)
 
 	if (PHP_ONE_SHOT == "yes") {
 		MFO.WriteLine(objs_line + ": " + srcs_line);
-		MFO.WriteLine("\t$(CC) $(" + flags + ") $(CFLAGS) $(" + bd_flags_name + ") -c " + srcs_line);
+		MFO.WriteLine("\t$(CC) $(" + flags + ") $(CFLAGS) /Fo" + sub_build + " $(" + bd_flags_name + ") /c " + srcs_line);
 	}
 
 	DEFINE(sym, tv);
