@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.216 2002/10/24 12:21:06 sas Exp $
+dnl $Id: acinclude.m4,v 1.217 2002/10/28 23:42:47 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1746,7 +1746,7 @@ dnl
 dnl Based on LT_AC_PROG_SED (libtool CVS)
 dnl 
 AC_DEFUN([PHP_PROG_SED],
-[AC_MSG_CHECKING([for a sed that does not truncate output])
+[AC_MSG_CHECKING([for working sed])
 AC_CACHE_VAL(ac_cv_path_sed,
 [
 
@@ -1775,9 +1775,7 @@ $debug ||
   _count=0
 
   # Use the sed found in PATH, skip the rest
-  _sed=`which sed`
-
-  test ! -f ${_sed} && break
+  _sed=sed
 
   # Check for GNU sed and select it if it is found.
   if "${_sed}" --version 2>&1 < /dev/null | egrep '(GNU)' > /dev/null; then
