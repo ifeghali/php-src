@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.52 2000/12/22 12:57:06 zeev Exp $ */
+/* $Id: php_imap.c,v 1.53 2001/01/07 07:47:46 sniper Exp $ */
 
 #define IMAP41
 
@@ -183,6 +183,8 @@ extern char imsp_password[80];
 void mail_close_it(zend_rsrc_list_entry *rsrc)
 {
 	pils *imap_le_struct = (pils *)rsrc->ptr;
+	IMAPLS_FETCH();
+
 	mail_close_full(imap_le_struct->imap_stream, imap_le_struct->flags);
 
 	efree(IMAPG(imap_user));
