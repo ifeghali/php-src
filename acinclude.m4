@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.15 1999/06/28 13:37:59 sas Exp $
+dnl $Id: acinclude.m4,v 1.16 1999/07/11 10:51:41 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -40,7 +40,7 @@ AC_DEFUN(AC_ADD_LIBPATH,[
     EXTRA_LIBS="$EXTRA_LIBS -L$ai_p"
     if test -n "$rpath_raw" ; then
       RPATHS="$RPATHS ${raw_runpath_switch}$ai_p"
-    if test -n "$APXS" ; then
+    elif test -n "$APXS" ; then
       RPATHS="$RPATHS ${apxs_runpath_switch}$ai_p'"
     else
       RPATHS="$RPATHS ${ld_runpath_switch}$ai_p"
