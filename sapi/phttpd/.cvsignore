@@ -1,6 +1,6 @@
-.deps
 Makefile
-Makefile.in
+Makefile.am
 .libs
 *.la
 *.lo
+.deps

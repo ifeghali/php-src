@@ -1,5 +1,3 @@
-.deps
-Makefile.in
 Makefile
 *.lo
 *.la
@@ -9,3 +7,5 @@ MSSQL_65_Release
 MSSQL_70_Release
 MSSQL_65_Debug
 MSSQL_70_Debug
+Makefile.am
+.deps

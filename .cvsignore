@@ -1,7 +1,4 @@
-TSRM
-Zend
 Makefile
-Makefile.in
 acconfig.h
 aclocal.m4
 build-defs.h
@@ -10,17 +7,19 @@ buildconf.stamp
 config.cache
 config.log
 config.status
+config_vars.mk
 configuration-parser.c
 configuration-parser.h
 configuration-parser.output
 configuration-scanner.c
 configure
 generated_lists
+mkinstalldirs
+missing
 install-sh
 internal_functions.c
 libtool
-missing
-mkinstalldirs
+shlibtool
 php
 php4.spec
 php_config.h
@@ -34,3 +33,4 @@ libs
 modules
 php-*.tar.gz
 want_dependencies
+.deps

@@ -1,1 +1,3 @@
 mkextlib
+Makefile.am
+.deps

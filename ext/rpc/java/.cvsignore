@@ -1,5 +1,3 @@
-.deps
-Makefile.in
 Makefile
 *.jar
 *.lo
@@ -7,3 +5,5 @@ Makefile
 *.plg
 .libs
 net
+Makefile.am
+.deps

@@ -1,5 +1,3 @@
-.deps
-Makefile.in
 Makefile
 parsedate.c
 parsedate.h
@@ -7,3 +5,5 @@ parsedate.output
 *.lo
 *.la
 .libs
+Makefile.am
+.deps

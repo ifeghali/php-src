@@ -1,7 +1,7 @@
-.deps
-Makefile.in
 Makefile
 ifx.c
 *.lo
 *.la
 .libs
+Makefile.am
+.deps

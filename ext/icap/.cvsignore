@@ -1,5 +1,3 @@
-.deps
-Makefile.in
 Makefile
 .libs
 *.lo
@@ -7,3 +5,5 @@ Makefile
 *.lo
 *.la
 .libs
+Makefile.am
+.deps
