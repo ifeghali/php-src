@@ -4,7 +4,6 @@ parsedate.output
 Makefile
 *.lo
 *.la
-.libs
 .deps
 *.plg
 *.opt

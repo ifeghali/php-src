@@ -2,7 +2,6 @@ Makefile
 ifx.c
 *.lo
 *.la
-.libs
 .deps
 *.plg
 *.opt

@@ -3,6 +3,5 @@ number.h
 number.c
 *.lo
 *.la
-.libs
 .deps
 COPYING

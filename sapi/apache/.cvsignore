@@ -1,6 +1,5 @@
 Makefile
 libphp4.module
-.libs
 *.la
 *.lo
 .deps

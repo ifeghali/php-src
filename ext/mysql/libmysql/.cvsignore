@@ -1,6 +1,5 @@
 *.lo
 .deps
-.libs
 CVS_LOGIN_LINE
 Makefile
 aclocal.m4

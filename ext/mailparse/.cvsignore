@@ -3,7 +3,6 @@ Makefile
 *.lo
 *.la
 .deps
-.libs
 *.slo
 *.plg
 *.opt

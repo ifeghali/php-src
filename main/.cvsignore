@@ -10,7 +10,6 @@ php_config.h
 php_config.h.in
 *.lo
 *.la
-.libs
 libs
 .deps
 config.nice

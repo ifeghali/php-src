@@ -31,7 +31,6 @@ ltmain.sh
 *.slo
 *.lo
 *.la
-.libs
 libs
 modules
 want_dependencies

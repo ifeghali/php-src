@@ -2,5 +2,4 @@
 *.lo
 *.la
 .deps
-.libs
 *.slo

@@ -32,7 +32,6 @@ stamp-h
 test.php3
 *.lo
 *.la
-.libs
 libs
 modules
 php-*.tar.gz
@@ -51,3 +50,5 @@ Release_TSDbg
 Release_TS_inline
 Debug_TS
 results.txt
+.libs
+_libs
