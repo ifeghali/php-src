@@ -23,7 +23,7 @@
  */
 
 
-/* $Id: php_hyperwave.h,v 1.1 1999/12/04 19:19:56 sas Exp $ */
+/* $Id: php_hyperwave.h,v 1.2 1999/12/17 20:55:02 zeev Exp $ */
 
 #ifndef _HW_H
 #define _HW_H
@@ -79,7 +79,7 @@ typedef struct {
 extern PHP_HW_API php_hw_globals hw_globals;
 #endif
 
-//extern hw_module php3_hw_module;
+//extern hw_module php_hw_module;
 
 typedef struct {
         int size;
@@ -87,8 +87,6 @@ typedef struct {
         char *attributes;
         char *bodytag;
 } hw_document;
-
-extern hw_connection php3_hw_connection;
 
 extern PHP_MINIT_FUNCTION(hw);
 extern PHP_MSHUTDOWN_FUNCTION(hw);
