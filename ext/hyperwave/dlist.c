@@ -18,6 +18,12 @@
 * -----------------
 *
 * $Log$
+* Revision 1.2  1999/05/11 00:01:42  zeev
+* * Get Apache to work.  POST doesn't work yet.
+* * There are now -I directives for the absolute path of php4, php4/libzend and the builddir for
+*   the Apache module, so we can #include any php/Zend header.
+* * Rename config.h to php_config.h
+*
 * Revision 1.1  1999/04/21 23:11:20  ssb
 * moved apache, com and hyperwave into ext/
 *
@@ -51,7 +57,7 @@
 ****************************************************************************/
 
 #ifndef MSVC5
-#include "config.h"
+#include "php_config.h"
 #endif
 
 #if HYPERWAVE
