@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE package SYSTEM "../pear/package.dtd">
-<package version="1.0">
+<package version="1.0"><!-- $Id$ -->
  <name>PDO_Firebird</name>
  <summary>Firebird/InterBase support for PDO</summary>
  <maintainers>
