@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.82 2003/08/28 17:48:58 iliaa Exp $ */
+/* $Id: php_apache.c,v 1.83 2003/09/09 21:30:48 sniper Exp $ */
 
 #include "php_apache_http.h"
 
@@ -163,7 +163,7 @@ PHP_FUNCTION(apache_note)
  */
 PHP_MINFO_FUNCTION(apache)
 {
-	char *apv = php_apache_get_version();
+	char *apv = ap_get_server_version();
 	module *modp = NULL;
 	char output_buf[128];
 #if !defined(WIN32) && !defined(WINNT)
