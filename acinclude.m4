@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.138 2001/08/06 10:11:03 sniper Exp $
+dnl $Id: acinclude.m4,v 1.139 2001/08/21 11:02:42 sas Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -927,12 +927,6 @@ dnl ---------------------------------------------- Shared module
 
   PHP_FAST_OUTPUT($ext_builddir/Makefile)
 ])
-
-PHP_SUBST(EXT_SUBDIRS)
-PHP_SUBST(EXT_STATIC)
-PHP_SUBST(EXT_SHARED)
-PHP_SUBST(EXT_LIBS)
-PHP_SUBST(EXT_LTLIBS)
 
 dnl
 dnl Solaris requires main code to be position independent in order
