@@ -17,7 +17,7 @@
   |          Dmitry Stogov <dmitry@zend.com>                             |
   +----------------------------------------------------------------------+
 */
-/* $Id: php_soap.h,v 1.32 2004/04/02 11:12:44 dmitry Exp $ */
+/* $Id: php_soap.h,v 1.33 2004/05/05 10:31:26 dmitry Exp $ */
 
 #ifndef PHP_SOAP_H
 #define PHP_SOAP_H
@@ -115,6 +115,7 @@ struct _soapService {
 	int        type;
 	char      *actor;
 	char      *uri;
+	xmlCharEncodingHandlerPtr encoding;
 };
 
 #define SOAP_CLASS 1
@@ -158,6 +159,7 @@ ZEND_BEGIN_MODULE_GLOBALS(soap)
 	zend_bool  cache_enabled;
 	char*      cache_dir;
 	long       cache_ttl;
+	xmlCharEncodingHandlerPtr encoding;
 ZEND_END_MODULE_GLOBALS(soap)
 
 #ifdef PHP_WIN32
