@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
  
-/* $Id: php_msql.c,v 1.25 2000/11/03 00:52:53 zeev Exp $ */
+/* $Id: php_msql.c,v 1.26 2000/11/03 02:46:49 zeev Exp $ */
 
 #include "php.h"
 #include "php_msql.h"
@@ -121,7 +121,7 @@ static void _delete_query(zend_rsrc_list_entry *rsrc)
 	m_query *query = (m_query *)rsrc->ptr;
 
 	if(query->result) msqlFreeResult(query->result);
-	efree(arg);
+	efree(rsrc);
 }
 
 static m_query *php_msql_query_wrapper(m_result *res, int af_rows)
