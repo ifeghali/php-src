@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.14 2000/04/30 04:15:26 shane Exp $ */
+/* $Id: php_apache.c,v 1.15 2000/05/18 15:34:40 zeev Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
@@ -319,6 +319,9 @@ PHP_FUNCTION(virtual)
 		if (rr) destroy_sub_req (rr);
 		RETURN_FALSE;
 	}
+	
+	php_end_ob_buffering(1);
+	php_header();
 
 	if (run_sub_req(rr)) {
 		php_error(E_WARNING, "Unable to include '%s' - request execution failed", (*filename)->value.str.val);
