@@ -24,7 +24,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.31 2000/06/16 18:42:56 hholzgra Exp $ */
+/* $Id: php_imap.c,v 1.32 2000/06/18 16:31:51 eschmid Exp $ */
 
 #define IMAP41
 
@@ -2129,8 +2129,8 @@ PHP_FUNCTION(imap_rfc822_write_address)
 	addr->next=NIL;
 	addr->error=NIL;
 	addr->adl=NIL;
-	string[0]=0x00;
-  
+
+	string[0]='\0';
 	rfc822_write_address(string, addr);
 	RETVAL_STRING(string, 1);
 }
@@ -2960,6 +2960,7 @@ PHP_FUNCTION(imap_fetch_overview)
 				}
 				if (env->from) {
 					env->from->next=NULL;
+					address = '\0';
 					rfc822_write_address(address, env->from);
 					add_property_string(myoverview, "from", address, 1);
 				}
@@ -3529,7 +3530,7 @@ void _php_imap_parse_address (ADDRESS *addresslist, char *fulladdress, zval *pad
 	while (ok && addresstmp) {                                    /* while length < 1000 and we are not at the end of the list */
 		addresstmp2 = addresstmp->next;                           /* save the pointer to the next address */
 		addresstmp->next = NULL;                                  /* make this address the only one now. */
-		tempaddress[0] = 0x00;                                    /* reset tempaddress buffer */
+		tempaddress[0] = '\0';                                    /* reset tempaddress buffer */
 		rfc822_write_address(tempaddress, addresstmp);            /* ok, write the address into tempaddress string */
 		if ((strlen(tempaddress) + strlen(fulladdress)) < 1000) { /* is the new address + total address < 1000 */
 			if (strlen(fulladdress)) {
