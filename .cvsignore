@@ -1,7 +1,7 @@
 configure
 config.log
-config.h
-config.h.in
+php_config.h
+php_config.h.in
 config.cache
 config.status
 Makefile
