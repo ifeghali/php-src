@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.293 2005/02/24 19:27:10 sniper Exp $
+dnl $Id: acinclude.m4,v 1.294 2005/02/27 12:42:27 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -2003,7 +2003,7 @@ AC_DEFUN([PHP_PROG_RE2C],[
   if test -n "$RE2C"; then
     AC_CACHE_CHECK([for re2c version], php_cv_re2c_version, [
       re2c_vernum=`echo "" | re2c --vernum 2>/dev/null`
-      if test -z "$rec2_vernum" || test "$re2c_vernum" -lt "904"; then
+      if test -z "$re2c_vernum" || test "$re2c_vernum" -lt "904"; then
         php_cv_re2c_version=invalid
       else
         php_cv_re2c_version="`echo "" | re2c --version | cut -d ' ' -f 2  2>/dev/null` (ok)"
