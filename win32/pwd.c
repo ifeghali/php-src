@@ -15,7 +15,7 @@
    along with this program; if not, write to the Free Software
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
-   $Header: /repository/php4/win32/pwd.c,v 1.1.1.1 1999/03/17 04:31:05 andi Exp $
+   $Header: /repository/php4/win32/pwd.c,v 1.1.1.1 1999/04/07 21:05:12 zeev Exp $
  */
 
 /* This 'implementation' is conjectured from the use of this functions in
@@ -23,9 +23,6 @@
    much useful things under MS-DOS, but using them avoids many "#ifdef
    MSDOS" in ported UN*X code ...  */
 
-#ifdef THREAD_SAFE
-#include "tls.h"
-#endif
 #include "php.h"				/*php specific */
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
