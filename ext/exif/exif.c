@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.39 2002/02/28 12:20:17 helly Exp $ */
+/* $Id: exif.c,v 1.40 2002/03/01 04:01:25 helly Exp $ */
 
 /* Much of the code in this module was borrowed from the public domain
 	jhead.c package with the author's consent.  The main changes have been
@@ -178,7 +178,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "2.0a $Revision: $"
+#define EXIF_VERSION "2.0a $Revision: 1.40 $"
 
 PHP_MINFO_FUNCTION(exif);
 
@@ -634,7 +634,7 @@ static int ProcessExifComment(char **pszInfoPtr,char *szValuePtr,int ByteCount)
 	char  mbBuffer[MB_CUR_MAX];
 
 	/* Copy the comment */
-	if ( ByteCount>8 && !memcmp(szValuePtr, "UNICODE\0", 8) || !memcmp(szValuePtr, "JIS\0\0\0\0\0", 8)) {
+	if ( ((ByteCount>8) && !memcmp(szValuePtr, "UNICODE\0", 8)) || !memcmp(szValuePtr, "JIS\0\0\0\0\0", 8)) {
 		/* treat JIS encoding as if it where UNICODE */
 		szValuePtr = szValuePtr+8;
 		ByteCount -= 8;
@@ -736,7 +736,7 @@ static int CopyExifString(char **pszInfoPtr,char *szValuePtr,int ByteCount) {
 static void ProcessExifDir(ImageInfoType *ImageInfo, char *DirStart, char *OffsetBase, unsigned ExifLength, char *LastExifRefd, int ReadThumbnail)
 {
 	int de;
-	int a,l;
+	int l;
 	int NumDirEntries;
 	int NextDirOffset;
 
