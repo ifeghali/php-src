@@ -17,15 +17,13 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.67 2002/09/19 21:57:25 cmv Exp $ */
+/* $Id: php_apache.c,v 1.68 2002/09/26 17:54:54 cmv Exp $ */
 
 #include "php_apache_http.h"
 
 #if defined(PHP_WIN32) || defined(NETWARE)
 #include "zend.h"
 #include "ap_compat.h"
-#else
-#include "build-defs.h"
 #endif
 
 #ifdef ZTS

@@ -20,7 +20,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: ifx.ec,v 1.67 2002/07/19 08:36:42 derick Exp $ */
+/* $Id: ifx.ec,v 1.68 2002/07/22 08:58:16 sniper Exp $ */
 
 /* -------------------------------------------------------------------
  * if you want a function reference : "grep '^\*\*' ifx.ec" will give
@@ -47,13 +47,17 @@
 
 #ifdef PHP_WIN32
 #include <winsock.h>
-#else
-#include "build-defs.h"
+#endif
 
 #if HAVE_SYS_TYPES_H
 #include <sys/types.h>
 #endif
+
+#if HAVE_NETDB_H
 #include <netdb.h>
+#endif
+
+#if HAVE_NETINET_IN_H
 #include <netinet/in.h>
 #endif
 
