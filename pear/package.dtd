@@ -28,7 +28,7 @@
 			   threadsafe	(on|off) 'off'">
 <!ENTITY % format.atts "format		CDATA	#IMPLIED">
 <!--=============== ELEMENT: package =======================================-->
-<!ELEMENT package (name, summary, maintainer, release, filelist)>
+<!ELEMENT package (name, summary, maintainer, release)>
 <!ATTLIST package
 	%global.atts; 
 	type (source | binary | empty) "empty"
@@ -59,13 +59,18 @@
 	%global.atts; 
 >
 <!--=============== ELEMENT: release =======================================-->
-<!ELEMENT release (version, date, notes?)>
+<!ELEMENT release (version?, state?, date, notes?, filelist)>
 <!ATTLIST release
 	%global.atts; 
 >
 <!--=============== ELEMENT: version =======================================-->
 <!ELEMENT version (#PCDATA)>
 <!ATTLIST version
+	%global.atts; 
+>
+<!--=============== ELEMENT: state =========================================-->
+<!ELEMENT state (#PCDATA)>
+<!ATTLIST state
 	%global.atts; 
 >
 <!--=============== ELEMENT: date =========================================-->
@@ -78,7 +83,7 @@
 <!ATTLIST notes
 	%global.atts; 
 >
-<!--=============== ELEMENT: fileList ======================================-->
+<!--=============== ELEMENT: filelist ======================================-->
 <!ELEMENT filelist (dir | file | libfile)*>
 <!ATTLIST filelist
 	%global.atts; 
