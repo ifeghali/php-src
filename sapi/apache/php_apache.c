@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.25 2000/12/13 13:19:56 sas Exp $ */
+/* $Id: php_apache.c,v 1.26 2000/12/14 22:16:21 dbeu Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
@@ -114,6 +114,7 @@ zend_module_entry apache_module_entry = {
    Get and set Apache request notes */
 PHP_FUNCTION(apache_child_terminate)
 {
+#ifndef MULTITHREAD
 	APLS_FETCH();
 	SLS_FETCH();
 
@@ -122,6 +123,9 @@ PHP_FUNCTION(apache_child_terminate)
 	} else { /* tell them to get lost! */
 		php_error(E_WARNING, "apache.child_terminate is disabled");
 	}
+#else
+		php_error(E_WARNING, "apache_child_terminate() is not supported in this build");
+#endif
 }
 /* }}} */
 
