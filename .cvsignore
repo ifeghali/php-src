@@ -14,6 +14,8 @@ configuration-parser.output
 configuration-scanner.c
 configure
 generated_lists
+meta_cc
+meta_ccld
 mkinstalldirs
 missing
 install-sh
