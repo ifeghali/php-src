@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.246 2003/06/09 00:17:03 sniper Exp $
+dnl $Id: acinclude.m4,v 1.247 2003/06/24 14:05:24 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1616,7 +1616,7 @@ AC_DEFUN([PHP_SETUP_OPENSSL],[
     ], [
       AC_MSG_ERROR([libssl not found!])
     ],[
-      -L$OPENSSL_LIBDIR
+      -L$OPENSSL_LIBDIR -lcrypto
     ])
   ], [
     AC_MSG_ERROR([libcrypto not found!])
