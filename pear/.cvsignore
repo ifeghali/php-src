@@ -6,3 +6,4 @@ run-tests
 php-config
 pear
 PEAR.php
+test.php
