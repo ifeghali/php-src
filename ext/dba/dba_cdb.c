@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: dba_cdb.c,v 1.25 2002/12/30 13:07:29 helly Exp $ */
+/* $Id: dba_cdb.c,v 1.23.2.3 2003/01/31 20:10:11 helly Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -35,12 +35,13 @@
 #include <fcntl.h>
 
 #if DBA_CDB_BUILTIN
-#include "libcdb/cdb.h"
-#include "libcdb/cdb_make.h"
-#include "libcdb/uint32.h"
+# include "libcdb/cdb.h"
+# include "libcdb/cdb_make.h"
+# include "libcdb/uint32.h"
 #else
-#include <cdb.h>
-#include <uint32.h>
+# ifdef CDB_INCLUDE_FILE
+#  include CDB_INCLUDE_FILE
+# endif
 #endif
 
 #define CDB_INFO \
