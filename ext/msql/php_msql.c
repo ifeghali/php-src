@@ -12,11 +12,11 @@
    | obtain it through the world-wide-web, please send a note to          |
    | license@php.net so we can mail you a copy immediately.               |
    +----------------------------------------------------------------------+
-   | Authors: Zeev Suraski <zeev@zend.com>                                |
+   | Author: Zeev Suraski <zeev@zend.com>                                 |
    +----------------------------------------------------------------------+
  */
  
-/* $Id: php_msql.c,v 1.45 2001/10/11 23:33:15 ssb Exp $ */
+/* $Id: php_msql.c,v 1.46 2001/12/11 15:29:55 sebastian Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"

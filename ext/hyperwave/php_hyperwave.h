@@ -12,11 +12,11 @@
    | obtain it through the world-wide-web, please send a note to          |
    | license@php.net so we can mail you a copy immediately.               |
    +----------------------------------------------------------------------+
-   | Authors: Rasmus Lerdorf <rasmus@lerdorf.on.ca>                       |
+   | Author: Rasmus Lerdorf <rasmus@php.net>                              |
    +----------------------------------------------------------------------+
 */
 
-/* $Id: php_hyperwave.h,v 1.16 2001/07/30 01:56:26 zeev Exp $ */
+/* $Id: php_hyperwave.h,v 1.17 2001/12/11 15:29:29 sebastian Exp $ */
 
 #ifndef PHP_HYPERWAVE_H
 #define PHP_HYPERWAVE_H

@@ -12,11 +12,11 @@
    | obtain it through the world-wide-web, please send a note to          |
    | license@php.net so we can mail you a copy immediately.               |
    +----------------------------------------------------------------------+
-   | Authors: Tsukada Takuya <tsukada@fminn.nagano.nagano.jp>             |
+   | Author: Tsukada Takuya <tsukada@fminn.nagano.nagano.jp>              |
    +----------------------------------------------------------------------+
  */
 
-/* $Id: mbstring.h,v 1.12 2002/01/07 02:40:54 hirokawa Exp $ */
+/* $Id: mbstring.h,v 1.13 2002/01/11 13:21:09 hirokawa Exp $ */
 
 /*
  * PHP4 Multibyte String module "mbstring" (currently only for Japanese)

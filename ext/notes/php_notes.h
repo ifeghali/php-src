@@ -12,12 +12,12 @@
    | obtain it through the world-wide-web, please send a note to          |
    | license@php.net so we can mail you a copy immediately.               |
    +----------------------------------------------------------------------+
-   | Authors: Brad Atkins <brad@youreshop.com>                            |
+   | Author: Brad Atkins <brad@youreshop.com>                             |
    +----------------------------------------------------------------------+
 */
 
 
-/* $Id: php_notes.h,v 1.3 2001/07/30 01:56:32 zeev Exp $ */
+/* $Id: php_notes.h,v 1.4 2001/12/11 15:29:57 sebastian Exp $ */
 
 extern zend_module_entry notes_module_entry;
 

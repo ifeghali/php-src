@@ -12,11 +12,11 @@
    | obtain it through the world-wide-web, please send a note to          |
    | license@php.net so we can mail you a copy immediately.               |
    +----------------------------------------------------------------------+
-   | Authors: Frank M. Kromann frank@frontbase.com>                       |
+   | Author: Frank M. Kromann <frank@frontbase.com>                       |
    +----------------------------------------------------------------------+
  */
 
-/* $Id: php_fbsql.h,v 1.18 2002/01/10 21:56:18 fmk Exp $ */
+/* $Id: php_fbsql.h,v 1.19 2002/02/06 19:24:02 fmk Exp $ */
 
 #define HAVE_FBSQL 1
 

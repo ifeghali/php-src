@@ -17,7 +17,7 @@
    |          Brian Wang          <brian@vividnet.com>                    |
    |          Kaj-Michael Lang    <milang@tal.org>                        |
    |          Antoni Pamies Olive <toni@readysoft.net>                    |
-   |          Rasmus Lerdorf      <rasmus@lerdorf.on.ca>                  |
+   |          Rasmus Lerdorf      <rasmus@php.net>                        |
    |          Chuck Hagenbuch     <chuck@horde.org>                       |
    |          Andrew Skalski      <askalski@chekinc.com>                  |
    |          Hartmut Holzgraefe  <hartmut@six.de>                        |
@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.110 2001/12/11 15:29:37 sebastian Exp $ */
+/* $Id: php_imap.c,v 1.111 2002/01/12 05:39:07 vlad Exp $ */
 
 #define IMAP41
 

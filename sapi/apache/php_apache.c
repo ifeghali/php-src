@@ -13,11 +13,11 @@
    | license@php.net so we can mail you a copy immediately.               |
    +----------------------------------------------------------------------+
    | Authors: Rasmus Lerdorf <rasmus@lerdorf.on.ca>                       |
-   |          Stig Sæther Bakken <ssb@guardian.no>                        |
+   |          Stig Sæther Bakken <ssb@fast.no>                            |
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.54 2001/12/11 15:31:55 sebastian Exp $ */
+/* $Id: php_apache.c,v 1.55 2001/12/15 14:18:25 hholzgra Exp $ */
 
 #define NO_REGEX_EXTRA_H
 
