@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.65 2002/06/01 17:38:23 sas Exp $ */
+/* $Id: php_apache.c,v 1.66 2002/08/13 04:03:20 rasmus Exp $ */
 
 #include "php_apache_http.h"
 
@@ -34,7 +34,7 @@ int php_apache_info_id;
 php_apache_info_struct php_apache_info;
 #endif
 
-#define SECTION(name)  PUTS("<H2 align=\"center\">" name "</H2>\n")
+#define SECTION(name)  PUTS("<h2 class=\"section\">" name "</h2>\n")
 
 extern module *top_module;
 
