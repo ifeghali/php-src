@@ -1,5 +1,5 @@
 dnl
-dnl $Id: config.m4,v 1.3 2003/03/10 03:14:37 sniper Exp $
+dnl $Id: config.m4,v 1.4 2003/03/29 04:52:46 sterling Exp $
 dnl
 
 AC_MSG_CHECKING(for Apache 2.0 handler-module support via DSO through APXS)
@@ -23,7 +23,7 @@ AC_ARG_WITH(apxs2,
     AC_MSG_RESULT([Sorry, I cannot run apxs.  Possible reasons follow:]) 
     AC_MSG_RESULT()
     AC_MSG_RESULT([1. Perl is not installed])
-    AC_MSG_RESULT([2. apxs was not found. Try to pass the path using --with-apxs2handler=/path/to/apxs])
+    AC_MSG_RESULT([2. apxs was not found. Try to pass the path using --with-apxs2=/path/to/apxs])
     AC_MSG_RESULT([3. Apache was not built using --enable-so (the apxs usage page is displayed)])
     AC_MSG_RESULT()
     AC_MSG_RESULT([The output of $APXS follows:])
