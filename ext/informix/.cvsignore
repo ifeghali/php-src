@@ -2,6 +2,7 @@ ifx.c
 *.lo
 *.la
 .deps
+.libs
 *.plg
 *.opt
 *.ncb
