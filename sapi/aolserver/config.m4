@@ -1,4 +1,4 @@
-dnl ## $Id: config.m4,v 1.11 2001/03/27 20:34:44 sniper Exp $ -*- sh -*-
+dnl ## $Id: config.m4,v 1.12 2001/04/03 20:59:46 wsanchez Exp $ -*- sh -*-
 
 AC_MSG_CHECKING(for AOLserver support)
 AC_ARG_WITH(aolserver,
@@ -11,7 +11,7 @@ AC_MSG_RESULT($PHP_AOLSERVER)
 
 if test "$PHP_AOLSERVER" != "no"; then
   if test -d "$PHP_AOLSERVER/include"; then
-    PHP_AOLSERVER_SRC="$PHP_AOLSERVER"
+    PHP_AOLSERVER_SRC=$PHP_AOLSERVER
   fi
   if test -z "$PHP_AOLSERVER_SRC" || test ! -d $PHP_AOLSERVER_SRC/include; then
     AC_MSG_ERROR(Please specify the path to the source distribution of AOLserver using --with-aolserver-src=DIR)
