@@ -1,5 +1,5 @@
 /* This is a template RC file.
- * $Id: template.rc,v 1.1 2003/12/04 01:37:52 wez Exp $
+ * $Id: template.rc,v 1.2 2003/12/04 02:12:36 wez Exp $
  * Do not edit with MSVC */
 #ifdef APSTUDIO_INVOKED
 # error dont edit with MSVC
@@ -15,7 +15,9 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 # define THANKS_GUYS ""
 #endif
 
+#ifdef WANT_LOGO
 0 ICON win32\build\php.ico
+#endif
 
 #define XSTRVER4(maj, min, rel, build) #maj "." #min "." #rel "." #build
 #define XSTRVER3(maj, min, rel) #maj "." #min "." #rel
