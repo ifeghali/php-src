@@ -25,7 +25,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.68 2001/05/02 17:42:10 chagenbu Exp $ */
+/* $Id: php_imap.c,v 1.69 2001/05/02 17:46:44 chagenbu Exp $ */
 
 #define IMAP41
 
@@ -4305,19 +4305,19 @@ void mm_login(NETMBX *mb, char *user, char *pwd, long trial)
 #if HAVE_IMSP
 	if (*mb->service && strcmp(mb->service, "imsp") == 0) {
 		if (*mb->user) {
-			strncpy(user, mb->user, MAILTMPLEN);
+			strlcpy(user, mb->user, MAILTMPLEN);
 		} else {
-			strncpy(user, imsp_user, MAILTMPLEN);
+			strlcpy(user, imsp_user, MAILTMPLEN);
 		}
-		strncpy (pwd, imsp_password, MAILTMPLEN);
+		strlcpy (pwd, imsp_password, MAILTMPLEN);
 	} else {
 #endif
 		if (*mb->user) {
-			strncpy (user,mb->user, MAILTMPLEN);
+			strlcpy (user,mb->user, MAILTMPLEN);
 		} else {
-			strncpy (user, IMAPG(imap_user), MAILTMPLEN);
+			strlcpy (user, IMAPG(imap_user), MAILTMPLEN);
 		}
-		strncpy (pwd, IMAPG(imap_password), MAILTMPLEN);
+		strlcpy (pwd, IMAPG(imap_password), MAILTMPLEN);
 #if HAVE_IMSP
 	}
 #endif
