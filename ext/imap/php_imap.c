@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.167 2003/06/13 14:39:22 iliaa Exp $ */
+/* $Id: php_imap.c,v 1.168 2003/06/13 14:56:07 iliaa Exp $ */
 
 #define IMAP41
 
@@ -3985,7 +3985,7 @@ static int build_thread_tree(THREADNODE *top, zval **tree)
 
 /* {{{ proto array imap_thread(resource stream_id [, int options])
    Return threaded by REFERENCES tree */
-PHP_FUNCTION (imap_thread)
+PHP_FUNCTION(imap_thread)
 {
 	zval **streamind, **search_flags;
 	pils *imap_le_struct;
@@ -4025,7 +4025,7 @@ PHP_FUNCTION (imap_thread)
 
 /* {{{ proto mixed imap_timeout(int timeout_type [, int timeout])
    Set or fetch imap timeout */
-PHP_FUNCTION (imap_timeout)
+PHP_FUNCTION(imap_timeout)
 {
 	long ttype, timeout=-1;
 	int timeout_type;
