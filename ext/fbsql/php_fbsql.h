@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: php_fbsql.h,v 1.4 2001/04/25 18:00:55 fmk Exp $ */
+/* $Id: php_fbsql.h,v 1.5 2001/05/29 16:01:54 fmk Exp $ */
 
 #define HAVE_FBSQL 1
 
@@ -87,6 +87,7 @@ PHP_FUNCTION(fbsql_password);
 PHP_FUNCTION(fbsql_warnings);
 
 static void php_fbsql_fetch_hash(INTERNAL_FUNCTION_PARAMETERS, int result_type);
+static void php_fbsql_do_connect(INTERNAL_FUNCTION_PARAMETERS, int persistant);
 
 ZEND_BEGIN_MODULE_GLOBALS(fbsql)
    long allowPersistent;
@@ -104,12 +105,8 @@ ZEND_BEGIN_MODULE_GLOBALS(fbsql)
    char *userPassword;
    long persistantCount;
    long linkCount;
-   long databaseCount;
-   long resultCount;
+   long linkIndex;
 
-   unsigned int linkIndex;
-   int databaseIndex;
-   int resultIndex;
 ZEND_END_MODULE_GLOBALS(fbsql)
 
 #ifdef ZTS
