@@ -30,7 +30,6 @@ function find_cvsignore(dirname)
 	var fc = new Enumerator(f.SubFolders);
 	
 	for (; !fc.atEnd(); fc.moveNext()) {
-		WScript.StdOut.WriteLine(fc.item());
 		find_cvsignore(fc.item());	
 	}
 
