@@ -24,7 +24,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.30 2000/06/16 18:23:57 hholzgra Exp $ */
+/* $Id: php_imap.c,v 1.31 2000/06/16 18:42:56 hholzgra Exp $ */
 
 #define IMAP41
 
@@ -1677,7 +1677,7 @@ PHP_FUNCTION(imap_headerinfo)
 /* }}} */
 
 
-/* {{{ proto object imap_rfc822_parse_headers(string headers, string [default_host])
+/* {{{ proto object imap_rfc822_parse_headers(string headers [, string default_host])
    Parse a set of mail headers contained in a string, and return an object similar to imap_headerinfo() */
 PHP_FUNCTION(imap_rfc822_parse_headers)
 {
