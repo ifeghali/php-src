@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.266 2003/12/04 15:57:55 sniper Exp $
+dnl $Id: acinclude.m4,v 1.267 2003/12/12 05:19:30 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -130,6 +130,8 @@ dnl append to the array which has been dynamically chosen at m4 time
 dnl choose the right compiler/flags/etc. for the source-file
       case $ac_src in
 	  *.c[)] ac_comp="$b_c_pre $3 $ac_inc $b_c_meta -c $ac_srcdir$ac_src -o $ac_bdir$ac_obj.$b_lo $6$b_c_post" ;;
+	  *.s[)] ac_comp="$b_c_pre $3 $ac_inc $b_c_meta -c $ac_srcdir$ac_src -o $ac_bdir$ac_obj.$b_lo $6$b_c_post" ;;
+	  *.S[)] ac_comp="$b_c_pre $3 $ac_inc $b_c_meta -c $ac_srcdir$ac_src -o $ac_bdir$ac_obj.$b_lo $6$b_c_post" ;;
 	  *.cpp[)] ac_comp="$b_cxx_pre $3 $ac_inc $b_cxx_meta -c $ac_srcdir$ac_src -o $ac_bdir$ac_obj.$b_lo $6$b_cxx_post" ;;
       esac
 

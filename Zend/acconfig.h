@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: acconfig.h,v 1.31 2003/06/10 20:03:24 imajes Exp $ */
+/* $Id: acconfig.h,v 1.32 2004/01/08 17:31:47 sniper Exp $ */
 
 #define ZEND_API
 #define ZEND_DLEXPORT
@@ -36,6 +36,8 @@
 #ifndef NETWARE
 @BOTTOM@
 #endif
+
+#ifndef ZEND_ACCONFIG_H_NO_C_PROTOS
 
 #ifdef HAVE_STDLIB_H
 # include <stdlib.h>
@@ -95,6 +97,8 @@ int zend_sprintf(char *buffer, const char *format, ...);
 #else
 #define zend_finite(a) (zend_isnan(a) ? 0 : zend_isinf(a) ? 0 : 1)
 #endif
+
+#endif /* ifndef ZEND_ACCONFIG_H_NO_C_PROTOS */
 
 /*
  * Local variables:
