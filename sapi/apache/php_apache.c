@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.61 2002/05/31 23:49:49 rasmus Exp $ */
+/* $Id: php_apache.c,v 1.62 2002/05/31 23:52:07 rasmus Exp $ */
 
 #include "php_apache_http.h"
 
@@ -183,6 +183,10 @@ PHP_MINFO_FUNCTION(apache)
 	php_info_print_table_row(1, "Apache for Windows 95/NT");
 	php_info_print_table_end();
 	php_info_print_table_start();
+#elif
+	php_info_print_table_row(1, "Apache for NetWare");
+	php_info_print_table_end();
+	php_info_print_table_start();
 #else
 	php_info_print_table_row(2, "APACHE_INCLUDE", PHP_APACHE_INCLUDE);
 	php_info_print_table_row(2, "APACHE_TARGET", PHP_APACHE_TARGET);
@@ -207,6 +211,10 @@ PHP_MINFO_FUNCTION(apache)
 	sprintf(output_buf, "Connection: %d - Keep-Alive: %d", serv->timeout, serv->keep_alive_timeout);
 	php_info_print_table_row(2, "Timeouts", output_buf);
 #if !defined(WIN32) && !defined(WINNT)
+/*
+	This block seems to be working on NetWare; But it seems to be showing
+	all modules instead of just the loaded ones
+*/
 	php_info_print_table_row(2, "Server Root", server_root);
 
 	strcpy(modulenames, "");
