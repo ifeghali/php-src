@@ -2,7 +2,7 @@
    +----------------------------------------------------------------------+
    | PHP version 4.0                                                      |
    +----------------------------------------------------------------------+
-   | Copyright (c) 1997, 1998, 1999 The PHP Group                         |
+   | Copyright (c) 1997, 1998, 1999, 2000 The PHP Group                   |
    +----------------------------------------------------------------------+
    | This source file is subject to version 2.0 of the PHP license,       |
    | that is bundled with this package in the file LICENSE, and is        |
@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* 	$Id: gdt1.c,v 1.4 1999/12/17 21:50:02 zeev Exp $	 */
+/* 	$Id: gdt1.c,v 1.5 1999/12/20 17:34:53 andrei Exp $	 */
 
 void php_free_ps_font(gd_ps_font *f_ind)
 {
