@@ -20,7 +20,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: ifx.ec,v 1.70 2003/01/15 03:01:17 iliaa Exp $ */
+/* $Id: ifx.ec,v 1.71 2003/01/15 14:02:10 iliaa Exp $ */
 
 /* -------------------------------------------------------------------
  * if you want a function reference : "grep '^\*\*' ifx.ec" will give
@@ -2823,7 +2823,7 @@ static long php_intifx_getType(long id, HashTable *list TSRMLS_DC)
    Creates a blob-object */
 PHP_FUNCTION(ifx_create_blob) 
 {
-	zval **pmode, **pparam,*ptype;
+	zval **pmode, **pparam,**ptype;
 	long id;
 	long mode,type;
   
