@@ -56,3 +56,4 @@ include
 autom4te.cache
 .FBCIndex
 .FBCLockFolder
+debug.log
