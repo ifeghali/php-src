@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.118 2001/01/02 22:40:03 venaas Exp $
+dnl $Id: acinclude.m4,v 1.119 2001/01/03 18:12:06 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -25,13 +25,13 @@ AC_DEFUN(PHP_SETUP_OPENSSL,[
   AC_MSG_CHECKING(for OpenSSL version)
   AC_EGREP_CPP(yes,[
   #include <openssl/opensslv.h>
-  #if OPENSSL_VERSION_NUMBER >= 0x0090600fL
+  #if OPENSSL_VERSION_NUMBER >= 0x0090500fL
   yes
   #endif
   ],[
-    AC_MSG_RESULT(>= 0.9.6)
+    AC_MSG_RESULT(>= 0.9.5)
   ],[
-    AC_MSG_ERROR(OpenSSL version 0.9.6 or greater required.)
+    AC_MSG_ERROR(OpenSSL version 0.9.5 or greater required.)
   ])
   CPPFLAGS=$old_CPPFLAGS
 
