@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: dba_cdb.c,v 1.22 2002/11/10 17:58:46 helly Exp $ */
+/* $Id: dba_cdb.c,v 1.23 2002/11/13 12:12:44 edink Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -98,7 +98,7 @@ DBA_OPEN_FUNC(cdb)
 			return FAILURE;
 	}
 
-	cdb = emalloc(sizeof(dba_cdb));
+	cdb = pemalloc(sizeof(dba_cdb), info->flags&DBA_PERSISTENT);
 	memset(cdb, 0, sizeof(dba_cdb));
 
 #if DBA_CDB_BUILTIN
@@ -132,7 +132,7 @@ DBA_CLOSE_FUNC(cdb)
 	cdb_free(&cdb->c);
 	close(cdb->file);
 #endif
-	efree(cdb);
+	pefree(cdb, info->flags&DBA_PERSISTENT);
 }
 
 #if DBA_CDB_BUILTIN
