@@ -5,3 +5,5 @@ phpt.*
 *.out
 *.php
 ibase_test.tmp
+blob.*
+CREATED*
