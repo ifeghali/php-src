@@ -6,7 +6,7 @@
    +----------------------------------------------------------------------+
    | This source file is subject to version 2.01 of the PHP license,      |
    | that is bundled with this package in the file LICENSE, and is        |
-   | available at through the world-wide-web at                           |
+   | available through the world-wide-web at the following url:           |
    | http://www.php.net/license/2_01.txt.                                 |
    | If you did not receive a copy of the PHP license and are unable to   |
    | obtain it through the world-wide-web, please send a note to          |
@@ -17,7 +17,7 @@
 */
 
 
-/* $Id: php_notes.h,v 1.5 2002/02/28 08:26:28 sebastian Exp $ */
+/* $Id: php_notes.h,v 1.6 2002/12/31 16:07:06 sebastian Exp $ */
 
 extern zend_module_entry notes_module_entry;
 
