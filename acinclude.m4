@@ -1,4 +1,4 @@
-dnl $Id: acinclude.m4,v 1.144 2001/12/30 15:39:01 alexwaugh Exp $
+dnl $Id: acinclude.m4,v 1.145 2002/01/03 20:30:07 hholzgra Exp $
 dnl
 dnl This file contains local autoconf functions.
 
@@ -1154,3 +1154,18 @@ AC_DEFUN(PHP_CHECK_LIBRARY, [
   ])dnl
 ])
 
+
+
+dnl
+AC_DEFUN(PHP_CHECK_INTERACTIVE, [
+  if test "$PHP_SAPI" != "cgi"; then
+    AC_MSG_ERROR([$1 extension can only be used with CGI build!])
+  fi
+])
+
+dnl
+AC_DEFUN(PHP_CHECK_STANDALONE, [
+  if test "$PHP_SAPI" != "cgi"; then
+      AC_MSG_ERROR([$1 extension may affect webserver operation internals, so it can only be used with CGI build!])
+  fi
+])
