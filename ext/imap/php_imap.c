@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.194 2004/12/30 04:39:17 iliaa Exp $ */
+/* $Id: php_imap.c,v 1.195 2004/12/30 05:31:55 sniper Exp $ */
 
 #define IMAP41
 
@@ -694,7 +694,9 @@ PHP_RSHUTDOWN_FUNCTION(imap)
 PHP_MINFO_FUNCTION(imap)
 {
 	php_info_print_table_start();
-#if HAVE_IMAP2001
+#if HAVE_IMAP2004
+	php_info_print_table_row(2, "IMAP c-Client Version", "2004");
+#elif HAVE_IMAP2001
 	php_info_print_table_row(2, "IMAP c-Client Version", "2001");
 #elif HAVE_IMAP2000
 	php_info_print_table_row(2, "IMAP c-Client Version", "2000");
@@ -706,7 +708,7 @@ PHP_MINFO_FUNCTION(imap)
 #if HAVE_IMAP_SSL
 	php_info_print_table_row(2, "SSL Support", "enabled");
 #endif
-#if HAVE_IMAP_KRB
+#if HAVE_IMAP_KRB && HAVE_IMAP_AUTH_GSS
 	php_info_print_table_row(2, "Kerberos Support", "enabled");
 #endif
 	php_info_print_table_end();
