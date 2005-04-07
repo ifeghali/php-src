@@ -23,7 +23,7 @@ echo "buildconf: checking installation..."
 
 stamp=$1
 
-# Allow the autoconf executable to be overriden by $PHP_AUTOCONF.
+# Allow the autoconf executable to be overridden by $PHP_AUTOCONF.
 if test -z "$PHP_AUTOCONF"; then
   PHP_AUTOCONF='autoconf'
 fi
