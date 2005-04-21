@@ -1,5 +1,6 @@
 phpt.*
 *.diff
+*.php
 *.log
 *.exp
 *.out
