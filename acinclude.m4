@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.302 2005/04/30 00:12:42 sniper Exp $
+dnl $Id: acinclude.m4,v 1.303 2005/04/30 00:15:07 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -2413,9 +2413,11 @@ EOF
 
   for arg in [$]0 "[$]@"; do
     echo "'[$]arg' \\" >> $1
+    CONFIGURE_COMMAND="$CONFIGURE_COMMAND '[$]arg'"
   done
   echo '"[$]@"' >> $1
   chmod +x $1
+  PHP_SUBST_OLD(CONFIGURE_COMMAND)
 ])
 
 dnl
