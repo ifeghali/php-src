@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.300 2005/04/23 11:30:11 helly Exp $
+dnl $Id: acinclude.m4,v 1.301 2005/04/26 08:20:44 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -1949,7 +1949,7 @@ AC_DEFUN([PHP_PROG_BISON], [
   fi
   case $php_cv_bison_version in
     ""|invalid[)]
-      AC_MSG_WARN([You will need bison 1.28, 1.35, 1.75 or 1.875 if you want to regenerate the Zend/PHP parsers (found ${1}.${2}).])
+      AC_MSG_WARN([You will need bison 1.28, 1.35, 1.75, 1.875 or 2.0 if you want to regenerate the Zend/PHP parsers (found ${1}.${2}).])
       YACC="exit 0;"
       ;;
   esac
