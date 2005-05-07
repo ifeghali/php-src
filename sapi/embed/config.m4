@@ -1,5 +1,5 @@
 dnl
-dnl $Id: config.m4,v 1.7 2002/10/14 22:18:35 edink Exp $
+dnl $Id: config.m4,v 1.8 2003/01/21 02:46:07 edink Exp $
 dnl
 
 AC_MSG_CHECKING(for embedded SAPI library support)
@@ -29,4 +29,5 @@ AC_MSG_RESULT($PHP_EMBED_TYPE)
 
 if test "$PHP_EMBED_TYPE" != "no"; then
   PHP_SELECT_SAPI(embed, $PHP_EMBED_TYPE, php_embed.c)
+  PHP_INSTALL_HEADERS([sapi/embed/php_embed.h])
 fi
