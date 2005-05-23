@@ -15,11 +15,16 @@
    | Contributed by ECL IP'S Software & Services                          |
    |                http://www.eclips-software.com                        |
    |                mailto://idev@eclips-software.com                     |
-   | Author: David Hénot <henot@php.net>                                  |
+   |                Computer Associates, http://ingres.ca.com             |
+   | Authors: David Hénot                                                 |
+   |          Grant Croker                                                |
+   +----------------------------------------------------------------------+
+   | Authors: David Hénot <henot@php.net>                                 |
+   |          Grant Croker <grantc@php.net>                               |
    +----------------------------------------------------------------------+
  */
 
-/* $Id: php_ii.h,v 1.12 2004/01/08 17:32:14 sniper Exp $ */
+/* $Id: php_ii.h,v 1.13 2005/03/26 02:19:55 sniper Exp $ */
 
 #ifndef PHP_II_H
 #define PHP_II_H
@@ -28,6 +33,13 @@
 
 extern zend_module_entry ingres_module_entry;
 #define phpext_ingres_ptr &ingres_module_entry
+/* 
+   Since the buildconf/configure process difers in behaviour between 
+   Linux/UNIX and Windows, the following line allows us to build on 
+   both setups. It's not a perfect solution. 
+*/
+#define phpext_ingres_ii_ptr &ingres_module_entry
+
 
 #ifdef PHP_WIN32
 #define PHP_II_API __declspec(dllexport)
