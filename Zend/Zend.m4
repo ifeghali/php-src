@@ -1,27 +1,8 @@
 dnl
-dnl $Id: Zend.m4,v 1.51 2005/02/23 07:50:28 sniper Exp $
+dnl $Id: Zend.m4,v 1.52 2005/02/27 12:42:28 sniper Exp $
 dnl
 dnl This file contains Zend specific autoconf functions.
 dnl
-
-AC_DEFUN([LIBZEND_BISON_CHECK],[
-  if test "$YACC" = "bison -y"; then
-    AC_CACHE_CHECK([for bison version], php_cv_bison_version, [
-      set `bison --version| grep 'GNU Bison' | cut -d ' ' -f 4 | sed -e 's/\./ /' | tr -d 'a-z'`
-      if test "${1}" = "1" -a "${2}" -lt "28"; then
-        php_cv_bison_version=invalid
-      else
-        php_cv_bison_version="${1}.${2} (ok)"
-      fi
-    ])
-  fi
-  case $php_cv_bison_version in
-    ""|invalid[)]
-      AC_MSG_WARN([You will need bison 1.28, 1.35, 1.75 or 1.875 if you want to regenerate the Zend parsers (found ${1}.${2}).])
-      YACC="exit 0;"
-      ;;
-  esac
-])
 
 AC_DEFUN([LIBZEND_CHECK_INT_TYPE],[
 AC_MSG_CHECKING(for $1)
