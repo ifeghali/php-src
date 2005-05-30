@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.310 2005/05/29 18:04:34 hholzgra Exp $
+dnl $Id: acinclude.m4,v 1.311 2005/05/29 19:28:34 hholzgra Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -2413,6 +2413,7 @@ dnl
 dnl Generates the config.nice file
 dnl
 AC_DEFUN([PHP_CONFIG_NICE],[
+  AC_REQUIRE([LT_AC_PATH_SEPARATOR])
   AC_REQUIRE([AC_PROG_EGREP])
   AC_REQUIRE([LT_AC_PROG_SED])
   PHP_SUBST(EGREP)
