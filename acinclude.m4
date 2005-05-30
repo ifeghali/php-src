@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.311 2005/05/29 19:28:34 hholzgra Exp $
+dnl $Id: acinclude.m4,v 1.312 2005/05/30 06:55:19 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -809,13 +809,13 @@ dnl PHP_BUILD_PROGRAM
 dnl
 AC_DEFUN([PHP_BUILD_PROGRAM],[
   OVERALL_TARGET=[]ifelse($1,,php,$1)
-  php_c_pre='$(CC)'
+  php_c_pre='$(LIBTOOL) --mode=compile $(CC)'
   php_c_meta='$(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)'
-  php_c_post=' && echo > $[@]'
-  php_cxx_pre='$(CXX)'
+  php_c_post=
+  php_cxx_pre='$(LIBTOOL) --mode=compile $(CXX)'
   php_cxx_meta='$(COMMON_FLAGS) $(CXXFLAGS_CLEAN) $(EXTRA_CXXFLAGS)'
-  php_cxx_post=' && echo > $[@]'
-  php_lo=o
+  php_cxx_post=
+  php_lo=lo
 
   case $with_pic in
     yes) pic_setting='-prefer-pic';;
