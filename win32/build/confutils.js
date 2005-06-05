@@ -350,7 +350,7 @@ can be built that way. \
 		 'php-build', 'snapshot-template',
 		 'pcre-regex', 'fastcgi', 'force-cgi-redirect',
 		 'path-info-check', 'zts', 'ipv6', 'memory-limit',
-		 'zend-multibyte'
+		 'zend-multibyte', 'fd-setsize'
 		);
 	var force;
 
