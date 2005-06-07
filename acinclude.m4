@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.313 2005/05/30 10:56:13 sniper Exp $
+dnl $Id: acinclude.m4,v 1.314 2005/06/02 21:36:36 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -1977,10 +1977,13 @@ AC_DEFUN([PHP_PROG_LEX], [
         fi
       done
     ])
+  else
+    flex_version=none
   fi
+  
   case $php_cv_flex_version in
     ""|invalid[)]
-      flex_msg="flex versions supported for regeneration of the Zend/PHP parsers: $flex_version_list  (found $flex_version)."
+      flex_msg="flex versions supported for regeneration of the Zend/PHP parsers: $flex_version_list  (found: $flex_version)."
       AC_MSG_WARN([$flex_msg])
       LEX="exit 0;"
       ;;
@@ -2004,6 +2007,8 @@ AC_DEFUN([PHP_PROG_RE2C],[
         php_cv_re2c_version="`echo "" | re2c --version | cut -d ' ' -f 2  2>/dev/null` (ok)"
       fi 
     ])
+  else
+    php_cv_re2c_version=none
   fi
   case $php_cv_re2c_version in
     ""|invalid[)]
