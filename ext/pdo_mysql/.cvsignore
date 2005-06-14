@@ -1,7 +1,7 @@
 .deps
 *.lo
 *.la
-autom4te.cache
+.*.swp
 .libs
 Makefile
 Makefile.fragments
@@ -9,7 +9,9 @@ Makefile.global
 Makefile.objects
 acinclude.m4
 aclocal.m4
+autom4te*.cache
 build
+config.cache
 config.guess
 config.h
 config.h.in
@@ -26,3 +28,4 @@ ltmain.sh
 missing
 mkinstalldirs
 modules
+conftest*
