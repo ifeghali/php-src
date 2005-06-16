@@ -17,7 +17,7 @@
   |          Dmitry Stogov <dmitry@zend.com>                             |
   +----------------------------------------------------------------------+
 */
-/* $Id: php_soap.h,v 1.35 2004/11/16 12:07:29 dmitry Exp $ */
+/* $Id: php_soap.h,v 1.36 2005/02/02 10:34:39 dmitry Exp $ */
 
 #ifndef PHP_SOAP_H
 #define PHP_SOAP_H
@@ -26,7 +26,9 @@
 #include "php_globals.h"
 #include "ext/standard/info.h"
 #include "ext/standard/php_standard.h"
+#if HAVE_PHP_SESSION && !defined(COMPILE_DL_SESSION)
 #include "ext/session/php_session.h"
+#endif
 #include "ext/standard/php_smart_str.h"
 #include "php_ini.h"
 #include "SAPI.h"
