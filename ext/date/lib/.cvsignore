@@ -5,3 +5,4 @@ Makefile
 .libs
 *.gcda
 *.gcno
+tl_config.h
