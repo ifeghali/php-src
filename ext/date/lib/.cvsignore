@@ -5,4 +5,4 @@ Makefile
 .libs
 *.gcda
 *.gcno
-tl_config.h
+timelib_config.h
