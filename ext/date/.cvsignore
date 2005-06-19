@@ -45,9 +45,6 @@ ltmain.sh
 missing
 mkinstalldirs
 modules
-parsedate.c
-parsedate.h
-parsedate.output
 scan_makefile_in.awk
 *.gcda
 *.gcno
