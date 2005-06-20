@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.318 2005/06/14 01:43:53 sniper Exp $
+dnl $Id: acinclude.m4,v 1.319 2005/06/14 02:18:44 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -2362,10 +2362,10 @@ AC_DEFUN([PHP_INSTALL_HEADERS],[
     done 
   else
     header_path=$1
-    for header_file in "$2"; do
+    for header_file in $2; do
       hp_hf="$header_path/$header_file"
       PHP_RUN_ONCE(INSTALLHEADERS, $hp_hf, [
-        INSTALL_EXT_HEADERS="$INSTALL_EXT_HEADERS $hp_hf"
+        INSTALL_EXT_HEADERS="$INSTALL_EXT_HEADERS $header_path/$header_file"
       ])
     done 
   fi
