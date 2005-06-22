@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.321 2005/06/20 11:06:53 sniper Exp $
+dnl $Id: acinclude.m4,v 1.322 2005/06/21 10:20:03 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -441,7 +441,7 @@ dnl
 dnl Adds a path to linkpath/runpath (LDFLAGS)
 dnl
 AC_DEFUN([PHP_ADD_LIBPATH],[
-  if test "$1" != "/usr/$PHP_LIBDIR"; then
+  if test "$1" != "/usr/$PHP_LIBDIR" && test "$1" != "/usr/lib"; then
     PHP_EXPAND_PATH($1, ai_p)
     ifelse([$2],,[
       _PHP_ADD_LIBPATH_GLOBAL([$ai_p])
