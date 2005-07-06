@@ -8,3 +8,5 @@ phpt.*
 *.tmp
 *.gcda
 *.gcno
+*.mdb
+phpt.*
