@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.329 2005/07/13 14:34:46 sniper Exp $
+dnl $Id: acinclude.m4,v 1.331 2005/07/14 00:12:22 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -2492,7 +2492,7 @@ AC_DEFUN([PHP_REGEX],[
     dnl Check if field re_magic exists in struct regex_t
     AC_CACHE_CHECK([whether field re_magic exists in struct regex_t], ac_cv_regex_t_re_magic, [
       AC_TRY_COMPILE([#include <sys/types.h>
-#include <regex.h>], [struct regex_t rt; rt.re_magic;],
+#include <regex.h>], [regex_t rt; rt.re_magic;],
       [ac_cv_regex_t_re_magic=yes], [ac_cv_regex_t_re_magic=no])
     ])
     if test "$ac_cv_regex_t_re_magic" = "yes"; then
