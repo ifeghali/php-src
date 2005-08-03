@@ -2,7 +2,7 @@
   +----------------------------------------------------------------------+
   | PHP Version 5                                                        |
   +----------------------------------------------------------------------+
-  | Copyright (c) 1997-2004 The PHP Group                                |
+  | Copyright (c) 1997-2005 The PHP Group                                |
   +----------------------------------------------------------------------+
   | This source file is subject to version 3.0 of the PHP license,       |
   | that is bundled with this package in the file LICENSE, and is        |
@@ -16,7 +16,7 @@
   +----------------------------------------------------------------------+
 */
 
-/* $Id: xsl_fe.h,v 1.6 2004/01/19 15:07:08 chregu Exp $ */
+/* $Id: xsl_fe.h,v 1.7 2005/07/15 16:47:12 gschlossnagle Exp $ */
 
 #ifndef XSL_FE_H
 #define XSL_FE_H

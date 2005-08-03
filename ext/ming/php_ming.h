@@ -2,7 +2,7 @@
   +----------------------------------------------------------------------+
   | PHP Version 5                                                        |
   +----------------------------------------------------------------------+
-  | Copyright (c) 1997-2004 The PHP Group                                |
+  | Copyright (c) 1997-2005 The PHP Group                                |
   +----------------------------------------------------------------------+
   | This source file is subject to version 3.0 of the PHP license,       |
   | that is bundled with this package in the file LICENSE, and is        |
@@ -17,7 +17,7 @@
   +----------------------------------------------------------------------+
 */
 
-/* $Id: php_ming.h,v 1.15 2004/01/08 17:32:24 sniper Exp $ */
+/* $Id: php_ming.h,v 1.16 2004/03/27 00:39:06 helly Exp $ */
 
 #ifndef _PHP_MING_H
 #define _PHP_MING_H
