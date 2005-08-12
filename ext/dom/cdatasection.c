@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: cdatasection.c,v 1.10 2004/05/31 12:50:28 rrichards Exp $ */
+/* $Id: cdatasection.c,v 1.11 2005/08/03 14:06:59 sniper Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -50,8 +50,8 @@ PHP_METHOD(domcdatasection, __construct)
 	char *value = NULL;
 	int value_len;
 
-	php_set_error_handling(EH_THROW, dom_domexception_class_entry TSRMLS_CC);
-	if (zend_parse_method_parameters(ZEND_NUM_ARGS() TSRMLS_CC, getThis(), "Os", &id, dom_cdatasection_class_entry, &value, &value_len) == FAILURE) {
+	php_set_error_handling(EH_THROW, U_CLASS_ENTRY(dom_domexception_class_entry) TSRMLS_CC);
+	if (zend_parse_method_parameters(ZEND_NUM_ARGS() TSRMLS_CC, getThis(), "Os", &id, U_CLASS_ENTRY(dom_cdatasection_class_entry), &value, &value_len) == FAILURE) {
 		php_std_error_handling();
 		return;
 	}
