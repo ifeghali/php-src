@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.332 2005/07/18 17:20:24 sniper Exp $
+dnl $Id: acinclude.m4,v 1.333 2005/08/12 13:54:47 sniper Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -853,10 +853,6 @@ AC_DEFUN([PHP_SHARED_MODULE],[
     *aix*[)]
       suffix=so
       link_cmd='$(LIBTOOL) --mode=link ifelse($4,,[$(CC)],[$(CXX)]) $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS) -Wl,-G -o '$3'/$1.la -export-dynamic -avoid-version -prefer-pic -module -rpath $(phplibdir) $(EXTRA_LDFLAGS) $($2) $(translit($1,a-z_-,A-Z__)_SHARED_LIBADD) && mv -f '$3'/.libs/$1.so '$3'/$1.so'
-      ;;
-    *darwin*[)]
-      suffix=so
-      link_cmd='ifelse($4,,[$(CC)],[$(CXX)]) -dynamic -flat_namespace -bundle -undefined suppress $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS) -o [$]@ $(EXTRA_LDFLAGS) $($2) $(translit($1,a-z_-,A-Z__)_SHARED_LIBADD)'
       ;;
     *netware*[)]
       suffix=nlm
