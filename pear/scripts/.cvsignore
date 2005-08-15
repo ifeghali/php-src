@@ -1,9 +1,0 @@
-.deps
-pear
-pearize
-php-config
-phpize
-phptar
-run-tests
-*.gcda
-*.gcno
