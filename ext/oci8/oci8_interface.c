@@ -12,7 +12,7 @@
    | obtain it through the world-wide-web, please send a note to          |
    | license@php.net so we can mail you a copy immediately.               |
    +----------------------------------------------------------------------+
-   | Authors: Stig SÃ¦ther Bakken <ssb@php.net>                            |
+   | Authors: Stig Sæther Bakken <ssb@php.net>                            |
    |          Thies C. Arntzen <thies@thieso.net>                         |
    | Redesigned by: Antony Dovgal <antony@zend.com>                       |
    |                Andi Gutmans <andi@zend.com>                          |
@@ -20,7 +20,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: oci8_interface.c,v 1.18 2005/08/17 14:55:48 antony Exp $ */
+/* $Id: oci8_interface.c,v 1.1 2005/09/06 19:31:59 tony2001 Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
