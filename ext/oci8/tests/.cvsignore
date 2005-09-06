@@ -3,5 +3,7 @@
 *.tmp
 *.diff
 *.exp
-*.log*.gcda
+*.log
+*.gcda
 *.gcno
+*.vglog
