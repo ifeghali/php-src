@@ -25,7 +25,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: oci8_interface.c,v 1.4 2005/09/07 08:58:32 tony2001 Exp $ */
+/* $Id: oci8_interface.c,v 1.5 2005/09/25 21:44:32 tony2001 Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -1216,7 +1216,7 @@ PHP_FUNCTION(oci_execute)
 {
 	zval *z_statement;
 	php_oci_statement *statement;
-	ub4 mode = OCI_COMMIT_ON_SUCCESS;
+	long mode = OCI_COMMIT_ON_SUCCESS;
 
 	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "r|l", &z_statement, &mode) == FAILURE) {
 		return;
