@@ -1,4 +1,3 @@
-parse_date.c
 tester-create-ts
 tester-parse-string
 tester-parse-tz
