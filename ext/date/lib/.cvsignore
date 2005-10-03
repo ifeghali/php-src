@@ -11,3 +11,4 @@ Makefile
 .libs
 *.gcda
 *.gcno
+timelib_config.h
