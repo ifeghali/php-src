@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.172 2005/08/03 14:07:07 sniper Exp $ */
+/* $Id: exif.c,v 1.173 2005/08/05 14:03:57 hyanantha Exp $ */
 
 /*  ToDos
  *
@@ -115,7 +115,7 @@ function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.172 2005/08/03 14:07:07 sniper Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.173 2005/08/05 14:03:57 hyanantha Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -3030,6 +3030,12 @@ static int exif_process_IFD_in_JPEG(image_info_type *ImageInfo, char *dir_start,
 								  offset_base, IFDlength, displacement, section_index, 1, exif_get_tag_table(section_index) TSRMLS_CC)) {
 			return FALSE;
 		}
+	}
+	/*
+	 * Ignore IFD2 if it purportedly exists
+	 */
+	if (section_index == SECTION_THUMBNAIL) {
+		return FALSE;
 	}
 	/*
 	 * Hack to make it process IDF1 I hope
