@@ -25,7 +25,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: oci8_interface.c,v 1.5 2005/09/25 21:44:32 tony2001 Exp $ */
+/* $Id: oci8_interface.c,v 1.6 2005/09/25 23:46:28 tony2001 Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -243,7 +243,12 @@ PHP_FUNCTION(oci_lob_load)
 	if (php_oci_lob_read(descriptor, -1, 0, &buffer, &buffer_len TSRMLS_CC)) {
 		RETURN_FALSE;
 	}
-	RETURN_STRINGL(buffer, buffer_len, 0);
+	if (buffer_len > 0) {
+		RETURN_STRINGL(buffer, buffer_len, 0);
+	}
+	else {
+		RETURN_EMPTY_STRING();
+	}
 }
 /* }}} */
 
@@ -282,8 +287,13 @@ PHP_FUNCTION(oci_lob_read)
 	
 	if (php_oci_lob_read(descriptor, length, descriptor->lob_current_position, &buffer, &buffer_len TSRMLS_CC)) {
 		RETURN_FALSE;
+	}	
+	if (buffer_len > 0) {
+		RETURN_STRINGL(buffer, buffer_len, 0);
 	}
-	RETURN_STRINGL(buffer, buffer_len, 0);
+	else {
+		RETURN_EMPTY_STRING();
+	}
 }
 /* }}} */
 
