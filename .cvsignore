@@ -66,3 +66,7 @@ ZendEngine1
 php_test_results_*.txt
 *.gcda
 *.gcno
+php_lcov.info
+lcov_data
+lcov_html
+
