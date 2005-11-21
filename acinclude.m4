@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.335 2005/09/01 08:25:32 sniper Exp $
+dnl $Id: acinclude.m4,v 1.336 2005/10/13 20:16:39 rrichards Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -971,6 +971,13 @@ dnl ---------------------------------------------- CLI static module
     EXT_CLI_STATIC="$EXT_CLI_STATIC $1"
   fi
   PHP_ADD_BUILD_DIR($ext_builddir)
+
+dnl Set for phpize builds only
+dnl --------------------------- 
+  if test "$ext_builddir" = "."; then
+    PHP_PECL_EXTENSION=$1
+    PHP_SUBST(PHP_PECL_EXTENSION)
+  fi
 ])
 
 dnl
@@ -2375,7 +2382,7 @@ AC_DEFUN([PHP_INSTALL_HEADERS],[
   ifelse([$2],[],[
     for header_file in $1; do
       PHP_RUN_ONCE(INSTALLHEADERS, $header_file, [
-        INSTALL_EXT_HEADERS="$INSTALL_EXT_HEADERS $header_file"
+        INSTALL_HEADERS="$INSTALL_HEADERS $header_file"
       ])
     done 
   ], [
@@ -2383,7 +2390,7 @@ AC_DEFUN([PHP_INSTALL_HEADERS],[
     for header_file in $2; do
       hp_hf="$header_path/$header_file"
       PHP_RUN_ONCE(INSTALLHEADERS, $hp_hf, [
-        INSTALL_EXT_HEADERS="$INSTALL_EXT_HEADERS $hp_hf"
+        INSTALL_HEADERS="$INSTALL_HEADERS $hp_hf"
       ])
     done 
   ])
