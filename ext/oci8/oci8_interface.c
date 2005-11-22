@@ -25,7 +25,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: oci8_interface.c,v 1.6 2005/09/25 23:46:28 tony2001 Exp $ */
+/* $Id: oci8_interface.c,v 1.7 2005/10/10 10:16:58 tony2001 Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -112,6 +112,41 @@ PHP_FUNCTION(oci_bind_by_name)
 	PHP_OCI_ZVAL_TO_STATEMENT(z_statement, statement);
 
 	if (php_oci_bind_by_name(statement, name, name_len, bind_var, maxlen, bind_type TSRMLS_CC)) {
+		RETURN_FALSE;
+	}
+	RETURN_TRUE;
+}
+/* }}} */
+
+/* {{{ proto bool oci_bind_array_by_name(resource stmt, string name, array &var, int max_table_length [, int max_item_length [, int type ]])
+   Bind a PHP array to an Oracle PL/SQL type by name */
+PHP_FUNCTION(oci_bind_array_by_name)
+{
+	int name_len;
+	long max_item_len = -1;
+	long max_array_len = 0;
+	long type = SQLT_AFC;
+	char *name;
+	zval *z_statement;
+	zval *bind_var = NULL;
+	php_oci_statement *statement;
+	
+	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "rsz/l|ll", &z_statement, &name, &name_len, &bind_var, &max_array_len, &max_item_len, &type) == FAILURE) {
+		return;
+	}
+
+	PHP_OCI_ZVAL_TO_STATEMENT(z_statement, statement);
+
+	if (ZEND_NUM_ARGS() == 5 && max_item_len <= 0) {
+		max_item_len = -1;
+	}
+	
+	if (max_array_len <= 0) {
+		php_error_docref(NULL TSRMLS_CC, E_WARNING, "Maximum array length must be greater than zero");
+		RETURN_FALSE;
+	}
+	
+	if (php_oci_bind_array_by_name(statement, name, name_len, bind_var, max_array_len, max_item_len, type TSRMLS_CC)) {
 		RETURN_FALSE;
 	}
 	RETURN_TRUE;
