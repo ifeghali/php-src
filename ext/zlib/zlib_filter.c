@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: zlib_filter.c,v 1.6 2005/08/03 14:08:25 sniper Exp $ */
+/* $Id: zlib_filter.c,v 1.7 2005/08/11 23:36:02 andrei Exp $ */
 
 #include "php.h"
 #include "php_zlib.h"
@@ -320,7 +320,7 @@ static php_stream_filter *php_zlib_filter_create(const char *filtername, zval *f
 	data->strm.data_type = Z_ASCII;
 
 	if (strcasecmp(filtername, "zlib.inflate") == 0) {
-		int windowBits = MAX_WBITS;
+		int windowBits = -MAX_WBITS;
 
 		if (filterparams) {
 			zval **tmpzval;
@@ -330,7 +330,7 @@ static php_stream_filter *php_zlib_filter_create(const char *filtername, zval *f
 				/* log-2 base of history window (9 - 15) */
 				SEPARATE_ZVAL(tmpzval);
 				convert_to_long_ex(tmpzval);
-				if (Z_LVAL_PP(tmpzval) < 9 || Z_LVAL_PP(tmpzval) > MAX_WBITS) {
+				if (Z_LVAL_PP(tmpzval) < -MAX_WBITS || Z_LVAL_PP(tmpzval) > MAX_WBITS) {
 					php_error_docref(NULL TSRMLS_CC, E_WARNING, "Invalid parameter give for window size. (%ld)", Z_LVAL_PP(tmpzval));
 				} else {
 					windowBits = Z_LVAL_PP(tmpzval);
@@ -345,7 +345,7 @@ static php_stream_filter *php_zlib_filter_create(const char *filtername, zval *f
 	} else if (strcasecmp(filtername, "zlib.deflate") == 0) {
 		/* RFC 1951 Deflate */
 		int level = Z_DEFAULT_COMPRESSION;
-		int windowBits = MAX_WBITS;
+		int windowBits = -MAX_WBITS;
 		int memLevel = MAX_MEM_LEVEL;
 
 
@@ -374,7 +374,7 @@ static php_stream_filter *php_zlib_filter_create(const char *filtername, zval *f
 						/* log-2 base of history window (9 - 15) */
 						SEPARATE_ZVAL(tmpzval);
 						convert_to_long_ex(tmpzval);
-						if (Z_LVAL_PP(tmpzval) < 9 || Z_LVAL_PP(tmpzval) > MAX_WBITS) {
+						if (Z_LVAL_PP(tmpzval) < -MAX_WBITS || Z_LVAL_PP(tmpzval) > MAX_WBITS) {
 							php_error_docref(NULL TSRMLS_CC, E_WARNING, "Invalid parameter give for window size. (%ld)", Z_LVAL_PP(tmpzval));
 						} else {
 							windowBits = Z_LVAL_PP(tmpzval);
