@@ -3,7 +3,7 @@ zlib.deflate (with convert.base64-encode)
 --SKIPIF--
 <?php if (!extension_loaded("zlib")) print "skip"; ?>
 --FILE--
-<?php /* $Id: zlib_filter_deflate.phpt,v 1.4 2004/05/19 08:45:23 pollita Exp $ */
+<?php /* $Id: zlib_filter_deflate.phpt,v 1.1 2004/07/17 00:05:30 pollita Exp $ */
 $text = 'I am the very model of a modern major general, I\'ve information vegetable, animal, and mineral.';
 
 $fp = fopen('php://stdout', 'w');
@@ -14,4 +14,4 @@ fclose($fp);
 
 ?> 
 --EXPECT-- 
-eJwdy0EOgCAMRNGrzM6N8R4co4YBMbRNGkLi7VV2f/FfgijGRUzGA/XMDi+QlWFQuT1QaQzpO9I2iWbFQ2U0t49VDjk7d4g1/R+xDG0LHC8+diGh
+HctBDoAgDETRq8zOjfEeHKOGATG0TRpC4u1Vdn/xX4IoxkVMxgP1zA4vkJVhULk9UGkM6TvSNolmxUNlNLePVQ45O3eINf0fsQxtCxwv
