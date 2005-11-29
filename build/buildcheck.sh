@@ -49,7 +49,7 @@ fi
 if test "$1" = "2" && test "$2" -ge "50"; then
   echo "buildconf: Your version of autoconf likely contains buggy cache code."
   echo "           Running cvsclean for you."
-  echo "           To avoid this, install autoconf-2.13 and automake-1.5."
+  echo "           To avoid this, install autoconf-2.13."
   ./cvsclean
   stamp=
 fi
