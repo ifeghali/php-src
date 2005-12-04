@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: gd_ctx.c,v 1.24 2005/10/08 19:29:04 pajoye Exp $ */
+/* $Id: gd_ctx.c,v 1.25 2005/11/01 17:04:29 sniper Exp $ */
 
 #include "php_gd.h"
 
@@ -101,11 +101,6 @@ static void _php_image_output_ctx(INTERNAL_FUNCTION_PARAMETERS, int image_type, 
 		ctx->free = _php_image_output_ctxfree;
 #endif
 
-#if APACHE && defined(CHARSET_EBCDIC)
-		/* XXX this is unlikely to work any more thies@thieso.net */
-		/* This is a binary file already: avoid EBCDIC->ASCII conversion */
-		ap_bsetflag(php3_rqst->connection->client, B_EBCDIC2ASCII, 0);
-#endif
 	}
 
 	switch(image_type) {
