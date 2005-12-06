@@ -21,7 +21,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: ifx.ec,v 1.109 2005/08/03 14:07:17 sniper Exp $ */
+/* $Id: ifx.ec,v 1.110 2005/12/05 23:30:59 sniper Exp $ */
 
 /* -------------------------------------------------------------------
  * if you want a function reference : "grep '^\*\*' ifx.ec" will give
@@ -140,7 +140,7 @@ typedef char IFX[128];
 		} \
 	} while (0)
 
-function_entry ifx_functions[] = {
+zend_function_entry ifx_functions[] = {
 	PHP_FE(ifx_connect,            NULL)
 	PHP_FE(ifx_pconnect,           NULL)
 	PHP_FE(ifx_close,              NULL)
