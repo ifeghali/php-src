@@ -25,7 +25,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: oci8_interface.c,v 1.8 2005/11/22 16:30:36 tony2001 Exp $ */
+/* $Id: oci8_interface.c,v 1.9 2006/01/01 13:09:52 sniper Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -1058,7 +1058,9 @@ PHP_FUNCTION(oci_rollback)
 	PHP_OCI_ZVAL_TO_CONNECTION(z_connection, connection);
 
 	if (connection->descriptors) {
-		zend_hash_apply(connection->descriptors,(apply_func_t) php_oci_descriptor_flush_hash_dtor TSRMLS_CC);
+		zend_hash_destroy(connection->descriptors);
+		efree(connection->descriptors);
+		connection->descriptors = NULL;
 	}
 
 	if (php_oci_connection_rollback(connection TSRMLS_CC)) {
@@ -1082,7 +1084,9 @@ PHP_FUNCTION(oci_commit)
 	PHP_OCI_ZVAL_TO_CONNECTION(z_connection, connection);
 
 	if (connection->descriptors) {
-		zend_hash_apply(connection->descriptors,(apply_func_t) php_oci_descriptor_flush_hash_dtor TSRMLS_CC);
+		zend_hash_destroy(connection->descriptors);
+		efree(connection->descriptors);
+		connection->descriptors = NULL;
 	}
 	
 	if (php_oci_connection_commit(connection TSRMLS_CC)) {
