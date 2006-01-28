@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.208.2.6 2006/01/27 20:18:03 mike Exp $ */
+/* $Id: php_imap.c,v 1.214 2006/01/27 20:22:48 mike Exp $ */
 
 #define IMAP41
 
@@ -4246,7 +4246,7 @@ static char *php_mail_gets(readfn_t f, void *stream, unsigned long size, GETS_DA
 			buf[size] = '\0';
 		} else {
 			php_error_docref(NULL TSRMLS_CC, E_WARNING, "Failed to read from socket");
-			efree(buf);
+			free(buf);
 			buf = NULL;
 		}
 		return buf;
