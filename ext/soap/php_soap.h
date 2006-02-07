@@ -17,7 +17,7 @@
   |          Dmitry Stogov <dmitry@zend.com>                             |
   +----------------------------------------------------------------------+
 */
-/* $Id: php_soap.h,v 1.39 2006/01/01 13:09:53 sniper Exp $ */
+/* $Id: php_soap.h,v 1.40 2006/02/02 11:42:12 dmitry Exp $ */
 
 #ifndef PHP_SOAP_H
 #define PHP_SOAP_H
@@ -153,6 +153,7 @@ struct _soapService {
 #define SOAP_AUTHENTICATION_DIGEST  1
 
 #define SOAP_SINGLE_ELEMENT_ARRAYS  (1<<0)
+#define SOAP_WAIT_ONE_WAY_CALLS     (2<<0)
 
 ZEND_BEGIN_MODULE_GLOBALS(soap)
 	HashTable  defEncNs;     /* mapping of default namespaces to prefixes */
