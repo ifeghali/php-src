@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.214 2006/01/27 20:22:48 mike Exp $ */
+/* $Id: php_imap.c,v 1.215 2006/01/28 08:08:48 mike Exp $ */
 
 #define IMAP41
 
@@ -1886,7 +1886,7 @@ PHP_FUNCTION(imap_savebody)
 
 		default:
 			convert_to_string_ex(&out);
-			writer = php_stream_open_wrapper(Z_STRVAL_P(out), "wb", REPORT_ERRORS|ENFORCE_SAFE_MODE, NULL);
+			writer = php_stream_open_wrapper(Z_STRVAL_P(out), "wb", REPORT_ERRORS, NULL);
 		break;
 	}
 	

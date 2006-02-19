@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.176 2005/12/06 02:24:28 sniper Exp $ */
+/* $Id: exif.c,v 1.177 2006/01/01 13:09:49 sniper Exp $ */
 
 /*  ToDos
  *
@@ -115,7 +115,7 @@ zend_function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.176 2005/12/06 02:24:28 sniper Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.177 2006/01/01 13:09:49 sniper Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -3729,7 +3729,7 @@ static int exif_read_file(image_info_type *ImageInfo, char *FileName, int read_t
 
 	ImageInfo->motorola_intel = -1; /* flag as unknown */
 
-	ImageInfo->infile = php_stream_open_wrapper(FileName, "rb", STREAM_MUST_SEEK|IGNORE_PATH|ENFORCE_SAFE_MODE, NULL);
+	ImageInfo->infile = php_stream_open_wrapper(FileName, "rb", STREAM_MUST_SEEK|IGNORE_PATH, NULL);
 	if (!ImageInfo->infile) {
 		exif_error_docref(NULL EXIFERR_CC, ImageInfo, E_WARNING, "Unable to open file");
 		return FALSE;
@@ -4047,7 +4047,7 @@ PHP_FUNCTION(exif_imagetype)
 		WRONG_PARAM_COUNT;
 
 	convert_to_string_ex(arg1);
-	stream = php_stream_open_wrapper(Z_STRVAL_PP(arg1), "rb", IGNORE_PATH|ENFORCE_SAFE_MODE|REPORT_ERRORS, NULL);
+	stream = php_stream_open_wrapper(Z_STRVAL_PP(arg1), "rb", IGNORE_PATH|REPORT_ERRORS, NULL);
 
 	if (stream == NULL) {
 		RETURN_FALSE;
