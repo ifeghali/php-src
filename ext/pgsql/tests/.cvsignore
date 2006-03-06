@@ -6,3 +6,4 @@ phpt.*
 *.php
 *.gcda
 *.gcno
+trace.tmp
