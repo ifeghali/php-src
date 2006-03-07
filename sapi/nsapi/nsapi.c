@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: nsapi.c,v 1.71 2005/12/06 02:28:26 sniper Exp $ */
+/* $Id: nsapi.c,v 1.72 2006/01/01 13:09:58 sniper Exp $ */
 
 /*
  * PHP includes
@@ -310,7 +310,7 @@ PHP_MSHUTDOWN_FUNCTION(nsapi)
 PHP_MINFO_FUNCTION(nsapi)
 {
 	php_info_print_table_start();
-	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.71 $");
+	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.72 $");
 	php_info_print_table_row(2, "Server Software", system_version());
 	php_info_print_table_row(2, "Sub-requests with nsapi_virtual()",
 	 (nsapi_servact_service)?((zend_ini_long("zlib.output_compression", sizeof("zlib.output_compression"), 0))?"not supported with zlib.output_compression":"enabled"):"not supported on this platform" );
@@ -410,7 +410,7 @@ PHP_FUNCTION(nsapi_request_headers)
 	for (i=0; i < rc->rq->headers->hsize; i++) {
 		entry=rc->rq->headers->ht[i];
 		while (entry) {
-			if (!PG(safe_mode) || strncasecmp(entry->param->name, "authorization", 13)) {
+			if (strncasecmp(entry->param->name, "authorization", 13)) {
 				add_assoc_string(return_value, entry->param->name, entry->param->value, 1);
 			}
 			entry=entry->next;
@@ -602,7 +602,7 @@ static void sapi_nsapi_register_server_variables(zval *track_vars_array TSRMLS_D
 	for (i=0; i < rc->rq->headers->hsize; i++) {
 		entry=rc->rq->headers->ht[i];
 		while (entry) {
-			if (!PG(safe_mode) || strncasecmp(entry->param->name, "authorization", 13)) {
+			if (strncasecmp(entry->param->name, "authorization", 13)) {
 				if (strcasecmp(entry->param->name, "content-length")==0 || strcasecmp(entry->param->name, "content-type")==0) {
 					strlcpy(buf, entry->param->name, NS_BUF_SIZE);
 					pos = 0;
@@ -941,7 +941,7 @@ int NSAPI_PUBLIC php5_execute(pblock *pb, Session *sn, Request *rq)
 	
 	nsapi_php_ini_entries(NSLS_C TSRMLS_CC);
 
-	if (!PG(safe_mode)) php_handle_auth_data(pblock_findval("authorization", rq->headers) TSRMLS_CC);
+	php_handle_auth_data(pblock_findval("authorization", rq->headers) TSRMLS_CC);
 
 	file_handle.type = ZEND_HANDLE_FILENAME;
 	file_handle.filename = SG(request_info).path_translated;
