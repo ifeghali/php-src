@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: mbstring.h,v 1.72 2006/03/27 15:20:02 masugata Exp $ */
+/* $Id: mbstring.h,v 1.73 2006/03/28 16:05:16 masugata Exp $ */
 
 /*
  * PHP 4 Multibyte String module "mbstring" (currently only for Japanese)
@@ -105,6 +105,7 @@ PHP_FUNCTION(mb_strlen);
 PHP_FUNCTION(mb_strpos);
 PHP_FUNCTION(mb_strrpos);
 PHP_FUNCTION(mb_strstr);
+PHP_FUNCTION(mb_strrchr);
 PHP_FUNCTION(mb_substr_count);
 PHP_FUNCTION(mb_substr);
 PHP_FUNCTION(mb_strcut);
