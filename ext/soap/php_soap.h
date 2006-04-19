@@ -17,7 +17,7 @@
   |          Dmitry Stogov <dmitry@zend.com>                             |
   +----------------------------------------------------------------------+
 */
-/* $Id: php_soap.h,v 1.42 2006/03/21 12:05:09 dmitry Exp $ */
+/* $Id: php_soap.h,v 1.43 2006/04/09 23:38:30 andrei Exp $ */
 
 #ifndef PHP_SOAP_H
 #define PHP_SOAP_H
@@ -158,6 +158,11 @@ struct _soapService {
 #define SOAP_SINGLE_ELEMENT_ARRAYS  (1<<0)
 #define SOAP_WAIT_ONE_WAY_CALLS     (2<<0)
 
+#define WSDL_CACHE_NONE     0x0
+#define WSDL_CACHE_DISK     0x1
+#define WSDL_CACHE_MEMORY   0x2
+#define WSDL_CACHE_BOTH     0x3
+
 ZEND_BEGIN_MODULE_GLOBALS(soap)
 	HashTable  defEncNs;     /* mapping of default namespaces to prefixes */
 	HashTable  defEnc;
@@ -169,9 +174,11 @@ ZEND_BEGIN_MODULE_GLOBALS(soap)
 	zend_bool  use_soap_error_handler;
 	char*      error_code;
 	zval*      error_object;
-	zend_bool  cache_enabled;
+	long       cache;
 	char*      cache_dir;
 	long       cache_ttl;
+	long       cache_limit;
+	HashTable *mem_cache;
 	xmlCharEncodingHandlerPtr encoding;
 	HashTable *class_map;
 	int        features;
