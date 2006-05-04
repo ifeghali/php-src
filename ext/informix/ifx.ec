@@ -21,7 +21,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: ifx.ec,v 1.114 2006/01/13 14:30:32 sas Exp $ */
+/* $Id: ifx.ec,v 1.115 2006/05/04 18:59:59 tony2001 Exp $ */
 
 /* -------------------------------------------------------------------
  * if you want a function reference : "grep '^\*\*' ifx.ec" will give
@@ -2624,6 +2624,7 @@ EXEC SQL END DECLARE SECTION;
 			IFXG(sv_sqlcode) = SQLCODE;
 			php_error_docref(NULL TSRMLS_CC, E_WARNING, "Get descriptor (field # %d) fails (%s)", i, ifx_err);
 			efree(ifx_err);
+			zval_dtor(return_value);
 			RETURN_FALSE;
 		}
 
@@ -2789,6 +2790,7 @@ EXEC SQL END DECLARE SECTION;
 			IFXG(sv_sqlcode) = SQLCODE;
 			php_error_docref(NULL TSRMLS_CC, E_WARNING, "Get descriptor (field # %d) fails (%s)", i, ifx_err);
 			efree(ifx_err);
+			zval_dtor(return_value);
 			RETURN_FALSE;
 		}
 		
