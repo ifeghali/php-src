@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.93 2006/03/07 14:43:16 iliaa Exp $ */
+/* $Id: php_apache.c,v 1.94 2006/04/26 09:32:11 edink Exp $ */
 
 #include "php_apache_http.h"
 
@@ -329,7 +329,7 @@ PHP_FUNCTION(virtual)
 		RETURN_FALSE;
 	}
 
-	php_end_ob_buffers(1 TSRMLS_CC);
+	php_output_end_all();
 	php_header(TSRMLS_C);
 
 	if (run_sub_req(rr)) {
