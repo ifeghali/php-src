@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: nsapi.c,v 1.74 2006/04/29 21:50:17 thetaphi Exp $ */
+/* $Id: nsapi.c,v 1.75 2006/06/02 19:51:43 mike Exp $ */
 
 /*
  * PHP includes
@@ -310,7 +310,7 @@ PHP_MSHUTDOWN_FUNCTION(nsapi)
 PHP_MINFO_FUNCTION(nsapi)
 {
 	php_info_print_table_start();
-	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.74 $");
+	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.75 $");
 	php_info_print_table_row(2, "Server Software", system_version());
 	php_info_print_table_row(2, "Sub-requests with nsapi_virtual()",
 	 (nsapi_servact_service)?((zend_ini_long("zlib.output_compression", sizeof("zlib.output_compression"), 0))?"not supported with zlib.output_compression":"enabled"):"not supported on this platform" );
@@ -347,7 +347,7 @@ PHP_FUNCTION(nsapi_virtual)
 		php_error_docref(NULL TSRMLS_CC, E_WARNING, "Unable to include uri '%s' - Sub-requests do not work with zlib.output_compression", (*uri)->value.str.val);
 		RETURN_FALSE;
 	} else {
-		php_output_end_all();
+		php_output_end_all(TSRMLS_C);
 		php_header(TSRMLS_C);
 
 		/* do the sub-request */
