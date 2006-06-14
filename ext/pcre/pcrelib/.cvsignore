@@ -11,5 +11,6 @@ Debug
 Release_TS
 Release_TSDbg
 Release_TS_inline
-Debug_TS*.gcda
+Debug_TS
+*.gcda
 *.gcno
