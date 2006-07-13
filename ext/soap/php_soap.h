@@ -17,7 +17,7 @@
   |          Dmitry Stogov <dmitry@zend.com>                             |
   +----------------------------------------------------------------------+
 */
-/* $Id: php_soap.h,v 1.43 2006/04/09 23:38:30 andrei Exp $ */
+/* $Id: php_soap.h,v 1.44 2006/04/19 10:49:16 dmitry Exp $ */
 
 #ifndef PHP_SOAP_H
 #define PHP_SOAP_H
@@ -221,5 +221,7 @@ zval* add_soap_fault(zval *obj, char *fault_code, char *fault_string, char *faul
 
 #define soap_error3(severity, format, param1, param2, param3) \
 	php_error(severity, "SOAP-ERROR: " format, param1, param2, param3)
+
+char* soap_unicode_to_string(UChar *ustr, int ustr_len TSRMLS_DC);
 
 #endif
