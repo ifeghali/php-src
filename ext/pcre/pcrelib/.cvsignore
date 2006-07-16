@@ -5,6 +5,7 @@ Makefile
 *.plg
 *.opt
 *.ncb
+*.libs
 Release
 Release_inline
 Debug
