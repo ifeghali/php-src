@@ -43,3 +43,31 @@ string(66) "<br />
 <br />
 <br /><br /><br />
 <br />"
+--UEXPECT--
+unicode(4) "test"
+unicode(0) ""
+unicode(0) ""
+unicode(8) "<br />
+"
+unicode(7) "<br />
+"
+unicode(7) "<br />"
+unicode(8) "<br />
+"
+unicode(44) "<br />
+<br />
+<br /><br /><br /><br />"
+unicode(47) "<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+"
+unicode(66) "<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br /><br />
+<br />"
