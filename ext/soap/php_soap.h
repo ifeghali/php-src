@@ -17,7 +17,7 @@
   |          Dmitry Stogov <dmitry@zend.com>                             |
   +----------------------------------------------------------------------+
 */
-/* $Id: php_soap.h,v 1.46 2006/07/31 16:02:04 dmitry Exp $ */
+/* $Id: php_soap.h,v 1.47 2006/08/01 16:10:25 dmitry Exp $ */
 
 #ifndef PHP_SOAP_H
 #define PHP_SOAP_H
@@ -119,6 +119,8 @@ typedef struct _soap_server_object {
 		int persistance;
 	} soap_class;
 
+	zval *soap_object;
+
 	int        type;
 	char      *actor;
 	struct _soapHeader **soap_headers_ptr;
@@ -179,6 +181,7 @@ typedef struct _soap_client_object {
 
 #define SOAP_CLASS 1
 #define SOAP_FUNCTIONS 2
+#define SOAP_OBJECT 3
 #define SOAP_FUNCTIONS_ALL 999
 
 #define SOAP_MAP_FUNCTION 1
