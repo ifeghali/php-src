@@ -1,5 +1,5 @@
 dnl
-dnl $Id: Zend.m4,v 1.60 2005/08/12 00:01:44 sniper Exp $
+dnl $Id: Zend.m4,v 1.61 2006/07/18 09:08:05 dmitry Exp $
 dnl
 dnl This file contains Zend specific autoconf functions.
 dnl
@@ -161,9 +161,6 @@ AC_ARG_ENABLE(memory-limit,
 AC_MSG_CHECKING([virtual machine dispatch method])
 AC_MSG_RESULT($PHP_ZEND_VM)
 
-AC_MSG_CHECKING(whether to enable the Zend memory manager)
-AC_MSG_RESULT($ZEND_USE_ZEND_ALLOC)
-
 AC_MSG_CHECKING(whether to enable thread-safety)
 AC_MSG_RESULT($ZEND_MAINTAINER_ZTS)
 
@@ -203,12 +200,6 @@ else
 fi
 
 test -n "$DEBUG_CFLAGS" && CFLAGS="$CFLAGS $DEBUG_CFLAGS"
-
-if test "$ZEND_USE_ZEND_ALLOC" = "yes"; then
-  AC_DEFINE(USE_ZEND_ALLOC,1,[Use Zend memory manager])
-else
-  AC_DEFINE(USE_ZEND_ALLOC,0,[Use Zend memory manager])
-fi
 
 if test "$ZEND_MAINTAINER_ZTS" = "yes"; then
   AC_DEFINE(ZTS,1,[ ])
