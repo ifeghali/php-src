@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: cdatasection.c,v 1.14 2006/02/13 10:23:57 dmitry Exp $ */
+/* $Id: cdatasection.c,v 1.15 2006/08/04 18:11:27 rrichards Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -40,7 +40,7 @@ zend_function_entry php_dom_cdatasection_class_functions[] = {
 	{NULL, NULL, NULL}
 };
 
-/* {{{ proto void DOMCdataSection::__construct(string value); */
+/* {{{ proto void DOMCdataSection::__construct(string value) U */
 PHP_METHOD(domcdatasection, __construct)
 {
 
