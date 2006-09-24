@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.222 2006/09/05 11:16:06 tony2001 Exp $ */
+/* $Id: php_imap.c,v 1.223 2006/09/05 11:24:23 tony2001 Exp $ */
 
 #define IMAP41
 
@@ -75,7 +75,11 @@ static char *php_mail_gets(readfn_t f, void *stream, unsigned long size, GETS_DA
 void rfc822_date(char *date);
 char *cpystr(const char *str);
 char *cpytxt(SIZEDTEXT *dst, char *text, unsigned long size);
+#ifndef HAVE_NEW_MIME2TEXT
 long utf8_mime2text(SIZEDTEXT *src, SIZEDTEXT *dst);
+#else
+long utf8_mime2text (SIZEDTEXT *src, SIZEDTEXT *dst, long flags);
+#endif
 unsigned long find_rightmost_bit(unsigned long *valptr);
 void fs_give(void **block);
 void *fs_get(size_t size);
