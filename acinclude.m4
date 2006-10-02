@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.347 2006/06/16 08:00:23 sesser Exp $
+dnl $Id: acinclude.m4,v 1.348 2006/10/02 15:34:56 iliaa Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -2503,16 +2503,16 @@ EOF
     fi
   done
 
-  echo "'[$]0'" >> $1
+  echo "'[$]0' \\" >> $1
   for arg in $ac_configure_args; do
-     if test `expr substr $arg 1 1` != "'"; then
-        if test `expr substr $arg 1 2` != '--'; then
+     if test `expr -- $arg : "'.*"` = 0; then
+        if test `expr -- $arg : "--.*"` = 0; then
        	  break;
         fi
         echo "'[$]arg' \\" >> $1
         CONFIGURE_COMMAND="$CONFIGURE_COMMAND '[$]arg'"
      else
-     	if test `expr substr $arg 2 2` != '--'; then
+        if test `expr -- $arg : "'--.*"` = 0; then
        	  break;
         fi
         echo "[$]arg \\" >> $1
