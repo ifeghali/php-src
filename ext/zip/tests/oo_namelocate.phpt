@@ -2,13 +2,13 @@
 Locate entries by name
 --SKIPIF--
 <?php
-/* $Id: oo_namelocate.phpt,v 1.1 2006/07/24 16:58:58 pajoye Exp $ */
+/* $Id: oo_namelocate.phpt,v 1.2 2006/08/13 23:39:57 pajoye Exp $ */
 if(!extension_loaded('zip')) die('skip');
 ?>
 --FILE--
 <?php
 $dirname = dirname(__FILE__) . '/';
-include $dirname . 'utils.php';
+include $dirname . 'utils.inc';
 $file = $dirname . '__tmp_oo_rename.zip';
 
 @unlink($file);

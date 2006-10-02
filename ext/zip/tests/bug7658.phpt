@@ -2,13 +2,13 @@
 bug #7658, modify archive with general bit flag 3 set
 --SKIPIF--
 <?php
-/* $Id: bug7658.phpt,v 1.5 2006/07/24 16:41:22 pajoye Exp $ */
+/* $Id: bug7658.phpt,v 1.1 2006/07/24 16:58:58 pajoye Exp $ */
 if(!extension_loaded('zip')) die('skip');
 ?>
 --FILE--
 <?php
 $dirname = dirname(__FILE__) . '/';
-include $dirname . 'utils.php';
+include $dirname . 'utils.inc';
 $file = $dirname . '__tmp_bug7658.odt';
 $zip = new ZipArchive();
 copy($dirname . 'bug7658.odt', $file);
