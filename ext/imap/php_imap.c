@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.223 2006/09/05 11:24:23 tony2001 Exp $ */
+/* $Id: php_imap.c,v 1.224 2006/09/24 18:06:53 iliaa Exp $ */
 
 #define IMAP41
 
@@ -2177,7 +2177,12 @@ PHP_FUNCTION(imap_utf8)
 	dest.size = 0;
 
 	cpytxt(&src, Z_STRVAL_PP(str), Z_STRLEN_PP(str));
+
+#ifndef HAVE_NEW_MIME2TEXT
 	utf8_mime2text(&src, &dest);
+#else
+	utf8_mime2text(&src, &dest, U8T_CANONICAL);
+#endif
 	RETVAL_STRINGL(dest.data, dest.size, 1);
 	if (dest.data) {
 		free(dest.data);
