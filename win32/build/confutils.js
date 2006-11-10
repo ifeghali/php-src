@@ -915,10 +915,6 @@ function SAPI(sapiname, file_list, makefiletarget, cflags, obj_dir)
 		ldflags = "$(LDFLAGS)";
 	}
 
-	if(PHP_VCI = "yes" || PHP_VCO == "yes") {
-		ldflags += " /PGD:$(BUILD_DIR)\\"+makefiletarget+".pgd";
-	}
-	
 	if (ld) {
 		MFO.WriteLine("\t" + ld + " /nologo /out:$(BUILD_DIR)\\" + makefiletarget + " " + ldflags + " $(" + SAPI + "_GLOBAL_OBJS) $(BUILD_DIR)\\$(PHPLIB) $(LDFLAGS_" + SAPI + ") $(LIBS_" + SAPI + ") $(BUILD_DIR)\\" + resname);
 	} else {
