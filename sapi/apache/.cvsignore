@@ -8,3 +8,4 @@ Debug_TS
 *.plg
 *.gcda
 *.gcno
+.libs
