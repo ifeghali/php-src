@@ -1,7 +1,8 @@
 --TEST--
 Gettext basic test
 --SKIPIF--
-<?php 
+<?php
+	error_reporting(0);
 	if (!extension_loaded("gettext")) {
 		die("skip\n");
 	}
@@ -10,9 +11,10 @@ Gettext basic test
 	}
 ?>
 --FILE--
-<?php // $Id: gettext_basic.phpt,v 1.1 2003/09/23 10:00:23 sniper Exp $
+<?php // $Id: gettext_basic.phpt,v 1.2 2004/05/26 18:18:14 iliaa Exp $
 
 chdir(dirname(__FILE__));
+putenv("LANGUAGE=fi");
 setlocale(LC_ALL, 'fi_FI');
 bindtextdomain ("messages", "./locale");
 textdomain ("messages");
