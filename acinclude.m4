@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.349 2006/10/02 19:17:43 tony2001 Exp $
+dnl $Id: acinclude.m4,v 1.350 2006/10/02 20:49:13 tony2001 Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -2574,3 +2574,19 @@ ifelse([$1],[],:,[$1])
 ifelse([$2],[],[AC_MSG_ERROR([Cannot find php_pdo_driver.h.])],[$2])
   fi
 ])
+
+dnl
+dnl PHP_DETECT_ICC
+dnl
+AC_DEFUN([PHP_DETECT_ICC],
+[
+  ICC="no"
+  AC_MSG_CHECKING([for icc])
+  AC_EGREP_CPP([^__INTEL_COMPILER], [__INTEL_COMPILER],
+    ICC="no"
+    AC_MSG_RESULT([no]),
+    ICC="yes"
+    AC_MSG_RESULT([yes])
+  )
+])
+
