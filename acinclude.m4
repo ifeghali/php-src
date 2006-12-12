@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.352 2006/12/12 07:36:37 tony2001 Exp $
+dnl $Id: acinclude.m4,v 1.353 2006/12/12 10:15:58 tony2001 Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -2600,6 +2600,7 @@ AC_DEFUN([PHP_CRYPT_R_STYLE],
   AC_CACHE_CHECK([which data struct is used by crypt_r], php_cv_crypt_r_style,[
     php_cv_crypt_r_style=none
     AC_TRY_COMPILE([
+#define _REENTRANT 1
 #include <crypt.h>
 ],[
 CRYPTD buffer;
@@ -2609,6 +2610,7 @@ php_cv_crypt_r_style=cryptd)
 
     if test "$php_cv_crypt_r_style" = "none"; then
       AC_TRY_COMPILE([
+#define _REENTRANT 1
 #include <crypt.h>
 ],[
 struct crypt_data buffer;
@@ -2619,6 +2621,7 @@ php_cv_crypt_r_style=struct_crypt_data)
 
     if test "$php_cv_crypt_r_style" = "none"; then
       AC_TRY_COMPILE([
+#define _REENTRANT 1
 #define _GNU_SOURCE
 #include <crypt.h>
 ],[
