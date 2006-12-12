@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.351 2006/12/04 18:28:34 tony2001 Exp $
+dnl $Id: acinclude.m4,v 1.352 2006/12/12 07:36:37 tony2001 Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -2639,6 +2639,6 @@ php_cv_crypt_r_style=struct_crypt_data_gnu_source)
     AC_DEFINE(CRYPT_R_GNU_SOURCE, 1, [Define if struct crypt_data requires _GNU_SOURCE])
   fi
   if test "$php_cv_crypt_r_style" = "none"; then
-    AC_MSG_ERROR([Unable to detect data struct is used by crypt_r])
+    AC_MSG_ERROR([Unable to detect data struct used by crypt_r])
   fi
 ])
