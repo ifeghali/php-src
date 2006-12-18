@@ -1,5 +1,5 @@
 dnl
-dnl $Id: Zend.m4,v 1.61 2006/07/18 09:08:05 dmitry Exp $
+dnl $Id: Zend.m4,v 1.62 2006/09/14 09:59:23 dmitry Exp $
 dnl
 dnl This file contains Zend specific autoconf functions.
 dnl
@@ -390,3 +390,10 @@ AC_DEFUN([LIBZEND_CPLUSPLUS_CHECKS],[
 
 ])
 
+AC_MSG_CHECKING(whether /dev/urandom exists) 
+if test -r "/dev/urandom" && test -c "/dev/urandom"; then 
+  AC_DEFINE([HAVE_DEV_URANDOM], 1, [Define if the target system has /dev/urandom device])
+  AC_MSG_RESULT(yes) 
+else 
+  AC_MSG_RESULT(no) 
+fi 
