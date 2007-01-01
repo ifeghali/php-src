@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.353 2006/12/12 10:15:58 tony2001 Exp $
+dnl $Id: acinclude.m4,v 1.354 2006/12/12 12:06:00 tony2001 Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -2496,7 +2496,7 @@ AC_DEFUN([PHP_CONFIG_NICE],[
 
 EOF
 
-  for var in CFLAGS CXXFLAGS CPPFLAGS LDFLAGS LIBS CC CXX; do
+  for var in CFLAGS CXXFLAGS CPPFLAGS LDFLAGS EXTRA_LDFLAGS_PROGRAM LIBS CC CXX; do
     eval val=\$$var
     if test -n "$val"; then
       echo "$var='$val' \\" >> $1
