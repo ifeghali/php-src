@@ -25,7 +25,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: oci8_interface.c,v 1.27 2007/12/25 18:57:15 tony2001 Exp $ */
+/* $Id: oci8_interface.c,v 1.28 2007/01/01 09:29:26 sebastian Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -1599,7 +1599,7 @@ PHP_FUNCTION(oci_error)
 	php_oci_connection *connection;
 	text *errbuf;
 	sb4 errcode = 0;
-	sword error = 0;
+	sword error = OCI_SUCCESS;
 	dvoid *errh = NULL;
 #ifdef HAVE_OCI8_ATTR_STATEMENT
 	ub2 error_offset = 0;
