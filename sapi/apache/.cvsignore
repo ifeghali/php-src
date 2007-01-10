@@ -1,4 +1,4 @@
-libphp5.module
+libphp6.module
 *.la
 *.lo
 .deps
