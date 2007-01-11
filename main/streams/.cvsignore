@@ -3,6 +3,7 @@ build-defs.h
 *.lo
 *.la
 libs
+.libs
 .deps
 config.nice
 stamp-h

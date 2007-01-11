@@ -13,3 +13,5 @@ Release_TS_inline
 Debug_TS
 *.gcda
 *.gcno
+.libs
+libs
