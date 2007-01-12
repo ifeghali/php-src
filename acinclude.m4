@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.356 2007/01/10 23:46:08 andrei Exp $
+dnl $Id: acinclude.m4,v 1.357 2007/01/12 18:57:11 andrei Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -2088,7 +2088,7 @@ dnl -------------------------------------------------------------------------
 dnl
 dnl PHP_SETUP_ICU([shared-add])
 dnl
-dnl Common setup macro for kerberos
+dnl Common setup macro for ICU
 dnl
 AC_DEFUN([PHP_SETUP_ICU],[
   unset PHP_ICU_DIR
