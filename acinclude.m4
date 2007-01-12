@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.355 2007/01/01 20:10:26 nlopess Exp $
+dnl $Id: acinclude.m4,v 1.356 2007/01/10 23:46:08 andrei Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -2084,6 +2084,69 @@ AC_DEFUN([PHP_PROG_RE2C],[
 dnl -------------------------------------------------------------------------
 dnl Common setup macros: PHP_SETUP_<what>
 dnl -------------------------------------------------------------------------
+
+dnl
+dnl PHP_SETUP_ICU([shared-add])
+dnl
+dnl Common setup macro for kerberos
+dnl
+AC_DEFUN([PHP_SETUP_ICU],[
+  unset PHP_ICU_DIR
+
+  AC_MSG_CHECKING([for location of ICU headers and libraries])
+
+  AC_ARG_WITH(icu-dir,
+  [  --with-icu-dir=DIR      Specify where ICU libraries and headers can be found], 
+  [
+	if test "x$withval" != "xyes"; then
+	  PHP_ICU_DIR=$withval
+	else
+	  PHP_ICU_DIR=DEFAULT
+	fi
+  ], [
+	PHP_ICU_DIR=DEFAULT
+  ])
+
+  if test "$PHP_ICU_DIR" = "DEFAULT"; then
+	ICU_CONFIG=icu-config
+	for i in /usr/local/bin /usr/bin; do
+	  if test -x "$i/icu-config"; then
+		ICU_CONFIG=$i/icu-config
+		break;
+	  fi
+	done
+  else
+	ICU_CONFIG="$PHP_ICU_DIR/bin/icu-config"
+  fi
+
+  dnl Trust icu-config to know better what the install prefix is..
+  icu_install_prefix=`$ICU_CONFIG --prefix 2> /dev/null`
+  if test -z "$icu_install_prefix"; then
+    AC_MSG_RESULT([not found])
+    AC_MSG_ERROR([Please specify the correct ICU install prefix.])
+  else
+    AC_MSG_RESULT([found in $icu_install_prefix])
+
+	dnl Check ICU version
+	AC_MSG_CHECKING([for ICU 3.4 or greater])
+	icu_version_full=`$ICU_CONFIG --version`
+	ac_IFS=$IFS
+	IFS="."
+	set $icu_version_full
+	IFS=$ac_IFS
+	icu_version=`expr [$]1 \* 1000 + [$]2`
+	AC_MSG_RESULT([found $icu_version_full])
+	if test "$icu_version" -lt "3004"; then
+	  AC_MSG_ERROR([ICU version 3.4 or later is required])
+	fi
+
+	ICU_INCS=`$ICU_CONFIG --cppflags-searchpath`
+	ICU_LIBS=`$ICU_CONFIG --ldflags --ldflags-icuio`
+	PHP_EVAL_INCLINE($ICU_INCS)
+	PHP_EVAL_LIBLINE($ICU_LIBS, $1)
+  fi
+])
+
 
 dnl
 dnl PHP_SETUP_KERBEROS(shared-add [, action-found [, action-not-found]])
