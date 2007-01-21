@@ -1,4 +1,5 @@
 phpsql*
+*.mem
 phpt.*
 *.diff
 *.log

@@ -1,4 +1,5 @@
 *.out
+*.mem
 *.php
 *.tmp
 *.diff
