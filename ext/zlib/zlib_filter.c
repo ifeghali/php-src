@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: zlib_filter.c,v 1.13 2007/10/16 15:42:23 iliaa Exp $ */
+/* $Id: zlib_filter.c,v 1.14 2007/01/01 09:29:35 sebastian Exp $ */
 
 #include "php.h"
 #include "php_zlib.h"
@@ -105,6 +105,11 @@ static php_stream_filter_status_t php_zlib_inflate_filter(
 			data->strm.next_in = data->inbuf;
 			data->strm.avail_in = 0;
 			bin += desired;
+
+			if (!desired) {
+				flags |= PSFS_FLAG_FLUSH_CLOSE;
+				break;
+			}
 
 			if (data->strm.avail_out < data->outbuf_len) {
 				php_stream_bucket *out_bucket;
