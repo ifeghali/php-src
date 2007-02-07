@@ -1,4 +1,4 @@
-libphp5.module
+libphp6.module
 *.la
 *.lo
 .deps
@@ -14,3 +14,4 @@ Release_TS_inline
 Debug_TS
 *.gcda
 *.gcno
+.libs
