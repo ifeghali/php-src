@@ -5,7 +5,6 @@ Makefile
 *.plg
 *.opt
 *.ncb
-*.libs
 Release
 Release_inline
 Debug
@@ -15,3 +14,4 @@ Release_TS_inline
 Debug_TS
 *.gcda
 *.gcno
+.libs
