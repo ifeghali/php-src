@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: nsapi.c,v 1.76 2007/06/03 11:19:44 mike Exp $ */
+/* $Id: nsapi.c,v 1.77 2007/01/01 09:29:36 sebastian Exp $ */
 
 /*
  * PHP includes
@@ -310,7 +310,7 @@ PHP_MSHUTDOWN_FUNCTION(nsapi)
 PHP_MINFO_FUNCTION(nsapi)
 {
 	php_info_print_table_start();
-	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.76 $");
+	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.77 $");
 	php_info_print_table_row(2, "Server Software", system_version());
 	php_info_print_table_row(2, "Sub-requests with nsapi_virtual()",
 	 (nsapi_servact_service)?((zend_ini_long("zlib.output_compression", sizeof("zlib.output_compression"), 0))?"not supported with zlib.output_compression":"enabled"):"not supported on this platform" );
@@ -638,7 +638,7 @@ static void sapi_nsapi_register_server_variables(zval *track_vars_array TSRMLS_D
 		nsapi_free(value);
 	}
 
-	sprintf(buf, "%d", conf_getglobals()->Vport);
+	snprintf(buf, sizeof(buf), "%d", conf_getglobals()->Vport);
 	php_register_variable("SERVER_PORT", buf, track_vars_array TSRMLS_CC);
 	php_register_variable("SERVER_NAME", conf_getglobals()->Vserver_hostname, track_vars_array TSRMLS_CC);
 
@@ -691,7 +691,7 @@ static void sapi_nsapi_register_server_variables(zval *track_vars_array TSRMLS_D
 
 	/* special variables in error mode */
 	if (rc->http_error) {
-		sprintf(buf, "%d", rc->http_error);
+		snprintf(buf, sizeof(buf), "%d", rc->http_error);
 		php_register_variable("ERROR_TYPE", buf, track_vars_array TSRMLS_CC);
 	}
 }
