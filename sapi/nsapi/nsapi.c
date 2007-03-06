@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: nsapi.c,v 1.78 2007/02/24 16:25:55 helly Exp $ */
+/* $Id: nsapi.c,v 1.79 2007/03/05 16:28:39 thetaphi Exp $ */
 
 /*
  * PHP includes
@@ -72,8 +72,6 @@
 #define NSLS_C		request_context
 #define NSLS_CC		, NSLS_C
 #define NSG(v)		(request_context->v)
-
-#define NS_BUF_SIZE 2048
 
 /*
  * ZTS needs to be defined for NSAPI to work
@@ -310,7 +308,7 @@ PHP_MSHUTDOWN_FUNCTION(nsapi)
 PHP_MINFO_FUNCTION(nsapi)
 {
 	php_info_print_table_start();
-	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.78 $");
+	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.79 $");
 	php_info_print_table_row(2, "Server Software", system_version());
 	php_info_print_table_row(2, "Sub-requests with nsapi_virtual()",
 	 (nsapi_servact_service)?((zend_ini_long("zlib.output_compression", sizeof("zlib.output_compression"), 0))?"not supported with zlib.output_compression":"enabled"):"not supported on this platform" );
@@ -587,7 +585,7 @@ static void sapi_nsapi_register_server_variables(zval *track_vars_array TSRMLS_D
 	register size_t i;
 	int pos;
 	char *value,*p;
-	char buf[NS_BUF_SIZE + 1];
+	char buf[2048];
 	struct pb_entry *entry;
 
 	for (i = 0; i < nsapi_reqpb_size; i++) {
@@ -601,13 +599,12 @@ static void sapi_nsapi_register_server_variables(zval *track_vars_array TSRMLS_D
 		entry=rc->rq->headers->ht[i];
 		while (entry) {
 			if (strcasecmp(entry->param->name, "content-length")==0 || strcasecmp(entry->param->name, "content-type")==0) {
-				strlcpy(buf, entry->param->name, NS_BUF_SIZE);
+				strlcpy(buf, entry->param->name, sizeof(buf));
 				pos = 0;
 			} else {
-				snprintf(buf, NS_BUF_SIZE, "HTTP_%s", entry->param->name);
+				slprintf(buf, sizeof(buf), "HTTP_%s", entry->param->name);
 				pos = 5;
 			}
-			buf[NS_BUF_SIZE]='\0';
 			for(p = buf + pos; *p; p++) {
 				*p = toupper(*p);
 				if (*p < 'A' || *p > 'Z') {
@@ -638,7 +635,7 @@ static void sapi_nsapi_register_server_variables(zval *track_vars_array TSRMLS_D
 		nsapi_free(value);
 	}
 
-	snprintf(buf, NS_BUF_SIZE, "%d", conf_getglobals()->Vport);
+	slprintf(buf, sizeof(buf), "%d", conf_getglobals()->Vport);
 	php_register_variable("SERVER_PORT", buf, track_vars_array TSRMLS_CC);
 	php_register_variable("SERVER_NAME", conf_getglobals()->Vserver_hostname, track_vars_array TSRMLS_CC);
 
@@ -668,18 +665,17 @@ static void sapi_nsapi_register_server_variables(zval *track_vars_array TSRMLS_D
 
 	/* Create full Request-URI & Script-Name */
 	if (SG(request_info).request_uri) {
-		strlcpy(buf, SG(request_info).request_uri, NS_BUF_SIZE);
 		if (SG(request_info).query_string) {
-		  	p = strchr(buf, 0);
-			snprintf(p, NS_BUF_SIZE-(p-buf), "?%s", SG(request_info).query_string);
-			buf[NS_BUF_SIZE]='\0';
+			slprintf(buf, sizeof(buf), "%s?%s", SG(request_info).request_uri, SG(request_info).query_string);
+		} else {
+			strlcpy(buf, SG(request_info).request_uri, sizeof(buf));
 		}
 		php_register_variable("REQUEST_URI", buf, track_vars_array TSRMLS_CC);
 
-		strlcpy(buf, SG(request_info).request_uri, NS_BUF_SIZE);
+		strlcpy(buf, SG(request_info).request_uri, sizeof(buf));
 		if (rc->path_info) {
 			pos = strlen(SG(request_info).request_uri) - strlen(rc->path_info);
-			if (pos>=0 && pos<=NS_BUF_SIZE && rc->path_info) {
+			if (pos>=0 && pos<sizeof(buf)) {
 				buf[pos] = '\0';
 			} else {
 				buf[0]='\0';
@@ -691,7 +687,7 @@ static void sapi_nsapi_register_server_variables(zval *track_vars_array TSRMLS_D
 
 	/* special variables in error mode */
 	if (rc->http_error) {
-		snprintf(buf, NS_BUF_SIZE, "%d", rc->http_error);
+		slprintf(buf, sizeof(buf), "%d", rc->http_error);
 		php_register_variable("ERROR_TYPE", buf, track_vars_array TSRMLS_CC);
 	}
 }
