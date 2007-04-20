@@ -204,7 +204,7 @@ array(14) {
     ["_empty_"]=>
     float(INF)
     ["E no ."]=>
-    float(4.0E+12)
+    float(4000000000000)
     ["zero"]=>
     int(0)
     ["one"]=>
@@ -383,7 +383,7 @@ array(14) {
     ["_empty_"]=>
     float(INF)
     ["E no ."]=>
-    float(4.0E+12)
+    float(4000000000000)
     ["zero"]=>
     int(0)
     ["one"]=>
@@ -566,7 +566,7 @@ array(14) {
     ["_empty_"]=>
     int(0)
     ["E no ."]=>
-    float(4.0E+12)
+    float(4000000000000)
     ["zero"]=>
     int(0)
     ["one"]=>
@@ -745,7 +745,7 @@ array(14) {
     ["_empty_"]=>
     int(0)
     ["E no ."]=>
-    float(4.0E+12)
+    float(4000000000000)
     ["zero"]=>
     int(0)
     ["one"]=>
@@ -988,7 +988,7 @@ array(14) {
     [u"_empty_"]=>
     float(INF)
     [u"E no ."]=>
-    float(4.0E+12)
+    float(4000000000000)
     [u"zero"]=>
     int(0)
     [u"one"]=>
@@ -1167,7 +1167,7 @@ array(14) {
     [u"_empty_"]=>
     float(INF)
     [u"E no ."]=>
-    float(4.0E+12)
+    float(4000000000000)
     [u"zero"]=>
     int(0)
     [u"one"]=>
@@ -1350,7 +1350,7 @@ array(14) {
     [u"_empty_"]=>
     int(0)
     [u"E no ."]=>
-    float(4.0E+12)
+    float(4000000000000)
     [u"zero"]=>
     int(0)
     [u"one"]=>
@@ -1529,7 +1529,7 @@ array(14) {
     [u"_empty_"]=>
     int(0)
     [u"E no ."]=>
-    float(4.0E+12)
+    float(4000000000000)
     [u"zero"]=>
     int(0)
     [u"one"]=>
