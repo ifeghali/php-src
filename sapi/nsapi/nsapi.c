@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: nsapi.c,v 1.81 2007/03/06 18:15:04 thetaphi Exp $ */
+/* $Id: nsapi.c,v 1.82 2007/03/06 19:47:12 thetaphi Exp $ */
 
 /*
  * PHP includes
@@ -308,7 +308,7 @@ PHP_MSHUTDOWN_FUNCTION(nsapi)
 PHP_MINFO_FUNCTION(nsapi)
 {
 	php_info_print_table_start();
-	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.81 $");
+	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.82 $");
 	php_info_print_table_row(2, "Server Software", system_version());
 	php_info_print_table_row(2, "Sub-requests with nsapi_virtual()",
 	 (nsapi_servact_service)?((zend_ini_long("zlib.output_compression", sizeof("zlib.output_compression"), 0))?"not supported with zlib.output_compression":"enabled"):"not supported on this platform" );
@@ -705,7 +705,11 @@ static void nsapi_log_message(char *message)
 	TSRMLS_FETCH();
 	nsapi_request_context *rc = (nsapi_request_context *)SG(server_context);
 
-	log_error(LOG_INFORM, pblock_findval("fn", rc->pb), rc->sn, rc->rq, "%s", message);
+	if (rc) {
+		log_error(LOG_INFORM, pblock_findval("fn", rc->pb), rc->sn, rc->rq, "%s", message);
+	} else {
+		log_error(LOG_INFORM, "php6", NULL, NULL, "%s", message);
+	}
 }
 
 static time_t sapi_nsapi_get_request_time(TSRMLS_D)
