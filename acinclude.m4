@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.363 2007/03/25 10:21:43 sniper Exp $
+dnl $Id: acinclude.m4,v 1.364 2007/05/05 12:14:20 helly Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -2077,7 +2077,7 @@ AC_DEFUN([PHP_PROG_RE2C],[
   fi
   case $php_cv_re2c_version in
     ""|invalid[)]
-      AC_MSG_WARN([You will need re2c 0.9.11 or later if you want to regenerate PHP parsers.])
+      AC_MSG_WARN([You will need re2c 0.12.0 or later if you want to regenerate PHP parsers.])
       RE2C="exit 0;"
       ;;
   esac
