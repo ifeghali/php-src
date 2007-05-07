@@ -1,8 +1,8 @@
 --TEST--
-bug #7214, zip_entry_read() binary safe
+Bug #7214 (zip_entry_read() binary safe)
 --SKIPIF--
 <?php
-/* $Id: bug7214.phpt,v 1.3 2006/07/24 16:41:22 pajoye Exp $ */
+/* $Id: bug7214.phpt,v 1.1 2006/07/24 16:58:58 pajoye Exp $ */
 if(!extension_loaded('zip')) die('skip');
  ?>
 --FILE--

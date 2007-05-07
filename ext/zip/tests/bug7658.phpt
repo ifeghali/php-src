@@ -1,8 +1,8 @@
 --TEST--
-bug #7658, modify archive with general bit flag 3 set
+Bug #7658 (modify archive with general bit flag 3 set)
 --SKIPIF--
 <?php
-/* $Id: bug7658.phpt,v 1.1 2006/07/24 16:58:58 pajoye Exp $ */
+/* $Id: bug7658.phpt,v 1.2 2006/10/02 14:31:32 tony2001 Exp $ */
 if(!extension_loaded('zip')) die('skip');
 ?>
 --FILE--
