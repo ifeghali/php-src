@@ -6,6 +6,6 @@ Release_TS
 Debug_TS
 *.plg
 .libs
-php
+php-cgi
 *.gcda
 *.gcno
