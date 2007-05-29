@@ -30,3 +30,5 @@ ltmain.sh
 missing
 mkinstalldirs
 modules
+phar.phar
+run-tests.php
