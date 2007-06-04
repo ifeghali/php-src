@@ -1,3 +1,4 @@
+*.gcno
 *.lo
 *.la
 .deps
