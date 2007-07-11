@@ -1,15 +1,12 @@
 dnl
-dnl $Id: config.m4,v 1.16 2007/02/07 09:35:09 tony2001 Exp $
+dnl $Id: config.m4,v 1.17 2007/06/03 20:26:45 sniper Exp $
 dnl
 
-AC_MSG_CHECKING(for Apache 2.0 handler-module support via DSO through APXS)
-AC_ARG_WITH(apxs2,
+PHP_ARG_WITH(apxs2,,
 [  --with-apxs2[=FILE]     Build shared Apache 2.0 Handler module. FILE is the optional
-                          pathname to the Apache apxs tool [apxs]],[
-  PHP_APXS2=$withval
-], [
-  PHP_APXS2=no
-])
+                          pathname to the Apache apxs tool [apxs]], no, no)
+
+AC_MSG_CHECKING([for Apache 2.0 handler-module support via DSO through APXS])
 
 if test "$PHP_APXS2" != "no"; then
   if test "$PHP_APXS2" = "yes"; then
