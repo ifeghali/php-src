@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.370 2007/06/29 01:09:53 sniper Exp $
+dnl $Id: acinclude.m4,v 1.371 2007/07/10 10:18:26 jani Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -2624,31 +2624,6 @@ EOF
   CONFIGURE_COMMAND="$CONFIGURE_COMMAND $CONFIGURE_OPTIONS"
   PHP_SUBST_OLD(CONFIGURE_COMMAND)
   PHP_SUBST_OLD(CONFIGURE_OPTIONS)
-])
-
-dnl
-dnl PHP_REGEX
-dnl
-AC_DEFUN([PHP_REGEX],[
-  if test "$REGEX_TYPE" = "php"; then
-    AC_DEFINE(HAVE_REGEX_T_RE_MAGIC, 1, [ ])
-    AC_DEFINE(HSREGEX,1,[ ])
-    AC_DEFINE(REGEX,1,[ ])
-    PHP_ADD_SOURCES(regex, regcomp.c regexec.c regerror.c regfree.c)
-  elif test "$REGEX_TYPE" = "system"; then
-    AC_DEFINE(REGEX,0,[ ])
-    dnl Check if field re_magic exists in struct regex_t
-    AC_CACHE_CHECK([whether field re_magic exists in struct regex_t], ac_cv_regex_t_re_magic, [
-      AC_TRY_COMPILE([#include <sys/types.h>
-#include <regex.h>], [regex_t rt; rt.re_magic;],
-      [ac_cv_regex_t_re_magic=yes], [ac_cv_regex_t_re_magic=no])
-    ])
-    if test "$ac_cv_regex_t_re_magic" = "yes"; then
-      AC_DEFINE([HAVE_REGEX_T_RE_MAGIC], [ ], 1)
-    fi 
-  fi
-  AC_MSG_CHECKING([which regex library to use])
-  AC_MSG_RESULT([$REGEX_TYPE])
 ])
 
 dnl
