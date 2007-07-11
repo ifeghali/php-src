@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.372 2007/07/11 10:27:16 jani Exp $
+dnl $Id: acinclude.m4,v 1.373 2007/07/11 10:35:47 jani Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -1991,9 +1991,6 @@ dnl
 AC_DEFUN([PHP_PROG_SENDMAIL], [
   PHP_ALT_PATH=/usr/bin:/usr/sbin:/usr/etc:/etc:/usr/ucblib:/usr/lib
   AC_PATH_PROG(PROG_SENDMAIL, sendmail,[], $PATH:$PHP_ALT_PATH)
-  if test -n "$PROG_SENDMAIL"; then
-    AC_DEFINE(HAVE_SENDMAIL,1,[whether you have sendmail])
-  fi
   PHP_SUBST(PROG_SENDMAIL)
 ])
 
