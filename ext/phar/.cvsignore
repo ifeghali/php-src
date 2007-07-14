@@ -1,6 +1,7 @@
 *.o
 *.lo
 *.gcno
+*.gcda
 *.tgz
 *.tar
 Makefile

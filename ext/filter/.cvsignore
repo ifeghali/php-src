@@ -1,4 +1,5 @@
 *.gcno
+*.gcda
 .deps
 Makefile
 *.lo

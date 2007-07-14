@@ -1,4 +1,5 @@
 *.gcno
+*.gcda
 *.lo
 *.la
 .deps

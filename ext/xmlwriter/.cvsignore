@@ -1,5 +1,6 @@
 #*#
 *.gcno
+*.gcda
 *.dsw
 *.la
 *.lo
