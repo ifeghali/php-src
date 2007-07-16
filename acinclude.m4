@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.376 2007/07/12 17:46:14 jani Exp $
+dnl $Id: acinclude.m4,v 1.377 2007/07/16 10:00:31 jani Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -2645,7 +2645,7 @@ AC_DEFUN([PHP_CHECK_CONFIGURE_OPTIONS],[
       with-tsrm-pth | with-tsrm-st | with-tsrm-pthreads[)];;
 
       # Allow certain Zend options
-      with-zend-vm | enable-maintainer-zts | enable-inline-optimization | enable-zend-multibyte[)];;
+      with-zend-vm | enable-maintainer-zts | enable-inline-optimization[)];;
 
       # All the rest must be set using the PHP_ARG_* macros
       # PHP_ARG_* macros set php_enable_<arg_name> or php_with_<arg_name>
