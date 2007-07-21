@@ -860,7 +860,19 @@ function generate_version_info_resource(makefiletarget, creditspath)
 	if (makefiletarget.match(new RegExp("\\.exe$"))) {
 		logo = " /D WANT_LOGO ";
 	}
-	
+
+	/**
+	 * Use user supplied template.rc if it exists
+	 */
+	if (FSO.FileExists(creditspath + '\\template.rc')) {
+		MFO.WriteLine("$(BUILD_DIR)\\" + resname + ": " + creditspath + "\\template.rc");
+		MFO.WriteLine("\t$(RC) /fo $(BUILD_DIR)\\" + resname + logo +
+		   	' /d FILE_DESCRIPTION="\\"' + res_desc + '\\"" /d FILE_NAME="\\"' + makefiletarget +
+	   		'\\"" /d PRODUCT_NAME="\\"' + res_prod_name + '\\"" /d THANKS_GUYS="\\"' +
+			thanks + '\\"" ' + creditspath + '\\template.rc');
+		return resname;
+	}
+
 	MFO.WriteLine("$(BUILD_DIR)\\" + resname + ": win32\\build\\template.rc");
 	MFO.WriteLine("\t$(RC) /fo $(BUILD_DIR)\\" + resname + logo +
 	   	' /d FILE_DESCRIPTION="\\"' + res_desc + '\\"" /d FILE_NAME="\\"' + makefiletarget +
