@@ -48,3 +48,4 @@ scan_makefile_in.awk
 weztest.sqlite
 *.gcda
 *.gcno
+php_have_mysqlnd.h
