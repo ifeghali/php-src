@@ -25,7 +25,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: oci8_interface.c,v 1.30 2007/01/11 11:58:34 tony2001 Exp $ */
+/* $Id: oci8_interface.c,v 1.31 2007/07/31 19:19:39 tony2001 Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -1622,19 +1622,28 @@ PHP_FUNCTION(oci_error)
 				RETURN_FALSE;
 			}
 #endif
-		} else {
-			connection = (php_oci_connection *) zend_fetch_resource(&arg TSRMLS_CC, -1, NULL, NULL, 1, le_connection);
-			
-			if (connection) {
-				errh = connection->err;
-				error = connection->errcode;
-			}
+			goto go_out;
+		}
+
+		connection = (php_oci_connection *) zend_fetch_resource(&arg TSRMLS_CC, -1, NULL, NULL, 1, le_connection);
+		if (connection) {
+			errh = connection->err;
+			error = connection->errcode;
+			goto go_out;
+		}
+
+		connection = (php_oci_connection *) zend_fetch_resource(&arg TSRMLS_CC, -1, NULL, NULL, 1, le_pconnection);
+		if (connection) {
+			errh = connection->err;
+			error = connection->errcode;
+			goto go_out;
 		}
 	} else {
 		errh = OCI_G(err);
 		error = OCI_G(errcode);
 	}
 
+go_out:
 	if (error == OCI_SUCCESS) { /* no error set in the handle */
 		RETURN_FALSE;
 	}
