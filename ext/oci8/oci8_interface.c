@@ -25,7 +25,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: oci8_interface.c,v 1.31 2007/07/31 19:19:39 tony2001 Exp $ */
+/* $Id: oci8_interface.c,v 1.32 2007/07/31 21:08:38 tony2001 Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -1222,7 +1222,22 @@ PHP_FUNCTION(oci_field_type)
 #endif
 #ifdef SQLT_TIMESTAMP_TZ
 		case SQLT_TIMESTAMP_TZ:
-			RETVAL_ASCII_STRING("TIMESTAMP_TZ", ZSTR_DUPLICATE);
+			RETVAL_ASCII_STRING("TIMESTAMP WITH TIMEZONE", ZSTR_DUPLICATE);
+			break;
+#endif
+#ifdef SQLT_TIMESTAMP_LTZ
+		case SQLT_TIMESTAMP_LTZ:
+			RETVAL_ASCII_STRING("TIMESTAMP WITH LOCAL TIMEZONE", ZSTR_DUPLICATE);
+			break;
+#endif
+#ifdef SQLT_INTERVAL_YM
+		case SQLT_INTERVAL_YM:
+			RETVAL_ASCII_STRING("INTERVAL YEAR TO MONTH", ZSTR_DUPLICATE);
+			break;
+#endif
+#ifdef SQLT_INTERVAL_DS
+		case SQLT_INTERVAL_DS:
+			RETVAL_ASCII_STRING("INTERVAL DAY TO SECOND", ZSTR_DUPLICATE);
 			break;
 #endif
 		case SQLT_DAT:
