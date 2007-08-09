@@ -1,7 +1,7 @@
 #!/bin/sh
 
 INFILE="../../Zend/zend_language_parser.c"
-OUTFILE="tokenizer_data.h"
+OUTFILE="tokenizer_data.c"
 AWK=awk
 
 ####################################################################
