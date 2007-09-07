@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.99 2007/12/28 13:30:18 tony2001 Exp $ */
+/* $Id: php_apache.c,v 1.100 2007/01/01 09:29:36 sebastian Exp $ */
 
 #include "php_apache_http.h"
 
@@ -64,8 +64,9 @@ zend_function_entry apache_functions[] = {
 	PHP_FE(apache_child_terminate,					NULL)
 	PHP_FE(apache_setenv,							NULL)
 	PHP_FE(apache_response_headers,					NULL)
-	PHP_FE(apache_get_version,					NULL)
-	PHP_FE(apache_get_modules,					NULL)
+	PHP_FE(apache_get_version,						NULL)
+	PHP_FE(apache_get_modules,						NULL)
+	PHP_FE(apache_reset_timeout,					NULL)
 	PHP_FALIAS(getallheaders, apache_request_headers, NULL)
 	{NULL, NULL, NULL}
 };
