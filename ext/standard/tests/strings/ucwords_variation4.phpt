@@ -96,7 +96,7 @@ string(31) "TestingUcwords Testing Ucwords"
 -- Iteration 15 --
 string(32) "Testing\rucwords Testing Ucwords"
 -- Iteration 16 --
-string(36) "Testing\fucwords \f Testing 
+string(34) "TestingUcwords  Testing 
 Ucwords"
 -- Iteration 17 --
 string(36) "Testing\fucwords \f Testing 
@@ -110,7 +110,7 @@ Ucwords
 -- Iteration 19 --
 string(39) "\ntesting\nucwords\n Testing \n Ucwords"
 -- Iteration 20 --
-string(20) "Using\vvertical\vtab"
+string(18) "UsingVerticalTab"
 -- Iteration 21 --
 string(20) "Using\vvertical\vtab"
 -- Iteration 22 --
@@ -155,7 +155,7 @@ unicode(31) "TestingUcwords Testing Ucwords"
 -- Iteration 15 --
 unicode(32) "Testing\rucwords Testing Ucwords"
 -- Iteration 16 --
-unicode(36) "Testing\fucwords \f Testing 
+unicode(34) "TestingUcwords  Testing 
 Ucwords"
 -- Iteration 17 --
 unicode(36) "Testing\fucwords \f Testing 
@@ -169,7 +169,7 @@ Ucwords
 -- Iteration 19 --
 unicode(39) "\ntesting\nucwords\n Testing \n Ucwords"
 -- Iteration 20 --
-unicode(20) "Using\vvertical\vtab"
+unicode(18) "UsingVerticalTab"
 -- Iteration 21 --
 unicode(20) "Using\vvertical\vtab"
 -- Iteration 22 --

@@ -57,7 +57,7 @@ Ucwords"
 -- Iteration 6 --
 string(16) "Testing\nucwords"
 -- Iteration 7 --
-string(16) "Testing\vucwords"
+string(15) "TestingUcwords"
 -- Iteration 8 --
 string(16) "Testing\vucwords"
 -- Iteration 9 --
@@ -79,7 +79,7 @@ string(15) "TestingUcwords"
 -- Iteration 17 --
 string(16) "Testing\fucwords"
 -- Iteration 18 --
-string(16) "Testing\fucwords"
+string(15) "TestingUcwords"
 Done
 --UEXPECTF--
 *** Testing ucwords() : basic functionality ***
@@ -97,7 +97,7 @@ Ucwords"
 -- Iteration 6 --
 unicode(16) "Testing\nucwords"
 -- Iteration 7 --
-unicode(16) "Testing\vucwords"
+unicode(15) "TestingUcwords"
 -- Iteration 8 --
 unicode(16) "Testing\vucwords"
 -- Iteration 9 --
@@ -119,5 +119,5 @@ unicode(15) "TestingUcwords"
 -- Iteration 17 --
 unicode(16) "Testing\fucwords"
 -- Iteration 18 --
-unicode(16) "Testing\fucwords"
+unicode(15) "TestingUcwords"
 Done
