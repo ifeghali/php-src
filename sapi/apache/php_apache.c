@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.100 2007/01/01 09:29:36 sebastian Exp $ */
+/* $Id: php_apache.c,v 1.101 2007/09/07 08:49:07 jani Exp $ */
 
 #include "php_apache_http.h"
 
@@ -56,7 +56,7 @@ PHP_FUNCTION(apache_reset_timeout);
 
 PHP_MINFO_FUNCTION(apache);
 
-zend_function_entry apache_functions[] = {
+const zend_function_entry apache_functions[] = {
 	PHP_FE(virtual,									NULL)
 	PHP_FE(apache_request_headers,					NULL)
 	PHP_FE(apache_note,								NULL)

@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.239 2007/05/28 23:33:13 iliaa Exp $ */
+/* $Id: php_imap.c,v 1.240 2007/07/31 00:32:18 stas Exp $ */
 
 #define IMAP41
 
@@ -92,7 +92,7 @@ static PHP_GINIT_FUNCTION(imap);
 
 /* {{{ imap_functions[]
  */
-zend_function_entry imap_functions[] = {
+const zend_function_entry imap_functions[] = {
 	PHP_FE(imap_open,								NULL)
 	PHP_FE(imap_reopen,								NULL)
 	PHP_FE(imap_close,								NULL)
@@ -173,7 +173,7 @@ zend_function_entry imap_functions[] = {
 /* }}} */
 
 /* {{{ imap dependencies */
-static zend_module_dep imap_deps[] = {
+static const zend_module_dep imap_deps[] = {
 	ZEND_MOD_REQUIRED("standard")
 	{NULL, NULL, NULL}
 };
