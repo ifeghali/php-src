@@ -16,7 +16,7 @@
   +----------------------------------------------------------------------+
 */
 
-/* $Id: xsl_fe.h,v 1.12 2007/09/28 05:32:07 tony2001 Exp $ */
+/* $Id: xsl_fe.h,v 1.13 2007/10/02 06:32:16 chregu Exp $ */
 
 #ifndef XSL_FE_H
 #define XSL_FE_H
@@ -35,3 +35,12 @@ PHP_FUNCTION(xsl_xsltprocessor_has_exslt_support);
 PHP_FUNCTION(xsl_xsltprocessor_register_php_functions);
 PHP_FUNCTION(xsl_xsltprocessor_set_profiling);
 #endif
+
+/*
+ * Local variables:
+ * tab-width: 4
+ * c-basic-offset: 4
+ * End:
+ * vim600: sw=4 ts=4 fdm=marker
+ * vim<600: sw=4 ts=4
+ */
