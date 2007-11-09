@@ -15,7 +15,7 @@
   | Author: Georg Richter <georg@php.net>                                |
   +----------------------------------------------------------------------+
 
-  $Id: php_mysqli_structs.h,v 1.4 2007/10/02 10:43:09 andrey Exp $ 
+  $Id: php_mysqli_structs.h,v 1.5 2007/10/08 15:40:26 andrey Exp $ 
 */
 
 #ifndef PHP_MYSQLI_STRUCTS_H
@@ -102,7 +102,6 @@ typedef struct {
 	zval			*li_read;
 	php_stream		*li_stream;
 	zend_bool		persistent;
-	unsigned long   hash_index; /* Used when persistent, hold the index in plist->used_links */
 	unsigned int 	multi_query;
 	UConverter		*conv;
 } MY_MYSQL;
@@ -148,8 +147,7 @@ typedef struct {
 #endif
 
 typedef struct {
-	HashTable free_links;
-	HashTable used_links;
+	zend_ptr_stack free_links;
 } mysqli_plist_entry;
 
 #ifdef PHP_WIN32
