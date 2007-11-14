@@ -429,7 +429,7 @@ can be built that way. \
 
 	STDOUT.WriteLine("Saving configure options to config.nice.bat");
 	var nicefile = FSO.CreateTextFile("config.nice.bat", true);
-	nicefile.WriteLine(nice);
+	nicefile.WriteLine(nice +  " %*");
 	nicefile.Close();
 
 	AC_DEFINE('CONFIGURE_COMMAND', nice);
