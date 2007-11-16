@@ -1,4 +1,6 @@
 .deps
+*.gcno
+*.gcda
 *.lo
 *.la
 .*.swp
