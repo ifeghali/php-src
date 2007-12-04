@@ -48,6 +48,7 @@ scan_makefile_in.awk
 *.gcda
 *.gcno
 php_have_bsd_iconv.h
+php_have_ibm_iconv.h
 php_have_libiconv.h
 php_php_iconv_h_path.h
 php_have_glibc_iconv.h  
