@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: zlib_filter.c,v 1.19 2008/01/09 08:12:15 cellog Exp $ */
+/* $Id: zlib_filter.c,v 1.20 2008/01/12 21:25:43 cellog Exp $ */
 
 #include "php.h"
 #include "php_zlib.h"
@@ -114,11 +114,9 @@ static php_stream_filter_status_t php_zlib_inflate_filter(
 				data->strm.avail_out = data->outbuf_len;
 				data->strm.next_out = data->outbuf;
 				exit_status = PSFS_PASS_ON;
-				if (status == Z_STREAM_END) {
+				if (status == Z_STREAM_END && data->strm.avail_out >= data->outbuf_len) {
 					/* no more data to decompress, and nothing was spat out */
-					if (data->strm.avail_out >= data->outbuf_len) {
-						php_stream_bucket_delref(bucket TSRMLS_CC);
-					}
+					php_stream_bucket_delref(bucket TSRMLS_CC);
 					return PSFS_PASS_ON;
 				}
 			}
