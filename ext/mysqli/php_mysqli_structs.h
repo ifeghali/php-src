@@ -15,7 +15,7 @@
   | Author: Georg Richter <georg@php.net>                                |
   +----------------------------------------------------------------------+
 
-  $Id: php_mysqli_structs.h,v 1.7 2007/12/28 15:38:23 andrey Exp $ 
+  $Id: php_mysqli_structs.h,v 1.8 2007/12/31 07:12:11 sebastian Exp $ 
 */
 
 #ifndef PHP_MYSQLI_STRUCTS_H
@@ -311,6 +311,9 @@ PHP_MYSQLI_EXPORT(zend_object_value) mysqli_objects_new(zend_class_entry * TSRML
 
 #define MYSQLI_STORE_RESULT 0
 #define MYSQLI_USE_RESULT 	1
+#ifdef HAVE_MYSQLND
+#define MYSQLI_BG_STORE_RESULT 	101
+#endif
 
 /* for mysqli_fetch_assoc */
 #define MYSQLI_ASSOC	1
