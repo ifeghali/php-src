@@ -17,10 +17,16 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: acconfig.h,v 1.42 2007/01/01 09:29:20 sebastian Exp $ */
+/* $Id: acconfig.h,v 1.43 2007/12/31 07:12:06 sebastian Exp $ */
 
-#define ZEND_API
-#define ZEND_DLEXPORT
+#if defined(__GNUC__) && __GNUC__ >= 4
+# define ZEND_API __attribute__ ((visibility("default")))
+# define ZEND_DLEXPORT __attribute__ ((visibility("default")))
+#else
+# define ZEND_API
+# define ZEND_DLEXPORT
+#endif
+
 #define ZEND_DLIMPORT
 
 @TOP@

@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: mbstring.h,v 1.77 2007/01/01 09:29:25 sebastian Exp $ */
+/* $Id: mbstring.h,v 1.78 2007/12/31 07:12:11 sebastian Exp $ */
 
 /*
  * PHP 4 Multibyte String module "mbstring" (currently only for Japanese)
@@ -52,17 +52,20 @@
 #endif
 
 #ifdef PHP_WIN32
-# undef MBSTRING_API
-# ifdef MBSTRING_EXPORTS
-#  define MBSTRING_API __declspec(dllexport)
-# elif defined(COMPILE_DL_MBSTRING)
-#  define MBSTRING_API __declspec(dllimport)
-# else
-#  define MBSTRING_API /* nothing special */
-# endif
+#	undef MBSTRING_API
+#	ifdef MBSTRING_EXPORTS
+#		define MBSTRING_API __declspec(dllexport)
+#	elif defined(COMPILE_DL_MBSTRING)
+#		define MBSTRING_API __declspec(dllimport)
+#	else
+#		define MBSTRING_API /* nothing special */
+#	endif
+#elif defined(__GNUC__) && __GNUC__ >= 4
+#	undef MBSTRING_API
+#	define MBSTRING_API __attribute__ ((visibility("default")))
 #else
-# undef MBSTRING_API
-# define MBSTRING_API /* nothing special */
+#	undef MBSTRING_API
+#	define MBSTRING_API /* nothing special */
 #endif
 
 
