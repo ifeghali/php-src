@@ -501,6 +501,7 @@ function PATH_PROG(progname, additional_paths, symbol)
 	var exe;
 	var place;
 	var cyg_path = PHP_CYGWIN + "\\bin;" + PHP_CYGWIN + "\\usr\\local\\bin";
+	var php_build_bin_path = PHP_PHP_BUILD + "\\bin"
 
 	exe = progname + ".exe";
 
@@ -509,6 +510,8 @@ function PATH_PROG(progname, additional_paths, symbol)
 	} else {
 		additional_paths += ";" + cyg_path;
 	}
+
+	additional_paths = additional_paths + ";" + php_build_bin_path;
 
 	place = search_paths(exe, additional_paths, "PATH");
 
