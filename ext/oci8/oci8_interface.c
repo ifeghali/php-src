@@ -25,7 +25,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: oci8_interface.c,v 1.34 2007/12/31 07:12:12 sebastian Exp $ */
+/* $Id: oci8_interface.c,v 1.35 2008/02/19 01:44:29 sixd Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -1548,11 +1548,12 @@ PHP_FUNCTION(oci_free_statement)
 	}
 
 	PHP_OCI_ZVAL_TO_STATEMENT(z_statement, statement);
-	if (!statement->nested) {
-		/* nested cursors cannot be freed, they are allocated once and used during the fetch */
-		zend_list_delete(statement->id);
-	}
-	
+
+	zend_list_delete(statement->id);
+	if (statement->parent_stmtid) {
+		zend_list_delete(statement->parent_stmtid);
+	} 	
+
 	RETURN_TRUE;
 }
 /* }}} */
