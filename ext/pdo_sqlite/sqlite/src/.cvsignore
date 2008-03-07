@@ -4,3 +4,4 @@ config.h
 *.gcno
 parse.out
 sqlite3.h
+.libs
