@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: nsapi.c,v 1.84 2007/09/27 18:28:44 dmitry Exp $ */
+/* $Id: nsapi.c,v 1.85 2007/12/31 07:12:20 sebastian Exp $ */
 
 /*
  * PHP includes
@@ -308,7 +308,7 @@ PHP_MSHUTDOWN_FUNCTION(nsapi)
 PHP_MINFO_FUNCTION(nsapi)
 {
 	php_info_print_table_start();
-	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.84 $");
+	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.85 $");
 	php_info_print_table_row(2, "Server Software", system_version());
 	php_info_print_table_row(2, "Sub-requests with nsapi_virtual()",
 	 (nsapi_servact_service)?((zend_ini_long("zlib.output_compression", sizeof("zlib.output_compression"), 0))?"not supported with zlib.output_compression":"enabled"):"not supported on this platform" );
@@ -856,7 +856,7 @@ int NSAPI_PUBLIC php6_init(pblock *pb, Session *sn, Request *rq)
 
 	daemon_atrestart(&php6_close, NULL);
 
-	log_error(LOG_INFORM, pblock_findval("fn", pb), sn, rq, "Initialized PHP Module (%d threads exspected)", threads);
+	log_error(LOG_INFORM, pblock_findval("fn", pb), sn, rq, "Initialized PHP Module (%d threads expected)", threads);
 	return REQ_PROCEED;
 }
 
