@@ -1,5 +1,5 @@
 dnl
-dnl $Id: config.m4,v 1.19 2008/03/09 01:10:13 lstrojny Exp $
+dnl $Id: config.m4,v 1.20 2008/03/09 12:37:05 lstrojny Exp $
 dnl
 
 PHP_ARG_WITH(apxs2,,
@@ -117,7 +117,7 @@ if test "$PHP_APXS2" != "no"; then
     ;;
   esac
 
-  if test "$APXS_MPM" != "prefork" && test "$APXS_MPM" != "peruser"; then
+  if test "$APXS_MPM" != "prefork" && test "$APXS_MPM" != "peruser" && test "$APXS_MPM" != "itk"; then
     PHP_BUILD_THREAD_SAFE
   fi
   AC_MSG_RESULT(yes)
