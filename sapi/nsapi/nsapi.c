@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: nsapi.c,v 1.85 2007/12/31 07:12:20 sebastian Exp $ */
+/* $Id: nsapi.c,v 1.86 2008/03/09 16:07:46 felipe Exp $ */
 
 /*
  * PHP includes
@@ -308,7 +308,7 @@ PHP_MSHUTDOWN_FUNCTION(nsapi)
 PHP_MINFO_FUNCTION(nsapi)
 {
 	php_info_print_table_start();
-	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.85 $");
+	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.86 $");
 	php_info_print_table_row(2, "Server Software", system_version());
 	php_info_print_table_row(2, "Sub-requests with nsapi_virtual()",
 	 (nsapi_servact_service)?((zend_ini_long("zlib.output_compression", sizeof("zlib.output_compression"), 0))?"not supported with zlib.output_compression":"enabled"):"not supported on this platform" );
@@ -753,6 +753,7 @@ static sapi_module_struct nsapi_sapi_module = {
 	sapi_nsapi_register_server_variables,   /* register server variables */
 	nsapi_log_message,                      /* Log message */
 	sapi_nsapi_get_request_time,			/* Get request time */
+	NULL,									/* Child terminate */
 
 	NULL,                                   /* Block interruptions */
 	NULL,                                   /* Unblock interruptions */

@@ -1,5 +1,5 @@
 dnl
-dnl $Id: Zend.m4,v 1.64 2006/12/20 10:50:45 dmitry Exp $
+dnl $Id: Zend.m4,v 1.65 2008/03/10 15:09:20 felipe Exp $
 dnl
 dnl This file contains Zend specific autoconf functions.
 dnl
@@ -110,7 +110,7 @@ dnl Checks for library functions.
 AC_FUNC_VPRINTF
 AC_FUNC_MEMCMP
 AC_FUNC_ALLOCA
-AC_CHECK_FUNCS(memcpy strdup getpid kill strtod strtol finite fpclass)
+AC_CHECK_FUNCS(memcpy strdup getpid kill strtod strtol finite fpclass sigsetjmp)
 AC_ZEND_BROKEN_SPRINTF
 
 AC_CHECK_FUNCS(finite isfinite isinf isnan)
