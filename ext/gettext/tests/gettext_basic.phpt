@@ -11,7 +11,7 @@ Gettext basic test
 	}
 ?>
 --FILE--
-<?php // $Id: gettext_basic.phpt,v 1.2 2004/05/26 18:18:14 iliaa Exp $
+<?php // $Id: gettext_basic.phpt,v 1.3 2006/11/15 17:14:50 mike Exp $
 
 chdir(dirname(__FILE__));
 putenv("LANGUAGE=fi");
@@ -23,5 +23,9 @@ echo _("Basic test"), "\n";
 
 ?>
 --EXPECT--
+Perustesti
+Perustesti
+--UEXPECTF--
+Deprecated: setlocale(): deprecated in Unicode mode, please use ICU locale functions in %s on line %d
 Perustesti
 Perustesti
