@@ -8,7 +8,7 @@ Makefile
 zend_language_parser.output
 zend_language_parser.h
 zend_language_scanner.c
-zend_language_scanner_cc.cc
+zend_language_scanner_defs.h
 .deps
 ylwrap
 zend_config.h
@@ -33,14 +33,12 @@ zend_ini_parser.output
 zend_ini_parser.c
 zend_ini_parser.h
 zend_ini_scanner.c
+zend_ini_scanner_defs.h
 zend-scanner.c
 zend-parser.output
 zend-parser.c
 zend-parser.h
 zend-scanner-cc.cc
-zend_ini_scanner_cc.cc
-zend_language_scanner.cpp
-zend_ini_scanner.cpp
 *.plg
 *.opt
 *.ncb

@@ -1,5 +1,5 @@
 dnl
-dnl $Id: Zend.m4,v 1.65 2008/03/10 15:09:20 felipe Exp $
+dnl $Id: Zend.m4,v 1.66 2008/03/19 16:37:48 rasmus Exp $
 dnl
 dnl This file contains Zend specific autoconf functions.
 dnl
@@ -31,7 +31,6 @@ AC_DEFUN([LIBZEND_BASIC_CHECKS],[
 AC_REQUIRE([AC_PROG_YACC])
 AC_REQUIRE([AC_PROG_CC])
 AC_REQUIRE([AC_PROG_CC_C_O])
-AC_REQUIRE([AC_PROG_LEX])
 AC_REQUIRE([AC_HEADER_STDC])
 
 LIBZEND_BISON_CHECK
