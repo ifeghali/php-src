@@ -25,7 +25,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: oci8_interface.c,v 1.36 2008/02/25 23:49:51 sixd Exp $ */
+/* $Id: oci8_interface.c,v 1.37 2008/03/25 02:25:02 sixd Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -1550,10 +1550,6 @@ PHP_FUNCTION(oci_free_statement)
 	PHP_OCI_ZVAL_TO_STATEMENT(z_statement, statement);
 
 	zend_list_delete(statement->id);
-	if (statement->parent_stmtid) {
-		zend_list_delete(statement->parent_stmtid);
-	} 	
-
 	RETURN_TRUE;
 }
 /* }}} */
