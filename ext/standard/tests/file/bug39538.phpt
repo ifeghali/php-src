@@ -32,8 +32,10 @@ arsed
 Array
 (
     [0] => 
-this is an test
+
+this is an test
     [1] => next data
     [2] => p
-arsed
+
+arsed
 )
