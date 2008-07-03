@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.251 2008/05/08 12:00:36 felipe Exp $ */
+/* $Id: php_imap.c,v 1.252 2008/06/11 02:29:39 philip Exp $ */
 
 #define IMAP41
 
@@ -729,7 +729,11 @@ PHP_RSHUTDOWN_FUNCTION(imap)
 PHP_MINFO_FUNCTION(imap)
 {
 	php_info_print_table_start();
-#if HAVE_IMAP2004
+#if HAVE_IMAP2007b
+	php_info_print_table_row(2, "IMAP c-Client Version", "2007b");
+#elif HAVE_IMAP2007a
+	php_info_print_table_row(2, "IMAP c-Client Version", "2007a");
+#elif HAVE_IMAP2004
 	php_info_print_table_row(2, "IMAP c-Client Version", "2004");
 #elif HAVE_IMAP2001
 	php_info_print_table_row(2, "IMAP c-Client Version", "2001");
