@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
  
-/* $Id: php_msql.c,v 1.69 2007/12/31 07:12:11 sebastian Exp $ */
+/* $Id: php_msql.c,v 1.70 2008/03/04 23:39:15 felipe Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include "config.h"
@@ -80,9 +80,7 @@ const zend_function_entry msql_functions[] = {
 	PHP_FALIAS(msql_fieldlen,		msql_field_len,			NULL)
 	PHP_FALIAS(msql_fieldtype,		msql_field_type,		NULL)
 	PHP_FALIAS(msql_fieldflags,		msql_field_flags,		NULL)
-	
-	PHP_FALIAS(msql_regcase,		sql_regcase,			NULL)
-	
+
 	PHP_FALIAS(msql_affected_rows,	msql_affected_rows,		NULL)
 	
 	/* for downwards compatability */
