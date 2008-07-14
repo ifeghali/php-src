@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.201 2008/03/12 17:32:26 iliaa Exp $ */
+/* $Id: exif.c,v 1.202 2008/06/07 20:37:11 hnangelo Exp $ */
 
 /*  ToDos
  *
@@ -142,7 +142,7 @@ const zend_function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.201 2008/03/12 17:32:26 iliaa Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.202 2008/06/07 20:37:11 hnangelo Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -3891,7 +3891,8 @@ static int exif_read_file(image_info_type *ImageInfo, char *FileName, int read_t
 PHP_FUNCTION(exif_read_data)
 {
 	zval **p_name, **p_read_all;
-	int i, ac = ZEND_NUM_ARGS(), ret, sections_needed=0, sub_arrays=0, read_thumbnail=0, read_all=0;
+	int i, ac = ZEND_NUM_ARGS(), ret, sections_needed=0;
+	zend_bool sub_arrays=0, read_thumbnail=0, read_all=0;
 	image_info_type ImageInfo;
 	char tmp[64], *sections_str=0, *s;
 	char *filename;
