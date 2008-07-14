@@ -17,7 +17,7 @@
    |          David Sklar <sklar@student.net>                             |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_apache.c,v 1.103 2007/12/31 07:12:19 sebastian Exp $ */
+/* $Id: php_apache.c,v 1.104 2008/06/28 10:16:25 indeyets Exp $ */
 
 #include "php_apache_http.h"
 
@@ -142,7 +142,7 @@ PHP_FUNCTION(apache_child_terminate)
 PHP_FUNCTION(apache_note)
 {
 	char *note_name, *note_val;
-	long note_name_len, note_val_len;
+	int note_name_len, note_val_len;
 	char *old_val;
 	int arg_count = ZEND_NUM_ARGS();
 
@@ -309,7 +309,7 @@ PHP_MINFO_FUNCTION(apache)
 PHP_FUNCTION(virtual)
 {
 	char *filename;
-	long filename_len;
+	int filename_len;
 	request_rec *rr = NULL;
 
 	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &filename, &filename_len) == FAILURE) {
@@ -350,6 +350,7 @@ PHP_FUNCTION(virtual)
 /* {{{ proto array getallheaders(void)
    Alias for apache_request_headers() */
 /* }}} */
+
 /* {{{ proto array apache_request_headers(void)
    Fetch all HTTP request headers */
 PHP_FUNCTION(apache_request_headers)
@@ -392,7 +393,7 @@ PHP_FUNCTION(apache_response_headers)
    Set an Apache subprocess_env variable */
 PHP_FUNCTION(apache_setenv)
 {
-	long var_len, val_len;
+	int var_len, val_len;
 	zend_bool top=0;
 	char *var = NULL, *val = NULL;
 	request_rec *r = (request_rec *) SG(server_context);
@@ -416,7 +417,7 @@ PHP_FUNCTION(apache_setenv)
 PHP_FUNCTION(apache_lookup_uri)
 {
 	char *filename;
-	long filename_len;
+	int filename_len;
 	request_rec *rr=NULL;
 
 	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &filename, &filename_len) == FAILURE) {
@@ -493,7 +494,7 @@ This function is most likely a bad idea.  Just playing with it for now.
 PHP_FUNCTION(apache_exec_uri)
 {
 	char *filename;
-	long filename_len;
+	int filename_len;
 	request_rec *rr=NULL;
 	TSRMLS_FETCH();
 
