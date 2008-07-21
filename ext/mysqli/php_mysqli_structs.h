@@ -15,7 +15,7 @@
   | Author: Georg Richter <georg@php.net>                                |
   +----------------------------------------------------------------------+
 
-  $Id: php_mysqli_structs.h,v 1.15 2008/03/18 16:58:42 andrey Exp $ 
+  $Id: php_mysqli_structs.h,v 1.16 2008/04/24 14:04:58 andrey Exp $ 
 */
 
 #ifndef PHP_MYSQLI_STRUCTS_H
@@ -43,6 +43,13 @@
 #include <mysql.h>
 #include <errmsg.h>
 #include "mysqli_libmysql.h"
+#endif
+
+#ifdef PHP_MYSQL_UNIX_SOCK_ADDR
+#ifdef MYSQL_UNIX_ADDR
+#undef MYSQL_UNIX_ADDR
+#endif
+#define MYSQL_UNIX_ADDR PHP_MYSQL_UNIX_SOCK_ADDR
 #endif
 
 #include "php_mysqli.h"
