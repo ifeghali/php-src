@@ -8,6 +8,7 @@ internal_functions.c
 internal_functions_cli.c
 php_config.h
 php_config.h.in
+config.w32.h
 *.lo
 *.la
 libs
