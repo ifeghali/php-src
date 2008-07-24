@@ -16,7 +16,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: mbstring.h,v 1.79 2008/01/30 09:56:21 dmitry Exp $ */
+/* $Id: mbstring.h,v 1.80 2008/07/17 16:08:08 moriyoshi Exp $ */
 
 /*
  * PHP 4 Multibyte String module "mbstring" (currently only for Japanese)
@@ -193,6 +193,7 @@ ZEND_BEGIN_MODULE_GLOBALS(mbstring)
 	long strict_detection;
 	long illegalchars;
 	mbfl_buffer_converter *outconv;
+    void *http_output_conv_mimetypes;
 #if HAVE_MBREGEX
     struct _zend_mb_regex_globals *mb_regex_globals;
 #endif
