@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.387 2008/03/26 14:46:16 scottmac Exp $
+dnl $Id: acinclude.m4,v 1.388 2008/07/21 10:29:59 jani Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -2751,7 +2751,7 @@ ifelse([$2],[],[AC_MSG_ERROR([Cannot find php_pdo_driver.h.])],[$2])
 
 dnl
 dnl PHP_DETECT_ICC
-dnl
+dnl Detect Intel C++ Compiler and unset $GCC if ICC found
 AC_DEFUN([PHP_DETECT_ICC],
 [
   ICC="no"
@@ -2760,6 +2760,7 @@ AC_DEFUN([PHP_DETECT_ICC],
     ICC="no"
     AC_MSG_RESULT([no]),
     ICC="yes"
+    GCC="no"
     AC_MSG_RESULT([yes])
   )
 ])
