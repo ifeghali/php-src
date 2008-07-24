@@ -41,7 +41,6 @@ Release
 Debug_TS
 Release_TS
 *.plg
-*.patch
 *.tgz
 *.ncb
 *.opt
