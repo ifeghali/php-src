@@ -1150,10 +1150,13 @@ function EXTENSION(extname, file_list, shared, cflags, dllname, obj_dir)
 	var objs = null;
 	var EXT = extname.toUpperCase();
 	var extname_for_printing;
-	
+
 	if (shared == null) {
 		eval("shared = PHP_" + EXT + "_SHARED;");
+	} else {
+		eval("PHP_" + EXT + "_SHARED = shared;");
 	}
+
 	if (cflags == null) {
 		cflags = "";
 	}
