@@ -16,7 +16,7 @@
    |          Ben Mansell <ben@zeus.com> (Zeus Support)                   |
    +----------------------------------------------------------------------+
  */
-/* $Id: php5isapi.c,v 1.12 2007/12/31 07:12:19 sebastian Exp $ */
+/* $Id: php5isapi.c,v 1.13 2008/03/19 16:37:49 rasmus Exp $ */
 
 #include "php.h"
 #include <httpext.h>
@@ -712,6 +712,7 @@ DWORD WINAPI HttpFilterProc(PHTTP_FILTER_CONTEXT pfc, DWORD notificationType, LP
 		case SF_NOTIFY_PREPROC_HEADERS:
 			SG(request_info).auth_user = NULL;
 			SG(request_info).auth_password = NULL;
+			SG(request_info).auth_digest = NULL;
 			break;
 		case SF_NOTIFY_AUTHENTICATION: {
 				char *auth_user = ((HTTP_FILTER_AUTHENT *) pvNotification)->pszUser;
@@ -746,7 +747,7 @@ static void init_request_info(LPEXTENSION_CONTROL_BLOCK lpECB TSRMLS_DC)
 	SG(request_info).content_length = lpECB->cbTotalBytes;
 	SG(sapi_headers).http_response_code = 200;  /* I think dwHttpStatusCode is invalid at this stage -RL */
 	if (!bFilterLoaded) { /* we don't have valid ISAPI Filter information */
-		SG(request_info).auth_user = SG(request_info).auth_password = NULL;
+		SG(request_info).auth_user = SG(request_info).auth_password = SG(request_info).auth_digest = NULL;
 	}
 
 #ifdef WITH_ZEUS
