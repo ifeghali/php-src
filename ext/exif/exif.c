@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.202 2008/06/07 20:37:11 hnangelo Exp $ */
+/* $Id: exif.c,v 1.203 2008/07/14 10:47:35 tony2001 Exp $ */
 
 /*  ToDos
  *
@@ -142,7 +142,7 @@ const zend_function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.202 2008/06/07 20:37:11 hnangelo Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.203 2008/07/14 10:47:35 tony2001 Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -2838,11 +2838,9 @@ static int exif_process_IFD_TAG(image_info_type *ImageInfo, char *dir_entry, cha
 		/* If its bigger than 4 bytes, the dir entry contains an offset. */
 		value_ptr = offset_base+offset_val;
 		if (offset_val+byte_count > IFDlength || value_ptr < dir_entry) {
-			/*
-			// It is important to check for IMAGE_FILETYPE_TIFF
-			// JPEG does not use absolute pointers instead its pointers are relative to the start
-			// of the TIFF header in APP1 section.
-			*/
+			/* It is important to check for IMAGE_FILETYPE_TIFF
+			 * JPEG does not use absolute pointers instead its pointers are 
+			 * relative to the start of the TIFF header in APP1 section. */
 			if (offset_val+byte_count>ImageInfo->FileSize || (ImageInfo->FileType!=IMAGE_FILETYPE_TIFF_II && ImageInfo->FileType!=IMAGE_FILETYPE_TIFF_MM && ImageInfo->FileType!=IMAGE_FILETYPE_JPEG)) {
 				if (value_ptr < dir_entry) {
 					/* we can read this if offset_val > 0 */
@@ -2860,13 +2858,11 @@ static int exif_process_IFD_TAG(image_info_type *ImageInfo, char *dir_entry, cha
 				value_ptr = safe_emalloc(byte_count, 1, 0);
 				outside = value_ptr;
 			} else {
-				/*
-				// in most cases we only access a small range so
-				// it is faster to use a static buffer there
-				// BUT it offers also the possibility to have
-				// pointers read without the need to free them
-				// explicitley before returning.
-				*/
+				/* In most cases we only access a small range so
+				 * it is faster to use a static buffer there
+				 * BUT it offers also the possibility to have
+				 * pointers read without the need to free them
+				 * explicitley before returning. */
 				memset(&cbuf, 0, sizeof(cbuf));
 				value_ptr = cbuf;
 			}
