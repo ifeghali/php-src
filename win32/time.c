@@ -11,7 +11,7 @@
  *
  *****************************************************************************/
 
-/* $Id: time.c,v 1.9 2004/01/13 02:07:04 wez Exp $ */
+/* $Id: time.c,v 1.10 2004/07/29 02:59:43 wez Exp $ */
 
  /**
   *
@@ -21,10 +21,6 @@
   */
 
 /* Include stuff ************************************************************ */
-
-/* this allows the use of the WaitableTimer functions.
- * For win98 and later */
-#define _WIN32_WINNT 0x400
 
 #include "time.h"
 #include "unistd.h"
