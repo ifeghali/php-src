@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: dom_ce.h,v 1.10 2007/01/01 09:29:23 sebastian Exp $ */
+/* $Id: dom_ce.h,v 1.11 2007/12/31 07:12:08 sebastian Exp $ */
 #ifndef DOM_CE_H
 #define DOM_CE_H
 
@@ -55,3 +55,12 @@ extern zend_class_entry *dom_xpath_class_entry;
 extern zend_class_entry *dom_namespace_node_class_entry;
 
 #endif /* DOM_CE_H */
+
+/*
+ * Local variables:
+ * tab-width: 4
+ * c-basic-offset: 4
+ * End:
+ * vim600: noet sw=4 ts=4 fdm=marker
+ * vim<600: noet sw=4 ts=4
+ */
