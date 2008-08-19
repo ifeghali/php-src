@@ -1907,5 +1907,5 @@ unicode(9) " lambda_2"
 
 *** Testing error conditions ***
 
-Warning: Wrong parameter count for var_dump() in %s on line %d
+Warning: var_dump() expects at least 1 parameter, 0 given in %s on line %d
 Done
