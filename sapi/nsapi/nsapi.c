@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: nsapi.c,v 1.90 2008/06/22 22:28:31 thetaphi Exp $ */
+/* $Id: nsapi.c,v 1.91 2008/07/16 11:59:34 felipe Exp $ */
 
 /*
  * PHP includes
@@ -170,16 +170,13 @@ ZEND_DECLARE_MODULE_GLOBALS(nsapi)
 
 
 /* {{{ arginfo */
-static
 ZEND_BEGIN_ARG_INFO_EX(arginfo_nsapi_virtual, 0, 0, 1)
 	ZEND_ARG_INFO(0, uri)
 ZEND_END_ARG_INFO()
 
-static
 ZEND_BEGIN_ARG_INFO(arginfo_nsapi_request_headers, 0)
 ZEND_END_ARG_INFO()
 
-static
 ZEND_BEGIN_ARG_INFO(arginfo_nsapi_response_headers, 0)
 ZEND_END_ARG_INFO()
 /* }}} */
@@ -324,7 +321,7 @@ PHP_MSHUTDOWN_FUNCTION(nsapi)
 PHP_MINFO_FUNCTION(nsapi)
 {
 	php_info_print_table_start();
-	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.90 $");
+	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.91 $");
 	php_info_print_table_row(2, "Server Software", system_version());
 	php_info_print_table_row(2, "Sub-requests with nsapi_virtual()",
 	 (nsapi_servact_service)?((zend_ini_long("zlib.output_compression", sizeof("zlib.output_compression"), 0))?"not supported with zlib.output_compression":"enabled"):"not supported on this platform" );
