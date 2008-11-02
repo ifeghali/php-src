@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.205 2008/10/21 23:36:17 lbarnaud Exp $ */
+/* $Id: exif.c,v 1.206 2008/10/24 14:34:12 felipe Exp $ */
 
 /*  ToDos
  *
@@ -102,10 +102,12 @@ typedef unsigned char uchar;
 #define MAX_IFD_NESTING_LEVEL 100
 
 /* {{{ arginfo */
+static
 ZEND_BEGIN_ARG_INFO(arginfo_exif_tagname, 0)
 	ZEND_ARG_INFO(0, index)
 ZEND_END_ARG_INFO()
 
+static
 ZEND_BEGIN_ARG_INFO_EX(arginfo_exif_read_data, 0, 0, 1)
 	ZEND_ARG_INFO(0, filename)
 	ZEND_ARG_INFO(0, sections_needed)
@@ -113,6 +115,7 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_exif_read_data, 0, 0, 1)
 	ZEND_ARG_INFO(0, read_thumbnail)
 ZEND_END_ARG_INFO()
 
+static
 ZEND_BEGIN_ARG_INFO_EX(arginfo_exif_thumbnail, 0, 0, 1)
 	ZEND_ARG_INFO(0, filename)
 	ZEND_ARG_INFO(1, width)
@@ -120,6 +123,7 @@ ZEND_BEGIN_ARG_INFO_EX(arginfo_exif_thumbnail, 0, 0, 1)
 	ZEND_ARG_INFO(1, imagetype)
 ZEND_END_ARG_INFO()
 
+static
 ZEND_BEGIN_ARG_INFO(arginfo_exif_imagetype, 0)
 	ZEND_ARG_INFO(0, imagefile)
 ZEND_END_ARG_INFO()
@@ -138,7 +142,7 @@ const zend_function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.205 2008/10/21 23:36:17 lbarnaud Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.206 2008/10/24 14:34:12 felipe Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
