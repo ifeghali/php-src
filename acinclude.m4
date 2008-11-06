@@ -1,5 +1,5 @@
 dnl
-dnl $Id: acinclude.m4,v 1.389 2008/07/24 14:17:21 tony2001 Exp $
+dnl $Id: acinclude.m4,v 1.390 2008/09/08 10:24:05 tony2001 Exp $
 dnl
 dnl This file contains local autoconf functions.
 dnl
@@ -2762,6 +2762,22 @@ AC_DEFUN([PHP_DETECT_ICC],
     AC_MSG_RESULT([no]),
     ICC="yes"
     GCC="no"
+    AC_MSG_RESULT([yes])
+  )
+])
+
+dnl PHP_DETECT_SUNCC
+dnl Detect if the systems default compiler is suncc.
+dnl We also set some usefull CFLAGS if the user didn't set any
+AC_DEFUN([PHP_DETECT_SUNCC],[
+  SUNCC="no"
+  AC_MSG_CHECKING([for suncc])
+  AC_EGREP_CPP([^__SUNPRO_C], [__SUNPRO_C],
+    SUNCC="no"
+    AC_MSG_RESULT([no]),
+    SUNCC="yes"
+    test -n "$auto_cflags" && CFLAGS="-fsimple=2 -xnorunpath -xO4 -xalias_level=basic -xipo=1 -xlibmopt -xprefetch_level=1 -xprefetch=auto -xstrconst -xtarget=native -zlazyload"
+    GCC=""
     AC_MSG_RESULT([yes])
   )
 ])
