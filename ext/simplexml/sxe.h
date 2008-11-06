@@ -16,19 +16,18 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id$ */
+/* $Id: spl_sxe.h,v 1.7 2007/12/31 07:12:15 sebastian Exp $ */
 
-#ifndef SPL_SXE_H
-#define SPL_SXE_H
+#ifndef SXE_H
+#define SXE_H
 
 #include "php.h"
-#include "php_spl.h"
 
-extern zend_class_entry *spl_ce_SimpleXMLIterator;
+extern zend_class_entry *ce_SimpleXMLIterator;
 
-SPL_API PHP_MINIT_FUNCTION(spl_sxe);
+PHP_MINIT_FUNCTION(sxe);
 
-#endif /* SPL_SXE_H */
+#endif /* SXE_H */
 
 /*
  * Local Variables:
