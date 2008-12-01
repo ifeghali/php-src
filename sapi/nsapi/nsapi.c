@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
 */
 
-/* $Id: nsapi.c,v 1.97 2008/11/29 19:57:23 thetaphi Exp $ */
+/* $Id: nsapi.c,v 1.98 2008/11/29 23:43:43 thetaphi Exp $ */
 
 /*
  * PHP includes
@@ -60,12 +60,6 @@
  * NSAPI includes
  */
 #include "nsapi.h"
-#include "base/pblock.h"
-#include "base/session.h"
-#include "frame/req.h"
-#include "frame/protocol.h"  /* protocol_start_response */
-#include "base/util.h"       /* is_mozilla, getline */
-#include "frame/log.h"       /* log_error */
 
 #define NSLS_D		struct nsapi_request_context *request_context
 #define NSLS_DC		, NSLS_D
@@ -321,7 +315,7 @@ PHP_MSHUTDOWN_FUNCTION(nsapi)
 PHP_MINFO_FUNCTION(nsapi)
 {
 	php_info_print_table_start();
-	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.97 $");
+	php_info_print_table_row(2, "NSAPI Module Revision", "$Revision: 1.98 $");
 	php_info_print_table_row(2, "Server Software", system_version());
 	php_info_print_table_row(2, "Sub-requests with nsapi_virtual()",
 	 (nsapi_servact_service)?((zend_ini_long("zlib.output_compression", sizeof("zlib.output_compression"), 0))?"not supported with zlib.output_compression":"enabled"):"not supported on this platform" );
