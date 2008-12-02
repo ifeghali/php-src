@@ -1,5 +1,5 @@
 dnl
-dnl $Id: Zend.m4,v 1.66 2008/03/19 16:37:48 rasmus Exp $
+dnl $Id: Zend.m4,v 1.67 2008/03/26 14:23:01 scottmac Exp $
 dnl
 dnl This file contains Zend specific autoconf functions.
 dnl
@@ -115,6 +115,8 @@ AC_ZEND_BROKEN_SPRINTF
 AC_CHECK_FUNCS(finite isfinite isinf isnan)
 
 ZEND_FP_EXCEPT
+
+ZEND_CHECK_FLOAT_PRECISION
 	
 ])
 
