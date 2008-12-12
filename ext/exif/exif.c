@@ -17,7 +17,7 @@
    +----------------------------------------------------------------------+
  */
 
-/* $Id: exif.c,v 1.207 2008/11/02 21:10:07 felipe Exp $ */
+/* $Id: exif.c,v 1.208 2008/11/17 11:26:20 felipe Exp $ */
 
 /*  ToDos
  *
@@ -138,7 +138,7 @@ const zend_function_entry exif_functions[] = {
 };
 /* }}} */
 
-#define EXIF_VERSION "1.4 $Id: exif.c,v 1.207 2008/11/02 21:10:07 felipe Exp $"
+#define EXIF_VERSION "1.4 $Id: exif.c,v 1.208 2008/11/17 11:26:20 felipe Exp $"
 
 /* {{{ PHP_MINFO_FUNCTION
  */
@@ -150,6 +150,7 @@ PHP_MINFO_FUNCTION(exif)
 	php_info_print_table_row(2, "Supported EXIF Version", "0220");
 	php_info_print_table_row(2, "Supported filetypes", "JPEG,TIFF");
 	php_info_print_table_end();
+	DISPLAY_INI_ENTRIES();
 }
 /* }}} */
 
