@@ -26,7 +26,7 @@
    | PHP 4.0 updates:  Zeev Suraski <zeev@zend.com>                       |
    +----------------------------------------------------------------------+
  */
-/* $Id: php_imap.c,v 1.265 2008/12/05 11:57:24 zoe Exp $ */
+/* $Id: php_imap.c,v 1.266 2008/12/16 21:08:50 zoe Exp $ */
 
 #define IMAP41
 
@@ -1483,6 +1483,13 @@ PHP_FUNCTION(imap_close)
 
 	if (argc == 2) {
 		flags = options;
+
+                /* Check that flags is exactly equal to PHP_EXPUNGE or zero */
+                if (flags && ((flags & ~PHP_EXPUNGE) != 0)) {
+                        php_error_docref(NULL TSRMLS_CC, E_WARNING, "invalid value for the flags parameter");
+                         RETURN_FALSE;
+                }
+
 		/* Do the translation from PHP's internal PHP_EXPUNGE define to c-client's CL_EXPUNGE */
 		if (flags & PHP_EXPUNGE) {
 			flags ^= PHP_EXPUNGE;
