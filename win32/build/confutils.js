@@ -1462,9 +1462,6 @@ function output_as_table(header, ar_out)
 function write_summary()
 {
 	var ar = new Array();
-	if (PHP_SUMMARY == "no") {
-		return;
-	}
 
 	STDOUT.WriteBlankLines(2);
 
