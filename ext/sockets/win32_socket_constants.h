@@ -2,7 +2,7 @@
   +----------------------------------------------------------------------+
   | PHP Version 5                                                        |
   +----------------------------------------------------------------------+
-  | Copyright (c) 1997-2008 The PHP Group                                |
+  | Copyright (c) 1997-2009 The PHP Group                                |
   +----------------------------------------------------------------------+
   | This source file is subject to version 3.01 of the PHP license,      |
   | that is bundled with this package in the file LICENSE, and is        |
@@ -16,7 +16,7 @@
   +----------------------------------------------------------------------+
 */
 
-/* $Id: win32_socket_constants.h,v 1.7 2007/01/01 09:29:29 sebastian Exp $ */
+/* $Id: win32_socket_constants.h,v 1.8 2007/12/31 07:12:14 sebastian Exp $ */
 
 /* This file is to be included by sockets.c */
 
